@@ -407,6 +407,7 @@ physics_layer_0/collision_mask = 7
 sources/0 = SubResource("TileSetAtlasSource_r5gnh")
 
 [node name="Inicio" type="Node2D"]
+position = Vector2(-238, -183)
 metadata/_edit_vertical_guides_ = [-205.0]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -420,33 +421,27 @@ texture = ExtResource("2_bcj77")
 
 [node name="vikiHerrero" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(783, 498)
-scale = Vector2(1.48958, 1.59375)
+position = Vector2(784, 510)
 texture = ExtResource("3_nynct")
 
 [node name="vikiFogata" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(624, 502)
-scale = Vector2(1.75526, 1.74919)
+position = Vector2(620, 509)
 texture = ExtResource("3_nynct")
 flip_h = true
 
 [node name="Barco" type="Sprite2D" parent="."]
-position = Vector2(-139, 440)
-scale = Vector2(2.91935, 2.82258)
+position = Vector2(-97, 464)
 texture = ExtResource("4_gw7fl")
 
 [node name="Herreria" type="Sprite2D" parent="."]
-position = Vector2(819, 465)
-scale = Vector2(3.29675, 3.39837)
+position = Vector2(824, 472)
 texture = ExtResource("5_lv77w")
 
 [node name="Casa" type="Sprite2D" parent="."]
-position = Vector2(317, 446)
-scale = Vector2(2.16532, 2.40323)
+position = Vector2(336, 459)
 texture = ExtResource("6_x6txn")
 
 [node name="Tocon" type="Sprite2D" parent="."]
-position = Vector2(667, 511)
-scale = Vector2(1.58334, 1.70833)
+position = Vector2(662, 519)
 texture = ExtResource("7_08dh7")
