@@ -2,8 +2,8 @@ extends CharacterBody2D
 class_name Jugadores
 
 
-const VIDA = 100
-const DAÑO = 10
+var vida = 100
+var daño = 10
 
 const VELOCIDAD = 200
 const VELOCIDAD_SALTO = -500.0
