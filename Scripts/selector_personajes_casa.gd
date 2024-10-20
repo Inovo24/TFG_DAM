@@ -7,7 +7,6 @@ func _on_body_entered(body: Node2D) -> void:
 	print("Pulsa W para entrar") 
 	player_in_area = true
 
-
 # Función que se ejecuta cuando algo sale del área
 func _on_body_exited(body):
 	player_in_area = false

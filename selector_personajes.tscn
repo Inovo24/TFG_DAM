@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dc42x16lyph7c"]
 
-[ext_resource type="Script" path="res://selector_personajes.gd" id="1_lansh"]
+[ext_resource type="Script" path="res://Scripts/selector_personajes.gd" id="1_lansh"]
 [ext_resource type="Texture2D" uid="uid://bpxy8xy5opbkv" path="res://Assets/dormitorio.png" id="1_qnohf"]
 [ext_resource type="Texture2D" uid="uid://d4hlj6vxy3uon" path="res://Sprites/Vikingo/fall_viking.png" id="2_pt0i2"]
 [ext_resource type="Texture2D" uid="uid://v8n7a78mwabb" path="res://Sprites/barco.png" id="3_bcwts"]
