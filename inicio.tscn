@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=4 uid="uid://bri13kxv672ig"]
 
 [ext_resource type="Texture2D" uid="uid://bdy2lr5par5a3" path="res://Assets/Assets.png" id="1_30kcd"]
-[ext_resource type="PackedScene" path="res://pj_prueba.tscn" id="2_3kblw"]
+[ext_resource type="Script" path="res://Scripts/inicio.gd" id="1_j2ivj"]
 [ext_resource type="Texture2D" uid="uid://c7y5vudpxt0qp" path="res://Sprites/fogata.png" id="2_bcj77"]
 [ext_resource type="Texture2D" uid="uid://d4hlj6vxy3uon" path="res://Sprites/Vikingo/fall_viking.png" id="3_nynct"]
 [ext_resource type="Texture2D" uid="uid://v8n7a78mwabb" path="res://Sprites/barco.png" id="4_gw7fl"]
@@ -414,6 +414,7 @@ size = Vector2(205, 135)
 
 [node name="Inicio" type="Node2D"]
 position = Vector2(-238, -183)
+script = ExtResource("1_j2ivj")
 metadata/_edit_vertical_guides_ = [-205.0]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -455,10 +456,6 @@ texture = ExtResource("6_x6txn")
 z_index = 1
 position = Vector2(662, 519)
 texture = ExtResource("7_08dh7")
-
-[node name="PjPrueba" parent="." instance=ExtResource("2_3kblw")]
-z_index = 3
-position = Vector2(545, 511)
 
 [node name="CasaArea" type="Area2D" parent="."]
 position = Vector2(350, 472)

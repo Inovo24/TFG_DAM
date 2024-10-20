@@ -7,6 +7,6 @@ var player_instance = null  # Guardará la instancia del jugador
 
 # Método para instanciar el jugador si no está ya instanciado
 func get_player():
-	if player_instance == null:  # Si el jugador no ha sido instanciado aún
+	if player_instance == null: # Si el jugador no ha sido instanciado aún
 		player_instance = personajes[personaje_actual].instantiate()  # Instancia el jugador
 	return player_instance
