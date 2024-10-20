@@ -2,8 +2,10 @@ extends CharacterBody2D
 class_name Jugadores
 
 
-#const VIDA = 100
-#const DAÑO = 10
+
+var vida = 100
+var daño = 10
+
 
 const VELOCIDAD = 200
 const VELOCIDAD_SALTO = -500.0
@@ -13,7 +15,6 @@ const GRAVEDAD = 2000
 const COYOTE_TIME = 0.08
 const INPUT_BUFFER_PATIENCE = 0.1
 
-var vida = 100
 
 var input_buffer : Timer
 var coyote_timer : Timer

@@ -1,9 +1,8 @@
 extends "res://Scripts/Personajes.gd"
 
-class_name Vikingo
-
+class_name fogata
 
 func _ready() -> void:
 	super._ready()
-	vida = 13
+	vida = 36
 	print(vida)

@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dc42x16lyph7c"]
+
+[ext_resource type="Script" path="res://selector_personajes.gd" id="1_lansh"]
+[ext_resource type="Texture2D" uid="uid://bpxy8xy5opbkv" path="res://Assets/dormitorio.png" id="1_qnohf"]
+[ext_resource type="Texture2D" uid="uid://d4hlj6vxy3uon" path="res://Sprites/Vikingo/fall_viking.png" id="2_pt0i2"]
+[ext_resource type="Texture2D" uid="uid://v8n7a78mwabb" path="res://Sprites/barco.png" id="3_bcwts"]
+[ext_resource type="Texture2D" uid="uid://c7y5vudpxt0qp" path="res://Sprites/fogata.png" id="4_kjx1m"]
+
+[node name="selectorPersonajes" type="Node2D"]
+script = ExtResource("1_lansh")
+
+[node name="Dormitorio" type="Sprite2D" parent="."]
+position = Vector2(397, 186)
+scale = Vector2(1.13179, 1.16693)
+texture = ExtResource("1_qnohf")
+
+[node name="Vikingo1" type="Sprite2D" parent="."]
+position = Vector2(126, 259)
+scale = Vector2(4.28125, 4.14583)
+texture = ExtResource("2_pt0i2")
+
+[node name="Vikingo2" type="Sprite2D" parent="."]
+position = Vector2(366, 128)
+scale = Vector2(1.11643, 0.863238)
+texture = ExtResource("3_bcwts")
+
+[node name="Vikingo3" type="Sprite2D" parent="."]
+position = Vector2(646, 281)
+scale = Vector2(0.345276, 0.319832)
+texture = ExtResource("4_kjx1m")

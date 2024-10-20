@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://brcqtuumjw2gy"]
+
+[ext_resource type="Script" path="res://Personajes/pj_prueba_3.gd" id="1_dfk66"]
+[ext_resource type="Texture2D" uid="uid://c7y5vudpxt0qp" path="res://Sprites/fogata.png" id="2_ajgyc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fp0cn"]
+radius = 39.0512
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 5
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_dfk66")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, 1)
+scale = Vector2(0.143788, 0.131764)
+texture = ExtResource("2_ajgyc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fp0cn")
