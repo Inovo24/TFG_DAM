@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://2oodd2mcba48"]
 
 [ext_resource type="Texture2D" uid="uid://v8n7a78mwabb" path="res://Sprites/barco.png" id="1_cshfc"]
-[ext_resource type="Script" path="res://Personajes/pj_prueba_2.gd" id="1_j0wlw"]
+[ext_resource type="Script" path="res://Scripts/pj_prueba_2.gd" id="1_j0wlw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mfmj2"]
 radius = 64.0
