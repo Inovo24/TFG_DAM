@@ -1,4 +1,4 @@
-extends "res://Scripts/Personajes.gd"
+extends Personajes
 
 class_name fogata
 

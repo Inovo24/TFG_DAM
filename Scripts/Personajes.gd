@@ -1,10 +1,5 @@
 extends CharacterBody2D
-class_name Jugadores
-
-
-
-var vida = 100
-var daño = 10
+class_name Personajes
 
 
 const VELOCIDAD = 200
@@ -19,6 +14,10 @@ const INPUT_BUFFER_PATIENCE = 0.1
 var input_buffer : Timer
 var coyote_timer : Timer
 var coyote_jump_available : bool = true
+
+var vida = 100
+var daño = 10
+
 
 @onready var animPlayer = $AnimationPlayer
 @onready var sprite = $Sprite2D
