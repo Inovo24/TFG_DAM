@@ -469,6 +469,10 @@ shape = SubResource("RectangleShape2D_1bu3n")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(617, 357)
+limit_left = -500
+limit_top = -500
+limit_right = 1200
+limit_bottom = 400
 
 [connection signal="body_entered" from="CasaArea" to="CasaArea" method="_on_body_entered"]
 [connection signal="body_exited" from="CasaArea" to="CasaArea" method="_on_body_exited"]
