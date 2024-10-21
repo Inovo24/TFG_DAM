@@ -467,5 +467,8 @@ script = ExtResource("8_rmcrd")
 position = Vector2(-9, 2)
 shape = SubResource("RectangleShape2D_1bu3n")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(617, 357)
+
 [connection signal="body_entered" from="CasaArea" to="CasaArea" method="_on_body_entered"]
 [connection signal="body_exited" from="CasaArea" to="CasaArea" method="_on_body_exited"]
