@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dc42x16lyph7c"]
+[gd_scene load_steps=8 format=3 uid="uid://dc42x16lyph7c"]
 
 [ext_resource type="Script" path="res://Scripts/selector_personajes.gd" id="1_lansh"]
 [ext_resource type="Texture2D" uid="uid://bpxy8xy5opbkv" path="res://Assets/dormitorio.png" id="1_qnohf"]
 [ext_resource type="Texture2D" uid="uid://d4hlj6vxy3uon" path="res://Sprites/Vikingo/fall_viking.png" id="2_pt0i2"]
 [ext_resource type="Texture2D" uid="uid://v8n7a78mwabb" path="res://Sprites/barco.png" id="3_bcwts"]
 [ext_resource type="Texture2D" uid="uid://c7y5vudpxt0qp" path="res://Sprites/fogata.png" id="4_kjx1m"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_63qg4"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1q6vu"]
 
 [node name="selectorPersonajes" type="Node2D"]
 script = ExtResource("1_lansh")
@@ -14,17 +18,301 @@ position = Vector2(397, 186)
 scale = Vector2(1.13179, 1.16693)
 texture = ExtResource("1_qnohf")
 
-[node name="Vikingo1" type="Sprite2D" parent="."]
+[node name="Vikingo" type="Sprite2D" parent="."]
 position = Vector2(126, 259)
 scale = Vector2(4.28125, 4.14583)
 texture = ExtResource("2_pt0i2")
 
-[node name="Vikingo2" type="Sprite2D" parent="."]
+[node name="Valkiria" type="Sprite2D" parent="."]
 position = Vector2(366, 128)
 scale = Vector2(1.11643, 0.863238)
 texture = ExtResource("3_bcwts")
 
-[node name="Vikingo3" type="Sprite2D" parent="."]
+[node name="Arquero" type="Sprite2D" parent="."]
 position = Vector2(646, 281)
 scale = Vector2(0.345276, 0.319832)
 texture = ExtResource("4_kjx1m")
+
+[node name="ArqueroInfo" type="TextureRect" parent="."]
+visible = false
+z_index = 2
+offset_left = 198.0
+offset_top = 233.0
+offset_right = 482.0
+offset_bottom = 345.0
+texture = SubResource("CanvasTexture_63qg4")
+
+[node name="Nombre" type="Label" parent="ArqueroInfo"]
+auto_translate_mode = 1
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.899
+anchor_top = -2.684
+anchor_right = -0.899
+anchor_bottom = -2.684
+offset_left = 257.316
+offset_top = 300.608
+offset_right = 550.316
+offset_bottom = 328.608
+text = "Arquero"
+horizontal_alignment = 1
+vertical_alignment = 1
+language = "es_ES"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ArqueroInfo"]
+layout_mode = 0
+offset_top = 84.0
+offset_right = 291.0
+offset_bottom = 112.0
+alignment = 1
+
+[node name="Vida" type="Label" parent="ArqueroInfo/HBoxContainer"]
+auto_translate_mode = 1
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+z_index = 1
+layout_mode = 2
+text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
+language = "es_ES"
+
+[node name="Velocidad" type="Label" parent="ArqueroInfo/HBoxContainer"]
+auto_translate_mode = 1
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+z_index = 1
+layout_mode = 2
+text = "Veloz"
+horizontal_alignment = 1
+vertical_alignment = 1
+language = "es_ES"
+
+[node name="Arma" type="Label" parent="ArqueroInfo/HBoxContainer"]
+auto_translate_mode = 1
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+z_index = 1
+layout_mode = 2
+text = "Arco (Larga distancia)"
+horizontal_alignment = 1
+vertical_alignment = 1
+language = "es_ES"
+
+[node name="Historia" type="Label" parent="ArqueroInfo"]
+auto_translate_mode = 1
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.899
+anchor_top = -2.684
+anchor_right = -0.899
+anchor_bottom = -2.684
+offset_left = 256.316
+offset_top = 325.608
+offset_right = 549.316
+offset_bottom = 388.608
+text = "Este escuchimizo soldado, fue reclutado a la fuerza para combatir"
+vertical_alignment = 1
+autowrap_mode = 3
+ellipsis_char = ""
+language = "es_ES"
+
+[node name="ValkiriaInfo" type="TextureRect" parent="."]
+visible = false
+z_index = 2
+offset_left = 198.0
+offset_top = 234.0
+offset_right = 482.0
+offset_bottom = 346.0
+texture = SubResource("CanvasTexture_63qg4")
+
+[node name="Nombre" type="Label" parent="ValkiriaInfo"]
+auto_translate_mode = 1
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.899
+anchor_top = -2.684
+anchor_right = -0.899
+anchor_bottom = -2.684
+offset_left = 253.316
+offset_top = 300.608
+offset_right = 546.316
+offset_bottom = 328.608
+text = "Valkiria
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+language = "es_ES"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ValkiriaInfo"]
+layout_mode = 0
+offset_top = 84.0
+offset_right = 291.0
+offset_bottom = 112.0
+alignment = 1
+
+[node name="Vida" type="Label" parent="ValkiriaInfo/HBoxContainer"]
+auto_translate_mode = 1
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+z_index = 1
+layout_mode = 2
+text = "150"
+horizontal_alignment = 1
+vertical_alignment = 1
+language = "es_ES"
+
+[node name="Velocidad" type="Label" parent="ValkiriaInfo/HBoxContainer"]
+auto_translate_mode = 1
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+z_index = 1
+layout_mode = 2
+text = "Lenta"
+horizontal_alignment = 1
+vertical_alignment = 1
+language = "es_ES"
+
+[node name="Arma" type="Label" parent="ValkiriaInfo/HBoxContainer"]
+auto_translate_mode = 1
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+z_index = 1
+layout_mode = 2
+text = "Lanza (Corta distancia)"
+horizontal_alignment = 1
+vertical_alignment = 1
+language = "es_ES"
+
+[node name="Historia" type="Label" parent="ValkiriaInfo"]
+auto_translate_mode = 1
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.899
+anchor_top = -2.684
+anchor_right = -0.899
+anchor_bottom = -2.684
+offset_left = 256.316
+offset_top = 325.608
+offset_right = 549.316
+offset_bottom = 388.608
+text = "Esta historia es una  mierda, fue cagada por un dragon"
+vertical_alignment = 1
+autowrap_mode = 3
+ellipsis_char = ""
+language = "es_ES"
+
+[node name="VikingoInfo" type="TextureRect" parent="."]
+visible = false
+z_index = 2
+offset_left = 199.0
+offset_top = 234.0
+offset_right = 483.0
+offset_bottom = 346.0
+texture = SubResource("CanvasTexture_63qg4")
+
+[node name="Nombre" type="Label" parent="VikingoInfo"]
+auto_translate_mode = 1
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.899
+anchor_top = -2.684
+anchor_right = -0.899
+anchor_bottom = -2.684
+offset_left = 254.316
+offset_top = 300.608
+offset_right = 547.316
+offset_bottom = 328.608
+text = "Vikingo"
+horizontal_alignment = 1
+vertical_alignment = 1
+language = "es_ES"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VikingoInfo"]
+layout_mode = 0
+offset_top = 84.0
+offset_right = 291.0
+offset_bottom = 112.0
+alignment = 1
+
+[node name="Vida" type="Label" parent="VikingoInfo/HBoxContainer"]
+auto_translate_mode = 1
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+z_index = 1
+layout_mode = 2
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+language = "es_ES"
+
+[node name="Velocidad" type="Label" parent="VikingoInfo/HBoxContainer"]
+auto_translate_mode = 1
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+z_index = 1
+layout_mode = 2
+text = "Normal"
+horizontal_alignment = 1
+vertical_alignment = 1
+language = "es_ES"
+
+[node name="Arma" type="Label" parent="VikingoInfo/HBoxContainer"]
+auto_translate_mode = 1
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+z_index = 1
+layout_mode = 2
+text = "Hacha (Media distancia)"
+horizontal_alignment = 1
+vertical_alignment = 1
+language = "es_ES"
+
+[node name="Historia" type="Label" parent="VikingoInfo"]
+auto_translate_mode = 1
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.899
+anchor_top = -2.684
+anchor_right = -0.899
+anchor_bottom = -2.684
+offset_left = 256.316
+offset_top = 325.608
+offset_right = 549.316
+offset_bottom = 388.608
+text = "De las profundidades de la tierra, sale este vikingo con gran valentia"
+vertical_alignment = 1
+autowrap_mode = 3
+ellipsis_char = ""
+language = "es_ES"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 2
+offset_left = 553.0
+offset_top = 31.0
+offset_right = 710.0
+offset_bottom = 54.0
+texture = SubResource("CanvasTexture_1q6vu")
+
+[node name="Label" type="Label" parent="TextureRect"]
+auto_translate_mode = 1
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 7.0
+offset_right = 159.0
+offset_bottom = 23.0
+text = "Pulsa s para salir"
+language = "es_ES"
