@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Personajes
 
 
-const VELOCIDAD = 200
+
 const VELOCIDAD_SALTO = -500.0
 
 const GRAVEDAD = 2000
@@ -17,6 +17,7 @@ var coyote_jump_available : bool = true
 
 var vida = 100
 var daño = 10
+var velocidad = 200
 
 
 @onready var animPlayer = $AnimationPlayer
@@ -44,6 +45,8 @@ func _physics_process(delta):
 	var input_horizontal = Input.get_axis("mover_izq","mover_der")
 	var intento_salto = Input.is_action_just_pressed("salto")
 	
+	
+	
 	if intento_salto or input_buffer.time_left >0:
 		if coyote_jump_available:
 			velocity.y = VELOCIDAD_SALTO
@@ -56,6 +59,12 @@ func _physics_process(delta):
 	if Input.is_action_just_released("salto") and velocity.y < 0:
 		velocity.y = VELOCIDAD_SALTO/2
 		
+	
+	if Input.is_action_pressed("ataque"):
+		atacar()
+		return
+	
+	
 	if is_on_floor():
 		coyote_jump_available = true
 		coyote_timer.stop()
@@ -73,14 +82,21 @@ func _physics_process(delta):
 			$Sprite2D.scale.x = 1  # Mirar a la derecha
 			
 		   # Mover el personaje y reproducir animación de correr
-		velocity.x = move_toward(velocity.x, input_horizontal * VELOCIDAD, VELOCIDAD * delta)
+		velocity.x = move_toward(velocity.x, input_horizontal * velocidad, velocidad * delta)
 		animPlayer.play("correr")
 	
 	else:
-		velocity.x = move_toward(velocity.x, 0, VELOCIDAD*delta)
+		velocity.x = move_toward(velocity.x, 0, velocidad*delta)
 		animPlayer.play("idle")
+		
+	
 	
 	move_and_slide()
 
 func coyote_timeout():
 	coyote_jump_available = false
+	
+
+func atacar():
+	animPlayer.play("ataque1")
+	return

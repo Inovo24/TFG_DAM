@@ -1,8 +1,10 @@
 extends Personajes
 
-class_name Barco
+class_name valkiria
+
+
 
 func _ready() -> void:
 	super._ready()
-	vida = 29
-	print(vida)
+	vida = 150
+	velocidad = 150

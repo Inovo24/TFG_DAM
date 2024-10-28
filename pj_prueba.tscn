@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dwcag7tb575xo"]
 
-[ext_resource type="Script" path="res://Scripts/pj_prueba.gd" id="1_dw0it"]
+[ext_resource type="Script" path="res://Scripts/vikingoScript.gd" id="1_dw0it"]
 [ext_resource type="Texture2D" uid="uid://qnqito2bokb3" path="res://Sprites/Vikingo/viking_run-Sheet.png" id="2_3x3oj"]
 [ext_resource type="Texture2D" uid="uid://kybvbrj0wynp" path="res://Sprites/Vikingo/vikingo_idle-Sheet.png" id="2_f7ht0"]
 

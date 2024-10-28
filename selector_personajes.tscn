@@ -1,45 +1,444 @@
-[gd_scene load_steps=8 format=3 uid="uid://dc42x16lyph7c"]
+[gd_scene load_steps=28 format=3 uid="uid://dc42x16lyph7c"]
 
 [ext_resource type="Script" path="res://Scripts/selector_personajes.gd" id="1_lansh"]
 [ext_resource type="Texture2D" uid="uid://bpxy8xy5opbkv" path="res://Assets/dormitorio.png" id="1_qnohf"]
-[ext_resource type="Texture2D" uid="uid://d4hlj6vxy3uon" path="res://Sprites/Vikingo/fall_viking.png" id="2_pt0i2"]
-[ext_resource type="Texture2D" uid="uid://v8n7a78mwabb" path="res://Sprites/barco.png" id="3_bcwts"]
-[ext_resource type="Texture2D" uid="uid://c7y5vudpxt0qp" path="res://Sprites/fogata.png" id="4_kjx1m"]
+[ext_resource type="Texture2D" uid="uid://bnv5cd248b37w" path="res://Sprites/Vikingo/selector_viki-Sheet.png" id="3_by8vm"]
+[ext_resource type="Texture2D" uid="uid://enii75c3plnd" path="res://Sprites/Vikingo/transicion_viki-Sheet.png" id="4_2lv8s"]
+[ext_resource type="Texture2D" uid="uid://md6dnx6dva5e" path="res://Sprites/Vikingo/vikingo_seleccionado-Sheet.png" id="5_gu2w8"]
+[ext_resource type="Texture2D" uid="uid://dag5xjubuyi0r" path="res://Sprites/Guerrera/selector_valki-Sheet.png" id="6_5xpv3"]
+[ext_resource type="Texture2D" uid="uid://c3v237ki5nf82" path="res://Sprites/Guerrera/valkiria_seleccionada-Sheet-export.png" id="7_od41f"]
+[ext_resource type="Texture2D" uid="uid://d0kcxtgl45m5j" path="res://Sprites/Arquero/selector_arque-Sheet.png" id="8_aju4g"]
+[ext_resource type="Texture2D" uid="uid://cpvvu0m2hx50e" path="res://Sprites/Arquero/transicion_arquero-Sheet.png" id="9_bjsyv"]
+[ext_resource type="Texture2D" uid="uid://c11oxobwnn5m3" path="res://Sprites/Arquero/arquero_seleccionado-Sheet.png" id="10_pjoqn"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_63qg4"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_1q6vu"]
 
+[sub_resource type="Animation" id="Animation_dcmhm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vikingo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_12a5d"]
+resource_name = "seleccionado"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vikingo:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_gu2w8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vikingo:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Vikingo:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_1a7ns"]
+resource_name = "selector"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vikingo:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_by8vm")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vikingo:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Vikingo:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_rxjyw"]
+resource_name = "transicion"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vikingo:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_2lv8s")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vikingo:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Vikingo:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jry54"]
+_data = {
+"RESET": SubResource("Animation_dcmhm"),
+"seleccionado": SubResource("Animation_12a5d"),
+"selector": SubResource("Animation_1a7ns"),
+"transicion": SubResource("Animation_rxjyw")
+}
+
+[sub_resource type="Animation" id="Animation_pfrlb"]
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Valkiria:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_q00ny"]
+resource_name = "seleccionado"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Valkiria:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_od41f")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Valkiria:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_rqryl"]
+resource_name = "seleccion"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Valkiria:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_5xpv3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Valkiria:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_m82ex"]
+resource_name = "transicion"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Valkiria:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_5xpv3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Valkiria:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a28i3"]
+_data = {
+"RESET": SubResource("Animation_pfrlb"),
+"seleccionado": SubResource("Animation_q00ny"),
+"selector": SubResource("Animation_rqryl"),
+"transicion": SubResource("Animation_m82ex")
+}
+
+[sub_resource type="Animation" id="Animation_q0imo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arquero:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_wtpx7"]
+resource_name = "seleccionado"
+length = 0.7
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arquero:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_pjoqn")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arquero:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arquero:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_s5ftp"]
+resource_name = "selector"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arquero:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_aju4g")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arquero:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arquero:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_p3e3t"]
+resource_name = "transicion"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arquero:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_bjsyv")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arquero:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arquero:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jq7ts"]
+_data = {
+"RESET": SubResource("Animation_q0imo"),
+"seleccionado": SubResource("Animation_wtpx7"),
+"selector": SubResource("Animation_s5ftp"),
+"transicion": SubResource("Animation_p3e3t")
+}
+
 [node name="selectorPersonajes" type="Node2D"]
 script = ExtResource("1_lansh")
 
 [node name="Dormitorio" type="Sprite2D" parent="."]
-position = Vector2(397, 186)
-scale = Vector2(1.13179, 1.16693)
+position = Vector2(233.875, 121.354)
+scale = Vector2(0.739484, 0.762379)
 texture = ExtResource("1_qnohf")
-
-[node name="Vikingo" type="Sprite2D" parent="."]
-position = Vector2(126, 259)
-scale = Vector2(4.28125, 4.14583)
-texture = ExtResource("2_pt0i2")
-
-[node name="Valkiria" type="Sprite2D" parent="."]
-position = Vector2(366, 128)
-scale = Vector2(1.11643, 0.863238)
-texture = ExtResource("3_bcwts")
-
-[node name="Arquero" type="Sprite2D" parent="."]
-position = Vector2(646, 281)
-scale = Vector2(0.345276, 0.319832)
-texture = ExtResource("4_kjx1m")
 
 [node name="ArqueroInfo" type="TextureRect" parent="."]
 visible = false
 z_index = 2
-offset_left = 198.0
-offset_top = 233.0
-offset_right = 482.0
-offset_bottom = 345.0
+offset_left = 80.6667
+offset_top = 109.333
+offset_right = 364.667
+offset_bottom = 221.333
 texture = SubResource("CanvasTexture_63qg4")
 
 [node name="Nombre" type="Label" parent="ArqueroInfo"]
@@ -124,10 +523,10 @@ language = "es_ES"
 [node name="ValkiriaInfo" type="TextureRect" parent="."]
 visible = false
 z_index = 2
-offset_left = 198.0
-offset_top = 234.0
-offset_right = 482.0
-offset_bottom = 346.0
+offset_left = 83.3333
+offset_top = 104.0
+offset_right = 367.333
+offset_bottom = 216.0
 texture = SubResource("CanvasTexture_63qg4")
 
 [node name="Nombre" type="Label" parent="ValkiriaInfo"]
@@ -211,12 +610,11 @@ ellipsis_char = ""
 language = "es_ES"
 
 [node name="VikingoInfo" type="TextureRect" parent="."]
-visible = false
 z_index = 2
-offset_left = 199.0
-offset_top = 234.0
-offset_right = 483.0
-offset_bottom = 346.0
+offset_left = 88.0
+offset_top = 110.0
+offset_right = 365.0
+offset_bottom = 223.0
 texture = SubResource("CanvasTexture_63qg4")
 
 [node name="Nombre" type="Label" parent="VikingoInfo"]
@@ -300,10 +698,10 @@ language = "es_ES"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = 2
-offset_left = 553.0
-offset_top = 31.0
-offset_right = 710.0
-offset_bottom = 54.0
+offset_left = 300.0
+offset_top = 7.33333
+offset_right = 457.0
+offset_bottom = 30.3333
 texture = SubResource("CanvasTexture_1q6vu")
 
 [node name="Label" type="Label" parent="TextureRect"]
@@ -316,3 +714,39 @@ offset_right = 159.0
 offset_bottom = 23.0
 text = "Pulsa s para salir"
 language = "es_ES"
+
+[node name="Vikingo" type="Sprite2D" parent="."]
+position = Vector2(48, 151)
+texture = ExtResource("3_by8vm")
+hframes = 6
+frame = 1
+
+[node name="Vikingo" type="AnimationPlayer" parent="Vikingo"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_jry54")
+}
+
+[node name="Valkiria" type="Sprite2D" parent="."]
+position = Vector2(224, 72.5)
+texture = ExtResource("7_od41f")
+hframes = 6
+frame = 1
+
+[node name="Valkiria" type="AnimationPlayer" parent="Valkiria"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_a28i3")
+}
+
+[node name="Arquero" type="Sprite2D" parent="."]
+position = Vector2(396, 147)
+texture = ExtResource("10_pjoqn")
+hframes = 7
+frame = 1
+
+[node name="Arquero" type="AnimationPlayer" parent="Arquero"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_jq7ts")
+}

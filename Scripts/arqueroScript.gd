@@ -1,8 +1,8 @@
 extends Personajes
 
-class_name fogata
+class_name arquero
 
 func _ready() -> void:
 	super._ready()
-	vida = 36
-	print(vida)
+	vida = 75
+	velocidad  = 250

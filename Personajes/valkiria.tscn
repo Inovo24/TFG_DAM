@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://2oodd2mcba48"]
+[gd_scene load_steps=9 format=3 uid="uid://2oodd2mcba48"]
 
-[ext_resource type="Script" path="res://Scripts/pj_prueba_2.gd" id="1_j0wlw"]
-[ext_resource type="Texture2D" uid="uid://51tjxt8hu1a2" path="res://Sprites/Guerrera/idle_valkiria-Sheet.png" id="2_bjn4r"]
+[ext_resource type="Script" path="res://Scripts/valkiriaScript.gd" id="1_edgug"]
+[ext_resource type="Texture2D" uid="uid://b3656t2080w1o" path="res://Sprites/Guerrera/run_valkiria-Sheet.png" id="2_g6gyt"]
+[ext_resource type="Texture2D" uid="uid://51tjxt8hu1a2" path="res://Sprites/Guerrera/idle_valkiria-Sheet.png" id="3_wbld3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_do2f8"]
 size = Vector2(18, 33)
@@ -21,6 +22,35 @@ tracks/0/keys = {
 "values": [1]
 }
 
+[sub_resource type="Animation" id="Animation_ieji3"]
+resource_name = "correr"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_g6gyt")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
 [sub_resource type="Animation" id="Animation_heg4g"]
 resource_name = "idle"
 length = 0.6
@@ -36,7 +66,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_bjn4r")]
+"values": [ExtResource("3_wbld3")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -54,6 +84,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sosqj"]
 _data = {
 "RESET": SubResource("Animation_yafkg"),
+"correr": SubResource("Animation_ieji3"),
 "idle": SubResource("Animation_heg4g")
 }
 
@@ -61,10 +92,10 @@ _data = {
 z_index = 5
 collision_layer = 2
 collision_mask = 13
-script = ExtResource("1_j0wlw")
+script = ExtResource("1_edgug")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_bjn4r")
+texture = ExtResource("2_g6gyt")
 hframes = 6
 frame = 1
 
