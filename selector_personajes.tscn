@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=3 uid="uid://dc42x16lyph7c"]
 
 [ext_resource type="Script" path="res://Scripts/selector_personajes.gd" id="1_lansh"]
-[ext_resource type="Texture2D" uid="uid://bpxy8xy5opbkv" path="res://Assets/dormitorio.png" id="1_qnohf"]
+[ext_resource type="Texture2D" uid="uid://be2stv0t7inhk" path="res://Sprites/fondo_selector.png" id="2_gmxq8"]
 [ext_resource type="Texture2D" uid="uid://bnv5cd248b37w" path="res://Sprites/Vikingo/selector_viki-Sheet.png" id="3_by8vm"]
 [ext_resource type="Texture2D" uid="uid://enii75c3plnd" path="res://Sprites/Vikingo/transicion_viki-Sheet.png" id="4_2lv8s"]
 [ext_resource type="Texture2D" uid="uid://md6dnx6dva5e" path="res://Sprites/Vikingo/vikingo_seleccionado-Sheet.png" id="5_gu2w8"]
@@ -428,17 +428,17 @@ _data = {
 script = ExtResource("1_lansh")
 
 [node name="Dormitorio" type="Sprite2D" parent="."]
-position = Vector2(233.875, 121.354)
-scale = Vector2(0.739484, 0.762379)
-texture = ExtResource("1_qnohf")
+position = Vector2(349, 180)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_gmxq8")
 
 [node name="ArqueroInfo" type="TextureRect" parent="."]
 visible = false
 z_index = 2
-offset_left = 80.6667
-offset_top = 109.333
-offset_right = 364.667
-offset_bottom = 221.333
+offset_left = 169.0
+offset_top = 171.0
+offset_right = 453.0
+offset_bottom = 283.0
 texture = SubResource("CanvasTexture_63qg4")
 
 [node name="Nombre" type="Label" parent="ArqueroInfo"]
@@ -523,10 +523,10 @@ language = "es_ES"
 [node name="ValkiriaInfo" type="TextureRect" parent="."]
 visible = false
 z_index = 2
-offset_left = 83.3333
-offset_top = 104.0
-offset_right = 367.333
-offset_bottom = 216.0
+offset_left = 178.0
+offset_top = 187.0
+offset_right = 462.0
+offset_bottom = 299.0
 texture = SubResource("CanvasTexture_63qg4")
 
 [node name="Nombre" type="Label" parent="ValkiriaInfo"]
@@ -610,11 +610,12 @@ ellipsis_char = ""
 language = "es_ES"
 
 [node name="VikingoInfo" type="TextureRect" parent="."]
+visible = false
 z_index = 2
-offset_left = 88.0
-offset_top = 110.0
-offset_right = 365.0
-offset_bottom = 223.0
+offset_left = 196.0
+offset_top = 193.0
+offset_right = 473.0
+offset_bottom = 306.0
 texture = SubResource("CanvasTexture_63qg4")
 
 [node name="Nombre" type="Label" parent="VikingoInfo"]
@@ -698,10 +699,10 @@ language = "es_ES"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = 2
-offset_left = 300.0
-offset_top = 7.33333
-offset_right = 457.0
-offset_bottom = 30.3333
+offset_left = 531.0
+offset_top = 8.0
+offset_right = 688.0
+offset_bottom = 31.0
 texture = SubResource("CanvasTexture_1q6vu")
 
 [node name="Label" type="Label" parent="TextureRect"]
@@ -716,7 +717,8 @@ text = "Pulsa s para salir"
 language = "es_ES"
 
 [node name="Vikingo" type="Sprite2D" parent="."]
-position = Vector2(48, 151)
+position = Vector2(183, 216)
+scale = Vector2(2, 2)
 texture = ExtResource("3_by8vm")
 hframes = 6
 frame = 1
@@ -728,7 +730,8 @@ libraries = {
 }
 
 [node name="Valkiria" type="Sprite2D" parent="."]
-position = Vector2(224, 72.5)
+position = Vector2(339, 149)
+scale = Vector2(2, 2)
 texture = ExtResource("7_od41f")
 hframes = 6
 frame = 1
@@ -740,7 +743,8 @@ libraries = {
 }
 
 [node name="Arquero" type="Sprite2D" parent="."]
-position = Vector2(396, 147)
+position = Vector2(536, 221)
+scale = Vector2(2, 2)
 texture = ExtResource("10_pjoqn")
 hframes = 7
 frame = 1
