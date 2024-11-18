@@ -184,7 +184,7 @@ states/idle/position = Vector2(151, 123)
 states/saltar/node = SubResource("AnimationNodeAnimation_1s6bp")
 states/saltar/position = Vector2(300, 9)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_t3yva")]
-graph_offset = Vector2(-192, 13.0757)
+graph_offset = Vector2(-183, -59.9892)
 
 [node name="PjPrueba" type="CharacterBody2D"]
 z_index = 5
@@ -194,7 +194,7 @@ collision_mask = 13
 script = ExtResource("1_dw0it")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_u8j7u")
+texture = ExtResource("2_f7ht0")
 hframes = 6
 frame = 1
 

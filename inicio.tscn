@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bri13kxv672ig"]
+[gd_scene load_steps=16 format=4 uid="uid://bri13kxv672ig"]
 
 [ext_resource type="Script" path="res://Scripts/inicio.gd" id="1_j2ivj"]
 [ext_resource type="Texture2D" uid="uid://c7y5vudpxt0qp" path="res://Sprites/fogata.png" id="2_bcj77"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://p5pt0mi0d75t" path="res://Sprites/Casa.png" id="6_x6txn"]
 [ext_resource type="Texture2D" uid="uid://dw5o1t4wmwpu5" path="res://Sprites/tocon.png" id="7_08dh7"]
 [ext_resource type="Script" path="res://Scripts/selector_personajes_casa.gd" id="8_rmcrd"]
+[ext_resource type="Texture2D" uid="uid://8v1ca23746oc" path="res://Sprites/fondo_aldea.png" id="11_xxoac"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fimp5"]
 texture = ExtResource("2_fu1ll")
@@ -135,6 +136,11 @@ offset_right = 158.0
 offset_bottom = 23.0
 text = "Pulsa w para entrar"
 language = "es_ES"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(802, 353)
+texture = ExtResource("11_xxoac")
 
 [connection signal="body_entered" from="CasaArea" to="CasaArea" method="_on_body_entered"]
 [connection signal="body_exited" from="CasaArea" to="CasaArea" method="_on_body_exited"]
