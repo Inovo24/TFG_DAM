@@ -14,8 +14,7 @@ func _process(delta: float):
 		#queue_free()
 
 func _on_body_entered(body):
-	if body is TileMapLayer:
-		queue_free()
+	queue_free()
 	
 
 
@@ -27,5 +26,4 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func _on_area_entered(area):
 	if area is TileMapLayer:
 		queue_free()
-	if area is TileSet:
-		queue_free()
+	
