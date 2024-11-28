@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://da5s3khrk8f62"]
+
+[ext_resource type="Script" path="res://flecha.gd" id="1_8iulq"]
+[ext_resource type="Texture2D" uid="uid://bkc6cr6ytoit6" path="res://Sprites/Arquero/flecha/flecha-Sheet.png" id="2_5np0n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfsnl"]
+atlas = ExtResource("2_5np0n")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpxjw"]
+atlas = ExtResource("2_5np0n")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skpqc"]
+atlas = ExtResource("2_5np0n")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22mp8"]
+atlas = ExtResource("2_5np0n")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0kux"]
+atlas = ExtResource("2_5np0n")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uadei"]
+atlas = ExtResource("2_5np0n")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rijc2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfsnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpxjw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skpqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22mp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0kux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uadei")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dbj1"]
+size = Vector2(14, 6)
+
+[node name="Flecha" type="Area2D"]
+script = ExtResource("1_8iulq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 4
+sprite_frames = SubResource("SpriteFrames_rijc2")
+autoplay = "default"
+frame_progress = 0.178111
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7dbj1")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

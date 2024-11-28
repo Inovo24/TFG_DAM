@@ -156,7 +156,7 @@ func _physics_process(delta):
 	#update_state(input_horizontal, intento_salto)
 
 	if Input.is_action_just_pressed("ataque"):
-		previous_state = current_state
+		#previous_state = current_state
 		switch_state(State.ATTACK)
 		
 	# Lógica de salto con coyote y gravedad
@@ -216,6 +216,7 @@ func switch_state(new_state: State):
 				#animPlayer.play("saltar")
 			State.ATTACK:
 				anim_state_machine.travel("ataque1")
+				atacar()
 				#animPlayer.play("ataque1")
 				
 
