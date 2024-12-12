@@ -4,13 +4,13 @@ extends Area2D
 var player_in_area = false
 
 func _on_body_entered(body: Node2D) -> void:
-	$"../TextureRect".visible = true
+	$"../TextoSelector".visible = true
 	player_in_area = true
 
 # Función que se ejecuta cuando algo sale del área
 func _on_body_exited(body):
 	player_in_area = false
-	$"../TextureRect".visible = false
+	$"../TextoSelector".visible = false
 
 func _process(delta):
 	if player_in_area and Input.is_action_just_pressed("arriba"):  # Detecta la tecla, por ejemplo "Enter" o "Espacio"
