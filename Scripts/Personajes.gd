@@ -118,6 +118,7 @@ var vida = 100
 var daño = 10
 var velocidad = 200
 
+
 # Control de animación con AnimationTree y AnimationPlayer
 @onready var animPlayer = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
@@ -133,6 +134,7 @@ func _ready():
 	# Inicializar AnimationTree
 	animation_tree.active = true
 	switch_state(State.IDLE)
+	add_to_group("jugador")
 	
 	# Configuración de temporizadores
 	input_buffer = Timer.new()
@@ -145,8 +147,8 @@ func _ready():
 	coyote_timer.one_shot = true
 	add_child(coyote_timer)
 	coyote_timer.timeout.connect(coyote_timeout)
-
 	
+
 
 func _physics_process(delta):
 	var input_horizontal = Input.get_axis("mover_izq", "mover_der")

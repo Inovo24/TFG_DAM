@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://djcu14smt3wcu"]
+
+[ext_resource type="Script" path="res://Scripts/enemigo_1.gd" id="1_uxtka"]
+[ext_resource type="Texture2D" uid="uid://bkabstdgqcobv" path="res://Sprites/Enemigo/fire.png" id="2_txmts"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1deet"]
+size = Vector2(16, 15.5)
+
+[sub_resource type="Animation" id="Animation_taint"]
+resource_name = "Estatico"
+length = 2.1
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333, 0.666, 0.999, 1.332, 1.665, 1.998),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 5]
+}
+
+[sub_resource type="Animation" id="Animation_ib4m1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_cn146"]
+resource_name = "moverse"
+step = 0.333
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k7ve2"]
+_data = {
+"Estatico": SubResource("Animation_taint"),
+"RESET": SubResource("Animation_ib4m1"),
+"moverse": SubResource("Animation_cn146")
+}
+
+[node name="Enemigo1" type="Node2D"]
+script = ExtResource("1_uxtka")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8.25)
+shape = SubResource("RectangleShape2D_1deet")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k7ve2")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_txmts")
+hframes = 6
+frame = 1
