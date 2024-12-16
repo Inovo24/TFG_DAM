@@ -10,6 +10,7 @@ func _ready() -> void:
 	add_child(player)  # Añade el jugador a la escena actual
 	player.position = Vector2(525, 450) # Ajusta la posición inicial del jugador
 	camara.position = player.position
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

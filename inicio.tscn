@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bri13kxv672ig"]
+[gd_scene load_steps=23 format=4 uid="uid://bri13kxv672ig"]
 
 [ext_resource type="Script" path="res://Scripts/inicio.gd" id="1_j2ivj"]
 [ext_resource type="Texture2D" uid="uid://c7y5vudpxt0qp" path="res://Sprites/fogata.png" id="2_bcj77"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://bly4js7rsrd86" path="res://Sprites/fondo_aldea_nubladov2.png" id="12_nt06t"]
 [ext_resource type="Texture2D" uid="uid://cdj7eckpm5ma7" path="res://Sprites/salidaBarco.png" id="13_2r1i6"]
 [ext_resource type="Script" path="res://barco_area.gd" id="14_qlxjg"]
+[ext_resource type="AudioStream" uid="uid://p74cf510edy4" path="res://Audio/3. Saga of the Sea Wolves.mp3" id="15_08kl6"]
+[ext_resource type="Script" path="res://Scripts/ajustes_area.gd" id="16_m2vik"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fimp5"]
 texture = ExtResource("2_fu1ll")
@@ -96,6 +98,9 @@ size = Vector2(109.5, 132.625)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_e1p6u"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_636ht"]
+size = Vector2(215, 83)
+
 [node name="Inicio" type="Node2D"]
 position = Vector2(-238, -183)
 script = ExtResource("1_j2ivj")
@@ -112,7 +117,7 @@ scale = Vector2(0.0553607, 0.0568638)
 texture = ExtResource("2_bcj77")
 
 [node name="vikiHerrero" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 10
 position = Vector2(784, 510)
 texture = ExtResource("3_nynct")
 
@@ -223,8 +228,48 @@ text = "Pulsa w para
 salir del juego"
 language = "es_ES"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_08kl6")
+autoplay = true
+bus = &"Music"
+parameters/looping = false
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(826, 489)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("16_m2vik")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_636ht")
+
+[node name="TextoAjustes" type="TextureRect" parent="."]
+visible = false
+z_index = 2
+offset_left = 797.0
+offset_top = 405.0
+offset_right = 946.0
+offset_bottom = 459.0
+texture = SubResource("CanvasTexture_e1p6u")
+
+[node name="Label" type="Label" parent="TextoAjustes"]
+auto_translate_mode = 1
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 8.0
+offset_right = 154.0
+offset_bottom = 57.0
+text = "Pulsa w para 
+entrar a los ajustes"
+language = "es_ES"
+
 [connection signal="body_entered" from="CasaArea" to="CasaArea" method="_on_body_entered"]
 [connection signal="body_exited" from="CasaArea" to="CasaArea" method="_on_body_exited"]
 [connection signal="body_entered" from="BarcoArea" to="BarcoArea" method="_on_body_entered"]
 [connection signal="body_exited" from="BarcoArea" to="BarcoArea" method="_on_body_exited"]
 [connection signal="confirmed" from="BarcoArea/ConfirmationDialog" to="BarcoArea" method="_on_confirmation_dialog_confirmed"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

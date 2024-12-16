@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://p74cf510edy4"
+path="res://.godot/imported/3. Saga of the Sea Wolves.mp3-c14f1e635486677e48925bd5547c994a.mp3str"
+
+[deps]
+
+source_file="res://Audio/3. Saga of the Sea Wolves.mp3"
+dest_files=["res://.godot/imported/3. Saga of the Sea Wolves.mp3-c14f1e635486677e48925bd5547c994a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
