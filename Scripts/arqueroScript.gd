@@ -2,7 +2,7 @@ extends Personajes
 
 class_name arquero
 
-@onready var flecha = preload("res://flecha.tscn")
+@onready var flecha = preload("res://Scenes/flecha.tscn")
 @onready var marker = $Sprite2D/Marker2D
 
 

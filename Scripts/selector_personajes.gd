@@ -98,7 +98,7 @@ func _process(delta: float) -> void:
 	mover_izquierda()
 	
 	if Input.is_action_just_pressed("abajo"):
-		get_tree().change_scene_to_file("res://inicio.tscn")
+		get_tree().change_scene_to_file("res://Scenes/inicio.tscn")
 
 func mover_derecha():
 	if Input.is_action_just_pressed("mover_der"):

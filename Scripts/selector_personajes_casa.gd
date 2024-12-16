@@ -14,4 +14,4 @@ func _on_body_exited(body):
 
 func _process(delta):
 	if player_in_area and Input.is_action_just_pressed("arriba"):  # Detecta la tecla, por ejemplo "Enter" o "Espacio"
-		get_tree().change_scene_to_file("res://selector_personajes.tscn")  # Cambia la escena
+		get_tree().change_scene_to_file("res://Scenes/selector_personajes.tscn")  # Cambia la escena

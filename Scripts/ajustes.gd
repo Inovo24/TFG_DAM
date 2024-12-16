@@ -1,7 +1,7 @@
 extends Node2D
 
 func _on_boton_volver_pressed() -> void:
-	get_tree().change_scene_to_file("res://inicio.tscn")
+	get_tree().change_scene_to_file("res://Scenes/inicio.tscn")
 
 #Sonido
 func _on_h_slider_music_value_changed(value: float) -> void:
