@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlj46nmkptewd"]
+[gd_scene load_steps=5 format=3 uid="uid://dlj46nmkptewd"]
 
 [ext_resource type="Script" path="res://Scripts/level_selector.gd" id="1_le0e7"]
 [ext_resource type="PackedScene" uid="uid://bjduehyd6cwwe" path="res://Scenes/level_icon.tscn" id="2_dppcu"]
 [ext_resource type="PackedScene" uid="uid://des2i8avsiygy" path="res://Scenes/player_icon.tscn" id="3_dpw5l"]
+[ext_resource type="Texture2D" uid="uid://4pdbyj270iip" path="res://Sprites/selectorNiveles.png" id="4_02whb"]
 
 [node name="levelSelector" type="Control"]
 layout_mode = 3
@@ -86,3 +87,8 @@ offset_right = 640.0
 offset_bottom = 216.0
 level_name = "8"
 next_level_up = NodePath("../7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(312, 187)
+scale = Vector2(2.022, 2)
+texture = ExtResource("4_02whb")
