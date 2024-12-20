@@ -14,7 +14,7 @@ var coyote_timer : Timer
 var coyote_jump_available : bool = true
 
 
-var vida_maxima = 100
+var vida_maxima = 125
 var daño = 10
 var velocidad = 200
 
