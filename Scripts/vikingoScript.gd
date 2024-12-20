@@ -5,5 +5,5 @@ class_name Vikingo
 
 func _ready() -> void:
 	super._ready()
-	vida = 13
-	print(vida)
+	vida_maxima = 13
+	print(vida_maxima)

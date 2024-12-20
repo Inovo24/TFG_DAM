@@ -6,5 +6,5 @@ class_name valkiria
 
 func _ready() -> void:
 	super._ready()
-	vida = 150
+	vida_maxima = 150
 	velocidad = 150

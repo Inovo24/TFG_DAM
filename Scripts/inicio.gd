@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var pj_prueba: Vikingo = $PjPrueba
 @onready var camara = $Camera2D
 var player 
 
@@ -14,5 +13,5 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	camara.position = player.position

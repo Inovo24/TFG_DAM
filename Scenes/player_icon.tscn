@@ -4,7 +4,7 @@
 
 [node name="PlayerIcon" type="TextureRect"]
 z_index = 1
-offset_right = 64.0
-offset_bottom = 64.0
+offset_right = 45.0
+offset_bottom = 40.0
 texture = ExtResource("1_5gpyf")
 expand_mode = 1

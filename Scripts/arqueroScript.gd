@@ -6,9 +6,10 @@ class_name arquero
 @onready var marker = $Sprite2D/Marker2D
 
 
+
 func _ready() -> void:
 	super._ready()
-	vida = 75
+	vida_maxima = 75
 	velocidad  = 250
 	
 
