@@ -14,7 +14,8 @@ var coyote_timer : Timer
 var coyote_jump_available : bool = true
 
 
-var vida_maxima = 125
+@export var vida_maxima = 125
+@onready var vida_actual = vida_maxima
 var daño = 10
 var velocidad = 200
 
@@ -131,3 +132,9 @@ func coyote_timeout():
 
 func atacar():
 	switch_state(State.ATTACK)
+func getVidaMaxima():
+	return vida_maxima
+func getVidaActual():
+	return vida_actual
+func setVidaActuak(vidaActual:int):
+	vida_actual = vidaActual
