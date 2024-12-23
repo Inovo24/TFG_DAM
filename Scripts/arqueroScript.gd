@@ -8,9 +8,12 @@ class_name arquero
 
 
 func _ready() -> void:
-	super._ready()
 	vida_maxima = 75
 	velocidad  = 250
+	vida_actual = vida_maxima
+	super._ready()
+	print(vida_maxima)
+
 	
 
 func atacar():

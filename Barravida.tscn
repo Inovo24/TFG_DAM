@@ -9,8 +9,15 @@
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 171.0
+offset_bottom = 31.0
+nine_patch_stretch = true
 texture_under = ExtResource("1_crla6")
 texture_progress = ExtResource("2_lib3s")
 script = ExtResource("3_mo425")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 9.0
+offset_top = 5.0
+offset_right = 72.0
+offset_bottom = 28.0

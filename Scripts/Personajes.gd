@@ -14,8 +14,8 @@ var coyote_timer : Timer
 var coyote_jump_available : bool = true
 
 
-@export var vida_maxima = 125
-@onready var vida_actual = vida_maxima
+var vida_maxima = 125
+var vida_actual 
 var daño = 10
 var velocidad = 200
 
@@ -31,6 +31,7 @@ var previous_state : State = State.IDLE
 
 
 func _ready():
+	vida_actual = vida_maxima
 	# Inicializar AnimationTree para que funcionen las animaciones
 	animation_tree.active = true
 	switch_state(State.IDLE)
