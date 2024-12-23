@@ -1,21 +1,17 @@
 extends TextureProgressBar
 
-@onready var personaje = Globales.get_player()
+var personaje:Personajes
 
 
-@onready var barra_vida = $TextureProgressBar
 
 
 func _ready():
-	barra_vida.max_value = personaje
-
-
-func set_personaje(p_instancia):
-	personaje = p_instancia
-	barra_vida.max_value = personaje.vida
+	
+	personaje = Globales.get_player()
+	#max_value = personaje.getVidaMaxima()
+	print(personaje.getVidaMaxima())
 	actualizar_barra()
 
 
 func actualizar_barra():
-	if personaje:
-		barra_vida.value = personaje.vida
+	value = personaje.getVidaActual() * 100/ personaje.getVidaMaxima()

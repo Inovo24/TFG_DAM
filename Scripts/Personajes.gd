@@ -132,7 +132,7 @@ func coyote_timeout():
 
 func atacar():
 	switch_state(State.ATTACK)
-func getVidaMaxima():
+func getVidaMaxima()-> int:
 	return vida_maxima
 func getVidaActual():
 	return vida_actual
