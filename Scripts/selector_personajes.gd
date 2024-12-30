@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
 	mover_derecha()
 	mover_izquierda()
 	
-	if Input.is_action_just_pressed("abajo"):
+	if Input.is_action_just_pressed("salir"):
 		get_tree().change_scene_to_file("res://Scenes/inicio.tscn")
 
 func mover_derecha():

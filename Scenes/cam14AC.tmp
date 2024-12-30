@@ -1,0 +1,97 @@
+[gd_scene load_steps=3 format=3 uid="uid://djehm3da7g7lm"]
+
+[ext_resource type="Script" path="res://cambio_teclas.gd" id="1_ccbqm"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_d1yfn"]
+specular_color = Color(0.591423, 0.67124, 0.0730327, 1)
+
+[node name="cambio_teclas" type="Node2D"]
+script = ExtResource("1_ccbqm")
+
+[node name="Fondo" type="Sprite2D" parent="."]
+modulate = Color(0.890196, 0.894118, 1, 1)
+position = Vector2(348.75, 178.75)
+scale = Vector2(698.5, 358.5)
+texture = SubResource("CanvasTexture_d1yfn")
+
+[node name="BotonVolver" type="Button" parent="."]
+offset_left = 262.0
+offset_top = 287.0
+offset_right = 419.0
+offset_bottom = 318.0
+text = "Volver"
+
+[node name="TxtArriba" type="Label" parent="."]
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+offset_left = 86.0
+offset_top = 57.0
+offset_right = 215.0
+offset_bottom = 80.0
+text = "Arriba"
+
+[node name="TxtAbajo" type="Label" parent="."]
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+offset_left = 89.0
+offset_top = 90.0
+offset_right = 218.0
+offset_bottom = 113.0
+text = "Abajo
+"
+
+[node name="TxtDerecha" type="Label" parent="."]
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+offset_left = 87.0
+offset_top = 118.0
+offset_right = 216.0
+offset_bottom = 141.0
+text = "Derecha"
+
+[node name="ButtonDerecha" type="Button" parent="TxtDerecha"]
+offset_left = 128.0
+offset_top = -1.0
+offset_right = 202.0
+offset_bottom = 30.0
+text = "Cambiar"
+
+[node name="TxtIzquierda" type="Label" parent="."]
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+offset_left = 88.0
+offset_top = 146.0
+offset_right = 217.0
+offset_bottom = 169.0
+text = "Izquierda"
+
+[node name="ButtonIzquierda" type="Button" parent="TxtIzquierda"]
+offset_left = 128.0
+offset_top = -1.0
+offset_right = 202.0
+offset_bottom = 30.0
+text = "Cambiar"
+
+[node name="TxtSalto" type="Label" parent="."]
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+offset_left = 88.0
+offset_top = 177.0
+offset_right = 217.0
+offset_bottom = 200.0
+text = "Salto"
+
+[node name="TxtAtaque" type="Label" parent="."]
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+offset_left = 87.0
+offset_top = 206.0
+offset_right = 216.0
+offset_bottom = 229.0
+text = "Ataque"
+
+[node name="TxtAceptar" type="Label" parent="."]
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+offset_left = 86.0
+offset_top = 238.0
+offset_right = 215.0
+offset_bottom = 261.0
+text = "Acerptar/Entrar"
+
+[connection signal="pressed" from="BotonVolver" to="." method="_on_boton_volver_pressed"]
+[connection signal="pressed" from="TxtDerecha/ButtonDerecha" to="." method="_on_button_derecha_pressed"]
+[connection signal="pressed" from="TxtIzquierda/ButtonIzquierda" to="." method="_on_button_izquierda_pressed"]

@@ -10,5 +10,5 @@ func _on_body_exited(_body: Node2D) -> void:
 	$"../TextoAjustes".visible = false
 
 func _process(_delta: float) -> void:
-	if player_in_area and Input.is_action_just_pressed("arriba"):
+	if player_in_area and Input.is_action_just_pressed("aceptar_entrar"):
 		get_tree().change_scene_to_file("res://Scenes/ajustes.tscn")  # Cambia la escena

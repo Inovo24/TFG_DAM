@@ -11,7 +11,7 @@ func _on_body_exited(_body: Node2D) -> void:
 	$"../TextoSalir".visible = false
 
 func _process(_delta: float) -> void:
-	if player_in_area_exit and Input.is_action_just_pressed("arriba"):
+	if player_in_area_exit and Input.is_action_just_pressed("aceptar_entrar"):
 		$ConfirmationDialog.popup() 
 
 

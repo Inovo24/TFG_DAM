@@ -1,0 +1,243 @@
+[gd_scene load_steps=3 format=3 uid="uid://djehm3da7g7lm"]
+
+[ext_resource type="Script" path="res://cambio_teclas.gd" id="1_ccbqm"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_d1yfn"]
+specular_color = Color(0.591423, 0.67124, 0.0730327, 1)
+
+[node name="cambio_teclas" type="Node2D"]
+script = ExtResource("1_ccbqm")
+
+[node name="Fondo" type="Sprite2D" parent="."]
+modulate = Color(0.890196, 0.894118, 1, 1)
+position = Vector2(348.75, 178.75)
+scale = Vector2(698.5, 358.5)
+texture = SubResource("CanvasTexture_d1yfn")
+
+[node name="ContenedorPrincipal" type="VBoxContainer" parent="."]
+offset_left = 71.0
+offset_top = 8.0
+offset_right = 627.0
+offset_bottom = 325.0
+
+[node name="Primera" type="HBoxContainer" parent="ContenedorPrincipal"]
+layout_mode = 2
+size_flags_stretch_ratio = 12.43
+alignment = 2
+
+[node name="Titulo" type="Label" parent="ContenedorPrincipal/Primera"]
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "Acción
+"
+
+[node name="Tecla_pricipal" type="Label" parent="ContenedorPrincipal/Primera"]
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 20
+text = "Tecla principal
+"
+
+[node name="Tecla_secundaria" type="Label" parent="ContenedorPrincipal/Primera"]
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 20
+text = "Tecla secundaria
+"
+
+[node name="Arriba" type="HBoxContainer" parent="ContenedorPrincipal"]
+layout_mode = 2
+
+[node name="TxtArriba" type="Label" parent="ContenedorPrincipal/Arriba"]
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Arriba"
+
+[node name="ButtonArriba_1" type="Button" parent="ContenedorPrincipal/Arriba"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Cambiar"
+
+[node name="ButtonArriba_2" type="Button" parent="ContenedorPrincipal/Arriba"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Cambiar"
+
+[node name="Abajo" type="HBoxContainer" parent="ContenedorPrincipal"]
+layout_mode = 2
+
+[node name="TxtAbajo" type="Label" parent="ContenedorPrincipal/Abajo"]
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Abajo"
+
+[node name="ButtonAbajo_1" type="Button" parent="ContenedorPrincipal/Abajo"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Cambiar"
+
+[node name="ButtonAbajo_2" type="Button" parent="ContenedorPrincipal/Abajo"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Cambiar"
+
+[node name="Derecha" type="HBoxContainer" parent="ContenedorPrincipal"]
+layout_mode = 2
+
+[node name="TxtDerecha" type="Label" parent="ContenedorPrincipal/Derecha"]
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Derecha"
+
+[node name="ButtonDerecha_1" type="Button" parent="ContenedorPrincipal/Derecha"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Cambiar"
+
+[node name="ButtonDerecha_2" type="Button" parent="ContenedorPrincipal/Derecha"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Cambiar"
+
+[node name="Izquierda" type="HBoxContainer" parent="ContenedorPrincipal"]
+layout_mode = 2
+
+[node name="TxtIzquierda" type="Label" parent="ContenedorPrincipal/Izquierda"]
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Izquierda"
+
+[node name="ButtonIzquierda_1" type="Button" parent="ContenedorPrincipal/Izquierda"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Cambiar"
+
+[node name="ButtonIzquierda_2" type="Button" parent="ContenedorPrincipal/Izquierda"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Cambiar"
+
+[node name="Aceptar" type="HBoxContainer" parent="ContenedorPrincipal"]
+layout_mode = 2
+
+[node name="TxtAceptar" type="Label" parent="ContenedorPrincipal/Aceptar"]
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Aceptar/Entrar"
+
+[node name="ButtonAceptar_1" type="Button" parent="ContenedorPrincipal/Aceptar"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Cambiar"
+
+[node name="ButtonAceptar_2" type="Button" parent="ContenedorPrincipal/Aceptar"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Cambiar"
+
+[node name="Salir" type="HBoxContainer" parent="ContenedorPrincipal"]
+layout_mode = 2
+
+[node name="TxtSalir" type="Label" parent="ContenedorPrincipal/Salir"]
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Salir"
+
+[node name="ButtonSalir_1" type="Button" parent="ContenedorPrincipal/Salir"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Cambiar"
+
+[node name="ButtonSalir_2" type="Button" parent="ContenedorPrincipal/Salir"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Cambiar"
+
+[node name="Ataque" type="HBoxContainer" parent="ContenedorPrincipal"]
+layout_mode = 2
+
+[node name="TxtAtaque" type="Label" parent="ContenedorPrincipal/Ataque"]
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Ataque"
+
+[node name="ButtonAtaque_1" type="Button" parent="ContenedorPrincipal/Ataque"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Cambiar"
+
+[node name="ButtonAtaque_2" type="Button" parent="ContenedorPrincipal/Ataque"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Cambiar"
+
+[node name="Salto" type="HBoxContainer" parent="ContenedorPrincipal"]
+layout_mode = 2
+
+[node name="TxtSalto" type="Label" parent="ContenedorPrincipal/Salto"]
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Salto"
+
+[node name="ButtonSalto_1" type="Button" parent="ContenedorPrincipal/Salto"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Cambiar"
+
+[node name="ButtonSalto_2" type="Button" parent="ContenedorPrincipal/Salto"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Cambiar"
+
+[node name="BotonVolver" type="Button" parent="."]
+offset_left = 37.0
+offset_top = 321.0
+offset_right = 194.0
+offset_bottom = 352.0
+text = "Volver"
+
+[connection signal="pressed" from="ContenedorPrincipal/Arriba/ButtonArriba_1" to="." method="_on_button_arriba_1_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/Arriba/ButtonArriba_2" to="." method="_on_button_arriba_2_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/Abajo/ButtonAbajo_1" to="." method="_on_button_abajo_1_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/Abajo/ButtonAbajo_2" to="." method="_on_button_abajo_2_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/Derecha/ButtonDerecha_1" to="." method="_on_button_derecha_1_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/Derecha/ButtonDerecha_2" to="." method="_on_button_derecha_2_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/Izquierda/ButtonIzquierda_1" to="." method="_on_button_izquierda_1_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/Izquierda/ButtonIzquierda_2" to="." method="_on_button_izquierda_2_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/Aceptar/ButtonAceptar_1" to="." method="_on_button_aceptar_1_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/Aceptar/ButtonAceptar_2" to="." method="_on_button_aceptar_2_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/Salir/ButtonSalir_1" to="." method="_on_button_salir_1_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/Salir/ButtonSalir_2" to="." method="_on_button_salir_2_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/Ataque/ButtonAtaque_1" to="." method="_on_button_ataque_1_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/Ataque/ButtonAtaque_2" to="." method="_on_button_ataque_2_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/Salto/ButtonSalto_1" to="." method="_on_button_salto_1_pressed"]
+[connection signal="pressed" from="ContenedorPrincipal/Salto/ButtonSalto_2" to="." method="_on_button_salto_2_pressed"]
+[connection signal="pressed" from="BotonVolver" to="." method="_on_boton_volver_pressed"]

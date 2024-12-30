@@ -16,8 +16,12 @@ func _ready() -> void:
 	barraVida = barraVidaEscena.instantiate()
 	add_child(barraVida)
 	
-	
-
+	#Iniciar textos
+	var aceptar_tecla = InputMap.action_get_events("aceptar_entrar")[0].as_text().replace(" (Physical)", "")
+	$TextoAjustes/Label.text = "Pulsa " + aceptar_tecla + " para \nentrar a los ajustes"
+	$TextoSalir/Label.text = "Pulsa " + aceptar_tecla +" para \nsalir del juego"
+	$TextoSelector/Label.text = "Pulsa " + aceptar_tecla + " para entrar"
+	$AreaNiveles/TextoNiveles/Label.text = "Pulsa " + aceptar_tecla + " para entrar"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

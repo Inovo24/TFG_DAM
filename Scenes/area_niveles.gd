@@ -12,5 +12,5 @@ func _on_body_exited(_body):
 	$TextoNiveles.visible = false
 
 func _process(_delta):
-	if player_in_area and Input.is_action_just_pressed("arriba"):  
+	if player_in_area and Input.is_action_just_pressed("aceptar_entrar"):  
 		get_tree().change_scene_to_file("res://Scenes/level_selector.tscn")
