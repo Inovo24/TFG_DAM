@@ -697,7 +697,7 @@ autowrap_mode = 3
 ellipsis_char = ""
 language = "es_ES"
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextoSalir" type="TextureRect" parent="."]
 z_index = 2
 offset_left = 531.0
 offset_top = 8.0
@@ -705,7 +705,7 @@ offset_right = 688.0
 offset_bottom = 31.0
 texture = SubResource("CanvasTexture_1q6vu")
 
-[node name="Label" type="Label" parent="TextureRect"]
+[node name="Label" type="Label" parent="TextoSalir"]
 auto_translate_mode = 1
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
@@ -714,6 +714,7 @@ offset_left = 7.0
 offset_right = 159.0
 offset_bottom = 23.0
 text = "Pulsa s para salir"
+autowrap_mode = 3
 language = "es_ES"
 
 [node name="Vikingo" type="Sprite2D" parent="."]

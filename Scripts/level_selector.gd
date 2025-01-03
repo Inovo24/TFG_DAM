@@ -5,6 +5,9 @@ class_name LevelSelector
 
 func _ready():
 	$PlayerIcon.global_position = current_level.global_position
+	
+	var salir_tecla = InputMap.action_get_events("salir")[0].as_text().replace(" (Physical)", "")
+	$TextoSalir/Lavel.text = "Pulsa " + salir_tecla + " para salir"
 
 func _input(event):
 	if event.is_action_pressed("mover_izq") and current_level.next_level_left:
@@ -22,3 +25,7 @@ func _input(event):
 	if event.is_action_pressed("aceptar_entrar"):
 		if current_level.next_scene_path:
 			get_tree().change_scene_to_file(current_level.next_scene_path)
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("salir"):
+		get_tree().change_scene_to_file("res://Scenes/inicio.tscn")

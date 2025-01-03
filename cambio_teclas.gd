@@ -22,6 +22,11 @@ func _ready():
 	}
 # Muestra las teclas configuradas por defecto
 	_update_button_texts()
+	
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("salir"):
+		get_tree().change_scene_to_file("res://Scenes/ajustes.tscn")
 
 # Función para actualizar los textos de los botones con las teclas configuradas
 func _update_button_texts():
@@ -34,6 +39,10 @@ func _update_button_texts():
 			action_buttons[action_name][1].text = events[1].as_text().replace(" (Physical)", "")
 		else:
 			action_buttons[action_name][1].text = "No asignado"
+	
+	#Cambiar texto salir
+	var salir_tecla = InputMap.action_get_events("salir")[0].as_text().replace(" (Physical)", "")
+	$BotonVolver/TextoSalir.text = "Pulsa " + salir_tecla + " para salir"
 
 func _on_action_button_pressed(action_name):
 	# Inicia el proceso de reasignación
@@ -44,13 +53,21 @@ func _on_action_button_pressed(action_name):
 # Maneja los eventos de entrada (como la tecla presionada)
 func _input(event):
 	if current_action != "" and event is InputEventKey and event.pressed:
-		# Remueve la configuración previa
+		#Obtenemos la configuracion previa
 		var eventosAntiguos = InputMap.action_get_events(current_action)
-		if (opcion > 0 && eventosAntiguos.size() > 1) || opcion ==0:
-			InputMap.action_erase_event(current_action,eventosAntiguos[opcion])
 		
-		# Asigna la nueva tecla
-		InputMap.action_add_event(current_action, event)
+		#Cambiamos la configuracion
+		if eventosAntiguos.size() < 2 && opcion == 1:
+			eventosAntiguos.append(event)
+		else:
+			eventosAntiguos[opcion] = event
+		
+		# Remueve la configuración previa
+		InputMap.action_erase_events(current_action)
+		
+		# Asigna las teclas de nuevo
+		for tecla in eventosAntiguos:
+			InputMap.action_add_event(current_action, tecla)
 
 		# Resetea el estado de reasignación
 		current_action = ""

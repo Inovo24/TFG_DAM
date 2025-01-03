@@ -22,74 +22,103 @@ offset_right = 419.0
 offset_bottom = 318.0
 text = "Volver"
 
-[node name="Contenedor" type="VBoxContainer" parent="."]
-offset_left = 86.0
-offset_top = 32.0
-offset_right = 252.0
-offset_bottom = 266.0
+[node name="TextoSalir" type="Label" parent="BotonVolver"]
+auto_translate_mode = 1
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.497
+anchor_right = -0.497
+offset_left = 311.029
+offset_top = 33.0
+offset_right = 506.029
+offset_bottom = 62.0
+text = "Pulsa s para salir"
+horizontal_alignment = 2
+vertical_alignment = 2
+language = "es_ES"
 
-[node name="General" type="Label" parent="Contenedor"]
+[node name="HSplitContainer" type="HBoxContainer" parent="."]
+offset_left = 81.0
+offset_top = 42.0
+offset_right = 614.0
+offset_bottom = 284.0
+
+[node name="Columna1" type="VBoxContainer" parent="HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="General" type="Label" parent="HSplitContainer/Columna1"]
 modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
 layout_mode = 2
 text = "Volumen general"
 
-[node name="ContGeneral" type="HBoxContainer" parent="Contenedor"]
+[node name="ContGeneral" type="HBoxContainer" parent="HSplitContainer/Columna1"]
 layout_mode = 2
 
-[node name="HSliderGeneral" type="HSlider" parent="Contenedor/ContGeneral"]
+[node name="HSliderGeneral" type="HSlider" parent="HSplitContainer/Columna1/ContGeneral"]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="NivelGeneral" type="Label" parent="Contenedor/ContGeneral"]
+[node name="NivelGeneral" type="Label" parent="HSplitContainer/Columna1/ContGeneral"]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Musica" type="Label" parent="Contenedor"]
+[node name="Musica" type="Label" parent="HSplitContainer/Columna1"]
 modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
 layout_mode = 2
 text = "Volumen musica"
 
-[node name="ContMusica" type="HBoxContainer" parent="Contenedor"]
+[node name="ContMusica" type="HBoxContainer" parent="HSplitContainer/Columna1"]
 layout_mode = 2
 
-[node name="HSliderMusic" type="HSlider" parent="Contenedor/ContMusica"]
+[node name="HSliderMusic" type="HSlider" parent="HSplitContainer/Columna1/ContMusica"]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="NivelMusica" type="Label" parent="Contenedor/ContMusica"]
+[node name="NivelMusica" type="Label" parent="HSplitContainer/Columna1/ContMusica"]
 layout_mode = 2
 
-[node name="Enemigos" type="Label" parent="Contenedor"]
+[node name="Enemigos" type="Label" parent="HSplitContainer/Columna1"]
 modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
 layout_mode = 2
 text = "Volumen enemigos"
 
-[node name="ContEnemigos" type="HBoxContainer" parent="Contenedor"]
+[node name="ContEnemigos" type="HBoxContainer" parent="HSplitContainer/Columna1"]
 layout_mode = 2
 
-[node name="HSliderEnemigos" type="HSlider" parent="Contenedor/ContEnemigos"]
+[node name="HSliderEnemigos" type="HSlider" parent="HSplitContainer/Columna1/ContEnemigos"]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="NivelEnemigos" type="Label" parent="Contenedor/ContEnemigos"]
+[node name="NivelEnemigos" type="Label" parent="HSplitContainer/Columna1/ContEnemigos"]
 layout_mode = 2
 
-[node name="Teclas" type="Button" parent="Contenedor"]
+[node name="Columna2" type="VBoxContainer" parent="HSplitContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="Teclas" type="Button" parent="HSplitContainer/Columna2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 text = "Cambiar teclas 
 por defecto"
 
 [connection signal="pressed" from="BotonVolver" to="." method="_on_boton_volver_pressed"]
-[connection signal="value_changed" from="Contenedor/ContGeneral/HSliderGeneral" to="." method="_on_h_slider_general_value_changed"]
-[connection signal="value_changed" from="Contenedor/ContMusica/HSliderMusic" to="." method="_on_h_slider_music_value_changed"]
-[connection signal="value_changed" from="Contenedor/ContEnemigos/HSliderEnemigos" to="." method="_on_h_slider_enemigos_value_changed"]
-[connection signal="pressed" from="Contenedor/Teclas" to="." method="_on_teclas_pressed"]
+[connection signal="value_changed" from="HSplitContainer/Columna1/ContGeneral/HSliderGeneral" to="." method="_on_h_slider_general_value_changed"]
+[connection signal="value_changed" from="HSplitContainer/Columna1/ContMusica/HSliderMusic" to="." method="_on_h_slider_music_value_changed"]
+[connection signal="value_changed" from="HSplitContainer/Columna1/ContEnemigos/HSliderEnemigos" to="." method="_on_h_slider_enemigos_value_changed"]
+[connection signal="pressed" from="HSplitContainer/Columna2/Teclas" to="." method="_on_teclas_pressed"]
