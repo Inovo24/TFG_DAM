@@ -74,6 +74,10 @@ salir={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Dialogos.en.translation", "res://Dialogos.es.translation")
+
 [layer_names]
 
 2d_physics/layer_1="Elementos de choque"

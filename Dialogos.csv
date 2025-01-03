@@ -1,0 +1,13 @@
+﻿keys,es,en
+menuin_lab_confirmacion,¿Seguro que quieres salir?,Are you sure you want to go out?
+menuin_lab_titulo,Menu,Menu
+menuin_btn_salir,Salir,Exit
+menuin_btn_ajustes,Ajustes,Settings
+menuin_btn_cerrar,Cerrar menu,Close menu
+menuin_btn_si,Si,Yes
+menuin_btn_no,No,No
+ini_lab_ajustes,Pulsa {tecla} para entrar a los ajustes,Press {tecla} to enter settings
+ini_lab_salir,Pulsa {tecla} para salir del juego,Press {tecla} to exit the game
+ini_lab_selector,Pulsa {tecla} para entrar,Press {tecla} to enter
+ini_lab_niveles,Pulsa {tecla} para entrar,Press {tecla} to enter
+ini_lab_salir_dialog,¿Estás seguro de que quieres salir?,Are you sure you want to go out?

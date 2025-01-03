@@ -21,8 +21,10 @@ grow_vertical = 2
 [node name="Texto" type="Label" parent="Contenedor"]
 layout_mode = 2
 size_flags_vertical = 1
-text = "Menu"
+text = "menuin_lab_titulo"
 horizontal_alignment = 1
+autowrap_mode = 3
+text_direction = 1
 
 [node name="FilaNormal" type="HBoxContainer" parent="Contenedor"]
 layout_mode = 2
@@ -30,12 +32,12 @@ layout_mode = 2
 [node name="Salir" type="Button" parent="Contenedor/FilaNormal"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "Salir"
+text = "menuin_btn_salir"
 
 [node name="Ajustes" type="Button" parent="Contenedor/FilaNormal"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "Ajustes"
+text = "menuin_btn_ajustes"
 
 [node name="FilaSalir" type="HBoxContainer" parent="Contenedor"]
 visible = false
@@ -44,14 +46,19 @@ layout_mode = 2
 [node name="Si" type="Button" parent="Contenedor/FilaSalir"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "Si"
+text = "menuin_btn_si"
 
 [node name="No" type="Button" parent="Contenedor/FilaSalir"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "No"
+text = "menuin_btn_no"
+
+[node name="Cerrar" type="Button" parent="Contenedor"]
+layout_mode = 2
+text = "menuin_btn_cerrar"
 
 [connection signal="pressed" from="Contenedor/FilaNormal/Salir" to="." method="_on_salir_pressed"]
 [connection signal="pressed" from="Contenedor/FilaNormal/Ajustes" to="." method="_on_ajustes_pressed"]
 [connection signal="pressed" from="Contenedor/FilaSalir/Si" to="." method="_on_si_pressed"]
 [connection signal="pressed" from="Contenedor/FilaSalir/No" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="Contenedor/Cerrar" to="." method="_on_cerrar_pressed"]
