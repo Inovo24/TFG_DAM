@@ -10,7 +10,7 @@ var infos
 func _ready() -> void:
 	#Poner mensaje de salir
 	var salir_tecla = InputMap.action_get_events("salir")[0].as_text().replace(" (Physical)", "")
-	$TextoSalir/Label.text = "Pulsa " + salir_tecla + " para salir"
+	$TextoSalir/Label.text =  tr("gen_salir").replace("{tecla}",salir_tecla)
 	
 	pjs = [vikingo, valkiria, arquero]
 	infos = [$VikingoInfo, $ValkiriaInfo, $ArqueroInfo]

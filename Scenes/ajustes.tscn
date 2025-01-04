@@ -20,7 +20,7 @@ offset_left = 262.0
 offset_top = 287.0
 offset_right = 419.0
 offset_bottom = 318.0
-text = "Volver"
+text = "gen_volver"
 
 [node name="TextoSalir" type="Label" parent="BotonVolver"]
 auto_translate_mode = 1
@@ -30,11 +30,11 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.497
 anchor_right = -0.497
-offset_left = 311.029
+offset_left = 279.029
 offset_top = 33.0
 offset_right = 506.029
 offset_bottom = 62.0
-text = "Pulsa s para salir"
+text = "gen_salir"
 horizontal_alignment = 2
 vertical_alignment = 2
 language = "es_ES"
@@ -53,7 +53,7 @@ theme_override_constants/separation = 5
 [node name="General" type="Label" parent="HSplitContainer/Columna1"]
 modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
 layout_mode = 2
-text = "Volumen general"
+text = "ajus_vol_gen"
 
 [node name="ContGeneral" type="HBoxContainer" parent="HSplitContainer/Columna1"]
 layout_mode = 2
@@ -72,7 +72,7 @@ size_flags_horizontal = 8
 [node name="Musica" type="Label" parent="HSplitContainer/Columna1"]
 modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
 layout_mode = 2
-text = "Volumen musica"
+text = "ajus_vol_mus"
 
 [node name="ContMusica" type="HBoxContainer" parent="HSplitContainer/Columna1"]
 layout_mode = 2
@@ -90,7 +90,7 @@ layout_mode = 2
 [node name="Enemigos" type="Label" parent="HSplitContainer/Columna1"]
 modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
 layout_mode = 2
-text = "Volumen enemigos"
+text = "ajus_vol_ene"
 
 [node name="ContEnemigos" type="HBoxContainer" parent="HSplitContainer/Columna1"]
 layout_mode = 2
@@ -110,15 +110,39 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 5
 
+[node name="Espacio1" type="Panel" parent="HSplitContainer/Columna2"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
 [node name="Teclas" type="Button" parent="HSplitContainer/Columna2"]
+custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "Cambiar teclas 
-por defecto"
+text = "ajus_btn_tecl"
+
+[node name="Espacio2" type="Panel" parent="HSplitContainer/Columna2"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Idiomas" type="OptionButton" parent="HSplitContainer/Columna2"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+item_count = 4
+popup/item_0/text = "ajus_optbtn_es"
+popup/item_1/text = "ajus_optbtn_en"
+popup/item_1/id = 1
+popup/item_2/text = "ajus_optbtn_pt"
+popup/item_2/id = 2
+popup/item_3/text = "ajus_optbtn_it"
+popup/item_3/id = 3
 
 [connection signal="pressed" from="BotonVolver" to="." method="_on_boton_volver_pressed"]
 [connection signal="value_changed" from="HSplitContainer/Columna1/ContGeneral/HSliderGeneral" to="." method="_on_h_slider_general_value_changed"]
 [connection signal="value_changed" from="HSplitContainer/Columna1/ContMusica/HSliderMusic" to="." method="_on_h_slider_music_value_changed"]
 [connection signal="value_changed" from="HSplitContainer/Columna1/ContEnemigos/HSliderEnemigos" to="." method="_on_h_slider_enemigos_value_changed"]
 [connection signal="pressed" from="HSplitContainer/Columna2/Teclas" to="." method="_on_teclas_pressed"]
+[connection signal="item_selected" from="HSplitContainer/Columna2/Idiomas" to="." method="_on_option_button_item_selected"]

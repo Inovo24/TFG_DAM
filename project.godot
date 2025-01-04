@@ -76,7 +76,7 @@ salir={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://Dialogos.en.translation", "res://Dialogos.es.translation")
+locale/translations=PackedStringArray("res://Dialogos.en.translation", "res://Dialogos.es.translation", "res://Dialogos.pt.translation", "res://Dialogos.it.translation")
 
 [layer_names]
 

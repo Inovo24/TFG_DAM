@@ -7,7 +7,7 @@ func _ready():
 	$PlayerIcon.global_position = current_level.global_position
 	
 	var salir_tecla = InputMap.action_get_events("salir")[0].as_text().replace(" (Physical)", "")
-	$TextoSalir/Lavel.text = "Pulsa " + salir_tecla + " para salir"
+	$TextoSalir.text = tr("gen_salir").replace("{tecla}",salir_tecla)
 
 func _input(event):
 	if event.is_action_pressed("mover_izq") and current_level.next_level_left:

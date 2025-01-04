@@ -1,13 +1,49 @@
-﻿keys,es,en
-menuin_lab_confirmacion,¿Seguro que quieres salir?,Are you sure you want to go out?
-menuin_lab_titulo,Menu,Menu
-menuin_btn_salir,Salir,Exit
-menuin_btn_ajustes,Ajustes,Settings
-menuin_btn_cerrar,Cerrar menu,Close menu
-menuin_btn_si,Si,Yes
-menuin_btn_no,No,No
-ini_lab_ajustes,Pulsa {tecla} para entrar a los ajustes,Press {tecla} to enter settings
-ini_lab_salir,Pulsa {tecla} para salir del juego,Press {tecla} to exit the game
-ini_lab_selector,Pulsa {tecla} para entrar,Press {tecla} to enter
-ini_lab_niveles,Pulsa {tecla} para entrar,Press {tecla} to enter
-ini_lab_salir_dialog,¿Estás seguro de que quieres salir?,Are you sure you want to go out?
+﻿keys,es,en,pt,it
+menuin_lab_confirmacion,¿Seguro que quieres salir?,Are you sure you want to go out?,Tem certeza de que quer sair?,Sei sicuro di voler uscire?
+menuin_lab_titulo,Menu,Menu,Menu,Menu
+menuin_btn_salir,Salir,Exit,Sair,Uscire
+menuin_btn_ajustes,Ajustes,Settings,Configurações,Impostazioni
+menuin_btn_cerrar,Cerrar menu,Close menu,Fechar menu,Chiudi menu
+menuin_btn_si,Si,Yes,Sim,Sì
+menuin_btn_no,No,No,Não,No
+ini_lab_ajustes,Pulsa {tecla} para entrar a los ajustes,Press {tecla} to enter settings,Pressione {tecla} para acessar as configurações,Premi {tecla} per accedere alle impostazioni
+ini_lab_salir,Pulsa {tecla} para salir del juego,Press {tecla} to exit the game,Pressione {tecla} para sair do jogo,Premi {tecla} per uscire dal gioco
+ini_lab_selector,Pulsa {tecla} para entrar,Press {tecla} to enter,Pressione {tecla} para entrar,Premi {tecla} per entrare
+ini_lab_niveles,Pulsa {tecla} para entrar,Press {tecla} to enter,Pressione {tecla} para entrar,Premi {tecla} per entrare
+ini_lab_salir_dialog,¿Estás seguro de que quieres salir?,Are you sure you want to go out?,Tem certeza de que quer sair?,Sei sicuro di voler uscire?
+pers_valk_nom,Valkiria,Valkyrie,Valkíria,Valchiria
+pers_valk_vel,Normal,Normal,Normal,Normale
+pers_valk_arm,Lanza (Media distancia),Spear (Medium range),Lança (Médio alcance),Lancia (Distanza media)
+pers_valk_his,Esta historia es una mierda (fue cagada por un dragón),This story is garbage (it was crapped out by a dragon),Esta história é um lixo (foi cagada por um dragão),Questa storia è una schifezza (è stata fatta da un drago)
+pers_arq_nom,Arquero,Archer,Arqueiro,Arciere
+pers_arq_vel,Veloz,Fast,Rápido,Veloce
+pers_arq_arm,Arco (Larga distancia),Bow (Long range),Arco (Longo alcance),Arco (Lunga distanza)
+pers_arq_his,Este escuchimizo soldado fue reclutado a la fuerza para combatir,This scrawny soldier was forcibly recruited to fight,Este soldado magricela foi recrutado à força para lutar,Questo soldato smilzo è stato arruolato a forza per combattere
+pers_vik_nom,Vikingo,Viking,Vikingue,Vichingo
+pers_vik_vel,Lento,Slow,Lento,Lento
+pers_vik_arm,Hacha (Corta distancia),Axe (Short range),Machado (Curto alcance),Ascia (Corta distanza)
+pers_vik_his,De las profundidades de la tierra sale este vikingo con gran valentía,From the depths of the earth this Viking emerges with great courage,Das profundezas da terra surge este vikingue com grande coragem,Dalle profondità della terra emerge questo vichingo con grande coraggio
+ajus_vol_gen,Volumen general,General volume,Volume geral,Volume generale
+ajus_vol_mus,Volumen música,Music volume,Volume da música,Volume musica
+ajus_vol_ene,Volumen enemigos,Enemies volume,Volume dos inimigos,Volume nemici
+ajus_btn_tecl,Cambiar teclas\npor defecto,Change keys\nto default,Alterar teclas\npara padrão,Cambia tasti\na predefiniti
+ajus_optbtn_es,Español,Spanish,Espanhol,Spagnolo
+ajus_optbtn_en,Inglés,English,Inglês,Inglese
+ajus_optbtn_pt,Portugués,Portuguese,Português,Portoghese
+ajus_optbtn_it,Italiano,Italian,Italiano,Italiano
+tecl_txt_noasignado,No asignado,Not assigned,Não atribuído,Non assegnato
+tecl_txt_pres,Presiona una tecla...,Press a key...,Pressione uma tecla...,Premi un tasto...
+tecl_txt_camb,Cambiar,Change,Alterar,Cambia
+tecl_lab_tecpri,Tecla primaria,Primary key,Tecla primária,Tasto primario
+tecl_lab_tecsec,Tecla secundaria,Secondary key,Tecla secundária,Tasto secondario
+tecl_lab_act,Acción,Action,Ação,Azione
+tecl_lab_arr,Arriba,Up,Cima,Sopra
+tecl_lab_abj,Abajo,Down,Baixo,Sotto
+tecl_lab_der,Derecha,Right,Direita,Destra
+tecl_lab_izq,Izquierda,Left,Esquerda,Sinistra
+tecl_lab_acp,Aceptar/Entrar,Accept/Enter,Aceitar/Entrar,Accetta/Entra
+tecl_lab_slr,Salir,Exit,Sair,Uscire
+tecl_lab_atq,Ataque,Attack,Ataque,Attacco
+tecl_lab_slt,Salto,Jump,Pulo,Salto
+gen_salir,Pulsa {tecla} para salir,Press {tecla} to exit,Pressione {tecla} para sair,Premi {tecla} per uscire
+gen_volver,Volver,Go back,Voltar,Torna indietro

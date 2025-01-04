@@ -38,16 +38,16 @@ func _update_button_texts():
 		if events.size() > 1:
 			action_buttons[action_name][1].text = events[1].as_text().replace(" (Physical)", "")
 		else:
-			action_buttons[action_name][1].text = "No asignado"
+			action_buttons[action_name][1].text = "tecl_txt_noasignado"
 	
 	#Cambiar texto salir
 	var salir_tecla = InputMap.action_get_events("salir")[0].as_text().replace(" (Physical)", "")
-	$BotonVolver/TextoSalir.text = "Pulsa " + salir_tecla + " para salir"
+	$BotonVolver/TextoSalir.text = tr("gen_salir").replace("{tecla}",salir_tecla)
 
 func _on_action_button_pressed(action_name):
 	# Inicia el proceso de reasignación
 	current_action = action_name
-	action_buttons[action_name][opcion].text = "Presiona una tecla..."
+	action_buttons[action_name][opcion].text = "tecl_txt_pres"
 	set_process_input(true)
 
 # Maneja los eventos de entrada (como la tecla presionada)
