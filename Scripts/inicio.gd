@@ -4,7 +4,7 @@ extends Node2D
 var barra_vida
 var player 
 var barraVida
-@onready var barraVidaEscena = preload("res://Barravida.tscn")
+@onready var barraVidaEscena = preload("res://Scenes/Barravida.tscn")
 
 # Variable para almacenar la instancia del menú
 var menu_instance: Node = null

@@ -323,8 +323,8 @@ position = Vector2(-3, -109)
 shape = SubResource("SegmentShape2D_yintj")
 
 [node name="Colorblindness" type="CanvasLayer" parent="."]
+layer = 0
 script = ExtResource("18_8cjok")
-Type = 2
 
 [connection signal="body_entered" from="AreaNiveles" to="AreaNiveles" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaNiveles" to="AreaNiveles" method="_on_body_exited"]

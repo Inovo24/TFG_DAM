@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://di8bcj1oji2ti"]
 
-[ext_resource type="Texture2D" uid="uid://v5pui3ih3qoj" path="res://Sprites/healthbarUnder.png" id="1_crla6"]
-[ext_resource type="Texture2D" uid="uid://cjjgq02yac41x" path="res://Sprites/healthbarProgress.png" id="2_lib3s"]
-[ext_resource type="Script" path="res://Scripts/texture_progress_bar.gd" id="3_mo425"]
+[ext_resource type="Texture2D" uid="uid://v5pui3ih3qoj" path="res://Sprites/healthbarUnder.png" id="1_kgiab"]
+[ext_resource type="Texture2D" uid="uid://cjjgq02yac41x" path="res://Sprites/healthbarProgress.png" id="2_fdf3w"]
+[ext_resource type="Script" path="res://Scripts/texture_progress_bar.gd" id="3_ykdvt"]
 
 [node name="Barravida" type="Node2D"]
 
@@ -12,9 +12,9 @@
 offset_right = 171.0
 offset_bottom = 31.0
 nine_patch_stretch = true
-texture_under = ExtResource("1_crla6")
-texture_progress = ExtResource("2_lib3s")
-script = ExtResource("3_mo425")
+texture_under = ExtResource("1_kgiab")
+texture_progress = ExtResource("2_fdf3w")
+script = ExtResource("3_ykdvt")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_left = 9.0
