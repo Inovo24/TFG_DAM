@@ -140,9 +140,30 @@ popup/item_2/id = 2
 popup/item_3/text = "ajus_optbtn_it"
 popup/item_3/id = 3
 
+[node name="Espacio3" type="Panel" parent="HSplitContainer/Columna2"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Daltonismo" type="OptionButton" parent="HSplitContainer/Columna2"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+item_count = 5
+popup/item_0/text = "None"
+popup/item_1/text = "Protanopia"
+popup/item_1/id = 1
+popup/item_2/text = "Deuteranopia"
+popup/item_2/id = 2
+popup/item_3/text = "Tritanopia"
+popup/item_3/id = 3
+popup/item_4/text = "Achromatopsia"
+popup/item_4/id = 4
+
 [connection signal="pressed" from="BotonVolver" to="." method="_on_boton_volver_pressed"]
 [connection signal="value_changed" from="HSplitContainer/Columna1/ContGeneral/HSliderGeneral" to="." method="_on_h_slider_general_value_changed"]
 [connection signal="value_changed" from="HSplitContainer/Columna1/ContMusica/HSliderMusic" to="." method="_on_h_slider_music_value_changed"]
 [connection signal="value_changed" from="HSplitContainer/Columna1/ContEnemigos/HSliderEnemigos" to="." method="_on_h_slider_enemigos_value_changed"]
 [connection signal="pressed" from="HSplitContainer/Columna2/Teclas" to="." method="_on_teclas_pressed"]
 [connection signal="item_selected" from="HSplitContainer/Columna2/Idiomas" to="." method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="HSplitContainer/Columna2/Daltonismo" to="." method="_on_daltonismo_item_selected"]

@@ -6,6 +6,18 @@ var volumenes = [1,1,1]
 
 var player_instance = null  # Guardará la instancia del jugador
 
+var daltonismo = preload("res://Scenes/Colorblindness.tscn")
+const TYPE = {
+	"None":0,
+	"Protanopia":1,
+	"Deuteranopia": 2,
+	"Tritanopia": 3,
+	"Achromatopsia": 4
+}
+var daltonismo_type = TYPE.None
+
+
+
 # Método para instanciar el jugador si no está ya instanciado
 func get_player():
 	if player_instance == null: # Si el jugador no ha sido instanciado aún

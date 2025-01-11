@@ -26,6 +26,13 @@ func _ready() -> void:
 		btnIdiomas.selected = language
 	else: 
 		btnIdiomas.selected = 1
+	
+	var daltonismo_predeterminado = Globales.daltonismo_type
+	var daltonismo = Globales.TYPE.find_key(daltonismo_predeterminado)
+	var btnDaltonismo = $HSplitContainer/Columna2/Daltonismo
+	
+	
+
 
 
 func _process(delta: float) -> void:
@@ -55,6 +62,11 @@ func _on_teclas_pressed() -> void:
 
 func _on_option_button_item_selected(index: int) -> void:
 	TranslationServer.set_locale(language_codes[index])
+	set_txt_salir()
+
+func _on_daltonismo_item_selected(index):
+	var select = Globales.TYPE.keys()[index]
+	Globales.daltonismo_type = Globales.TYPE[select]
 	set_txt_salir()
 
 func set_txt_salir():

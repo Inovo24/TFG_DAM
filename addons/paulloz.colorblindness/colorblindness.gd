@@ -9,7 +9,7 @@ enum TYPE { None, Protanopia, Deuteranopia, Tritanopia, Achromatopsia }
 var Type: TYPE = TYPE.None:
 	set(value):
 		if rect.material:
-			rect.material.set_shader_parameter("type", value)
+			rect.material.set_shader_parameter("type", int(value))
 		else:
 			temp = value
 		Type = value

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bri13kxv672ig"]
+[gd_scene load_steps=27 format=4 uid="uid://bri13kxv672ig"]
 
 [ext_resource type="Script" path="res://Scripts/inicio.gd" id="1_6wmnn"]
 [ext_resource type="Script" path="res://Scripts/area_niveles.gd" id="2_5rwxf"]
@@ -17,7 +17,6 @@
 [ext_resource type="Script" path="res://Scripts/barco_area.gd" id="14_xldw7"]
 [ext_resource type="AudioStream" uid="uid://p74cf510edy4" path="res://Audio/3. Saga of the Sea Wolves.mp3" id="15_f4hti"]
 [ext_resource type="Script" path="res://Scripts/ajustes_area.gd" id="16_3x7h1"]
-[ext_resource type="Script" path="res://addons/paulloz.colorblindness/colorblindness.gd" id="18_8cjok"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h08hr"]
 size = Vector2(56, 45)
@@ -321,10 +320,6 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrera"]
 position = Vector2(-3, -109)
 shape = SubResource("SegmentShape2D_yintj")
-
-[node name="Colorblindness" type="CanvasLayer" parent="."]
-layer = 0
-script = ExtResource("18_8cjok")
 
 [connection signal="body_entered" from="AreaNiveles" to="AreaNiveles" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaNiveles" to="AreaNiveles" method="_on_body_exited"]
