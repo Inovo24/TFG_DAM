@@ -7,11 +7,17 @@ const GRAVEDAD = 2000
 
 
 const COYOTE_TIME = 0.08
-const INPUT_BUFFER_PATIENCE = 0.1
+const INPUT_BUFFER_PATIENCE = 0.2
+const COMMBO_TIME = 0.5
+
 
 var input_buffer : Timer
 var coyote_timer : Timer
 var coyote_jump_available : bool = true
+var combo_timer : Timer
+var combo_avaible : bool = false
+
+
 
 
 var vida_maxima = 125
@@ -19,6 +25,8 @@ var vida_actual
 var daño = 10
 var velocidad = 200
 
+var combo_count =0
+var next_attack : bool = false
 
 @onready var animPlayer = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
@@ -47,6 +55,14 @@ func _ready():
 	coyote_timer.one_shot = true
 	add_child(coyote_timer)
 	coyote_timer.timeout.connect(coyote_timeout)
+	
+	combo_timer = Timer.new()
+	combo_timer.wait_time = COMMBO_TIME
+	combo_timer.one_shot = true
+	add_child(combo_timer)
+	combo_timer.timeout.connect(combo_timeout)
+	
+
 
 	
 
@@ -57,9 +73,11 @@ func _physics_process(delta):
 	# Actualizar animación en función de la entrada de usuario
 	#update_state(input_horizontal, intento_salto)
 
-	if Input.is_action_just_pressed("ataque"):
+	if (Input.is_action_just_pressed("ataque") and not combo_avaible):
 		#previous_state = current_state
+		#if current_state == State.ATTACK
 		switch_state(State.ATTACK)
+		#atacar()
 		
 	# Lógica de salto con coyote y gravedad
 	if intento_salto or input_buffer.time_left > 0:
@@ -117,22 +135,44 @@ func switch_state(new_state: State):
 				velocity.y = VELOCIDAD_SALTO
 				
 			State.ATTACK:
-				anim_state_machine.travel("ataque1")
+				#anim_state_machine.travel("ataque1")
+				combo_avaible = true
+				combo_timer.start()
 				atacar()
 				
 				
 
 func _on_animation_finished(_anim_name):
 	if current_state == State.ATTACK:
+		if _anim_name == "ataque1":
+			print("ataque")
+			#switch_state(State.ATTACK)
 		print("ataque finalizado")
 		switch_state(State.IDLE)
 
 func coyote_timeout():
 	coyote_jump_available = false
-
+func combo_timeout():
+	combo_avaible = false
+	
 
 func atacar():
-	switch_state(State.ATTACK)
+	#switch_state(State.ATTACK)
+	if combo_avaible:
+		if combo_count ==0:
+			print(combo_timer.time_left)
+			anim_state_machine.travel("ataque1")
+			combo_count +=1
+			#combo_timer.start()
+		elif combo_count ==1 and combo_timer.time_left>0:
+			print("combo 2")
+			anim_state_machine.travel("ataque2")
+			combo_count +=1
+			#combo_timer.start()
+		elif combo_count==2:
+			print("combo 3")
+			anim_state_machine.travel("ataque1")
+			combo_count=0
 func getVidaMaxima()-> int:
 	return vida_maxima
 func getVidaActual():

@@ -70,10 +70,10 @@ vec3 achromatopsia(vec3 c) {
 
 void fragment() {
     vec3 originalColor = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0).rgb;
- 
+
     originalColor = rgbtosrgb(originalColor);
     originalColor = srgbtolms(originalColor);
-    
+
     vec3 outputColor = originalColor;
     if (type == 1)
         outputColor = protanopia(originalColor);
@@ -86,6 +86,6 @@ void fragment() {
 
     outputColor = lmstosrgb(outputColor);
     outputColor = srgbtorgb(outputColor);
-    
+
     COLOR.rgb = outputColor;
 }
