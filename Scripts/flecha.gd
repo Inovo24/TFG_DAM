@@ -2,7 +2,8 @@ extends Node2D
 
 @export var speed: float = 200.0  
 @export var damage: int = 20  
-var direction: Vector2 = Vector2.RIGHT  
+var direction: Vector2 = Vector2.RIGHT 
+var multiplicador_carga : float = 1.0
 
 func _process(delta: float):
 	

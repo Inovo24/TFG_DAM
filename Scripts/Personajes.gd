@@ -74,7 +74,11 @@ func _physics_process(delta):
 	
 	# Actualizar animación en función de la entrada de usuario
 	#update_state(input_horizontal, intento_salto)
-
+	
+	if current_state == State.ATTACK:
+		#velocity = Vector2.ZERO
+		pass
+	
 	if Input.is_action_just_pressed("ataque"):
 		#previous_state = current_state
 		#if current_state == State.ATTACK
@@ -161,22 +165,11 @@ func combo_timeout():
 	
 
 func atacar():
+	pass
 	#switch_state(State.ATTACK)
-	if combo_count ==0:
-		anim_state_machine.travel("ataque1")
-		combo_count +=1
-		combo_timer.start()
-	elif combo_count ==1 and combo_timer.time_left > 0:
-		print("combo 2")
-		anim_state_machine.travel("ataque2")
-		combo_count +=1
-		combo_timer.start()
-	elif combo_count==2 and combo_timer.time_left > 0:
-		print("combo 3")
-		anim_state_machine.travel("ataque3")
-		combo_count=0
-	else :
-		combo_count=0 
+	#anim_state_machine.travel("ataque1")
+	#velocity = Vector2.ZERO
+	
 
 func getVidaMaxima()-> int:
 	return vida_maxima

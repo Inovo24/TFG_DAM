@@ -13,3 +13,7 @@ func _ready() -> void:
 	#vida_maxima = 150
 	#velocidad = 150
 	print(vida_maxima)
+
+func atacar():
+	anim_state_machine.travel("ataque1")
+	#pass

@@ -190,4 +190,5 @@ active = false
 tree_root = SubResource("AnimationNodeStateMachine_tfm08")
 anim_player = NodePath("../AnimationPlayer")
 
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_finished"]
