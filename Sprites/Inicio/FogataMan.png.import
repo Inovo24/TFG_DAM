@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8v1ca23746oc"
-path="res://.godot/imported/fondo_aldea.png-93fc07d724784750222ef70d94cbef0f.ctex"
+uid="uid://du36aaq74ykir"
+path="res://.godot/imported/FogataMan.png-799c1ed4aee0f5f19d2c945c56cc745f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/fondo_aldea.png"
-dest_files=["res://.godot/imported/fondo_aldea.png-93fc07d724784750222ef70d94cbef0f.ctex"]
+source_file="res://Sprites/Inicio/FogataMan.png"
+dest_files=["res://.godot/imported/FogataMan.png-799c1ed4aee0f5f19d2c945c56cc745f.ctex"]
 
 [params]
 

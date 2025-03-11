@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nssy2b2wcs1t"
-path="res://.godot/imported/herreria.png-c49f9ab1140c93687c0e6eab5cabcfbf.ctex"
+uid="uid://p5pt0mi0d75t"
+path="res://.godot/imported/Casa.png-e21fa2af568eacab34648e7d88ab8b33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/herreria.png"
-dest_files=["res://.godot/imported/herreria.png-c49f9ab1140c93687c0e6eab5cabcfbf.ctex"]
+source_file="res://Sprites/Inicio/Casa.png"
+dest_files=["res://.godot/imported/Casa.png-e21fa2af568eacab34648e7d88ab8b33.ctex"]
 
 [params]
 

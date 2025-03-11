@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://coqvu88f812oh"]
+
+[ext_resource type="Texture2D" uid="uid://crv38ew0283kv" path="res://Sprites/temp/loboTemporal.png" id="1_8y47g"]
+[ext_resource type="Script" uid="uid://brkxpdqtafm4j" path="res://Enemigos/lobo.gd" id="1_qsrl1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsrl1"]
+size = Vector2(154, 85)
+
+[node name="Lobo" type="CharacterBody2D"]
+script = ExtResource("1_qsrl1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, -2.5)
+shape = SubResource("RectangleShape2D_qsrl1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.99998, 4)
+scale = Vector2(0.3107, 0.240741)
+texture = ExtResource("1_8y47g")

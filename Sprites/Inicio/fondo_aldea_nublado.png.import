@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfj2y3nmtc2m4"
-path="res://.godot/imported/valkiria_seleccionada-Sheet.png-81c197cf2887379ea57a4fe09d7d05a1.ctex"
+uid="uid://bo8agswhtgaob"
+path="res://.godot/imported/fondo_aldea_nublado.png-25c7c525859a4e2f9105beb2cf188244.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/valkiria_seleccionada-Sheet.png"
-dest_files=["res://.godot/imported/valkiria_seleccionada-Sheet.png-81c197cf2887379ea57a4fe09d7d05a1.ctex"]
+source_file="res://Sprites/Inicio/fondo_aldea_nublado.png"
+dest_files=["res://.godot/imported/fondo_aldea_nublado.png-25c7c525859a4e2f9105beb2cf188244.ctex"]
 
 [params]
 

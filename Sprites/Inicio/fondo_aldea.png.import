@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nm83aiwep38k"
-path="res://.godot/imported/Casa_nevada.png-b0cc10e6593841b05cfe033b8e2b4f09.ctex"
+uid="uid://8v1ca23746oc"
+path="res://.godot/imported/fondo_aldea.png-dbc877477a4359d5062dd6fd5303f225.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Casa_nevada.png"
-dest_files=["res://.godot/imported/Casa_nevada.png-b0cc10e6593841b05cfe033b8e2b4f09.ctex"]
+source_file="res://Sprites/Inicio/fondo_aldea.png"
+dest_files=["res://.godot/imported/fondo_aldea.png-dbc877477a4359d5062dd6fd5303f225.ctex"]
 
 [params]
 

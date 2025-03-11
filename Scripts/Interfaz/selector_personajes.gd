@@ -19,6 +19,8 @@ func _ready() -> void:
 	for personaje in pjs:
 		personaje.play("selector")
 	pjs[Globales.personaje_actual].play("seleccionado")
+	#Cogemos la informacion del personaje selecionado
+	infos[Globales.personaje_actual].visible = true
 	
 
 func _process(_delta: float) -> void:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw5o1t4wmwpu5"
-path="res://.godot/imported/tocon.png-ed0f0df863b9d7336355cd722e5e6d26.ctex"
+uid="uid://c7y5vudpxt0qp"
+path="res://.godot/imported/fogata.png-167651ac5280446e6f9fc7bad02e2771.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/tocon.png"
-dest_files=["res://.godot/imported/tocon.png-ed0f0df863b9d7336355cd722e5e6d26.ctex"]
+source_file="res://Sprites/Inicio/fogata.png"
+dest_files=["res://.godot/imported/fogata.png-167651ac5280446e6f9fc7bad02e2771.ctex"]
 
 [params]
 

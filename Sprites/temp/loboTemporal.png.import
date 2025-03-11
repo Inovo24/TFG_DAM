@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bly4js7rsrd86"
-path="res://.godot/imported/fondo_aldea_nubladov2.png-c98cc8cd3f4fbec76b31f1b74c7e802c.ctex"
+uid="uid://crv38ew0283kv"
+path="res://.godot/imported/loboTemporal.png-5590d4a5be54326ab411bea7401ca9d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/fondo_aldea_nubladov2.png"
-dest_files=["res://.godot/imported/fondo_aldea_nubladov2.png-c98cc8cd3f4fbec76b31f1b74c7e802c.ctex"]
+source_file="res://Sprites/temp/loboTemporal.png"
+dest_files=["res://.godot/imported/loboTemporal.png-5590d4a5be54326ab411bea7401ca9d0.ctex"]
 
 [params]
 

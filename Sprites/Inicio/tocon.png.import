@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du36aaq74ykir"
-path="res://.godot/imported/FogataMan.png-7f429dda47ec0ce8d91bd224ceabeb98.ctex"
+uid="uid://dw5o1t4wmwpu5"
+path="res://.godot/imported/tocon.png-110db15b93d1883d6da9f73469d9882a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/FogataMan.png"
-dest_files=["res://.godot/imported/FogataMan.png-7f429dda47ec0ce8d91bd224ceabeb98.ctex"]
+source_file="res://Sprites/Inicio/tocon.png"
+dest_files=["res://.godot/imported/tocon.png-110db15b93d1883d6da9f73469d9882a.ctex"]
 
 [params]
 

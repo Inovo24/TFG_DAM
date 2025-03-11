@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdj7eckpm5ma7"
-path="res://.godot/imported/salidaBarco.png-c331ecbd771cd03fdbf7a5d7a9b1dcf7.ctex"
+uid="uid://bfj2y3nmtc2m4"
+path="res://.godot/imported/valkiria_seleccionada-Sheet.png-e3db36c9086a605e35f4635e9aca120e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/salidaBarco.png"
-dest_files=["res://.godot/imported/salidaBarco.png-c331ecbd771cd03fdbf7a5d7a9b1dcf7.ctex"]
+source_file="res://Sprites/Guerrera/valkiria_seleccionada-Sheet.png"
+dest_files=["res://.godot/imported/valkiria_seleccionada-Sheet.png-e3db36c9086a605e35f4635e9aca120e.ctex"]
 
 [params]
 

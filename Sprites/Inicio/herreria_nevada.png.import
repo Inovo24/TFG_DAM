@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnv7c88yr2w5o"
-path="res://.godot/imported/herreria_nevada.png-1c40a4c3c0dfedec6ffc839b5382d835.ctex"
+path="res://.godot/imported/herreria_nevada.png-c7dd6035032f2a4806cefda22a68acf1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/herreria_nevada.png"
-dest_files=["res://.godot/imported/herreria_nevada.png-1c40a4c3c0dfedec6ffc839b5382d835.ctex"]
+source_file="res://Sprites/Inicio/herreria_nevada.png"
+dest_files=["res://.godot/imported/herreria_nevada.png-c7dd6035032f2a4806cefda22a68acf1.ctex"]
 
 [params]
 

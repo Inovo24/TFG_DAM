@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://beccdhjgbdppi"]
 
-[ext_resource type="Script" uid="uid://bryter64bbkr2" path="res://Scripts/ajustes.gd" id="1_dtxbi"]
+[ext_resource type="Script" uid="uid://bryter64bbkr2" path="res://Scripts/Interfaz/ajustes.gd" id="1_dtxbi"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_fu7mr"]
 specular_color = Color(0.591423, 0.67124, 0.0730327, 1)

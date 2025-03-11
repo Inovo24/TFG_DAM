@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://da5s3khrk8f62"]
 
-[ext_resource type="Script" uid="uid://dwqniysv5iqve" path="res://Scripts/flecha.gd" id="1_8iulq"]
+[ext_resource type="Script" uid="uid://dwqniysv5iqve" path="res://Scripts/Personajes/flecha.gd" id="1_8iulq"]
 [ext_resource type="Texture2D" uid="uid://bkc6cr6ytoit6" path="res://Sprites/Arquero/flecha/flecha-Sheet.png" id="2_5np0n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mfsnl"]

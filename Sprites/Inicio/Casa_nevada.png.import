@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v8n7a78mwabb"
-path="res://.godot/imported/barco.png-fcb72c6d853f731b41717d83ee827917.ctex"
+uid="uid://nm83aiwep38k"
+path="res://.godot/imported/Casa_nevada.png-8b32f388afeb0799ac356142386161fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/barco.png"
-dest_files=["res://.godot/imported/barco.png-fcb72c6d853f731b41717d83ee827917.ctex"]
+source_file="res://Sprites/Inicio/Casa_nevada.png"
+dest_files=["res://.godot/imported/Casa_nevada.png-8b32f388afeb0799ac356142386161fe.ctex"]
 
 [params]
 

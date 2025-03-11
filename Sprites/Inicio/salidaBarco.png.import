@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7y5vudpxt0qp"
-path="res://.godot/imported/fogata.png-531b4544f12a4b1c4c57e00f00516582.ctex"
+uid="uid://cdj7eckpm5ma7"
+path="res://.godot/imported/salidaBarco.png-d5327c5d1a9bacc41e024267220de401.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/fogata.png"
-dest_files=["res://.godot/imported/fogata.png-531b4544f12a4b1c4c57e00f00516582.ctex"]
+source_file="res://Sprites/Inicio/salidaBarco.png"
+dest_files=["res://.godot/imported/salidaBarco.png-d5327c5d1a9bacc41e024267220de401.ctex"]
 
 [params]
 

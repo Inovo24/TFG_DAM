@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo8agswhtgaob"
-path="res://.godot/imported/fondo_aldea_nublado.png-0f5185e04e80faef53b3e1780449cab1.ctex"
+uid="uid://v8n7a78mwabb"
+path="res://.godot/imported/barco.png-327c80027346b0b8d405026d25a74b83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/fondo_aldea_nublado.png"
-dest_files=["res://.godot/imported/fondo_aldea_nublado.png-0f5185e04e80faef53b3e1780449cab1.ctex"]
+source_file="res://Sprites/Inicio/barco.png"
+dest_files=["res://.godot/imported/barco.png-327c80027346b0b8d405026d25a74b83.ctex"]
 
 [params]
 
