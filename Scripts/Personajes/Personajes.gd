@@ -3,7 +3,7 @@ class_name Personajes
 
 
 const VELOCIDAD_SALTO = -500.0
-const GRAVEDAD = 2000
+const GRAVEDAD = 1500
 
 
 const COYOTE_TIME = 0.08
@@ -94,6 +94,17 @@ func _physics_process(delta):
 	#Dependiendo de lo que presiones salta más o menos
 	if Input.is_action_just_released("salto") and velocity.y < 0:
 		velocity.y = VELOCIDAD_SALTO / 2
+		
+	if not is_on_floor():
+		if velocity.y <0:
+			anim_state_machine.travel("saltar")
+			print("subo")
+		else:
+			anim_state_machine.travel("caer")
+			print("bajo")
+	elif is_on_floor():
+		anim_state_machine.travel("idle")
+		#print("suelo")
 
 	if is_on_floor():
 		coyote_jump_available = true

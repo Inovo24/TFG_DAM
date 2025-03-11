@@ -6,7 +6,7 @@ var player
 
 var barraVida
 @onready var barraVidaEscena = preload("res://Scenes/Barravida.tscn")
-@onready var daltonismoEscena = preload("res://Scenes/Colorblindness.tscn")
+@onready var daltonismoEscena = preload("res://Scenes/ajustes/Colorblindness.tscn")
 var daltonismo
 
 func _ready():
