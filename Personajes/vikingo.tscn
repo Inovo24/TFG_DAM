@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://cfltomgtwuoc"]
 
-[ext_resource type="Script" path="res://Scripts/vikingoScript.gd" id="1_dw0it"]
+[ext_resource type="Script" uid="uid://conujhywlq0aw" path="res://Scripts/vikingoScript.gd" id="1_dw0it"]
 [ext_resource type="Texture2D" uid="uid://qnqito2bokb3" path="res://Sprites/Vikingo/viking_run-Sheet.png" id="2_3x3oj"]
 [ext_resource type="Texture2D" uid="uid://kybvbrj0wynp" path="res://Sprites/Vikingo/vikingo_idle-Sheet.png" id="2_f7ht0"]
 [ext_resource type="Texture2D" uid="uid://bopm8osjwiskk" path="res://Sprites/Vikingo/vikingo_attack2-Sheet.png" id="2_qwuiw"]
@@ -229,13 +229,13 @@ step = 0.1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s28m3"]
 _data = {
-"RESET": SubResource("Animation_it357"),
-"ataque1": SubResource("Animation_gbp7j"),
-"ataque2": SubResource("Animation_j0u2b"),
-"ataque3": SubResource("Animation_cgx8d"),
-"correr": SubResource("Animation_fst5v"),
-"idle": SubResource("Animation_mwkqa"),
-"saltar": SubResource("Animation_af52v")
+&"RESET": SubResource("Animation_it357"),
+&"ataque1": SubResource("Animation_gbp7j"),
+&"ataque2": SubResource("Animation_j0u2b"),
+&"ataque3": SubResource("Animation_cgx8d"),
+&"correr": SubResource("Animation_fst5v"),
+&"idle": SubResource("Animation_mwkqa"),
+&"saltar": SubResource("Animation_af52v")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cbqdg"]

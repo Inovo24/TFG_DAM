@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://2oodd2mcba48"]
 
-[ext_resource type="Script" path="res://Scripts/valkiriaScript.gd" id="1_edgug"]
+[ext_resource type="Script" uid="uid://dtl7w87dc1njk" path="res://Scripts/valkiriaScript.gd" id="1_edgug"]
 [ext_resource type="Texture2D" uid="uid://b3656t2080w1o" path="res://Sprites/Guerrera/run_valkiria-Sheet.png" id="2_g6gyt"]
 [ext_resource type="Texture2D" uid="uid://8t44w47j2hj6" path="res://Sprites/Guerrera/valkiria_attack1-Sheet.png" id="2_ty8sg"]
 [ext_resource type="Texture2D" uid="uid://51tjxt8hu1a2" path="res://Sprites/Guerrera/idle_valkiria-Sheet.png" id="3_wbld3"]
@@ -153,11 +153,11 @@ resource_name = "saltar"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sosqj"]
 _data = {
-"RESET": SubResource("Animation_yafkg"),
-"ataque1": SubResource("Animation_h7ury"),
-"correr": SubResource("Animation_ieji3"),
-"idle": SubResource("Animation_heg4g"),
-"saltar": SubResource("Animation_ar1lh")
+&"RESET": SubResource("Animation_yafkg"),
+&"ataque1": SubResource("Animation_h7ury"),
+&"correr": SubResource("Animation_ieji3"),
+&"idle": SubResource("Animation_heg4g"),
+&"saltar": SubResource("Animation_ar1lh")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o0nrp"]

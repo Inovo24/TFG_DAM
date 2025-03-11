@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://v5pui3ih3qoj" path="res://Sprites/healthbarUnder.png" id="1_kgiab"]
 [ext_resource type="Texture2D" uid="uid://cjjgq02yac41x" path="res://Sprites/healthbarProgress.png" id="2_fdf3w"]
-[ext_resource type="Script" path="res://Scripts/texture_progress_bar.gd" id="3_ykdvt"]
+[ext_resource type="Script" uid="uid://x56fgjrfj0xy" path="res://Scripts/texture_progress_bar.gd" id="3_ykdvt"]
 
 [node name="Barravida" type="Node2D"]
 

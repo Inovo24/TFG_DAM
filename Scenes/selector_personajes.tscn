@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=3 uid="uid://dc42x16lyph7c"]
 
-[ext_resource type="Script" path="res://Scripts/selector_personajes.gd" id="1_lansh"]
+[ext_resource type="Script" uid="uid://bhvg63jhnpos1" path="res://Scripts/selector_personajes.gd" id="1_lansh"]
 [ext_resource type="Texture2D" uid="uid://be2stv0t7inhk" path="res://Sprites/fondo_selector.png" id="2_gmxq8"]
 [ext_resource type="Texture2D" uid="uid://bnv5cd248b37w" path="res://Sprites/Vikingo/selector_viki-Sheet.png" id="3_by8vm"]
 [ext_resource type="Texture2D" uid="uid://enii75c3plnd" path="res://Sprites/Vikingo/transicion_viki-Sheet.png" id="4_2lv8s"]
@@ -157,10 +157,10 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jry54"]
 _data = {
-"RESET": SubResource("Animation_dcmhm"),
-"seleccionado": SubResource("Animation_12a5d"),
-"selector": SubResource("Animation_1a7ns"),
-"transicion": SubResource("Animation_rxjyw")
+&"RESET": SubResource("Animation_dcmhm"),
+&"seleccionado": SubResource("Animation_12a5d"),
+&"selector": SubResource("Animation_1a7ns"),
+&"transicion": SubResource("Animation_rxjyw")
 }
 
 [sub_resource type="Animation" id="Animation_pfrlb"]
@@ -270,10 +270,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a28i3"]
 _data = {
-"RESET": SubResource("Animation_pfrlb"),
-"seleccionado": SubResource("Animation_q00ny"),
-"selector": SubResource("Animation_rqryl"),
-"transicion": SubResource("Animation_m82ex")
+&"RESET": SubResource("Animation_pfrlb"),
+&"seleccionado": SubResource("Animation_q00ny"),
+&"selector": SubResource("Animation_rqryl"),
+&"transicion": SubResource("Animation_m82ex")
 }
 
 [sub_resource type="Animation" id="Animation_q0imo"]
@@ -418,10 +418,10 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jq7ts"]
 _data = {
-"RESET": SubResource("Animation_q0imo"),
-"seleccionado": SubResource("Animation_wtpx7"),
-"selector": SubResource("Animation_s5ftp"),
-"transicion": SubResource("Animation_p3e3t")
+&"RESET": SubResource("Animation_q0imo"),
+&"seleccionado": SubResource("Animation_wtpx7"),
+&"selector": SubResource("Animation_s5ftp"),
+&"transicion": SubResource("Animation_p3e3t")
 }
 
 [node name="selectorPersonajes" type="Node2D"]
