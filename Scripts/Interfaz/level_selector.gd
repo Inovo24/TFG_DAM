@@ -26,6 +26,6 @@ func _input(event):
 		if current_level.next_scene_path:
 			get_tree().change_scene_to_file(current_level.next_scene_path)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("salir"):
 		get_tree().change_scene_to_file("res://Scenes/inicio.tscn")

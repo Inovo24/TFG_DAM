@@ -13,6 +13,6 @@ class_name LevelIcon
 func _ready():
 	$Label.text = "Level " + str(level_name)
 
-func _process(delta):
+func _process(_delta):
 	if Engine.is_editor_hint():
 		$Label.text = "Level " + str(level_name)

@@ -53,7 +53,7 @@ func _physics_process(delta):
 		esta_cargando=false
 
 
-func _on_animation_finished(anim_name):
+func _on_animation_finished(_anim_name):
 	#if anim_name == "ataque1":
 		#pass
 		#disparar_flecha()
