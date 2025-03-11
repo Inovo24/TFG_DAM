@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dlj46nmkptewd"]
 
-[ext_resource type="Script" uid="uid://vmjt6it40qq6" path="res://Scripts/Interfaz/level_selector.gd" id="1_le0e7"]
-[ext_resource type="PackedScene" uid="uid://bjduehyd6cwwe" path="res://Scenes/level_icon.tscn" id="2_dppcu"]
-[ext_resource type="PackedScene" uid="uid://des2i8avsiygy" path="res://Scenes/player_icon.tscn" id="3_dpw5l"]
-[ext_resource type="Texture2D" uid="uid://4pdbyj270iip" path="res://Sprites/selectorNiveles.png" id="4_02whb"]
+[ext_resource type="Script" uid="uid://vmjt6it40qq6" path="res://Scripts/Interfaz/level_selector.gd" id="1_rjdik"]
+[ext_resource type="PackedScene" uid="uid://des2i8avsiygy" path="res://Scenes/selector_niveles/player_icon.tscn" id="2_8le48"]
+[ext_resource type="PackedScene" uid="uid://bjduehyd6cwwe" path="res://Scenes/selector_niveles/level_icon.tscn" id="3_vswd1"]
+[ext_resource type="Texture2D" uid="uid://4pdbyj270iip" path="res://Sprites/selectorNiveles.png" id="4_yyxm2"]
 
 [node name="levelSelector" type="Control"]
 layout_mode = 3
@@ -14,25 +14,26 @@ offset_left = -3.0
 offset_right = -3.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_le0e7")
+script = ExtResource("1_rjdik")
 
-[node name="PlayerIcon" parent="." instance=ExtResource("3_dpw5l")]
+[node name="PlayerIcon" parent="." instance=ExtResource("2_8le48")]
 z_index = 2
 layout_mode = 0
 offset_left = -152.0
 offset_top = -24.0
 offset_right = -88.0
 
-[node name="1" parent="." node_paths=PackedStringArray("next_level_up", "next_level_right") instance=ExtResource("2_dppcu")]
+[node name="1" parent="." node_paths=PackedStringArray("next_level_up", "next_level_right") instance=ExtResource("3_vswd1")]
 z_index = 1
 offset_left = 79.0
 offset_top = 199.0
 offset_right = 125.0
 offset_bottom = 241.0
+next_scene_path = "uid://dadwpxs80q6xk"
 next_level_up = NodePath("../5")
 next_level_right = NodePath("../2")
 
-[node name="2" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down", "next_level_left", "next_level_right") instance=ExtResource("2_dppcu")]
+[node name="2" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down", "next_level_left", "next_level_right") instance=ExtResource("3_vswd1")]
 z_index = 1
 offset_left = 266.0
 offset_top = 185.0
@@ -44,7 +45,7 @@ next_level_down = NodePath("../3")
 next_level_left = NodePath("../1")
 next_level_right = NodePath("../8")
 
-[node name="3" parent="." node_paths=PackedStringArray("next_level_up") instance=ExtResource("2_dppcu")]
+[node name="3" parent="." node_paths=PackedStringArray("next_level_up") instance=ExtResource("3_vswd1")]
 z_index = 1
 offset_left = 344.0
 offset_top = 296.0
@@ -53,7 +54,7 @@ offset_bottom = 360.0
 level_name = "3"
 next_level_up = NodePath("../2")
 
-[node name="4" parent="." node_paths=PackedStringArray("next_level_down", "next_level_left", "next_level_right") instance=ExtResource("2_dppcu")]
+[node name="4" parent="." node_paths=PackedStringArray("next_level_down", "next_level_left", "next_level_right") instance=ExtResource("3_vswd1")]
 z_index = 1
 offset_left = 208.0
 offset_top = 58.0
@@ -64,7 +65,7 @@ next_level_down = NodePath("../2")
 next_level_left = NodePath("../5")
 next_level_right = NodePath("../6")
 
-[node name="5" parent="." node_paths=PackedStringArray("next_level_down", "next_level_right") instance=ExtResource("2_dppcu")]
+[node name="5" parent="." node_paths=PackedStringArray("next_level_down", "next_level_right") instance=ExtResource("3_vswd1")]
 z_index = 1
 offset_left = 91.0
 offset_top = 46.0
@@ -74,7 +75,7 @@ level_name = "5"
 next_level_down = NodePath("../1")
 next_level_right = NodePath("../4")
 
-[node name="6" parent="." node_paths=PackedStringArray("next_level_left", "next_level_right") instance=ExtResource("2_dppcu")]
+[node name="6" parent="." node_paths=PackedStringArray("next_level_left", "next_level_right") instance=ExtResource("3_vswd1")]
 z_index = 1
 offset_left = 302.0
 offset_top = 47.0
@@ -84,7 +85,7 @@ level_name = "6"
 next_level_left = NodePath("../4")
 next_level_right = NodePath("../7")
 
-[node name="7" parent="." node_paths=PackedStringArray("next_level_down", "next_level_left") instance=ExtResource("2_dppcu")]
+[node name="7" parent="." node_paths=PackedStringArray("next_level_down", "next_level_left") instance=ExtResource("3_vswd1")]
 z_index = 1
 offset_left = 392.0
 offset_top = 41.0
@@ -94,7 +95,7 @@ level_name = "7"
 next_level_down = NodePath("../8")
 next_level_left = NodePath("../6")
 
-[node name="8" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left") instance=ExtResource("2_dppcu")]
+[node name="8" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left") instance=ExtResource("3_vswd1")]
 z_index = 1
 offset_left = 500.0
 offset_top = 178.0
@@ -107,7 +108,7 @@ next_level_left = NodePath("../2")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(313, 187)
 scale = Vector2(2.022, 2)
-texture = ExtResource("4_02whb")
+texture = ExtResource("4_yyxm2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(321, 173)

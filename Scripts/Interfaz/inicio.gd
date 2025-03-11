@@ -1,11 +1,11 @@
 extends Node2D
 
 @onready var camara = $Camera2D
-var barra_vida
+#var barra_vida
 var player 
 var barraVida
 @onready var barraVidaEscena = preload("res://Scenes/Barravida.tscn")
-@onready var daltonismoEscena = preload("res://Scenes/Colorblindness.tscn")
+@onready var daltonismoEscena = preload("res://Scenes/ajustes/Colorblindness.tscn")
 var daltonismo
 
 # Variable para almacenar la instancia del menú
@@ -41,5 +41,5 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("salir"):
 		if menu_instance == null:
-			menu_instance = preload("res://Scenes/menu_inicio.tscn").instantiate()
+			menu_instance = preload("res://Scenes/ajustes/menu_inicio.tscn").instantiate()
 			add_child(menu_instance)

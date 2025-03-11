@@ -6,7 +6,7 @@ var volumenes = [1,1,1]
 
 var player_instance = null  # Guardará la instancia del jugador
 
-var daltonismo = preload("res://Scenes/Colorblindness.tscn")
+var daltonismo = preload("res://Scenes/ajustes/Colorblindness.tscn")
 const TYPE = {
 	"None":0,
 	"Protanopia":1,

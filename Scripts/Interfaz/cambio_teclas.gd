@@ -26,7 +26,7 @@ func _ready():
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("salir"):
-		get_tree().change_scene_to_file("res://Scenes/ajustes.tscn")
+		get_tree().change_scene_to_file("res://Scenes/ajustes/ajustes.tscn")
 
 # Función para actualizar los textos de los botones con las teclas configuradas
 func _update_button_texts():
@@ -78,7 +78,7 @@ func _input(event):
 
 #Vincular señales de botones
 func _on_boton_volver_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/ajustes.tscn")
+	get_tree().change_scene_to_file("res://Scenes/ajustes/ajustes.tscn")
 
 func _on_button_derecha_1_pressed() -> void:
 	opcion = 0

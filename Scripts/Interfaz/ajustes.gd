@@ -57,7 +57,7 @@ func _on_h_slider_enemigos_value_changed(value: float) -> void:
 
 
 func _on_teclas_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/cambio_teclas.tscn")
+	get_tree().change_scene_to_file("res://Scenes/ajustes/cambio_teclas.tscn")
 
 
 func _on_option_button_item_selected(index: int) -> void:

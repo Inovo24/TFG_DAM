@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 func _on_ajustes_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/ajustes.tscn")
+	get_tree().change_scene_to_file("res://Scenes/ajustes/ajustes.tscn")
 
 
 func _on_salir_pressed() -> void:
