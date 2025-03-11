@@ -17,6 +17,33 @@ states/patrulla/node = SubResource("AnimationNodeAnimation_qsrl1")
 states/patrulla/position = Vector2(305, 100)
 transitions = ["Start", "patrulla", SubResource("AnimationNodeStateMachineTransition_qsrl1")]
 
+[sub_resource type="Animation" id="Animation_okuhp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteLobo:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qsrl1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteLobo:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_g1fwt"]
 resource_name = "patrulla"
 length = 0.4
@@ -45,33 +72,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 0, 1, 2]
-}
-
-[sub_resource type="Animation" id="Animation_okuhp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteLobo:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_qsrl1")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteLobo:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5fixg"]
@@ -115,7 +115,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteLobo/Atack"]
 position = Vector2(2.95353, 0.806132)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_g1fwt")
 
 [node name="Node2D" type="Node2D" parent="SpriteLobo"]
