@@ -1,19 +1,133 @@
-[gd_scene load_steps=4 format=3 uid="uid://coqvu88f812oh"]
+[gd_scene load_steps=11 format=3 uid="uid://coqvu88f812oh"]
 
-[ext_resource type="Texture2D" uid="uid://crv38ew0283kv" path="res://Sprites/temp/loboTemporal.png" id="1_8y47g"]
-[ext_resource type="Script" uid="uid://brkxpdqtafm4j" path="res://Enemigos/lobo.gd" id="1_qsrl1"]
+[ext_resource type="Script" uid="uid://brkxpdqtafm4j" path="res://Scripts/Enemigos/lobo.gd" id="1_qsrl1"]
+[ext_resource type="Texture2D" uid="uid://beikhcvw72w4b" path="res://Sprites/Enemigos/wolf-Sheet.png" id="2_qsrl1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsrl1"]
-size = Vector2(154, 85)
+size = Vector2(57, 31)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qsrl1"]
+animation = &"patrulla"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qsrl1"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_g1fwt"]
+states/patrulla/node = SubResource("AnimationNodeAnimation_qsrl1")
+states/patrulla/position = Vector2(305, 100)
+transitions = ["Start", "patrulla", SubResource("AnimationNodeStateMachineTransition_qsrl1")]
+
+[sub_resource type="Animation" id="Animation_g1fwt"]
+resource_name = "patrulla"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteLobo:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qsrl1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteLobo:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_okuhp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteLobo:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qsrl1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteLobo:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5fixg"]
+_data = {
+&"RESET": SubResource("Animation_okuhp"),
+&"patrulla": SubResource("Animation_g1fwt")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1fwt"]
+size = Vector2(1.42559, 1.46412)
 
 [node name="Lobo" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_qsrl1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, -2.5)
+position = Vector2(8.5, -3.5)
 shape = SubResource("RectangleShape2D_qsrl1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(5.99998, 4)
-scale = Vector2(0.3107, 0.240741)
-texture = ExtResource("1_8y47g")
+[node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
+tree_root = SubResource("AnimationNodeStateMachine_g1fwt")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5fixg")
+}
+
+[node name="SpriteLobo" type="Sprite2D" parent="."]
+position = Vector2(4, 1)
+texture = ExtResource("2_qsrl1")
+hframes = 4
+
+[node name="Atack" type="Area2D" parent="SpriteLobo"]
+position = Vector2(-68.2103, -21.6)
+scale = Vector2(17.0526, 21.6)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteLobo/Atack"]
+position = Vector2(2.95353, 0.806132)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_g1fwt")
+
+[node name="Node2D" type="Node2D" parent="SpriteLobo"]
+position = Vector2(-68.2103, -21.6)
+scale = Vector2(17.0526, 21.6)
+
+[node name="RayoDetras" type="RayCast2D" parent="SpriteLobo/Node2D"]
+position = Vector2(3.6798, 0.953704)
+target_position = Vector2(10.7495, 0)
+
+[node name="RayoDelante" type="RayCast2D" parent="SpriteLobo/Node2D"]
+position = Vector2(3.81703, 1.0463)
+target_position = Vector2(-21.9108, -0.0462964)
+
+[connection signal="body_entered" from="SpriteLobo/Atack" to="." method="_on_atack_body_entered"]

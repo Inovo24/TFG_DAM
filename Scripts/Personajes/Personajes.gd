@@ -62,9 +62,7 @@ func _ready():
 	add_child(combo_timer)
 	combo_timer.timeout.connect(combo_timeout)
 	
-
-
-	
+	add_to_group("player")
 
 func _physics_process(delta):
 	if combo_timer.time_left > 0:
@@ -175,5 +173,11 @@ func getVidaMaxima()-> int:
 	return vida_maxima
 func getVidaActual():
 	return vida_actual
-func setVidaActuak(vidaActual:int):
+func setVidaActual(vidaActual:int):
 	vida_actual = vidaActual
+
+func recibirDaño(daño:int):
+	setVidaActual(getVidaActual()-daño)
+	
+	if getVidaActual() <= 0:
+		print("Muerto sorry")
