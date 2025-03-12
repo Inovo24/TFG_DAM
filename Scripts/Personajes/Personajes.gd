@@ -33,7 +33,7 @@ var next_attack : bool = false
 @onready var anim_state_machine = animation_tree.get("parameters/playback")
 
 # Declaracion de la maquina de estados, para gestionar los estados de una mejor manera
-enum State { IDLE, RUN, JUMP, ATTACK }
+enum State { IDLE, RUN, JUMP,FALL, ATTACK }
 var current_state : State = State.IDLE
 var previous_state : State = State.IDLE
 
@@ -100,10 +100,11 @@ func _physics_process(delta):
 			anim_state_machine.travel("saltar")
 			print("subo")
 		else:
-			anim_state_machine.travel("caer")
+			switch_state(State.FALL)
 			print("bajo")
-	elif is_on_floor():
-		anim_state_machine.travel("idle")
+			
+	#elif is_on_floor() and velocity.x ==0:
+		#anim_state_machine.travel("idle")
 		#print("suelo")
 
 	if is_on_floor():
@@ -155,6 +156,8 @@ func switch_state(new_state: State):
 				#combo_timer.start()
 				atacar()
 				
+			State.FALL:
+				anim_state_machine.travel("caer")
 				
 
 func _on_animation_finished(_anim_name):
