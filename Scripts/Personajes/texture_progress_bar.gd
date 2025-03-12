@@ -10,6 +10,8 @@ func _ready():
 	print(value)
 	print(max_value)
 
+func _process(delta: float) -> void:
+	actualizar_barra()
 
 func actualizar_barra():
 	value = personaje.getVidaActual()

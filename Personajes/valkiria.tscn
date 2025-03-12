@@ -186,7 +186,7 @@ states/saltar/node = SubResource("AnimationNodeAnimation_qluc5")
 states/saltar/position = Vector2(623, 60)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_8d2jb")]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Valkiria" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
 collision_mask = 13

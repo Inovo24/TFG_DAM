@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://brkxpdqtafm4j" path="res://Scripts/Enemigos/lobo.gd" id="1_qsrl1"]
 [ext_resource type="Texture2D" uid="uid://beikhcvw72w4b" path="res://Sprites/Enemigos/wolf-Sheet.png" id="2_qsrl1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsrl1"]
-size = Vector2(57, 31)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qsrl1"]
+radius = 16.0
+height = 52.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qsrl1"]
 animation = &"patrulla"
@@ -89,8 +90,9 @@ collision_mask = 3
 script = ExtResource("1_qsrl1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8.5, -3.5)
-shape = SubResource("RectangleShape2D_qsrl1")
+position = Vector2(3, -3)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_qsrl1")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 active = false
@@ -117,6 +119,8 @@ collision_mask = 2
 position = Vector2(2.95353, 0.806132)
 shape = SubResource("RectangleShape2D_g1fwt")
 
+[node name="TimerAtack" type="Timer" parent="SpriteLobo/Atack"]
+
 [node name="Node2D" type="Node2D" parent="SpriteLobo"]
 position = Vector2(-68.2103, -21.6)
 scale = Vector2(17.0526, 21.6)
@@ -124,9 +128,13 @@ scale = Vector2(17.0526, 21.6)
 [node name="RayoDetras" type="RayCast2D" parent="SpriteLobo/Node2D"]
 position = Vector2(3.6798, 0.953704)
 target_position = Vector2(10.7495, 0)
+collision_mask = 3
 
 [node name="RayoDelante" type="RayCast2D" parent="SpriteLobo/Node2D"]
-position = Vector2(3.81703, 1.0463)
-target_position = Vector2(-21.9108, -0.0462964)
+position = Vector2(3.76543, 0.953704)
+target_position = Vector2(-21.911, 0)
+collision_mask = 3
 
 [connection signal="body_entered" from="SpriteLobo/Atack" to="." method="_on_atack_body_entered"]
+[connection signal="body_exited" from="SpriteLobo/Atack" to="." method="_on_atack_body_exited"]
+[connection signal="timeout" from="SpriteLobo/Atack/TimerAtack" to="." method="_on_timer_atack_timeout"]

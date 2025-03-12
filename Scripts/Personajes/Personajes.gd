@@ -98,10 +98,10 @@ func _physics_process(delta):
 	if not is_on_floor():
 		if velocity.y <0:
 			anim_state_machine.travel("saltar")
-			print("subo")
+			#print("subo")
 		else:
 			switch_state(State.FALL)
-			print("bajo")
+			#print("bajo")
 			
 	#elif is_on_floor() and velocity.x ==0:
 		#anim_state_machine.travel("idle")
