@@ -327,7 +327,7 @@ shape = SubResource("SegmentShape2D_yintj")
 position = Vector2(1080, 498)
 
 [node name="Trampolin" parent="." instance=ExtResource("19_k1pry")]
-position = Vector2(983, 510)
+position = Vector2(994, 474)
 
 [connection signal="body_entered" from="AreaNiveles" to="AreaNiveles" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaNiveles" to="AreaNiveles" method="_on_body_exited"]
