@@ -195,3 +195,8 @@ func recibirDaño(dañorecibido:int):
 	
 	if getVidaActual() <= 0:
 		print("Muerto sorry")
+	
+#Hace que cuando presiones "abajo" y si estas en una plataforma bajes
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("abajo") and is_on_floor():
+		position.y += 1.5
