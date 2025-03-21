@@ -201,7 +201,7 @@ func recibirDaño(_dañorecibido:int):
 	
 	if getVidaActual() <= 0:
 		print("Muerto sorry")
-		queue_free()
+		#queue_free()
 	
 
 #TODO: Hacerlo bien
