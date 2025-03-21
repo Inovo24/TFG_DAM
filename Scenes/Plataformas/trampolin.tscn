@@ -103,6 +103,7 @@ size = Vector2(19, 4.5)
 size = Vector2(23, 5)
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(89, 0)
 scale = Vector2(2, 2)
 script = ExtResource("1_leulv")
 
@@ -110,6 +111,8 @@ script = ExtResource("1_leulv")
 sprite_frames = SubResource("SpriteFrames_70pn6")
 animation = &"idle"
 autoplay = "idle"
+frame = 2
+frame_progress = 0.513091
 
 [node name="Timer" type="Timer" parent="Animaciones_Trampolin"]
 

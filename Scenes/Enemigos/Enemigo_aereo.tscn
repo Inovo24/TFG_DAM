@@ -1,0 +1,109 @@
+[gd_scene load_steps=14 format=3 uid="uid://d38t4kskhkxnc"]
+
+[ext_resource type="Texture2D" uid="uid://bite0v3nks3wv" path="res://Sprites/sprites_para_borradores/Crow.png" id="1_3vuf6"]
+[ext_resource type="Script" uid="uid://bj3cerfxcqwy8" path="res://Scripts/Enemigos/enemigo_aereo.gd" id="1_s3nne"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joso8"]
+atlas = ExtResource("1_3vuf6")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbuqf"]
+atlas = ExtResource("1_3vuf6")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gldg"]
+atlas = ExtResource("1_3vuf6")
+region = Rect2(96, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlkb7"]
+atlas = ExtResource("1_3vuf6")
+region = Rect2(144, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwa3h"]
+atlas = ExtResource("1_3vuf6")
+region = Rect2(0, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3nne"]
+atlas = ExtResource("1_3vuf6")
+region = Rect2(48, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6se4o"]
+atlas = ExtResource("1_3vuf6")
+region = Rect2(96, 144, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_joso8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joso8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbuqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gldg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlkb7")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwa3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3nne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6se4o")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gbuqf"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8gldg"]
+radius = 300.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s3nne"]
+radius = 17.1172
+
+[node name="EnemigoAereo" type="CharacterBody2D"]
+z_index = 2
+collision_layer = 16
+script = ExtResource("1_s3nne")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_joso8")
+animation = &"flying"
+autoplay = "flying"
+frame_progress = 0.380549
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gbuqf")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="Area_detencion" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_8gldg")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_s3nne")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

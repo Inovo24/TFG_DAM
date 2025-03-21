@@ -3,6 +3,7 @@ extends Node
 var personajes = [preload("res://Personajes/vikingo.tscn"),preload("res://Personajes/valkiria.tscn"),preload("res://Personajes/arquero.tscn")]
 var personaje_actual = 0 #El 0 es el vikingo, el 1 la valkiria, y el 2 el arquero
 var volumenes = [1,1,1]
+var personaje: CharacterBody2D
 
 var player_instance = null  # Guardará la instancia del jugador
 

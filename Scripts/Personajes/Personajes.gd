@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Personajes
 
 
-const VELOCIDAD_SALTO = -500.0
+const VELOCIDAD_SALTO = -400.0
 const GRAVEDAD = 1500
 
 
@@ -38,7 +38,11 @@ var current_state : State = State.IDLE
 var previous_state : State = State.IDLE
 
 
+
+
+
 func _ready():
+	
 	vida_actual = vida_maxima
 	# Inicializar AnimationTree para que funcionen las animaciones
 	animation_tree.active = true
@@ -63,6 +67,8 @@ func _ready():
 	combo_timer.timeout.connect(combo_timeout)
 	
 	add_to_group("player")
+	
+	Globales.personaje = self
 
 func _physics_process(delta):
 	if combo_timer.time_left > 0:
@@ -190,12 +196,15 @@ func getVidaActual():
 func setVidaActual(vidaActual:int):
 	vida_actual = vidaActual
 
-func recibirDaño(dañorecibido:int):
+func recibirDaño(_dañorecibido:int):
 	setVidaActual(getVidaActual()-daño)
 	
 	if getVidaActual() <= 0:
 		print("Muerto sorry")
+		queue_free()
 	
+
+#TODO: Hacerlo bien
 #Hace que cuando presiones "abajo" y si estas en una plataforma bajes
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("abajo") and is_on_floor():

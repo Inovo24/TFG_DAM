@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://bri13kxv672ig"]
+[gd_scene load_steps=30 format=4 uid="uid://bri13kxv672ig"]
 
 [ext_resource type="Script" uid="uid://didwji534yd8d" path="res://Scripts/Interfaz/inicio.gd" id="1_6wmnn"]
 [ext_resource type="Script" uid="uid://calji8pm36a08" path="res://Scripts/Interfaz/area_niveles.gd" id="2_5rwxf"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://b4aqtq736rojs" path="res://Scripts/Interfaz/ajustes_area.gd" id="16_3x7h1"]
 [ext_resource type="PackedScene" uid="uid://byb74pmcdb8fy" path="res://Scenes/Plataformas/plataforma_normal.tscn" id="18_oqijo"]
 [ext_resource type="PackedScene" uid="uid://df3q078ettq20" path="res://Scenes/Plataformas/trampolin.tscn" id="19_k1pry"]
+[ext_resource type="PackedScene" uid="uid://d38t4kskhkxnc" path="res://Scenes/Enemigos/Enemigo_aereo.tscn" id="20_nmj2t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h08hr"]
 size = Vector2(56, 45)
@@ -328,6 +329,9 @@ position = Vector2(1080, 498)
 
 [node name="Trampolin" parent="." instance=ExtResource("19_k1pry")]
 position = Vector2(983, 510)
+
+[node name="EnemigoAereo" parent="." instance=ExtResource("20_nmj2t")]
+position = Vector2(856, 365)
 
 [connection signal="body_entered" from="AreaNiveles" to="AreaNiveles" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaNiveles" to="AreaNiveles" method="_on_body_exited"]

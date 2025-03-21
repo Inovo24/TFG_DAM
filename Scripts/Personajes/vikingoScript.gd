@@ -4,7 +4,7 @@ class_name Vikingo
 
 
 func _ready() -> void:
-	super._ready()	
+	super._ready()
 	print(vida_maxima)
 
 func atacar():

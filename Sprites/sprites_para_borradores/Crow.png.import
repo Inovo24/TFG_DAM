@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crv38ew0283kv"
-path="res://.godot/imported/loboTemporal.png-5590d4a5be54326ab411bea7401ca9d0.ctex"
+uid="uid://bite0v3nks3wv"
+path="res://.godot/imported/Crow.png-4688f8549368a120667ecef6c0b6a556.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/temp/loboTemporal.png"
-dest_files=["res://.godot/imported/loboTemporal.png-5590d4a5be54326ab411bea7401ca9d0.ctex"]
+source_file="res://Sprites/sprites_para_borradores/Crow.png"
+dest_files=["res://.godot/imported/Crow.png-4688f8549368a120667ecef6c0b6a556.ctex"]
 
 [params]
 

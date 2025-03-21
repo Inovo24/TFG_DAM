@@ -10,7 +10,7 @@ func _on_activation_area_body_entered(body: Node2D) -> void:
 	timer.wait_time = animaciones_trampolin.animation.length()
 	animaciones_trampolin.play("launch")
 	#Altura a la lanza el trampolin
-	body.velocity.y = -900
+	body.velocity.y = -600
 	timer.start()
 	
 	
