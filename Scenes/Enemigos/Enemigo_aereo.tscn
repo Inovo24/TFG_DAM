@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://d38t4kskhkxnc"]
 
 [ext_resource type="Texture2D" uid="uid://bite0v3nks3wv" path="res://Sprites/sprites_para_borradores/Crow.png" id="1_3vuf6"]
-[ext_resource type="Script" uid="uid://bj3cerfxcqwy8" path="res://Scripts/Enemigos/enemigo_aereo.gd" id="1_s3nne"]
+[ext_resource type="Script" path="res://Scripts/Enemigos/enemigo_aereo.gd" id="1_s3nne"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_joso8"]
 atlas = ExtResource("1_3vuf6")
