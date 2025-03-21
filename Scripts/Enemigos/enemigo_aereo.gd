@@ -15,6 +15,8 @@ var daño = 100 # Daño que inflige el enemigo
 var attack_timer: Timer  # Temporizador para ataques repetidos
 
 func _ready() -> void:
+	timer.start()  # Inicia el temporizador de patrullaje
+
 	# Conectar eventos de detección
 	detection_area.body_entered.connect(_on_area_2d_body_entered)
 	detection_area.body_exited.connect(_on_area_2d_body_exited)
@@ -47,10 +49,22 @@ func move():
 	if is_chasing and player != null:
 		var direction = (player.position - position).normalized()
 		velocity = direction * SPEED
-	else:
-		velocity = dir * SPEED
+	elif not is_attacking:
+		velocity = dir * SPEED  # Si no está atacando, sigue moviéndose aleatoriamente
 
 	move_and_slide()
+
+func _on_timer_timeout() -> void:
+	if not is_chasing and not is_attacking:  # Solo cambiar dirección si no está en combate
+		dir = choose([Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP])
+		print("Nueva dirección:", dir)
+
+	timer.wait_time = choose([1.0, 1.5, 2.0])
+	timer.start()
+
+func choose(array):
+	array.shuffle()
+	return array[0]
 
 # --- DETECCIÓN DEL JUGADOR ---
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -66,6 +80,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		is_chasing = false
 		player = null
 		print("Cuerpo salió del área, dejando de perseguir")
+		_reanudar_patrullaje()  # Vuelve a patrullar cuando deja de perseguir
 
 # --- DETECCIÓN EN ÁREA DE ATAQUE ---
 func _on_attack_area_body_entered(body: Node2D) -> void:
@@ -83,10 +98,16 @@ func _on_attack_area_body_exited(body: Node2D) -> void:
 		SPEED -= 10
 		print("Jugador salió del área de ataque:", body.name)
 		is_attacking = false  # Deja de atacar
-		attack_timer.stop()  # Detener el temporizador para ataques
+		attack_timer.stop()  # Detener el temporizador de ataque
+		_reanudar_patrullaje()  # Vuelve a patrullar cuando deja de atacar
 
 # --- Función de ataque repetido ---
 func _realizar_ataque():
 	if player:
 		player.recibirDaño(daño)  # Aplica el daño repetidamente
 		print("Atacando al jugador, vida restante:", player.getVidaActual())
+
+# --- Reanudar patrullaje si no hay jugadores cerca ---
+func _reanudar_patrullaje():
+	if not is_chasing and not is_attacking:  # Si no está atacando ni persiguiendo, patrulla
+		timer.start()
