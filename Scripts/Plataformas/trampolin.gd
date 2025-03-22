@@ -17,6 +17,11 @@ func _on_activation_area_body_entered(body: Node2D) -> void:
 
 # Este método se ejecuta cuando el timer termina
 func _on_timer_timeout() -> void:
+	pass
 	# Reproducir la animación "idle" cuando la animación de lanzamiento haya terminado
-	animaciones_trampolin.play("idle")
+	#animaciones_trampolin.play("idle")
 	
+
+
+func _on_animaciones_trampolin_animation_finished():
+	animaciones_trampolin.play("idle")

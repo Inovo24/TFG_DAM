@@ -81,7 +81,7 @@ func _physics_process(delta):
 	
 	if current_state == State.ATTACK:
 		#velocity = Vector2.ZERO
-		pass
+		velocity.x = 0
 	
 	if Input.is_action_just_pressed("ataque"):
 		#previous_state = current_state
@@ -129,16 +129,17 @@ func _physics_process(delta):
 		
 		
 		if current_state != State.ATTACK:
-			velocity.x = move_toward(velocity.x, input_horizontal * velocidad, velocidad * delta)
+			velocity.x = input_horizontal * velocidad#move_toward(velocity.x, input_horizontal * velocidad, velocidad * delta)
 			switch_state(State.RUN)
 	
 	else:
 		
 		if is_on_floor() and current_state != State.ATTACK:
-			velocity.x = move_toward(velocity.x, 0, velocidad * delta)
+			velocity.x = 0 #move_toward(velocity.x, 0, velocidad * delta)
 			switch_state(State.IDLE)
 
 	move_and_slide()
+	
 
 
 func switch_state(new_state: State):

@@ -328,10 +328,10 @@ shape = SubResource("SegmentShape2D_yintj")
 position = Vector2(1080, 498)
 
 [node name="Trampolin" parent="." instance=ExtResource("19_k1pry")]
-position = Vector2(994, 474)
+position = Vector2(983, 514)
 
 [node name="EnemigoAereo" parent="." instance=ExtResource("20_nmj2t")]
-position = Vector2(856, 365)
+position = Vector2(81, 273)
 
 [connection signal="body_entered" from="AreaNiveles" to="AreaNiveles" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaNiveles" to="AreaNiveles" method="_on_body_exited"]

@@ -1,71 +1,51 @@
 [gd_scene load_steps=17 format=3 uid="uid://df3q078ettq20"]
 
 [ext_resource type="Script" uid="uid://c412gpajksahb" path="res://Scripts/Plataformas/trampolin.gd" id="1_leulv"]
-[ext_resource type="Texture2D" uid="uid://dlme0jo24a5ro" path="res://Sprites/sprites_para_borradores/Jumper.png" id="1_lkbjl"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_leulv"]
-atlas = ExtResource("1_lkbjl")
-region = Rect2(24, 0, 24, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fn7et"]
-atlas = ExtResource("1_lkbjl")
-region = Rect2(48, 0, 24, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hiyos"]
-atlas = ExtResource("1_lkbjl")
-region = Rect2(0, 0, 24, 16)
+[ext_resource type="Texture2D" uid="uid://b5d021uh3wydw" path="res://Sprites/plataformas/jumppad/jumppad_idle-Sheet.png" id="2_fn7et"]
+[ext_resource type="Texture2D" uid="uid://dx14gokmjti8m" path="res://Sprites/plataformas/jumppad/jumppad_jump-Sheet.png" id="3_hiyos"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q2nva"]
-atlas = ExtResource("1_lkbjl")
-region = Rect2(0, 0, 24, 16)
+atlas = ExtResource("2_fn7et")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f5d22"]
-atlas = ExtResource("1_lkbjl")
-region = Rect2(24, 0, 24, 16)
+atlas = ExtResource("2_fn7et")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_amca6"]
-atlas = ExtResource("1_lkbjl")
-region = Rect2(48, 0, 24, 16)
+atlas = ExtResource("2_fn7et")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_je8ry"]
-atlas = ExtResource("1_lkbjl")
-region = Rect2(72, 0, 24, 16)
+atlas = ExtResource("2_fn7et")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nufo7"]
-atlas = ExtResource("1_lkbjl")
-region = Rect2(96, 0, 24, 16)
+atlas = ExtResource("2_fn7et")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q8xwi"]
-atlas = ExtResource("1_lkbjl")
-region = Rect2(120, 0, 24, 16)
+atlas = ExtResource("2_fn7et")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tqace"]
-atlas = ExtResource("1_lkbjl")
-region = Rect2(144, 0, 24, 16)
+atlas = ExtResource("3_hiyos")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70pn6"]
+atlas = ExtResource("3_hiyos")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7pgf"]
+atlas = ExtResource("3_hiyos")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ndsk2"]
-atlas = ExtResource("1_lkbjl")
-region = Rect2(168, 0, 24, 16)
+atlas = ExtResource("3_hiyos")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_70pn6"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_leulv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fn7et")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hiyos")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fn7et")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 4.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q2nva")
@@ -84,23 +64,34 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q8xwi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tqace")
 }, {
-"duration": 0.1,
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70pn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7pgf")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ndsk2")
 }],
 "loop": false,
 "name": &"launch",
-"speed": 10.0
+"speed": 4.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lkbjl"]
 size = Vector2(19, 4.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_leulv"]
-size = Vector2(23, 5)
+size = Vector2(20, 5.5)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(89, 0)
@@ -108,27 +99,30 @@ scale = Vector2(2, 2)
 script = ExtResource("1_leulv")
 
 [node name="Animaciones_Trampolin" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_70pn6")
-animation = &"idle"
+animation = &"launch"
 autoplay = "idle"
-frame = 2
-frame_progress = 0.513091
+frame = 3
+frame_progress = 1.0
 
 [node name="Timer" type="Timer" parent="Animaciones_Trampolin"]
+wait_time = 0.1
 
 [node name="activation_area" type="Area2D" parent="."]
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="activation_area"]
 modulate = Color(1, 0.988235, 0, 1)
-position = Vector2(-0.5, -0.25)
+position = Vector2(-1, -2.5)
 shape = SubResource("RectangleShape2D_lkbjl")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-0.5, 5.5)
+position = Vector2(-0.5, 6.75)
 shape = SubResource("RectangleShape2D_leulv")
 
+[connection signal="animation_finished" from="Animaciones_Trampolin" to="." method="_on_animaciones_trampolin_animation_finished"]
 [connection signal="timeout" from="Animaciones_Trampolin/Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="activation_area" to="." method="_on_activation_area_body_entered"]
