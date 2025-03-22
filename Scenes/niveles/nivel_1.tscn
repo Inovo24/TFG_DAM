@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dadwpxs80q6xk"]
+[gd_scene load_steps=14 format=4 uid="uid://dadwpxs80q6xk"]
 
 [ext_resource type="Script" uid="uid://jj8ln8dc06al" path="res://Scripts/Niveles/nivel_1.gd" id="1_1kwi5"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_xmvmw"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dab024uovhugv" path="res://Sprites/backgrounds/background_level1/arboles_03.png" id="8_sji21"]
 [ext_resource type="Texture2D" uid="uid://be6k6shbvweks" path="res://Sprites/backgrounds/background_level1/arboles_04.png" id="9_o5p8x"]
 [ext_resource type="Texture2D" uid="uid://bfopn67ev7qmy" path="res://Sprites/backgrounds/background_level1/suelo.png" id="10_v2gni"]
+[ext_resource type="Texture2D" uid="uid://d1r08kypgmx8d" path="res://Sprites/backgrounds/background_level1/arbustillos.png" id="11_fw2ep"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0bsq"]
 texture = ExtResource("2_xmvmw")
@@ -75,66 +76,80 @@ position = Vector2(187, 291)
 position = Vector2(434, 341)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
 
 [node name="fondo_01" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(106, 225)
+position = Vector2(-245, 30)
 motion_scale = Vector2(0.1, 1)
-motion_mirroring = Vector2(500, 0)
+motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/fondo_01"]
 texture = ExtResource("4_aa24j")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 700, 700)
 
 [node name="fondo_02" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(106, 225)
+position = Vector2(-245, 30)
 motion_scale = Vector2(0.1, 1)
-motion_mirroring = Vector2(500, 0)
+motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/fondo_02"]
 texture = ExtResource("5_fw2ep")
+centered = false
 
 [node name="arboles_01" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(106, 225)
+position = Vector2(-245, 30)
 motion_scale = Vector2(0.2, 1)
-motion_mirroring = Vector2(500, 0)
+motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/arboles_01"]
 texture = ExtResource("6_4wobm")
+centered = false
 
 [node name="arboles_02" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(106, 225)
+position = Vector2(-245, 30)
 motion_scale = Vector2(0.3, 1)
-motion_mirroring = Vector2(500, 0)
+motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/arboles_02"]
 texture = ExtResource("7_0dpfd")
+centered = false
 
 [node name="arboles_03" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(106, 225)
+position = Vector2(-245, 30)
 motion_scale = Vector2(0.4, 1)
-motion_mirroring = Vector2(500, 0)
+motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/arboles_03"]
 texture = ExtResource("8_sji21")
+centered = false
 
 [node name="arboles_04" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(106, 225)
+position = Vector2(-245, 30)
 motion_scale = Vector2(0.5, 1)
-motion_mirroring = Vector2(500, 0)
+motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/arboles_04"]
 texture = ExtResource("9_o5p8x")
+centered = false
 
 [node name="suelo" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(106, 225)
+position = Vector2(-245, 30)
 motion_scale = Vector2(0.7, 1)
-motion_mirroring = Vector2(500, 0)
+motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/suelo"]
 texture = ExtResource("10_v2gni")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 700, 350)
 
 [node name="arbustillos" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(106, 225)
+position = Vector2(-245, 30)
 motion_scale = Vector2(0.8, 1)
-motion_mirroring = Vector2(500, 0)
+motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/arbustillos"]
+texture = ExtResource("11_fw2ep")
+centered = false
