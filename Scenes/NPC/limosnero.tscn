@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxmqlip12y7d8"]
+
+[ext_resource type="Texture2D" uid="uid://d0jswlvnsg088" path="res://Sprites/NPC/limosnero.png" id="1_ql8uh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmhj0"]
+atlas = ExtResource("1_ql8uh")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5olta"]
+atlas = ExtResource("1_ql8uh")
+region = Rect2(34, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o37wo"]
+atlas = ExtResource("1_ql8uh")
+region = Rect2(68, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnhqa"]
+atlas = ExtResource("1_ql8uh")
+region = Rect2(102, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lisb"]
+atlas = ExtResource("1_ql8uh")
+region = Rect2(136, 0, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_661pb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmhj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5olta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o37wo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnhqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lisb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Limosnero" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.1, 1.1)
+sprite_frames = SubResource("SpriteFrames_661pb")
+animation = &"idle"
+autoplay = "idle"
