@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dihrb50wnlfqq"
-path="res://.godot/imported/decoraciones.png-d8d0db4aa45469b7f2251d79660ae2a8.ctex"
+uid="uid://bypoig2ft1nmy"
+path="res://.godot/imported/troncos.png-8e0d834ea495dd65fc4421d9b2455a73.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Elementos/decoraciones.png"
-dest_files=["res://.godot/imported/decoraciones.png-d8d0db4aa45469b7f2251d79660ae2a8.ctex"]
+source_file="res://Sprites/Elementos/troncos.png"
+dest_files=["res://.godot/imported/troncos.png-8e0d834ea495dd65fc4421d9b2455a73.ctex"]
 
 [params]
 
