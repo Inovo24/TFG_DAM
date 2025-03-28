@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwapibi7c3dst"]
+
+[ext_resource type="Texture2D" uid="uid://bqsrec304vkhp" path="res://Sprites/Gemas/gemaAmarilla.png" id="1_8x51g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k48bk"]
+atlas = ExtResource("1_8x51g")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bffb"]
+atlas = ExtResource("1_8x51g")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t8fw"]
+atlas = ExtResource("1_8x51g")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vum10"]
+atlas = ExtResource("1_8x51g")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uslsq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k48bk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bffb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0t8fw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vum10")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Gema" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uslsq")
+animation = &"idle"
+autoplay = "idle"

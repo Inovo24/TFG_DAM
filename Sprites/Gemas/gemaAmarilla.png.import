@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4ci1ouvtn3lx"
-path="res://.godot/imported/fondo_cielo.png-0d25fce552b41bdd272a4a4edae61993.ctex"
+uid="uid://bqsrec304vkhp"
+path="res://.godot/imported/gemaAmarilla.png-35cbd0a5ef6ea230065c970b496b76f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/backgrounds/background_level1/fondo_cielo.png"
-dest_files=["res://.godot/imported/fondo_cielo.png-0d25fce552b41bdd272a4a4edae61993.ctex"]
+source_file="res://Sprites/Gemas/gemaAmarilla.png"
+dest_files=["res://.godot/imported/gemaAmarilla.png-35cbd0a5ef6ea230065c970b496b76f1.ctex"]
 
 [params]
 
