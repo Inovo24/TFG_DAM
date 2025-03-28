@@ -1625,12 +1625,14 @@ motion_scale = Vector2(0.1, 1)
 motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/fondo_01"]
+position = Vector2(-3, -32)
 texture = ExtResource("4_aa24j")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 700, 700)
 
 [node name="fondo_cielo" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 position = Vector2(-245, -173)
 motion_scale = Vector2(0.1, 1)
 motion_mirroring = Vector2(700, 0)
@@ -1675,6 +1677,7 @@ motion_scale = Vector2(0.4, 1)
 motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/arboles_03"]
+position = Vector2(-4, -132)
 texture = ExtResource("8_sji21")
 centered = false
 
