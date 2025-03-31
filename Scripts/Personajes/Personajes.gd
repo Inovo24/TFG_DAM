@@ -129,13 +129,13 @@ func _physics_process(delta):
 		
 		
 		if current_state != State.ATTACK:
-			velocity.x = input_horizontal * velocidad#move_toward(velocity.x, input_horizontal * velocidad, velocidad * delta)
+			velocity.x =move_toward(velocity.x, input_horizontal * velocidad, velocidad * delta *5)  # input_horizontal * velocidad
 			switch_state(State.RUN)
 	
 	else:
 		
 		if is_on_floor() and current_state != State.ATTACK:
-			velocity.x = 0 #move_toward(velocity.x, 0, velocidad * delta)
+			velocity.x = move_toward(velocity.x, 0, velocidad * delta*5) #0
 			switch_state(State.IDLE)
 
 	move_and_slide()

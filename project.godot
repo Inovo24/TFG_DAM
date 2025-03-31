@@ -27,7 +27,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/paulloz.colorblindness/plugin.cfg")
+enabled=PackedStringArray("res://addons/agent/plugin.cfg", "res://addons/paulloz.colorblindness/plugin.cfg")
 
 [input]
 
