@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://dadwpxs80q6xk"]
+[gd_scene load_steps=38 format=4 uid="uid://dadwpxs80q6xk"]
 
 [ext_resource type="Script" uid="uid://jj8ln8dc06al" path="res://Scripts/Niveles/nivel_1.gd" id="1_1kwi5"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_xmvmw"]
@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bypoig2ft1nmy" path="res://Sprites/Elementos/troncos.png" id="15_bnvlg"]
 [ext_resource type="Texture2D" uid="uid://w7abqfow6xnu" path="res://Sprites/Elementos/piedras.png" id="16_qieon"]
 [ext_resource type="Texture2D" uid="uid://7i2ewclqvc28" path="res://Sprites/Elementos/Mas_arboles.png" id="17_5o6ik"]
-[ext_resource type="PackedScene" uid="uid://byb74pmcdb8fy" path="res://Scenes/Plataformas/plataforma_normal.tscn" id="17_lb128"]
+[ext_resource type="PackedScene" uid="uid://emki51xbyht2" path="res://Scenes/Plataformas/plataforma_normal.tscn" id="17_lb128"]
 [ext_resource type="PackedScene" uid="uid://dwapibi7c3dst" path="res://Scenes/Elementos/gema.tscn" id="23_s7bd2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0bsq"]
@@ -1880,119 +1880,26 @@ sources/5 = SubResource("TileSetAtlasSource_v8v5i")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4tssb"]
 distance = 21.0
 
-[sub_resource type="Animation" id="Animation_na23q"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(704, 504)]
-}
-
-[sub_resource type="Animation" id="Animation_jj7j8"]
-resource_name = "movimiento"
-length = 2.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(704, 504), Vector2(848, 504)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_s7bd2"]
+[sub_resource type="Curve2D" id="Curve2D_s7bd2"]
+resource_local_to_scene = true
 _data = {
-&"RESET": SubResource("Animation_na23q"),
-&"movimiento": SubResource("Animation_jj7j8")
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 52, -0.5)
 }
+point_count = 2
 
-[sub_resource type="Animation" id="Animation_h8rjm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1072, 360)]
-}
-
-[sub_resource type="Animation" id="Animation_s7bd2"]
-resource_name = "movimiento"
-length = 2.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1072, 360), Vector2(1152, 360)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_h8rjm"]
+[sub_resource type="Curve2D" id="Curve2D_h8rjm"]
+resource_local_to_scene = true
 _data = {
-&"RESET": SubResource("Animation_h8rjm"),
-&"movimiento": SubResource("Animation_s7bd2")
+"points": PackedVector2Array(-7.13625, -9.5982, 7.13625, 9.5982, 1, 13, 0, 0, 0, 0, -26, -2, 0, 0, 0, 0, -30, -30.5, 0, 0, 0, 0, -20.5, -45, -11.157, 0.413223, 11.157, -0.413223, 2, -52.5, -4.95868, -14.876, 4.95868, 14.876, 35, -40, 16.5289, -14.0496, -16.5289, 14.0496, 28, 1.5, 10.7535, -0.0304537, -10.7535, 0.0304537, 1, 13)
 }
+point_count = 8
 
-[sub_resource type="Animation" id="Animation_fys6i"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1600, 40)]
-}
-
-[sub_resource type="Animation" id="Animation_qnefb"]
-resource_name = "moviemiento"
-length = 2.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1600, 40), Vector2(1600, 236)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fys6i"]
+[sub_resource type="Curve2D" id="Curve2D_qnefb"]
+resource_local_to_scene = true
 _data = {
-&"RESET": SubResource("Animation_fys6i"),
-&"moviemiento": SubResource("Animation_qnefb")
+"points": PackedVector2Array(0, 0, 0, 0, -2.5, 12.5, 0, 0, 0, 0, 0, -59, 0, 0, 0, 0, -4, -79, 0, 0, 0, 0, -24.5, -93, 0, 0, 0, 0, -46.5, -109.5, 0, 0, 0, 0, -95, -115.5, 0, 0, 0, 0, -120.5, -109)
 }
+point_count = 7
 
 [node name="Nivel1" type="Node2D"]
 script = ExtResource("1_1kwi5")
@@ -2215,29 +2122,19 @@ position = Vector2(1300, 12)
 
 [node name="Plataforma" type="Node" parent="."]
 
-[node name="Plataforma" parent="Plataforma" instance=ExtResource("17_lb128")]
-position = Vector2(704, 504)
+[node name="plataforma" parent="Plataforma" instance=ExtResource("17_lb128")]
+position = Vector2(723, 487)
+curve = SubResource("Curve2D_s7bd2")
+path_time = 2.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataforma/Plataforma"]
-libraries = {
-&"": SubResource("AnimationLibrary_s7bd2")
-}
-autoplay = "movimiento"
+[node name="plataforma2" parent="Plataforma" instance=ExtResource("17_lb128")]
+position = Vector2(1098, 300)
+curve = SubResource("Curve2D_h8rjm")
+path_time = 2.0
+transition = 0
+looping = true
 
-[node name="Plataforma2" parent="Plataforma" instance=ExtResource("17_lb128")]
-position = Vector2(1072, 360)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataforma/Plataforma2"]
-libraries = {
-&"": SubResource("AnimationLibrary_h8rjm")
-}
-autoplay = "movimiento"
-
-[node name="Plataforma3" parent="Plataforma" instance=ExtResource("17_lb128")]
-position = Vector2(1600, 40)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataforma/Plataforma3"]
-libraries = {
-&"": SubResource("AnimationLibrary_fys6i")
-}
-autoplay = "moviemiento"
+[node name="plataforma3" parent="Plataforma" instance=ExtResource("17_lb128")]
+position = Vector2(1675, 198)
+curve = SubResource("Curve2D_qnefb")
+path_time = 3.0
