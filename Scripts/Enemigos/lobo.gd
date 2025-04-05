@@ -1,11 +1,11 @@
-extends CharacterBody2D
+extends Enemigos
 
 const VEL_NOR = 70
 const VEL_RUN = 220
 var velocidad = VEL_NOR
 var direccion = -1
 const gravedad = 98
-const daño = 20
+var vida = 100
 var player
 var giro = false
 var can_atack = true
@@ -19,6 +19,9 @@ var player_in_distance = false #El jugador esta en el area en la que el lobo ata
 func _ready() -> void:
 	velocity.x = -velocidad
 	animationTree.active = true
+	
+	daño = 20
+	vida_maxima = 70
 	
 
 func _physics_process(_delta: float) -> void:

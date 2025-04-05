@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://dadwpxs80q6xk"]
+[gd_scene load_steps=39 format=4 uid="uid://dadwpxs80q6xk"]
 
 [ext_resource type="Script" uid="uid://jj8ln8dc06al" path="res://Scripts/Niveles/nivel_1.gd" id="1_1kwi5"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_xmvmw"]
@@ -19,12 +19,13 @@
 [ext_resource type="PackedScene" uid="uid://df3q078ettq20" path="res://Scenes/Plataformas/trampolin.tscn" id="13_xjwas"]
 [ext_resource type="PackedScene" uid="uid://cdpp1csevexpd" path="res://Scenes/Elementos/fuego.tscn" id="14_61tto"]
 [ext_resource type="Texture2D" uid="uid://be5a31qbr023" path="res://Sprites/Elementos/plantas.png" id="14_fit41"]
-[ext_resource type="PackedScene" uid="uid://d38t4kskhkxnc" path="res://Scenes/Enemigos/Enemigo_aereo.tscn" id="15_4yggr"]
+[ext_resource type="PackedScene" uid="uid://d38t4kskhkxnc" path="res://Enemigos/Enemigo_aereo.tscn" id="15_4yggr"]
 [ext_resource type="Texture2D" uid="uid://bypoig2ft1nmy" path="res://Sprites/Elementos/troncos.png" id="15_bnvlg"]
 [ext_resource type="Texture2D" uid="uid://w7abqfow6xnu" path="res://Sprites/Elementos/piedras.png" id="16_qieon"]
 [ext_resource type="Texture2D" uid="uid://7i2ewclqvc28" path="res://Sprites/Elementos/Mas_arboles.png" id="17_5o6ik"]
 [ext_resource type="PackedScene" uid="uid://emki51xbyht2" path="res://Scenes/Plataformas/plataforma_normal.tscn" id="17_lb128"]
 [ext_resource type="PackedScene" uid="uid://dwapibi7c3dst" path="res://Scenes/Elementos/gema.tscn" id="23_s7bd2"]
+[ext_resource type="PackedScene" uid="uid://coqvu88f812oh" path="res://Enemigos/lobo.tscn" id="26_h8rjm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0bsq"]
 texture = ExtResource("2_xmvmw")
@@ -2138,3 +2139,9 @@ looping = true
 position = Vector2(1675, 198)
 curve = SubResource("Curve2D_qnefb")
 path_time = 3.0
+
+[node name="EnemigoAereo" parent="." instance=ExtResource("15_4yggr")]
+position = Vector2(-183, 264)
+
+[node name="Lobo" parent="." instance=ExtResource("26_h8rjm")]
+position = Vector2(22, 338)

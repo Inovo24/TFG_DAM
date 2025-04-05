@@ -198,7 +198,7 @@ func setVidaActual(vidaActual:int):
 	vida_actual = vidaActual
 
 func recibirDaño(_dañorecibido:int):
-	setVidaActual(getVidaActual()-daño)
+	setVidaActual(getVidaActual()-_dañorecibido)
 	
 	if getVidaActual() <= 0:
 		print("Muerto sorry")
