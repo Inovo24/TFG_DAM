@@ -2,6 +2,8 @@ extends Personajes
 
 class_name Vikingo
 
+var enemigos: Array = []
+
 func _ready() -> void:
 	super._ready()
 	#print(vida_maxima)
@@ -30,10 +32,19 @@ func atacar():
 
 
 func _aplicar_daño_a_enemigos():
-	var area = $Sprite2D/Area2D
+	
 	print("aaaaaaaaaaaaaaaaaaaaaaaa")
-	for cuerpo in area.get_overlapping_bodies():
-		print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
-		if cuerpo is Enemigos:
-			cuerpo.recibir_daño(daño)
-			
+	for enemigo in enemigos:
+		enemigo.recibir_daño(daño)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("aaaaa")
+	if body is Enemigos and not enemigos.has(body):
+		enemigos.append(body)
+		print(enemigos)
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if enemigos.has(body):
+		enemigos.erase(body)
