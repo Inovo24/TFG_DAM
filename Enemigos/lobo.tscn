@@ -84,7 +84,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1fwt"]
 size = Vector2(1.42559, 1.46412)
 
-[node name="Lobo" type="CharacterBody2D"]
+[node name="Lobo" type="CharacterBody2D" groups=["Enemigos"]]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_qsrl1")

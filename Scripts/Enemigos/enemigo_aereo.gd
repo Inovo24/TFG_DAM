@@ -20,10 +20,10 @@ func _ready() -> void:
 	timer.start()  # Inicia el temporizador de patrullaje
 
 	# Conectar eventos de detección
-	detection_area.body_entered.connect(_on_area_2d_body_entered)
-	detection_area.body_exited.connect(_on_area_2d_body_exited)
-	attack_area.body_entered.connect(_on_attack_area_body_entered)
-	attack_area.body_exited.connect(_on_attack_area_body_exited)
+#	detection_area.body_entered.connect(_on_area_2d_body_entered)
+#	detection_area.body_exited.connect(_on_area_2d_body_exited)
+#	attack_area.body_entered.connect(_on_attack_area_body_entered)
+#	attack_area.body_exited.connect(_on_attack_area_body_exited)
 
 	# Temporizador para hacer daño repetidamente
 	attack_timer = Timer.new()

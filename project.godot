@@ -29,6 +29,10 @@ window/stretch/mode="viewport"
 
 enabled=PackedStringArray("res://addons/agent/plugin.cfg", "res://addons/paulloz.colorblindness/plugin.cfg")
 
+[global_group]
+
+Enemigos=""
+
 [input]
 
 mover_izq={
