@@ -33,7 +33,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D/Area2D/CollisionShape2D2:disabled")
+tracks/1/path = NodePath("Area2D/CollisionShape2D2:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -98,7 +98,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D/Area2D/CollisionShape2D2:disabled")
+tracks/2/path = NodePath("Area2D/CollisionShape2D2:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -139,7 +139,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D/Area2D/CollisionShape2D2:disabled")
+tracks/1/path = NodePath("Area2D/CollisionShape2D2:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -204,7 +204,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D/Area2D/CollisionShape2D2:disabled")
+tracks/2/path = NodePath("Area2D/CollisionShape2D2:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -456,7 +456,6 @@ graph_offset = Vector2(-83, -44.9892)
 
 [node name="Vikingo" type="CharacterBody2D"]
 z_index = 5
-position = Vector2(-2, 4)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_dw0it")
@@ -466,9 +465,11 @@ texture = ExtResource("2_beggj")
 hframes = 6
 frame = 1
 
-[node name="Area2D" type="Area2D" parent="Sprite2D"]
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(17, 4.5)
 shape = SubResource("RectangleShape2D_rahmg")
 disabled = true
@@ -487,4 +488,6 @@ active = false
 tree_root = SubResource("AnimationNodeStateMachine_88xhp")
 anim_player = NodePath("../AnimationPlayer")
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_finished"]

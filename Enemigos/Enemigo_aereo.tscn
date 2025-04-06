@@ -76,7 +76,8 @@ radius = 17.1172
 
 [node name="EnemigoAereo" type="CharacterBody2D"]
 z_index = 2
-collision_layer = 16
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_s3nne")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

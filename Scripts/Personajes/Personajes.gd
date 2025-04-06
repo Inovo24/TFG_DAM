@@ -198,7 +198,7 @@ func setVidaActual(vidaActual:int):
 	vida_actual = vidaActual
 
 func recibirDaño(_dañorecibido:int):
-	setVidaActual(getVidaActual()-daño)
+	setVidaActual(getVidaActual()-_dañorecibido)
 	
 	if getVidaActual() <= 0:
 		print("Muerto sorry")
@@ -207,6 +207,9 @@ func recibirDaño(_dañorecibido:int):
 
 #TODO: Hacerlo bien
 #Hace que cuando presiones "abajo" y si estas en una plataforma bajes
+#Ahora la plataforma está en la capa 10 y cuando presionas 'abajo' desactiva la colisón con esa plataforma
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("abajo") and is_on_floor():
-		position.y += 2.5
+		set_collision_mask_value(10,false)
+	else:
+		set_collision_mask_value(10,true)
