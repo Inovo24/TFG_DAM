@@ -31,6 +31,8 @@ func _ready() -> void:
 	attack_timer.one_shot = false  # Repite el ataque
 	attack_timer.timeout.connect(_realizar_ataque)  # Conecta la función que aplica el daño
 	add_child(attack_timer)
+	
+	super._ready()
 
 func _process(delta: float) -> void:
 	move()

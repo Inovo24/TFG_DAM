@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://beikhcvw72w4b" path="res://Sprites/Enemigos/wolf-Sheet.png" id="2_qsrl1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qsrl1"]
-radius = 16.0
+radius = 15.0
 height = 52.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qsrl1"]

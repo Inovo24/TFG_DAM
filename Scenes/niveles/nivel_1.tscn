@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://dadwpxs80q6xk"]
+[gd_scene load_steps=40 format=4 uid="uid://dadwpxs80q6xk"]
 
 [ext_resource type="Script" uid="uid://jj8ln8dc06al" path="res://Scripts/Niveles/nivel_1.gd" id="1_1kwi5"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_xmvmw"]
@@ -2146,7 +2146,7 @@ curve = SubResource("Curve2D_qnefb")
 path_time = 3.0
 
 [node name="EnemigoAereo" parent="." instance=ExtResource("15_4yggr")]
-position = Vector2(-183, 264)
+position = Vector2(-141, 193)
 
 [node name="Lobo" parent="." instance=ExtResource("26_h8rjm")]
 position = Vector2(22, 338)

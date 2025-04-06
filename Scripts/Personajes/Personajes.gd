@@ -72,7 +72,8 @@ func _ready():
 
 func _physics_process(delta):
 	if combo_timer.time_left > 0:
-		print(combo_timer.time_left)
+		pass
+		#print(combo_timer.time_left)
 	var input_horizontal = Input.get_axis("mover_izq", "mover_der")
 	var intento_salto = Input.is_action_just_pressed("salto")
 	
