@@ -1,0 +1,153 @@
+[gd_scene load_steps=15 format=3 uid="uid://cmhex1qp5nwsq"]
+
+[ext_resource type="Script" uid="uid://dv7f2xi8s3nnr" path="res://Scripts/Plataformas/tronco_cascada.gd" id="1_rt28r"]
+[ext_resource type="Texture2D" uid="uid://dn6amnfysbsmx" path="res://Sprites/plataformas/troncos_cascada-Sheet.png" id="2_84pdm"]
+
+[sub_resource type="Curve2D" id="Curve2D_8tg74"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, -1, 0, 0, 0, 0, 1, 358)
+}
+point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xc6nj"]
+atlas = ExtResource("2_84pdm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hepr7"]
+atlas = ExtResource("2_84pdm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi701"]
+atlas = ExtResource("2_84pdm")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1qnq"]
+atlas = ExtResource("2_84pdm")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vyhf"]
+atlas = ExtResource("2_84pdm")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_is7qk"]
+atlas = ExtResource("2_84pdm")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6iuwy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xc6nj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hepr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi701")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1qnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vyhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_is7qk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw2sc"]
+size = Vector2(32, 12)
+
+[sub_resource type="Animation" id="Animation_fvclu"]
+resource_name = "move"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PathFollow2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_70370"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PathFollow2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_omvh4"]
+_data = {
+&"RESET": SubResource("Animation_70370"),
+&"move": SubResource("Animation_fvclu")
+}
+
+[node name="Path2D" type="Path2D"]
+position = Vector2(-1, 0)
+curve = SubResource("Curve2D_8tg74")
+script = ExtResource("1_rt28r")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(1, 358)
+progress = 359.006
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(1, 358)
+rotation = 1.56523
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatableBody2D"]
+sprite_frames = SubResource("SpriteFrames_6iuwy")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_pw2sc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_omvh4")
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://cbectauge503f"]
+[gd_scene load_steps=35 format=4 uid="uid://cbectauge503f"]
 
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="1_7tdjr"]
 [ext_resource type="Script" uid="uid://duqs6hjk26o8e" path="res://Scenes/niveles/nivel_2.gd" id="1_xsyli"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://d1wuvf03sdaob" path="res://Sprites/backgrounds/cascada-Sheet.png" id="14_gphre"]
 [ext_resource type="Script" uid="uid://b4t28u4b24g36" path="res://Scenes/niveles/area_2d.gd" id="15_iqq83"]
 [ext_resource type="Texture2D" uid="uid://obfyug2rjhx3" path="res://Sprites/backgrounds/cascadaBaja-Sheet.png" id="16_iqq83"]
+[ext_resource type="PackedScene" uid="uid://cmhex1qp5nwsq" path="res://Scenes/Plataformas/tronco_cascada.tscn" id="17_i42ei"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xsyli"]
 texture = ExtResource("1_7tdjr")
@@ -558,7 +559,7 @@ texture = ExtResource("3_g5tjl")
 position = Vector2(345, 185)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(3326, 503)
+position = Vector2(3406, 523)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 visible = false
@@ -697,6 +698,9 @@ sprite_frames = SubResource("SpriteFrames_30vvi")
 autoplay = "default"
 frame = 1
 frame_progress = 0.551481
+
+[node name="Path2D" parent="." instance=ExtResource("17_i42ei")]
+position = Vector2(3552, 591)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
