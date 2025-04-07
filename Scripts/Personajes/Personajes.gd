@@ -66,7 +66,7 @@ func _ready():
 	add_child(combo_timer)
 	combo_timer.timeout.connect(combo_timeout)
 	
-	add_to_group("player")
+	
 	
 	Globales.personaje = self
 

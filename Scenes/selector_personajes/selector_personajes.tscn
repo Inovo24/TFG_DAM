@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dc42x16lyph7c"]
+[gd_scene load_steps=29 format=3 uid="uid://dc42x16lyph7c"]
 
 [ext_resource type="Script" uid="uid://bhvg63jhnpos1" path="res://Scripts/Interfaz/selector_personajes.gd" id="1_0wu1u"]
 [ext_resource type="Texture2D" uid="uid://be2stv0t7inhk" path="res://Sprites/fondo_selector.png" id="2_gmxq8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://enii75c3plnd" path="res://Sprites/Vikingo/transicion_viki-Sheet.png" id="4_2lv8s"]
 [ext_resource type="Texture2D" uid="uid://md6dnx6dva5e" path="res://Sprites/Vikingo/vikingo_seleccionado-Sheet.png" id="5_gu2w8"]
 [ext_resource type="Texture2D" uid="uid://dag5xjubuyi0r" path="res://Sprites/Guerrera/selector_valki-Sheet.png" id="6_5xpv3"]
+[ext_resource type="Texture2D" uid="uid://7080jyv6xgn0" path="res://Sprites/Guerrera/transicion_valki-Sheet.png" id="6_wprnk"]
 [ext_resource type="Texture2D" uid="uid://c3v237ki5nf82" path="res://Sprites/Guerrera/valkiria_seleccionada-Sheet-export.png" id="7_od41f"]
 [ext_resource type="Texture2D" uid="uid://d0kcxtgl45m5j" path="res://Sprites/Arquero/selector_arque-Sheet.png" id="8_aju4g"]
 [ext_resource type="Texture2D" uid="uid://cpvvu0m2hx50e" path="res://Sprites/Arquero/transicion_arquero-Sheet.png" id="9_bjsyv"]
@@ -178,6 +179,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Valkiria:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_wprnk")]
+}
 
 [sub_resource type="Animation" id="Animation_q00ny"]
 resource_name = "seleccionado"
@@ -246,26 +259,26 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Valkiria:texture")
+tracks/0/path = NodePath("Valkiria:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("6_5xpv3")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Valkiria:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Valkiria:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_wprnk")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a28i3"]
@@ -732,7 +745,7 @@ libraries = {
 [node name="Valkiria" type="Sprite2D" parent="."]
 position = Vector2(339, 149)
 scale = Vector2(2, 2)
-texture = ExtResource("7_od41f")
+texture = ExtResource("6_wprnk")
 hframes = 6
 frame = 1
 
@@ -745,8 +758,8 @@ libraries = {
 [node name="Arquero" type="Sprite2D" parent="."]
 position = Vector2(536, 221)
 scale = Vector2(2, 2)
-texture = ExtResource("10_pjoqn")
-hframes = 7
+texture = ExtResource("9_bjsyv")
+hframes = 6
 frame = 1
 
 [node name="Arquero" type="AnimationPlayer" parent="Arquero"]

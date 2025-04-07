@@ -32,6 +32,7 @@ enabled=PackedStringArray("res://addons/agent/plugin.cfg", "res://addons/paulloz
 [global_group]
 
 Enemigos=""
+Personajes=""
 
 [input]
 
