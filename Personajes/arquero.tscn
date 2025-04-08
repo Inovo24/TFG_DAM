@@ -297,7 +297,7 @@ states/saltar/node = SubResource("AnimationNodeAnimation_8geib")
 states/saltar/position = Vector2(475, 94)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_2i8xw")]
 
-[node name="Arquero" type="CharacterBody2D" groups=["Personajes"]]
+[node name="Arquero" type="CharacterBody2D" groups=["Personajes", "player"]]
 z_index = 5
 collision_layer = 2
 collision_mask = 13
