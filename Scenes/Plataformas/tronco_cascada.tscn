@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_8tg74"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 189)
+"points": PackedVector2Array(0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 171)
 }
 point_count = 2
 
@@ -62,16 +62,17 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw2sc"]
 size = Vector2(12, 32)
 
-[node name="Path2D" type="Path2D" node_paths=PackedStringArray("path_follow_2d")]
+[node name="Path2D" type="Path2D" node_paths=PackedStringArray("path_follow_2d", "colision")]
 position = Vector2(0, 1)
 curve = SubResource("Curve2D_8tg74")
 script = ExtResource("1_rt28r")
 tiempo_maximo_reaparicion = 3.0
 path_follow_2d = NodePath("PathFollow2D")
+colision = NodePath("AnimatableBody2D/CollisionShape2D")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(0, -1)
-rotation = 1.56553
+rotation = 1.56498
 loop = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
@@ -79,7 +80,8 @@ remote_path = NodePath("../../AnimatableBody2D")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 position = Vector2(0, -1)
-rotation = 1.56553
+rotation = 1.56498
+scale = Vector2(1, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatableBody2D"]
 rotation = -1.5708

@@ -12,6 +12,8 @@ var desaparecido = false
 @export var transition_type: Tween.TransitionType = Tween.TRANS_QUART
 @export var looping = false
 
+@export var colision: CollisionShape2D
+
 var tween: Tween
 
 func _ready() -> void:
@@ -19,6 +21,7 @@ func _ready() -> void:
 
 func iniciar_movimiento():
 	# Cancelar cualquier tween existente
+	
 	if tween and tween.is_valid():
 		tween.kill()
 	
@@ -48,6 +51,7 @@ func _process(delta):
 func desaparecer():
 	visible = false
 	desaparecido = true
+	colision.disabled = true
 	# Usar el método más moderno de Godot 4
 	#set_process_mode(PROCESS_MODE_DISABLED)
 	set_deferred("disable_mode", true)
@@ -61,6 +65,7 @@ func desaparecer():
 func reaparecer():
 	visible = true
 	desaparecido = false
+	colision.disabled = false
 	#set_process_mode(PROCESS_MODE_INHERIT)
 	set_deferred("disable_mode", false)
 	if is_instance_valid(path_follow_2d):
