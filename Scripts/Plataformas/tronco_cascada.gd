@@ -12,7 +12,8 @@ var desaparecido = false
 @export var transition_type: Tween.TransitionType = Tween.TRANS_QUART
 @export var looping = false
 
-@export var colision: CollisionShape2D
+@onready var colision: CollisionShape2D = $AnimatableBody2D/CollisionShape2D
+#@export var activo = colision.disabled
 
 var tween: Tween
 
@@ -43,7 +44,7 @@ func iniciar_movimiento():
 func _process(delta):
 	if desaparecido:
 		tiempo_reaparicion -= delta
-		print(tiempo_reaparicion)
+		#print(tiempo_reaparicion)
 
 	if tiempo_reaparicion <= 0 and desaparecido:
 		reaparecer()

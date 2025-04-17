@@ -62,13 +62,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw2sc"]
 size = Vector2(12, 32)
 
-[node name="Path2D" type="Path2D" node_paths=PackedStringArray("path_follow_2d", "colision")]
+[node name="Path2D" type="Path2D" node_paths=PackedStringArray("path_follow_2d")]
 position = Vector2(0, 1)
 curve = SubResource("Curve2D_8tg74")
 script = ExtResource("1_rt28r")
 tiempo_maximo_reaparicion = 3.0
 path_follow_2d = NodePath("PathFollow2D")
-colision = NodePath("AnimatableBody2D/CollisionShape2D")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(0, -1)

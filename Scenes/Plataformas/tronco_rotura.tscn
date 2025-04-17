@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqdjs2thft3vb"]
+
+[ext_resource type="Script" uid="uid://yelyansflqaw" path="res://Scripts/Plataformas/tronco_rotura.gd" id="1_k6mnv"]
+[ext_resource type="Texture2D" uid="uid://cxcfbmhu1h2sk" path="res://Sprites/plataformas/plat_rompe.png" id="2_ti67s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsvd8"]
+size = Vector2(26, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6mnv"]
+size = Vector2(26, 7)
+
+[node name="tronco_rotura" type="StaticBody2D"]
+collision_mask = 3
+script = ExtResource("1_k6mnv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, -1)
+scale = Vector2(0.84375, 0.960938)
+texture = ExtResource("2_ti67s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -1)
+shape = SubResource("RectangleShape2D_qsvd8")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, -1.5)
+shape = SubResource("RectangleShape2D_k6mnv")
+debug_color = Color(0, 0.362877, 0.426675, 0.42)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
