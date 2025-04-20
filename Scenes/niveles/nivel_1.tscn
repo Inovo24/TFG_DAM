@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://crreq7ihr0jgp" path="res://Sprites/backgrounds/background_level1/aldea/fondogris-1.png.png" id="4_jj7j8"]
 [ext_resource type="Texture2D" uid="uid://dbfsfk62b5o5b" path="res://Sprites/backgrounds/background_level1/fondo_02.png" id="5_fw2ep"]
 [ext_resource type="Texture2D" uid="uid://b3s8suesvnj5o" path="res://Sprites/backgrounds/background_level1/arboles_01.png" id="6_4wobm"]
-[ext_resource type="Texture2D" uid="uid://dav63fdfblajo" path="res://Sprites/backgrounds/background_level1/aldea/fondocaverna.png" id="6_na23q"]
+[ext_resource type="Texture2D" uid="uid://du6c0flke44wh" path="res://Sprites/backgrounds/ChatGPT Image 20 abr 2025, 17_51_41-export.png" id="6_xru5g"]
 [ext_resource type="Texture2D" uid="uid://dbh1ayprx2myv" path="res://Sprites/backgrounds/background_level1/arboles_02.png" id="7_0dpfd"]
 [ext_resource type="Texture2D" uid="uid://c3m2c6m10rwst" path="res://Sprites/backgrounds/background_level1/aldea/nubes_1.png" id="7_na23q"]
 [ext_resource type="Texture2D" uid="uid://dab024uovhugv" path="res://Sprites/backgrounds/background_level1/arboles_03.png" id="8_sji21"]
@@ -1957,13 +1957,11 @@ texture = ExtResource("5_fw2ep")
 centered = false
 
 [node name="fondoCaverna" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.3, 1)
-motion_mirroring = Vector2(1050, 0)
+position = Vector2(-245, 363)
+motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/fondoCaverna"]
-position = Vector2(-249, 380)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_na23q")
+texture = ExtResource("6_xru5g")
 centered = false
 
 [node name="arboles_01" type="ParallaxLayer" parent="ParallaxBackground"]
