@@ -135,6 +135,11 @@ position = Vector2(3.76543, 0.953704)
 target_position = Vector2(-21.911, 0)
 collision_mask = 3
 
+[node name="GiroTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
 [connection signal="body_entered" from="SpriteLobo/Atack" to="." method="_on_atack_body_entered"]
 [connection signal="body_exited" from="SpriteLobo/Atack" to="." method="_on_atack_body_exited"]
 [connection signal="timeout" from="SpriteLobo/Atack/TimerAtack" to="." method="_on_timer_atack_timeout"]
+[connection signal="timeout" from="GiroTimer" to="." method="_on_giro_timer_timeout"]

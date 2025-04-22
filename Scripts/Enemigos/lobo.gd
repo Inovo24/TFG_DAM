@@ -6,7 +6,7 @@ var velocidad = VEL_NOR
 var direccion = -1
 const gravedad = 98
 var vida = 100
-var player
+
 var giro = false
 var can_atack = true
 var player_in_distance = false # El jugador está en el área en la que el lobo ataca?
@@ -15,6 +15,7 @@ var tiempo_retroceso := 0.1  # Duración del retroceso en segundos
 
 @onready var animationTree = $AnimationTree
 @onready var timer_atack = $SpriteLobo/Atack/TimerAtack
+@onready var giro_timer = $GiroTimer
 
 @onready var rayDelantero = $SpriteLobo/Node2D/RayoDelante
 @onready var rayTrasero = $SpriteLobo/Node2D/RayoDetras
@@ -31,9 +32,8 @@ func _physics_process(_delta: float) -> void:
 	if rayDelantero.is_colliding() and rayDelantero.get_collider().is_in_group("player"):
 		velocidad = VEL_RUN
 	elif rayTrasero.is_colliding() and rayTrasero.get_collider().is_in_group("player"):
-		velocidad = VEL_RUN
-		direccion *= -1
-		giro = true
+		if giro_timer.is_stopped():
+			giro_timer.start()
 	else:
 		velocidad = VEL_NOR
 		if is_on_wall():
@@ -82,9 +82,15 @@ func atacar():
 	velocity.x = -direccion * 100  # Ajusta la fuerza del retroceso si quieres
 	await get_tree().create_timer(tiempo_retroceso).timeout
 	en_retroceso = false
+	
+	_retroceso(retro_make_damage)
 
 func _on_timer_atack_timeout() -> void:
 	can_atack = true
+
+func _on_giro_timer_timeout() -> void:
+	direccion = -1 * direccion
+	giro = true
 
 '''
 #Opcion sin retroceso (Por si acaso)
