@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://dadwpxs80q6xk"]
+[gd_scene load_steps=40 format=4 uid="uid://dadwpxs80q6xk"]
 
 [ext_resource type="Script" uid="uid://jj8ln8dc06al" path="res://Scripts/Niveles/nivel_1/nivel_1.gd" id="1_1kwi5"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_xmvmw"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://emki51xbyht2" path="res://Scenes/Plataformas/plataforma_normal.tscn" id="17_lb128"]
 [ext_resource type="PackedScene" uid="uid://dwapibi7c3dst" path="res://Scenes/Elementos/gema.tscn" id="23_s7bd2"]
 [ext_resource type="PackedScene" uid="uid://coqvu88f812oh" path="res://Enemigos/lobo.tscn" id="26_h8rjm"]
+[ext_resource type="PackedScene" uid="uid://d38t4kskhkxnc" path="res://Enemigos/Enemigo_aereo.tscn" id="26_qnefb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0bsq"]
 texture = ExtResource("2_xmvmw")
@@ -2141,3 +2142,6 @@ path_time = 3.0
 
 [node name="Lobo" parent="." instance=ExtResource("26_h8rjm")]
 position = Vector2(22, 338)
+
+[node name="EnemigoAereo" parent="." instance=ExtResource("26_qnefb")]
+position = Vector2(-122, 269)
