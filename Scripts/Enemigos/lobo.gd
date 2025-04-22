@@ -12,6 +12,7 @@ var can_atack = true
 var player_in_distance = false # El jugador está en el área en la que el lobo ataca?
 var en_retroceso := false
 var tiempo_retroceso := 0.1  # Duración del retroceso en segundos
+var puede_girar_por_trasero := true
 
 @onready var animationTree = $AnimationTree
 @onready var timer_atack = $SpriteLobo/Atack/TimerAtack
@@ -31,9 +32,8 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if rayDelantero.is_colliding() and rayDelantero.get_collider().is_in_group("player"):
 		velocidad = VEL_RUN
-	elif rayTrasero.is_colliding() and rayTrasero.get_collider().is_in_group("player"):
-		if giro_timer.is_stopped():
-			giro_timer.start()
+	elif rayTrasero.is_colliding() and puede_girar_por_trasero:
+		iniciar_giro_retrasado()
 	else:
 		velocidad = VEL_NOR
 		if is_on_wall():
@@ -92,6 +92,13 @@ func _on_giro_timer_timeout() -> void:
 	direccion = -1 * direccion
 	giro = true
 
+func iniciar_giro_retrasado() -> void:
+	puede_girar_por_trasero = false
+	await get_tree().create_timer(0.5).timeout  # Espera antes de girar
+	direccion *= -1
+	giro = true
+	await get_tree().create_timer(2.0).timeout  # Cooldown para volver a girar
+	puede_girar_por_trasero = true
 '''
 #Opcion sin retroceso (Por si acaso)
 extends Enemigos

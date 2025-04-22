@@ -128,7 +128,7 @@ scale = Vector2(17.0526, 21.6)
 [node name="RayoDetras" type="RayCast2D" parent="SpriteLobo/Node2D"]
 position = Vector2(3.6798, 0.953704)
 target_position = Vector2(10.7495, 0)
-collision_mask = 3
+collision_mask = 2
 
 [node name="RayoDelante" type="RayCast2D" parent="SpriteLobo/Node2D"]
 position = Vector2(3.76543, 0.953704)

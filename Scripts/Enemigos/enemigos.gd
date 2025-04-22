@@ -27,7 +27,7 @@ func _ready():
 
 	# Temporizador para pausar brevemente el movimiento
 	pause_timer = Timer.new()
-	pause_timer.wait_time = 0.3
+	pause_timer.wait_time = 0.5
 	pause_timer.one_shot = true
 	pause_timer.timeout.connect(Callable())
 	add_child(pause_timer)
