@@ -24,6 +24,7 @@ var vida_maxima = 125
 var vida_actual 
 var daño = 10
 var velocidad = 200
+var initialVelocity
 
 var combo_count =0
 var next_attack : bool = false
@@ -47,6 +48,8 @@ func _ready():
 	# Inicializar AnimationTree para que funcionen las animaciones
 	animation_tree.active = true
 	switch_state(State.IDLE)
+	
+	initialVelocity = velocidad
 	
 	# Configuración de temporizadores
 	input_buffer = Timer.new()
@@ -183,6 +186,11 @@ func combo_timeout():
 	combo_count = 0
 	
 	
+func change_speed(velocity):
+	velocidad -= velocity
+
+func reset_velocity():
+	velocidad= initialVelocity
 
 func atacar():
 	pass
