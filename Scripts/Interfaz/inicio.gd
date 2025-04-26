@@ -33,6 +33,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	camara.position = player.position
+	ajustar_texture_rect_al_label()
 	
 	if Input.is_action_just_pressed("salir"):
 		if menu_instance == null:
@@ -45,3 +46,11 @@ func reset_textos():
 	$TextoSelector/Label.text = tr("ini_lab_selector").replace("{tecla}",aceptar_tecla)
 	$TextoSalir/Label.text = tr("ini_lab_salir").replace("{tecla}",aceptar_tecla)
 	$TextoAjustes/Label.text = tr("ini_lab_ajustes").replace("{tecla}",aceptar_tecla)
+
+
+func ajustar_texture_rect_al_label():
+	#var padding = Vector2(20, 10) 
+	$AreaNiveles/TextoNiveles.size = $AreaNiveles/TextoNiveles/Label.size 
+	$TextoSelector.size = $TextoSelector/Label.size
+	$TextoSalir.size = $TextoSalir/Label.size
+	$TextoAjustes.size = $TextoAjustes/Label.size

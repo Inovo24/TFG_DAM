@@ -490,7 +490,7 @@ visible = false
 z_index = 2
 offset_left = -301.0
 offset_top = -38.0
-offset_right = -144.0
+offset_right = -151.0
 offset_bottom = -15.0
 texture = SubResource("CanvasTexture_e1p6u")
 
@@ -499,10 +499,11 @@ auto_translate_mode = 1
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 6.0
-offset_right = 158.0
+offset_right = 150.0
 offset_bottom = 23.0
 text = "ini_lab_niveles"
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -561,10 +562,10 @@ limit_bottom = 400
 [node name="TextoSelector" type="TextureRect" parent="."]
 visible = false
 z_index = 2
-offset_left = 256.0
-offset_top = 424.0
-offset_right = 408.0
-offset_bottom = 455.0
+offset_left = 240.0
+offset_top = 414.0
+offset_right = 440.0
+offset_bottom = 437.0
 texture = SubResource("CanvasTexture_l5pea")
 
 [node name="Label" type="Label" parent="TextoSelector"]
@@ -572,10 +573,11 @@ auto_translate_mode = 1
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 6.0
-offset_right = 152.0
+offset_right = 200.0
 offset_bottom = 23.0
 text = "ini_lab_selector"
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="fondo" type="Sprite2D" parent="."]
@@ -606,10 +608,10 @@ shape = SubResource("RectangleShape2D_1bu3n")
 [node name="TextoSalir" type="TextureRect" parent="."]
 visible = false
 z_index = 2
-offset_left = -18.0
-offset_top = 383.0
-offset_right = 109.0
-offset_bottom = 437.0
+offset_left = 48.0
+offset_top = 425.0
+offset_right = 198.0
+offset_bottom = 448.0
 texture = SubResource("CanvasTexture_e1p6u")
 
 [node name="Label" type="Label" parent="TextoSalir"]
@@ -617,10 +619,12 @@ auto_translate_mode = 1
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 6.0
-offset_right = 158.0
+offset_left = 1.0
+offset_right = 151.0
 offset_bottom = 23.0
 text = "ini_lab_salir"
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -642,10 +646,10 @@ shape = SubResource("RectangleShape2D_636ht")
 [node name="TextoAjustes" type="TextureRect" parent="."]
 visible = false
 z_index = 2
-offset_left = 797.0
-offset_top = 405.0
-offset_right = 946.0
-offset_bottom = 459.0
+offset_left = 735.0
+offset_top = 445.0
+offset_right = 935.0
+offset_bottom = 468.0
 texture = SubResource("CanvasTexture_e1p6u")
 
 [node name="Label" type="Label" parent="TextoAjustes"]
@@ -653,11 +657,11 @@ auto_translate_mode = 1
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 2.0
-offset_top = 8.0
-offset_right = 154.0
-offset_bottom = 57.0
+offset_right = 200.0
+offset_bottom = 23.0
 text = "ini_lab_ajustes"
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Tocon" type="Sprite2D" parent="."]
