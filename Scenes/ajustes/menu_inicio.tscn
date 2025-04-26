@@ -4,6 +4,7 @@
 
 [node name="MenuInicio" type="CanvasLayer"]
 process_mode = 3
+layer = 2
 script = ExtResource("1_qb7yg")
 
 [node name="Contenedor" type="VBoxContainer" parent="."]

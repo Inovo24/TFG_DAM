@@ -6,6 +6,7 @@
 specular_color = Color(0.591423, 0.67124, 0.0730327, 1)
 
 [node name="cambio_teclas" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_ccbqm")
 
 [node name="Fondo" type="Sprite2D" parent="."]

@@ -3,7 +3,7 @@ extends CanvasLayer
 @onready var ajustes = preload("res://Scenes/ajustes/ajustes.tscn")
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("salir"):
+	if Input.is_action_just_pressed("salir") and $Contenedor.visible:
 		_on_cerrar_pressed()
 
 func _on_ajustes_pressed() -> void:

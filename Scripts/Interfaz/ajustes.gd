@@ -3,6 +3,7 @@ extends CanvasLayer
 var language_codes = ["es", "en", "pt", "it"]
 
 @onready var cambio_teclas = preload("res://Scenes/ajustes/cambio_teclas.tscn")
+var cambio_teclas_abierto = false
 
 func _ready() -> void:
 	var volGen = Globales.getVolumenGeneral()
@@ -36,7 +37,7 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("salir"):
+	if Input.is_action_just_pressed("salir") and !cambio_teclas_abierto:
 		_on_boton_volver_pressed()
 
 func _on_boton_volver_pressed() -> void:
@@ -60,6 +61,7 @@ func _on_h_slider_enemigos_value_changed(value: float) -> void:
 
 
 func _on_teclas_pressed() -> void:
+	cambio_teclas_abierto = true
 	add_child(cambio_teclas.instantiate())
 
 
@@ -70,6 +72,10 @@ func _on_option_button_item_selected(index: int) -> void:
 func _on_daltonismo_item_selected(index):
 	var select = Globales.TYPE.keys()[index]
 	Globales.daltonismo_type = Globales.TYPE[select]
+	if get_parent().has_method("hacer_visible_cont"):
+		get_parent().get_parent().daltonismo.Type = Globales.daltonismo_type
+	else:
+		get_parent().daltonismo.Type = Globales.daltonismo_type
 
 func set_txt_salir():
 	#Cambiar texto salir

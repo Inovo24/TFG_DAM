@@ -78,6 +78,7 @@ func _input(event):
 
 #Vincular señales de botones
 func _on_boton_volver_pressed() -> void:
+	get_parent().cambio_teclas_abierto = false
 	queue_free()
 
 func _on_button_derecha_1_pressed() -> void:
