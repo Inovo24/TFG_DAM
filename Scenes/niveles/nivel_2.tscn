@@ -636,7 +636,7 @@ texture = ExtResource("3_g5tjl")
 position = Vector2(345, 185)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(126, 299)
+position = Vector2(78, 343)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 visible = false
@@ -822,13 +822,13 @@ position = Vector2(35, 341)
 [node name="Node2" type="Node" parent="."]
 
 [node name="zarza" parent="Node2" instance=ExtResource("19_h5rif")]
-position = Vector2(158, 307)
+position = Vector2(124, 307)
 
 [node name="zarza2" parent="Node2" instance=ExtResource("19_h5rif")]
-position = Vector2(194, 307)
+position = Vector2(160, 307)
 
 [node name="zarza3" parent="Node2" instance=ExtResource("19_h5rif")]
-position = Vector2(230, 309)
+position = Vector2(199, 307)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

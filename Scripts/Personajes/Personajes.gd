@@ -189,14 +189,11 @@ func combo_timeout():
 	
 	
 func change_speed(velocity):
-	zarzas_touching += 1
-	if zarzas_touching == 1:
 		velocidad *= velocity
 
 func reset_velocity():
-	zarzas_touching -= 1
-	if zarzas_touching == 0:
-		velocidad = initialVelocity
+	
+	velocidad = initialVelocity
 
 func atacar():
 	pass
