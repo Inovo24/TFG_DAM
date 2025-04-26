@@ -28,11 +28,7 @@ func _ready() -> void:
 	Globales.daltonismo = daltonismo
 	
 	#Iniciar textos
-	var aceptar_tecla = InputMap.action_get_events("aceptar_entrar")[0].as_text().replace(" (Physical)", "")
-	$TextoAjustes/Label.text = tr("ini_lab_ajustes").replace("{tecla}",aceptar_tecla)
-	$TextoSalir/Label.text = tr("ini_lab_salir").replace("{tecla}",aceptar_tecla)
-	$TextoSelector/Label.text = tr("ini_lab_selector").replace("{tecla}",aceptar_tecla)
-	$AreaNiveles/TextoNiveles/Label.text = tr("ini_lab_niveles").replace("{tecla}",aceptar_tecla)
+	reset_textos()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -42,3 +38,10 @@ func _process(_delta: float) -> void:
 		if menu_instance == null:
 			menu_instance = preload("res://Scenes/ajustes/menu_inicio.tscn").instantiate()
 			add_child(menu_instance)
+
+func reset_textos():
+	var aceptar_tecla = InputMap.action_get_events("aceptar_entrar")[0].as_text().replace(" (Physical)", "")
+	$AreaNiveles/TextoNiveles/Label.text = tr("ini_lab_niveles").replace("{tecla}",aceptar_tecla)
+	$TextoSelector/Label.text = tr("ini_lab_selector").replace("{tecla}",aceptar_tecla)
+	$TextoSalir/Label.text = tr("ini_lab_salir").replace("{tecla}",aceptar_tecla)
+	$TextoAjustes/Label.text = tr("ini_lab_ajustes").replace("{tecla}",aceptar_tecla)

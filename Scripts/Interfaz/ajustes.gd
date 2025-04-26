@@ -68,6 +68,11 @@ func _on_teclas_pressed() -> void:
 func _on_option_button_item_selected(index: int) -> void:
 	TranslationServer.set_locale(language_codes[index])
 	set_txt_salir()
+	var abuelo = get_parent().get_parent()
+	if abuelo.has_method("reset_textos"):
+		abuelo.reset_textos()
+	if get_parent().has_method("reset_textos"):
+		get_parent().reset_textos()
 
 func _on_daltonismo_item_selected(index):
 	var select = Globales.TYPE.keys()[index]
