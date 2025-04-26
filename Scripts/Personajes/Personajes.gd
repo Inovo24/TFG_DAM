@@ -22,6 +22,8 @@ var combo_timer : Timer
 
 var vida_maxima = 125
 var vida_actual 
+var numero_vidas = 3
+var vidas_restantes
 var daño = 10
 var velocidad = 200
 var initialVelocity
@@ -47,7 +49,7 @@ var tiene_checkpoint = false
 @onready var menu_muerte = preload("res://Scenes/Niveles/menu_muerte.tscn")
 
 func _ready():
-	
+	vidas_restantes = numero_vidas
 	vida_actual = vida_maxima
 	# Inicializar AnimationTree para que funcionen las animaciones
 	animation_tree.active = true
