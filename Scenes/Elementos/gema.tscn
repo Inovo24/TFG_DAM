@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwapibi7c3dst"]
+[gd_scene load_steps=9 format=3 uid="uid://dwapibi7c3dst"]
 
 [ext_resource type="Texture2D" uid="uid://bqsrec304vkhp" path="res://Sprites/Gemas/gemaAmarilla.png" id="1_8x51g"]
+[ext_resource type="Script" uid="uid://bj3ixt3y884fj" path="res://Scripts/Elementos/gema.gd" id="1_rxsbm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k48bk"]
 atlas = ExtResource("1_8x51g")
@@ -38,7 +39,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Gema" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8x51g"]
+radius = 5.0
+height = 16.0
+
+[node name="Gema" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_rxsbm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uslsq")
@@ -46,3 +53,8 @@ animation = &"idle"
 autoplay = "idle"
 frame = 2
 frame_progress = 0.688068
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_8x51g")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
