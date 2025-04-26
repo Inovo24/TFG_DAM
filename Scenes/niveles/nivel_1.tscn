@@ -2154,7 +2154,7 @@ position = Vector2(22, 338)
 [node name="EnemigoAereo" parent="." instance=ExtResource("26_qnefb")]
 position = Vector2(-138, 282)
 
-[node name="StaticBody2D" parent="." instance=ExtResource("27_qnefb")]
+[node name="Pinchos" parent="." instance=ExtResource("27_qnefb")]
 position = Vector2(3, 485)
 
 [node name="Area2D" parent="." instance=ExtResource("28_fys6i")]
