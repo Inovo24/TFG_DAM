@@ -6,9 +6,6 @@ menuin_btn_ajustes,Ajustes,Settings,Configurações,Impostazioni
 menuin_btn_cerrar,Cerrar menu,Close menu,Fechar menu,Chiudi menu
 menuin_btn_si,Si,Yes,Sim,Sì
 menuin_btn_no,No,No,Não,No
-menumuer_lab_titulo, Has muerto, You have died, Você morreu, Sei morto
-menumuer_lab_reiniciar, Reiniciar nivel, Restart level, Reiniciar nível, Riavvia livello
-menumuer_lab_check, Volver al checkpoint, Return to checkpoint, Voltar para o checkpoint, Torna al checkpoint
 ini_lab_ajustes,Pulsa {tecla} para entrar a los ajustes,Press {tecla} to enter settings,Pressione {tecla} para acessar as configurações,Premi {tecla} per accedere alle impostazioni
 ini_lab_salir,Pulsa {tecla} para salir del juego,Press {tecla} to exit the game,Pressione {tecla} para sair do jogo,Premi {tecla} per uscire dal gioco
 ini_lab_selector,Pulsa {tecla} para entrar,Press {tecla} to enter,Pressione {tecla} para entrar,Premi {tecla} per entrare

@@ -20,6 +20,7 @@ texture = ExtResource("1_uikjg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 7.5)
 shape = SubResource("RectangleShape2D_m4lgh")
+disabled = true
 
 [node name="AreaDano" type="Area2D" parent="."]
 collision_mask = 6

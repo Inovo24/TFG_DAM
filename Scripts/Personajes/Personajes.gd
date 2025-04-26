@@ -44,6 +44,8 @@ var ultima_posicion_segura: Vector2
 var posicion_checkpoint: Vector2
 var tiene_checkpoint = false
 
+@onready var menu_muerte = preload("res://Scenes/Niveles/menu_muerte.tscn")
+
 func _ready():
 	
 	vida_actual = vida_maxima
@@ -211,7 +213,9 @@ func recibirDaño(_dañorecibido:int):
 	setVidaActual(getVidaActual()-_dañorecibido)
 	
 	if getVidaActual() <= 0:
-		print("Muerto sorry")
+		add_child(menu_muerte.instantiate())
+		
+		get_tree().paused = true
 		#queue_free()
 	
 
@@ -224,6 +228,7 @@ func poner_posicion_checkpoint():
 
 func volver_a_checkpoint():
 	position = posicion_checkpoint
+	vida_actual = vida_maxima
 
 #TODO: Hacerlo bien
 #Hace que cuando presiones "abajo" y si estas en una plataforma bajes

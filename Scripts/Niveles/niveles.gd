@@ -14,7 +14,6 @@ var daltonismo
 var menu_instance: Node = null
 
 func _ready():
-	
 	player = Globales.get_player()  # Obtén el jugador desde la variable global
 	add_child(player)  # Añade el jugador a la escena actual
 	player.position = posicion.position # Ajusta la posición inicial del jugador
