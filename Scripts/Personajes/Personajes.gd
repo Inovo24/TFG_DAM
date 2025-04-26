@@ -124,6 +124,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		coyote_jump_available = true
 		coyote_timer.stop()
+		ultima_posicion_segura = position
 	else:
 		if coyote_jump_available and coyote_timer.is_stopped():
 			coyote_timer.start()
@@ -145,7 +146,7 @@ func _physics_process(delta):
 		if is_on_floor() and current_state != State.ATTACK:
 			velocity.x = move_toward(velocity.x, 0, velocidad * delta*5) #0
 			switch_state(State.IDLE)
-			ultima_posicion_segura = position
+			
 
 	move_and_slide()
 	
