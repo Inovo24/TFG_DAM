@@ -1,14 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjduehyd6cwwe"]
+[gd_scene load_steps=3 format=3 uid="uid://bjduehyd6cwwe"]
 
 [ext_resource type="Script" uid="uid://c50ggj7blvjcc" path="res://Scripts/Interfaz/level_icon.gd" id="1_y4h47"]
-
-[sub_resource type="Gradient" id="Gradient_lw82h"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_w7roq"]
-gradient = SubResource("Gradient_lw82h")
-width = 64
+[ext_resource type="Texture2D" uid="uid://cc3ih76h05hnc" path="res://Sprites/Elementos/niveles/señalnivel.png" id="2_2jvf3"]
 
 [node name="LevelIcon" type="Control"]
 layout_mode = 3
@@ -18,17 +11,19 @@ offset_bottom = 40.0
 script = ExtResource("1_y4h47")
 
 [node name="Label" type="Label" parent="."]
+z_index = 1
 layout_mode = 0
-offset_left = -16.0
-offset_top = -24.0
-offset_right = 48.0
-offset_bottom = -1.0
-text = "Level "
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 44.0
+offset_bottom = 43.0
+text = "[]"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 45.0
-offset_bottom = 40.0
-texture = SubResource("GradientTexture1D_w7roq")
+offset_bottom = 45.0
+texture = ExtResource("2_2jvf3")
 expand_mode = 1
