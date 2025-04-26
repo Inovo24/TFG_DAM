@@ -5,8 +5,8 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_fu7mr"]
 specular_color = Color(0.591423, 0.67124, 0.0730327, 1)
 
-[node name="Ajustes" type="Node2D"]
-position = Vector2(2, 0)
+[node name="Ajustes" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_dtxbi")
 
 [node name="Fondo" type="Sprite2D" parent="."]

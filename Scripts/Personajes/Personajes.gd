@@ -40,9 +40,9 @@ enum State { IDLE, RUN, JUMP,FALL, ATTACK }
 var current_state : State = State.IDLE
 var previous_state : State = State.IDLE
 
-
-
-
+var ultima_posicion_segura: Vector2
+var posicion_checkpoint: Vector2
+var tiene_checkpoint = false
 
 func _ready():
 	
@@ -143,6 +143,7 @@ func _physics_process(delta):
 		if is_on_floor() and current_state != State.ATTACK:
 			velocity.x = move_toward(velocity.x, 0, velocidad * delta*5) #0
 			switch_state(State.IDLE)
+			ultima_posicion_segura = position
 
 	move_and_slide()
 	
@@ -213,6 +214,16 @@ func recibirDaño(_dañorecibido:int):
 		print("Muerto sorry")
 		#queue_free()
 	
+
+func volver_a_posicion_segura():
+	position = ultima_posicion_segura
+
+func poner_posicion_checkpoint():
+	posicion_checkpoint = position
+	tiene_checkpoint = true
+
+func volver_a_checkpoint():
+	position = posicion_checkpoint
 
 #TODO: Hacerlo bien
 #Hace que cuando presiones "abajo" y si estas en una plataforma bajes

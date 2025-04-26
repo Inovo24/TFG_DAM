@@ -1,6 +1,8 @@
-extends Node2D
+extends CanvasLayer
 
 var language_codes = ["es", "en", "pt", "it"]
+
+@onready var cambio_teclas = preload("res://Scenes/ajustes/cambio_teclas.tscn")
 
 func _ready() -> void:
 	var volGen = Globales.getVolumenGeneral()
@@ -33,14 +35,15 @@ func _ready() -> void:
 	
 	
 
-
-
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("salir"):
-		get_tree().change_scene_to_file("res://Scenes/inicio.tscn")
+		_on_boton_volver_pressed()
 
 func _on_boton_volver_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/inicio.tscn")
+	#get_tree().change_scene_to_file("res://Scenes/inicio.tscn")
+	if get_parent().has_method("hacer_visible_cont"):
+		get_parent().hacer_visible_cont()
+	queue_free()
 
 #Sonido
 func _on_h_slider_general_value_changed(value: float) -> void:
@@ -57,7 +60,7 @@ func _on_h_slider_enemigos_value_changed(value: float) -> void:
 
 
 func _on_teclas_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/ajustes/cambio_teclas.tscn")
+	add_child(cambio_teclas.instantiate())
 
 
 func _on_option_button_item_selected(index: int) -> void:
@@ -67,7 +70,6 @@ func _on_option_button_item_selected(index: int) -> void:
 func _on_daltonismo_item_selected(index):
 	var select = Globales.TYPE.keys()[index]
 	Globales.daltonismo_type = Globales.TYPE[select]
-	set_txt_salir()
 
 func set_txt_salir():
 	#Cambiar texto salir

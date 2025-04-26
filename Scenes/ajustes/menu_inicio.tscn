@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b2311j0pjck28" path="res://Scripts/Interfaz/menu_inicio.gd" id="1_qb7yg"]
 
 [node name="MenuInicio" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_qb7yg")
 
 [node name="Contenedor" type="VBoxContainer" parent="."]

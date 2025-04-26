@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwlmbfrpgqfki"]
+
+[ext_resource type="Script" uid="uid://b05fs6jvftqrq" path="res://Scripts/Elementos/pinchos.gd" id="1_m4lgh"]
+[ext_resource type="Texture2D" uid="uid://juti4fxe6uxq" path="res://Sprites/sprites_para_borradores/pinchos.png" id="1_uikjg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4lgh"]
+size = Vector2(63, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_il75n"]
+size = Vector2(63, 15)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_mask = 7
+script = ExtResource("1_m4lgh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.588496, 0.5)
+texture = ExtResource("1_uikjg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 7.5)
+shape = SubResource("RectangleShape2D_m4lgh")
+
+[node name="AreaDano" type="Area2D" parent="."]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDano"]
+position = Vector2(1.5, 2.5)
+shape = SubResource("RectangleShape2D_il75n")
+
+[connection signal="body_entered" from="AreaDano" to="." method="_on_area_dano_body_entered"]
