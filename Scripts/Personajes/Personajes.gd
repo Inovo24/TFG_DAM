@@ -26,6 +26,8 @@ var daño = 10
 var velocidad = 200
 var initialVelocity
 
+var zarzas_touching = 0
+
 var combo_count =0
 var next_attack : bool = false
 
@@ -187,16 +189,17 @@ func combo_timeout():
 	
 	
 func change_speed(velocity):
-	velocidad -= velocity
+	zarzas_touching += 1
+	if zarzas_touching == 1:
+		velocidad *= velocity
 
 func reset_velocity():
-	velocidad= initialVelocity
+	zarzas_touching -= 1
+	if zarzas_touching == 0:
+		velocidad = initialVelocity
 
 func atacar():
 	pass
-	#switch_state(State.ATTACK)
-	#anim_state_machine.travel("ataque1")
-	#velocity = Vector2.ZERO
 	
 
 func getVidaMaxima()-> int:

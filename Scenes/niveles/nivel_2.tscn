@@ -822,10 +822,13 @@ position = Vector2(35, 341)
 [node name="Node2" type="Node" parent="."]
 
 [node name="zarza" parent="Node2" instance=ExtResource("19_h5rif")]
-position = Vector2(190, 306)
+position = Vector2(158, 307)
 
 [node name="zarza2" parent="Node2" instance=ExtResource("19_h5rif")]
-position = Vector2(231, 306)
+position = Vector2(194, 307)
+
+[node name="zarza3" parent="Node2" instance=ExtResource("19_h5rif")]
+position = Vector2(230, 309)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

@@ -30,9 +30,6 @@ texture = ExtResource("2_mijvv")
 
 [node name="damage" type="Timer" parent="."]
 
-[node name="Timer" type="Timer" parent="."]
-
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="damage" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer" to="." method="_on_2_timer_timeout"]
