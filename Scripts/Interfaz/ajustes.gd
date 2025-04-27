@@ -77,12 +77,9 @@ func _on_option_button_item_selected(index: int) -> void:
 func _on_daltonismo_item_selected(index):
 	var select = Globales.TYPE.keys()[index]
 	Globales.daltonismo_type = Globales.TYPE[select]
-	if get_parent().has_method("hacer_visible_cont"):
-		get_parent().get_parent().daltonismo.Type = Globales.daltonismo_type
-	else:
-		pass
-		#Problema con que peta la escena
-		#get_parent().daltonismo.Type = Globales.daltonismo_type
+	#if get_parent().has_method("hacer_visible_cont"):
+	get_parent().get_parent().daltonismo.Type = Globales.daltonismo_type
+	
 
 func set_txt_salir():
 	#Cambiar texto salir
