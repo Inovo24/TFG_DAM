@@ -39,7 +39,14 @@ func upload_dictionary_data():
 
 #Actualizar datos con el diccionario cargado
 func load_dictionary_data():
-	Globales.personaje_actual = game_data["personaje_actual"]
-	Globales.volumenes = game_data["volumenes"]
-	Globales.daltonismo_type = game_data["daltonismo_type"]
-	TranslationServer.set_locale(game_data["idioma"])
+	if "personaje_actual" in game_data:
+		Globales.personaje_actual = game_data["personaje_actual"]
+	
+	if "volumenes" in game_data:
+		Globales.volumenes = game_data["volumenes"]
+	
+	if "daltonismo_type" in game_data:
+		Globales.daltonismo_type = game_data["daltonismo_type"]
+	
+	if "idioma" in game_data:
+		TranslationServer.set_locale(game_data["idioma"])

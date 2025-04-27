@@ -18,6 +18,10 @@ const TYPE = {
 }
 var daltonismo_type = TYPE.None
 
+func inicio() -> void:
+	setVolumenGeneral(volumenes[0])
+	setVolumenMusica(volumenes[1])
+	setVolumenEnemigos(volumenes[2])
 
 # Método para instanciar el jugador si no está ya instanciado
 func get_player():

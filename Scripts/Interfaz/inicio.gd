@@ -16,6 +16,7 @@ func _ready() -> void:
 	if Guardado.primera_carga:
 		Guardado.load_game()
 		Guardado.primera_carga = false
+	Globales.inicio()
 	
 	player = Globales.get_player()  # Obtén el jugador desde la variable global
 	add_child(player)  # Añade el jugador a la escena actual
