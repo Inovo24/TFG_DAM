@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://des2i8avsiygy"]
+[gd_scene load_steps=3 format=3 uid="uid://des2i8avsiygy"]
 
-[ext_resource type="Texture2D" uid="uid://edasxi1dios" path="res://icon.svg" id="1_5gpyf"]
+[ext_resource type="Texture2D" uid="uid://ci70aw0u84lb" path="res://Sprites/Elementos/niveles/seleccionadoVikingo.png" id="1_0h43q"]
+[ext_resource type="Script" uid="uid://btpkvx6dske0k" path="res://Scripts/Interfaz/player_icon.gd" id="2_0h43q"]
 
 [node name="PlayerIcon" type="TextureRect"]
 z_index = 1
 offset_right = 45.0
 offset_bottom = 40.0
-texture = ExtResource("1_5gpyf")
+texture = ExtResource("1_0h43q")
 expand_mode = 1
+script = ExtResource("2_0h43q")

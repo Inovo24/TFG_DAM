@@ -22,7 +22,7 @@ Guardado="*res://Scripts/guardado.gd"
 
 [display]
 
-window/size/viewport_width=700
+window/size/viewport_width=720
 window/size/viewport_height=360
 window/stretch/mode="viewport"
 
