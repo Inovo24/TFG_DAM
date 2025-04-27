@@ -80,7 +80,9 @@ func _on_daltonismo_item_selected(index):
 	if get_parent().has_method("hacer_visible_cont"):
 		get_parent().get_parent().daltonismo.Type = Globales.daltonismo_type
 	else:
-		get_parent().daltonismo.Type = Globales.daltonismo_type
+		pass
+		#Problema con que peta la escena
+		#get_parent().daltonismo.Type = Globales.daltonismo_type
 
 func set_txt_salir():
 	#Cambiar texto salir

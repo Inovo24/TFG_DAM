@@ -19,7 +19,6 @@ const TYPE = {
 var daltonismo_type = TYPE.None
 
 
-
 # Método para instanciar el jugador si no está ya instanciado
 func get_player():
 	if player_instance == null: # Si el jugador no ha sido instanciado aún

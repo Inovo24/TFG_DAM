@@ -25,6 +25,7 @@ func _on_si_pressed() -> void:
 		get_tree().change_scene_to_file("res://Scenes/inicio.tscn")
 	else:
 		get_tree().quit()
+		Guardado.save_game()
 
 
 func _on_no_pressed() -> void:
