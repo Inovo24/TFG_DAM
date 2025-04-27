@@ -34,6 +34,8 @@ func _ready() -> void:
 	var daltonismo = Globales.TYPE.find_key(daltonismo_predeterminado)
 	var btnDaltonismo = $HSplitContainer/Columna2/Daltonismo
 	
+	btnDaltonismo.selected = daltonismo_predeterminado
+	
 	
 
 func _process(delta: float) -> void:
