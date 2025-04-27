@@ -87,7 +87,7 @@ next_level_down = NodePath("../7")
 next_level_left = NodePath("../5")
 next_level_right = NodePath("../7")
 
-[node name="7" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down", "next_level_left") instance=ExtResource("3_vswd1")]
+[node name="7" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left") instance=ExtResource("3_vswd1")]
 z_index = 1
 offset_left = 506.0
 offset_top = 126.0
@@ -95,7 +95,6 @@ offset_right = 570.0
 offset_bottom = 190.0
 level_name = "7"
 next_level_up = NodePath("../6")
-next_level_down = NodePath("")
 next_level_left = NodePath("../1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
