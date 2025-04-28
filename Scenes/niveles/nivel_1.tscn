@@ -2175,7 +2175,9 @@ path_time = 2.0
 transition = 0
 looping = true
 
-[node name="Pinchos" parent="." instance=ExtResource("27_qnefb")]
+[node name="Pinchos" type="Node2D" parent="."]
+
+[node name="Pincho1" parent="Pinchos" instance=ExtResource("27_qnefb")]
 position = Vector2(3, 485)
 
 [node name="Enemigos" type="Node2D" parent="."]
