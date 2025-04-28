@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bypoig2ft1nmy"
-path="res://.godot/imported/troncos.png-8e0d834ea495dd65fc4421d9b2455a73.ctex"
+uid="uid://w7abqfow6xnu"
+path="res://.godot/imported/piedras.png-0d74dc923e39288a9d93c2cb99bceb1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Elementos/troncos.png"
-dest_files=["res://.godot/imported/troncos.png-8e0d834ea495dd65fc4421d9b2455a73.ctex"]
+source_file="res://Sprites/Elementos/Piedras/piedras.png"
+dest_files=["res://.godot/imported/piedras.png-0d74dc923e39288a9d93c2cb99bceb1f.ctex"]
 
 [params]
 

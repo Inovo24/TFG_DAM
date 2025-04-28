@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dwapibi7c3dst"]
 
-[ext_resource type="Texture2D" uid="uid://bqsrec304vkhp" path="res://Sprites/Gemas/gemaAmarilla.png" id="1_8x51g"]
+[ext_resource type="Texture2D" uid="uid://bqsrec304vkhp" path="res://Sprites/Elementos/Gemas/gemaAmarilla.png" id="1_8x51g"]
 [ext_resource type="Script" uid="uid://bj3ixt3y884fj" path="res://Scripts/Elementos/gema.gd" id="1_rxsbm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k48bk"]

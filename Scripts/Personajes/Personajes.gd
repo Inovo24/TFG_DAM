@@ -233,11 +233,11 @@ func volver_a_checkpoint():
 	position = posicion_checkpoint
 	vida_actual = vida_maxima
 
-#TODO: Hacerlo bien
+
 #Hace que cuando presiones "abajo" y si estas en una plataforma bajes
-#Ahora la plataforma está en la capa 10 y cuando presionas 'abajo' desactiva la colisón con esa plataforma
+#Ahora la plataforma está en la capa 11 y cuando presionas 'abajo' desactiva la colisón con esa plataforma
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("abajo") and is_on_floor():
-		set_collision_mask_value(10,false)
+		set_collision_mask_value(11,false)
 	else:
-		set_collision_mask_value(10,true)
+		set_collision_mask_value(11,true)

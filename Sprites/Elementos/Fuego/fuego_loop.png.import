@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7i2ewclqvc28"
-path="res://.godot/imported/Mas_arboles.png-8c1aad0098197543cefc360e431cb6a8.ctex"
+uid="uid://blqyrsxb5mns2"
+path="res://.godot/imported/fuego_loop.png-ad3cd5d6229316c8161bd5baccb55f6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Elementos/Mas_arboles.png"
-dest_files=["res://.godot/imported/Mas_arboles.png-8c1aad0098197543cefc360e431cb6a8.ctex"]
+source_file="res://Sprites/Elementos/Fuego/fuego_loop.png"
+dest_files=["res://.godot/imported/fuego_loop.png-ad3cd5d6229316c8161bd5baccb55f6d.ctex"]
 
 [params]
 
