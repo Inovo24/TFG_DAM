@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://j2pt10tpwuqk"]
+[gd_scene load_steps=4 format=3 uid="uid://j2pt10tpwuqk"]
 
+[ext_resource type="Script" uid="uid://c7mcwvkw4gopq" path="res://Scripts/HUD/hud_gemas.gd" id="1_gfxw7"]
 [ext_resource type="Texture2D" uid="uid://cv7n43gsv6kup" path="res://Sprites/Elementos/Gemas/GemaHud.png" id="1_j2hho"]
+[ext_resource type="LabelSettings" uid="uid://b1gtx4uxnb15b" path="res://Scenes/UI/UI_laber_settings/new_label_settings.tres" id="2_x0xbv"]
 
-[node name="HUD_Gemas" type="CanvasLayer"]
+[node name="HUD_Gemas" type="CanvasLayer" node_paths=PackedStringArray("gema_label", "portal_label")]
+script = ExtResource("1_gfxw7")
+gema_label = NodePath("Control/GemaTextura/GemaLabel")
+portal_label = NodePath("Control/PortalLabel")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -11,10 +16,10 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="GemaTextura" type="TextureRect" parent="Control"]
-offset_left = 32.0
-offset_top = 43.0
-offset_right = 72.0
-offset_bottom = 83.0
+offset_left = 616.0
+offset_top = 32.0
+offset_right = 656.0
+offset_bottom = 72.0
 texture = ExtResource("1_j2hho")
 stretch_mode = 4
 
@@ -25,16 +30,18 @@ anchor_left = 0.2
 anchor_top = 0.5
 anchor_right = 0.2
 anchor_bottom = 0.5
-offset_left = 39.0
-offset_top = -11.5
-offset_right = 79.0
-offset_bottom = 11.5
+offset_left = 26.0
+offset_top = -7.0
+offset_right = 80.0
+offset_bottom = 16.0
 grow_vertical = 2
-text = "Test"
+text = "x 00"
+label_settings = ExtResource("2_x0xbv")
 
 [node name="PortalLabel" type="Label" parent="Control"]
-offset_left = 32.0
-offset_top = 17.0
-offset_right = 72.0
-offset_bottom = 40.0
-text = "test"
+offset_left = 520.0
+offset_top = 16.0
+offset_right = 704.0
+offset_bottom = 39.0
+text = "Portal Cerrado"
+label_settings = ExtResource("2_x0xbv")

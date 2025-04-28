@@ -6,7 +6,7 @@ var posicion
 var player
 
 var barraVida
-@onready var barraVidaEscena = preload("res://Scenes/Barravida.tscn")
+@onready var barraVidaEscena = preload("res://Scenes/UI/Barravida.tscn")
 @onready var daltonismoEscena = preload("res://Scenes/ajustes/Colorblindness.tscn")
 var daltonismo
 
