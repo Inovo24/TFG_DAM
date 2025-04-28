@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crreq7ihr0jgp"
-path="res://.godot/imported/fondogris-1.png.png-b0239d65f554b88d66ea05acf62e8180.ctex"
+uid="uid://ceu3y6idkj4mm"
+path="res://.godot/imported/troncos y arboles.png-5fa0e8483b7d772671617eb10f887cad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/backgrounds/background_level1/aldea/fondogris-1.png.png"
-dest_files=["res://.godot/imported/fondogris-1.png.png-b0239d65f554b88d66ea05acf62e8180.ctex"]
+source_file="res://Sprites/backgrounds/background_level1/troncos y arboles.png"
+dest_files=["res://.godot/imported/troncos y arboles.png-5fa0e8483b7d772671617eb10f887cad.ctex"]
 
 [params]
 

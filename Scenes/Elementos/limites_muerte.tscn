@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dllkuylvoehor"]
+
+[ext_resource type="Script" uid="uid://diefhiyvemv3p" path="res://Scripts/Elementos/limites.gd" id="1_r1xqn"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_r1xqn"]
+b = Vector2(928, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_f4aeq"]
+b = Vector2(928, 0)
+
+[node name="Limites_muerte" type="StaticBody2D"]
+script = ExtResource("1_r1xqn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_r1xqn")
+one_way_collision = true
+one_way_collision_margin = 0.0
+debug_color = Color(0.832344, 0.00137153, 0.940184, 0.42)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 6
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("SegmentShape2D_f4aeq")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

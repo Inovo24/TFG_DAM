@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://j2pt10tpwuqk"]
 
-[ext_resource type="Script" uid="uid://c7mcwvkw4gopq" path="res://Scripts/HUD/hud_gemas.gd" id="1_gfxw7"]
+[ext_resource type="Script" uid="uid://c7mcwvkw4gopq" path="res://Scripts/Interfaz/hud_gemas.gd" id="1_gfxw7"]
 [ext_resource type="Texture2D" uid="uid://cv7n43gsv6kup" path="res://Sprites/Elementos/Gemas/GemaHud.png" id="1_j2hho"]
 [ext_resource type="LabelSettings" uid="uid://b1gtx4uxnb15b" path="res://Scenes/UI/UI_laber_settings/new_label_settings.tres" id="2_x0xbv"]
 
@@ -16,6 +16,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="GemaTextura" type="TextureRect" parent="Control"]
+layout_mode = 0
 offset_left = 616.0
 offset_top = 32.0
 offset_right = 656.0
@@ -39,6 +40,7 @@ text = "x 00"
 label_settings = ExtResource("2_x0xbv")
 
 [node name="PortalLabel" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 520.0
 offset_top = 16.0
 offset_right = 704.0
