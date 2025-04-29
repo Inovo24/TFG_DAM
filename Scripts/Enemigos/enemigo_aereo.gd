@@ -65,7 +65,7 @@ func move():
 func _on_timer_timeout() -> void:
 	if not is_chasing and not is_attacking:  # Solo cambiar dirección si no está en combate
 		dir = choose([Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP])
-		print("Nueva dirección:", dir)
+		#print("Nueva dirección:", dir)
 
 	timer.wait_time = choose([1.0, 1.5, 2.0])
 	timer.start()
