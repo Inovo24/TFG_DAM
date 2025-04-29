@@ -93,7 +93,7 @@ size = Vector2(19, 4.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_leulv"]
 size = Vector2(20, 5.5)
 
-[node name="Node2D" type="Node2D"]
+[node name="Hongo" type="Node2D"]
 position = Vector2(89, 0)
 scale = Vector2(2, 2)
 script = ExtResource("1_leulv")

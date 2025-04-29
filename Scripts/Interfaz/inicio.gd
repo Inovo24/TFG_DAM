@@ -4,6 +4,7 @@ extends Node2D
 #var barra_vida
 var player 
 var barraVida
+var hudmonedas
 @onready var barraVidaEscena = preload("res://Scenes/UI/Barravida.tscn")
 @onready var daltonismoEscena = preload("res://Scenes/ajustes/Colorblindness.tscn")
 var daltonismo
