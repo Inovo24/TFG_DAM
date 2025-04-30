@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceu3y6idkj4mm"
-path="res://.godot/imported/troncos y arboles.png-5fa0e8483b7d772671617eb10f887cad.ctex"
+uid="uid://ds2lku8a7ajbm"
+path="res://.godot/imported/estalactita.png-92ad15d94b73e1c695df9def00b9f526.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/backgrounds/background_level1/troncos y arboles.png"
-dest_files=["res://.godot/imported/troncos y arboles.png-5fa0e8483b7d772671617eb10f887cad.ctex"]
+source_file="res://Sprites/Elementos/Estalactita/estalactita.png"
+dest_files=["res://.godot/imported/estalactita.png-92ad15d94b73e1c695df9def00b9f526.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ciusdsdqdktrg"]
 
-[ext_resource type="Texture2D" uid="uid://ds2lku8a7ajbm" path="res://Sprites/Elementos/Estalactita/20250429_1104_Estalactita Pixel Art_simple_compose_01jt0chxtafw0bhhtpadvhnrnw(1).png" id="1_0gve6"]
+[ext_resource type="Texture2D" uid="uid://ds2lku8a7ajbm" path="res://Sprites/Elementos/Estalactita/estalactita.png" id="1_0gve6"]
 [ext_resource type="Script" uid="uid://cm1bdacda2qj2" path="res://Scripts/Elementos/estalactita.gd" id="1_am5jd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_am5jd"]
@@ -17,12 +17,15 @@ region_enabled = true
 region_rect = Rect2(191, 130, 641, 767)
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitbox"]
-polygon = PackedVector2Array(1, 19, -6, -15, -7, -5, -11, -13, -12, -9, -13, -16, -16, -17, -15, -18, 15, -18, 15, -16, 11, -11, 10, -6, 7, -14)
+position = Vector2(1, -1)
+polygon = PackedVector2Array(-1, 20, -14, -18, 11, -18)
 
 [node name="DetectarJugador" type="Area2D" parent="."]
+visible = false
 collision_mask = 2
 monitorable = false
 

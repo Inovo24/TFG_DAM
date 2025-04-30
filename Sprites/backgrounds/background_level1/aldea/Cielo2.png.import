@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c55scilryfoto"
-path="res://.godot/imported/2.png-61abd5c956034fdd99350188b7e0aad0.ctex"
+uid="uid://drorriv3bet7s"
+path="res://.godot/imported/Cielo2.png-8f5d42eaf242891259662ff29b2dc57e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/backgrounds/background_level1/aldea/2.png"
-dest_files=["res://.godot/imported/2.png-61abd5c956034fdd99350188b7e0aad0.ctex"]
+source_file="res://Sprites/backgrounds/background_level1/aldea/Cielo2.png"
+dest_files=["res://.godot/imported/Cielo2.png-8f5d42eaf242891259662ff29b2dc57e.ctex"]
 
 [params]
 

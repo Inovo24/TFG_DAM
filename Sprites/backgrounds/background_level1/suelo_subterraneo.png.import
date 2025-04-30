@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ds2lku8a7ajbm"
-path="res://.godot/imported/20250429_1104_Estalactita Pixel Art_simple_compose_01jt0chxtafw0bhhtpadvhnrnw(1).png-fcb7eda57e4188285450bd066607f471.ctex"
+uid="uid://2f3nb5kvudpi"
+path="res://.godot/imported/suelo_subterraneo.png-5f612d98057d02427b8c2a88da2b59f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Elementos/Estalactita/20250429_1104_Estalactita Pixel Art_simple_compose_01jt0chxtafw0bhhtpadvhnrnw(1).png"
-dest_files=["res://.godot/imported/20250429_1104_Estalactita Pixel Art_simple_compose_01jt0chxtafw0bhhtpadvhnrnw(1).png-fcb7eda57e4188285450bd066607f471.ctex"]
+source_file="res://Sprites/backgrounds/background_level1/suelo_subterraneo.png"
+dest_files=["res://.godot/imported/suelo_subterraneo.png-5f612d98057d02427b8c2a88da2b59f7.ctex"]
 
 [params]
 
