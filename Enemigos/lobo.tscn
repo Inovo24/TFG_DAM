@@ -90,7 +90,7 @@ collision_mask = 3
 script = ExtResource("1_qsrl1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, -3)
+position = Vector2(3, -15)
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_qsrl1")
 
@@ -105,7 +105,7 @@ libraries = {
 }
 
 [node name="SpriteLobo" type="Sprite2D" parent="."]
-position = Vector2(4, 1)
+position = Vector2(4, -12)
 texture = ExtResource("2_qsrl1")
 hframes = 4
 
@@ -126,12 +126,12 @@ position = Vector2(-68.2103, -21.6)
 scale = Vector2(17.0526, 21.6)
 
 [node name="RayoDetras" type="RayCast2D" parent="SpriteLobo/Node2D"]
-position = Vector2(3.6798, 0.953704)
+position = Vector2(3.70678, 0.814815)
 target_position = Vector2(10.7495, 0)
 collision_mask = 2
 
 [node name="RayoDelante" type="RayCast2D" parent="SpriteLobo/Node2D"]
-position = Vector2(3.76543, 0.953704)
+position = Vector2(3.76543, 0.861111)
 target_position = Vector2(-21.911, 0)
 collision_mask = 3
 
