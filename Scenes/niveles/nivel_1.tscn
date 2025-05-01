@@ -2350,7 +2350,7 @@ position = Vector2(5272, 1366)
 [node name="Enemigos" type="Node2D" parent="."]
 
 [node name="Lobo" parent="Enemigos" instance=ExtResource("26_h8rjm")]
-position = Vector2(22, 338)
+position = Vector2(22, 352)
 
 [node name="EnemigoAereo" parent="Enemigos" instance=ExtResource("26_qnefb")]
 position = Vector2(1752, 120)
