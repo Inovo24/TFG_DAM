@@ -46,6 +46,8 @@ var ultima_posicion_segura: Vector2
 var posicion_checkpoint: Vector2
 var tiene_checkpoint = false
 
+var puede_moverse = true
+
 @onready var menu_muerte = preload("res://Scenes/Niveles/menu_muerte.tscn")
 
 func _ready():
@@ -80,77 +82,81 @@ func _ready():
 	Globales.personaje = self
 
 func _physics_process(delta):
-	if combo_timer.time_left > 0:
-		pass
-		#print(combo_timer.time_left)
-	var input_horizontal = Input.get_axis("mover_izq", "mover_der")
-	var intento_salto = Input.is_action_just_pressed("salto")
-	
-	# Actualizar animación en función de la entrada de usuario
-	#update_state(input_horizontal, intento_salto)
-	
-	if current_state == State.ATTACK:
-		#velocity = Vector2.ZERO
-		velocity.x = 0
-	
-	if Input.is_action_just_pressed("ataque"):
-		#previous_state = current_state
-		#if current_state == State.ATTACK
-		switch_state(State.ATTACK)
-		#atacar()
+	if puede_moverse:
+		if combo_timer.time_left > 0:
+			pass
+			#print(combo_timer.time_left)
+		var input_horizontal = Input.get_axis("mover_izq", "mover_der")
+		var intento_salto = Input.is_action_just_pressed("salto")
 		
-	# Lógica de salto con coyote y gravedad
-	if intento_salto or input_buffer.time_left > 0:
-		if coyote_jump_available:
+		# Actualizar animación en función de la entrada de usuario
+		#update_state(input_horizontal, intento_salto)
+		
+		if current_state == State.ATTACK:
+			#velocity = Vector2.ZERO
+			velocity.x = 0
+		
+		if Input.is_action_just_pressed("ataque"):
+			#previous_state = current_state
+			#if current_state == State.ATTACK
+			switch_state(State.ATTACK)
+			#atacar()
 			
-			switch_state(State.JUMP)
-			coyote_jump_available = false
-		elif intento_salto:
-			input_buffer.start()
-	#Dependiendo de lo que presiones salta más o menos
-	if Input.is_action_just_released("salto") and velocity.y < 0:
-		velocity.y = VELOCIDAD_SALTO / 2
-		
-	if not is_on_floor():
-		if velocity.y <0:
-			anim_state_machine.travel("saltar")
-			#print("subo")
+		# Lógica de salto con coyote y gravedad
+		if intento_salto or input_buffer.time_left > 0:
+			if coyote_jump_available:
+				
+				switch_state(State.JUMP)
+				coyote_jump_available = false
+			elif intento_salto:
+				input_buffer.start()
+		#Dependiendo de lo que presiones salta más o menos
+		if Input.is_action_just_released("salto") and velocity.y < 0:
+			velocity.y = VELOCIDAD_SALTO / 2
+			
+		if not is_on_floor():
+			if velocity.y <0:
+				anim_state_machine.travel("saltar")
+				#print("subo")
+			else:
+				switch_state(State.FALL)
+				#print("bajo")
+				
+		#elif is_on_floor() and velocity.x ==0:
+			#anim_state_machine.travel("idle")
+			#print("suelo")
+
+		if is_on_floor():
+			coyote_jump_available = true
+			coyote_timer.stop()
+			ultima_posicion_segura = position
 		else:
-			switch_state(State.FALL)
-			#print("bajo")
+			if coyote_jump_available and coyote_timer.is_stopped():
+				coyote_timer.start()
+			velocity.y += GRAVEDAD * delta
+		
+		if input_horizontal:
+			if input_horizontal <0:
+				$Sprite2D.scale.x = -1
+			if input_horizontal >0:
+				$Sprite2D.scale.x = 1
 			
-	#elif is_on_floor() and velocity.x ==0:
-		#anim_state_machine.travel("idle")
-		#print("suelo")
-
-	if is_on_floor():
-		coyote_jump_available = true
-		coyote_timer.stop()
-		ultima_posicion_segura = position
-	else:
-		if coyote_jump_available and coyote_timer.is_stopped():
-			coyote_timer.start()
-		velocity.y += GRAVEDAD * delta
-	
-	if input_horizontal:
-		if input_horizontal <0:
-			$Sprite2D.scale.x = -1
-		if input_horizontal >0:
-			$Sprite2D.scale.x = 1
 		
+			if current_state != State.ATTACK:
+				velocity.x =move_toward(velocity.x, input_horizontal * velocidad, velocidad * delta *5)  # input_horizontal * velocidad
+				switch_state(State.RUN)
 		
-		if current_state != State.ATTACK:
-			velocity.x =move_toward(velocity.x, input_horizontal * velocidad, velocidad * delta *5)  # input_horizontal * velocidad
-			switch_state(State.RUN)
-	
-	else:
-		
-		if is_on_floor() and current_state != State.ATTACK:
-			velocity.x = move_toward(velocity.x, 0, velocidad * delta*5) #0
-			switch_state(State.IDLE)
+		else:
 			
-
-	move_and_slide()
+			if is_on_floor() and current_state != State.ATTACK:
+				velocity.x = move_toward(velocity.x, 0, velocidad * delta*5) #0
+				switch_state(State.IDLE)
+				
+	
+		move_and_slide()
+	else:
+		velocity.x = 0
+		switch_state(State.IDLE)
 	
 
 

@@ -2338,9 +2338,6 @@ looping = true
 
 [node name="Pinchos" type="Node2D" parent="."]
 
-[node name="Pincho1" parent="Pinchos" instance=ExtResource("27_qnefb")]
-position = Vector2(3, 485)
-
 [node name="Pincho2" parent="Pinchos" instance=ExtResource("27_qnefb")]
 position = Vector2(1758, 534)
 
