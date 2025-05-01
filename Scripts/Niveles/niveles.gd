@@ -8,18 +8,12 @@ var player
 var barraVida
 @onready var barraVidaEscena = preload("res://Scenes/UI/Barravida.tscn")
 @onready var daltonismoEscena = preload("res://Scenes/ajustes/Colorblindness.tscn")
-@onready var hud_gemas_escena = preload("res://Scenes/UI/hud_gemas.tscn")
 var daltonismo
-<<<<<<< Updated upstream
+
 #Hud monedas
 @onready var hud_gemas_escena = preload("res://Scenes/UI/hud_gemas.tscn")
 var monedas_recogidas: int = 0
 var hud_gemas  # Variable para guardar la instancia
-
-=======
-var monedas_recogidas: int = 0
-var hud_gemas  # Variable para guardar la instancia
->>>>>>> Stashed changes
 # Variable para almacenar la instancia del menú
 var menu_instance: Node = null
 
@@ -38,18 +32,16 @@ func _ready():
 	add_child(daltonismo)
 	Globales.daltonismo = daltonismo
 	
-<<<<<<< Updated upstream
+
 	#Hud monedas
 	hud_gemas = hud_gemas_escena.instantiate()
 	add_child(hud_gemas)
 	hud_gemas.actualizar_gema_label(monedas_recogidas)
-=======
-	#HudMonedas
+#HudMonedas
 	hud_gemas = hud_gemas_escena.instantiate()
 	add_child(hud_gemas)
 	hud_gemas.actualizar_gema_label(monedas_recogidas)
 
->>>>>>> Stashed changes
 	
 
 func _process(_delta: float) -> void:
@@ -61,10 +53,8 @@ func _process(_delta: float) -> void:
 			add_child(menu_instance)
 			get_tree().paused = true
 
-<<<<<<< Updated upstream
 #Función para actulizar monedas 
-=======
->>>>>>> Stashed changes
+
 func recoger_moneda():
 	monedas_recogidas += 1
 	hud_gemas.actualizar_gema_label(monedas_recogidas)

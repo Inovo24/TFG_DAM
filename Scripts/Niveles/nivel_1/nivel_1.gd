@@ -8,9 +8,3 @@ func _ready():
 	camara = camara_level1
 	posicion = posicion_level1
 	super._ready()
-	
-<<<<<<< Updated upstream
-	
-=======
- 
->>>>>>> Stashed changes
