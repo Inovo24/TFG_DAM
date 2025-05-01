@@ -12,8 +12,8 @@ script = ExtResource("1_dtxbi")
 
 [node name="Fondo" type="Sprite2D" parent="."]
 modulate = Color(0.890196, 0.894118, 1, 1)
-position = Vector2(348.75, 178.75)
-scale = Vector2(698.5, 358.5)
+position = Vector2(359.75, 178.75)
+scale = Vector2(720.5, 358.5)
 texture = SubResource("CanvasTexture_fu7mr")
 
 [node name="BotonVolver" type="Button" parent="."]
@@ -31,10 +31,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.497
 anchor_right = -0.497
-offset_left = 279.029
-offset_top = 33.0
-offset_right = 506.029
-offset_bottom = 62.0
+offset_left = 292.029
+offset_top = 30.0
+offset_right = 519.029
+offset_bottom = 59.0
 text = "gen_salir"
 horizontal_alignment = 2
 vertical_alignment = 2
