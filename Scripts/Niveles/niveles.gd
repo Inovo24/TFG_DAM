@@ -37,16 +37,11 @@ func _ready():
 	hud_gemas = hud_gemas_escena.instantiate()
 	add_child(hud_gemas)
 	hud_gemas.actualizar_gema_label(monedas_recogidas)
-#HudMonedas
-	hud_gemas = hud_gemas_escena.instantiate()
-	add_child(hud_gemas)
-	hud_gemas.actualizar_gema_label(monedas_recogidas)
-
 	
 
 func _process(_delta: float) -> void:
 	camara.position = player.position
-	
+	hud_gemas.actualizar_gema_label(monedas_recogidas)
 	if Input.is_action_just_pressed("salir"):
 		if menu_instance == null:
 			menu_instance = preload("res://Scenes/ajustes/menu_inicio.tscn").instantiate()
