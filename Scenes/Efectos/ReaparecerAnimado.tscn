@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmu2ok1gpkpem"]
+
+[ext_resource type="Script" uid="uid://bemyq6th33vyw" path="res://Scripts/Elementos/particula_reaparecer.gd" id="1_lwghs"]
+
+[node name="ParticulaReaparecer" type="AnimatedSprite2D"]
+scale = Vector2(0.8, 0.8)
+speed_scale = 1.5
+script = ExtResource("1_lwghs")
