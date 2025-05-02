@@ -30,6 +30,7 @@ var next_attack : bool = false
 @onready var animPlayer = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
 @onready var anim_state_machine = animation_tree.get("parameters/playback")
+@onready var anim_appearing = preload("res://Scenes/Efectos/EfectoAparecer.tscn")
 
 # State machine declaration for better state management
 enum State { IDLE, RUN, JUMP, FALL, ATTACK }
@@ -222,7 +223,15 @@ func take_damage(damage_received:int):
 	
 
 func return_to_safe_position():
+	can_move = false
 	position = last_safe_position
+
+	var efecto = anim_appearing.instantiate()
+	add_child(efecto)
+	efecto.global_position = global_position
+
+	await get_tree().create_timer(0.5).timeout
+	can_move = true
 
 func set_checkpoint_position():
 	checkpoint_position = position
@@ -231,6 +240,7 @@ func set_checkpoint_position():
 func return_to_checkpoint():
 	position = checkpoint_position
 	current_health = max_health
+	
 
 
 # Makes it so when you press "abajo" and are on a platform, you go abajo

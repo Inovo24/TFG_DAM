@@ -2260,7 +2260,10 @@ position = Vector2(2011, 1420)
 position = Vector2(-1429, 670)
 
 [node name="Limites_muerte5" parent="Limites" instance=ExtResource("22_fys6i")]
-position = Vector2(3218, 1870)
+position = Vector2(3095, 1682)
+
+[node name="Limites_muerte6" parent="Limites" instance=ExtResource("22_fys6i")]
+position = Vector2(5875, 1848)
 
 [node name="Estalactita" parent="Limites" instance=ExtResource("23_wmniw")]
 position = Vector2(2629, 369)

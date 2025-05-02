@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ds1kxcmqc60mk"
-path="res://.godot/imported/particle_glow.png-45ddf653abfe2ea3e56b544b435a9fd5.ctex"
+uid="uid://vdvshywj6qge"
+path="res://.godot/imported/AparecerHumo.png-3e52b3c7ee2aa9bd0abda4a879c69366.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Elementos/particle_glow.png"
-dest_files=["res://.godot/imported/particle_glow.png-45ddf653abfe2ea3e56b544b435a9fd5.ctex"]
+source_file="res://Sprites/Elementos/Efectos/AparecerHumo.png"
+dest_files=["res://.godot/imported/AparecerHumo.png-3e52b3c7ee2aa9bd0abda4a879c69366.ctex"]
 
 [params]
 
