@@ -1,24 +1,20 @@
-extends Personajes
+extends Characters
 
-class_name valkiria
-
+class_name Valkyrie
 
 func _ready() -> void:
+	add_to_group("player")
 	super._ready()
-	vida_maxima = 150
-	vida_actual = vida_maxima  # Asegúrate de que esto se actualice también.
-	velocidad = 150
-	
-	daño=35
-	#vida_maxima = 150
-	#velocidad = 150
-	print(vida_maxima)
+	max_health = 150
+	current_health = max_health  # Ensure this is updated as well.
+	speed = 150
+	damage = 35
+	print(max_health)
 
-func atacar():
+func attack():
 	anim_state_machine.travel("ataque1")
-	#pass
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("hola?")
-	if body.is_in_group("Enemigos"):
-		body.recibir_daño(daño)
+	print("hello?")
+	if body.is_in_group("Enemies"):
+		body.receive_damage(damage)

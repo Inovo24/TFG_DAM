@@ -17,7 +17,7 @@ func _ready() -> void:
 	if Guardado.primera_carga:
 		Guardado.load_game()
 		Guardado.primera_carga = false
-	Globales.inicio()
+	Globales.start()
 	
 	player = Globales.get_player()  # Obtén el jugador desde la variable global
 	add_child(player)  # Añade el jugador a la escena actual
@@ -29,9 +29,9 @@ func _ready() -> void:
 	add_child(barraVida)
 	
 	daltonismo = daltonismoEscena.instantiate()
-	daltonismo.Type = Globales.daltonismo_type
+	daltonismo.Type = Globales.colorblindness_type
 	add_child(daltonismo)
-	Globales.daltonismo = daltonismo
+	Globales.colorblindness = daltonismo
 	
 	#Iniciar textos
 	reset_textos()

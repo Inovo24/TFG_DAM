@@ -1,40 +1,39 @@
 extends Node2D
 
-@onready var camara = $Camera2D
-#var barra_vida
-var player 
-var barraVida
-@onready var barraVidaEscena = preload("res://Scenes/UI/Barravida.tscn")
-@onready var daltonismoEscena = preload("res://Scenes/ajustes/Colorblindness.tscn")
-var daltonismo
+@onready var camera = $Camera2D
+#var health_bar
+var player
+var healthBar
+@onready var healthBarScene = preload("res://Scenes/UI/Barravida.tscn")
+@onready var colorblindnessScene = preload("res://Scenes/ajustes/Colorblindness.tscn")
+var colorblindness
 
-# Variable para almacenar la instancia del menú
+# Variable to store the menu instance
 var menu_instance: Node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	player = Globales.get_player()  # Obtén el jugador desde la variable global
-	add_child(player)  # Añade el jugador a la escena actual
-	player.position = Vector2(0, 0) # Ajusta la posición inicial del jugador
+	player = Globals.get_player()  # Get the player from the global variable
+	add_child(player)  # Add the player to the current scene
+	player.position = Vector2(0, 0)  # Set the initial position of the player
 	
-	camara.position = player.position
+	camera.position = player.position
 	
-	barraVida = barraVidaEscena.instantiate()
-	add_child(barraVida)
+	healthBar = healthBarScene.instantiate()
+	add_child(healthBar)
 	
-	daltonismo = daltonismoEscena.instantiate()
-	daltonismo.Type = Globales.daltonismo_type
-	add_child(daltonismo)
-	Globales.daltonismo = daltonismo
+	colorblindness = colorblindnessScene.instantiate()
+	colorblindness.Type = Globals.colorblindness_type
+	add_child(colorblindness)
+	Globals.colorblindness = colorblindness
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	camara.position = player.position
+	camera.position = player.position
 	
-	if Input.is_action_just_pressed("salir"):
+	if Input.is_action_just_pressed("exit"):
 		if menu_instance == null:
 			menu_instance = preload("res://Scenes/ajustes/menu_inicio.tscn").instantiate()
 			add_child(menu_instance)

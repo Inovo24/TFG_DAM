@@ -1,27 +1,21 @@
 extends Node2D
 @onready var timer: Timer = $Animaciones_Trampolin/Timer
-@onready var animaciones_trampolin: AnimatedSprite2D = $Animaciones_Trampolin
+@onready var trampoline_animations: AnimatedSprite2D = $Animaciones_Trampolin
 
-
-
-#Cuando un body toque el area activará el trampolín
+# When a body enters the area, it will activate the trampoline
 func _on_activation_area_body_entered(body: Node2D) -> void:
-	# Esto configura el Timer para esperar el tiempo de la animación
-	timer.wait_time = animaciones_trampolin.animation.length()
-	animaciones_trampolin.play("launch")
-	#Altura a la lanza el trampolin
+	# This sets the Timer to wait for the animation duration
+	timer.wait_time = trampoline_animations.animation.length()
+	trampoline_animations.play("launch")
+	# Height the trampoline launches the body
 	body.velocity.y = -650
 	timer.start()
-	
-	
 
-# Este método se ejecuta cuando el timer termina
+# This method is executed when the timer finishes
 func _on_timer_timeout() -> void:
 	pass
-	# Reproducir la animación "idle" cuando la animación de lanzamiento haya terminado
-	#animaciones_trampolin.play("idle")
-	
+	# Play the "idle" animation when the launch animation has finished
+	#trampoline_animations.play("idle")
 
-
-func _on_animaciones_trampolin_animation_finished():
-	animaciones_trampolin.play("idle")
+func _on_trampoline_animations_animation_finished():
+	trampoline_animations.play("idle")

@@ -1,6 +1,5 @@
 extends Area2D
 
-
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		body.poner_posicion_checkpoint()
+		body.set_checkpoint_position()

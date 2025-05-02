@@ -252,4 +252,5 @@ language = "es_ES"
 [connection signal="pressed" from="ContenedorPrincipal/Ataque/ButtonAtaque_2" to="." method="_on_button_ataque_2_pressed"]
 [connection signal="pressed" from="ContenedorPrincipal/Salto/ButtonSalto_1" to="." method="_on_button_salto_1_pressed"]
 [connection signal="pressed" from="ContenedorPrincipal/Salto/ButtonSalto_2" to="." method="_on_button_salto_2_pressed"]
+[connection signal="pressed" from="BotonVolver" to="." method="_on_button_back_pressed"]
 [connection signal="pressed" from="BotonVolver" to="." method="_on_boton_volver_pressed"]

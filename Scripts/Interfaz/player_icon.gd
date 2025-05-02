@@ -1,17 +1,17 @@
 extends TextureRect
 
-@onready var  personaje = Globales.personaje_actual
+@onready var character = Globales.current_character
 @onready var player_icon = $"."
 
-var textura_vikingo = preload("res://Sprites/Elementos/niveles/seleccionadoVikingo.png") 
-var textura_valkiria = preload("res://Sprites/Elementos/niveles/seleccionadoValkiria.png")
-var textura_arquero = preload("res://Sprites/Elementos/niveles/seleccionadoArquero.png")
+var viking_texture = preload("res://Sprites/Elementos/niveles/seleccionadoVikingo.png") 
+var valkyrie_texture = preload("res://Sprites/Elementos/niveles/seleccionadoValkiria.png")
+var archer_texture = preload("res://Sprites/Elementos/niveles/seleccionadoArquero.png")
 
 func _ready():
-	match personaje:
+	match character:
 		0:
-			player_icon.texture = textura_vikingo
+			player_icon.texture = viking_texture
 		1:
-			player_icon.texture = textura_valkiria
+			player_icon.texture = valkyrie_texture
 		2:
-			player_icon.texture = textura_arquero
+			player_icon.texture = archer_texture

@@ -454,7 +454,7 @@ states/saltar/position = Vector2(300, 9)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_t3yva")]
 graph_offset = Vector2(-162.33, -44.9892)
 
-[node name="Vikingo" type="CharacterBody2D" groups=["Personajes", "player"]]
+[node name="Vikingo" type="CharacterBody2D" groups=["player"]]
 z_index = 5
 collision_layer = 2
 collision_mask = 13
@@ -483,7 +483,7 @@ libraries = {
 }
 autoplay = "idle"
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." groups=["player"]]
 active = false
 tree_root = SubResource("AnimationNodeStateMachine_88xhp")
 anim_player = NodePath("../AnimationPlayer")

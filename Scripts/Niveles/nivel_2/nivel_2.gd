@@ -1,9 +1,9 @@
-extends Niveles
+extends Levels
 
-@onready var camara_level2 = $Camera2D
-@onready var posicion_level2 = $Marker2D
+@onready var level2_camera = $Camera2D
+@onready var level2_position = $Marker2D
 
 func _ready() -> void:
-	camara = camara_level2
-	posicion = posicion_level2
+	camera = level2_camera
+	position = level2_position
 	super._ready()

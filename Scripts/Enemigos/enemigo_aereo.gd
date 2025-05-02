@@ -1,34 +1,28 @@
-extends Enemigos
+extends Enemies
 
 @onready var timer: Timer = $Timer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var detection_area: Area2D = $Area2D  # Área de detección general
-@onready var attack_area: Area2D = $AttackArea  # Área de ataque
+@onready var detection_area: Area2D = $Area2D  # General detection area
+@onready var attack_area: Area2D = $AttackArea  # Attack area
 
 var SPEED = 60
 var dir: Vector2 = Vector2.ZERO
 var is_chasing: bool = false
 var is_attacking: bool = false
 
-var attack_timer: Timer  # Temporizador para ataques repetidos
+var attack_timer: Timer  # Timer for repeated attacks
 
 func _ready() -> void:
-	daño = 10
-	vida_maxima = 50
+	damage = 10
+	max_health = 50
 	
-	timer.start()  # Inicia el temporizador de patrullaje
+	timer.start()  # Start patrol timer
 
-	# Conectar eventos de detección
-#	detection_area.body_entered.connect(_on_area_2d_body_entered)
-#	detection_area.body_exited.connect(_on_area_2d_body_exited)
-#	attack_area.body_entered.connect(_on_attack_area_body_entered)
-#	attack_area.body_exited.connect(_on_attack_area_body_exited)
-
-	# Temporizador para hacer daño repetidamente
+	# Timer for repeated damage
 	attack_timer = Timer.new()
-	attack_timer.wait_time = 1  # Ataca cada 1 segundos
-	attack_timer.one_shot = false  # Repite el ataque
-	attack_timer.timeout.connect(_realizar_ataque)  # Conecta la función que aplica el daño
+	attack_timer.wait_time = 1  # Attacks every 1 second
+	attack_timer.one_shot = false  # Repeats the attack
+	attack_timer.timeout.connect(_perform_attack)  # Connects the function that applies the damage
 	add_child(attack_timer)
 	
 	super._ready()
@@ -58,14 +52,14 @@ func move():
 			var current_speed = SPEED if not slow_mode else SPEED / 2
 			velocity = dir * current_speed
 	else:
-		velocity = Vector2.ZERO  # No se mueve durante la pausa
+		velocity = Vector2.ZERO  # Does not move during pause
 
 	move_and_slide()
 
 func _on_timer_timeout() -> void:
-	if not is_chasing and not is_attacking:  # Solo cambiar dirección si no está en combate
+	if not is_chasing and not is_attacking:  # Only change direction if not in combat
 		dir = choose([Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP])
-		#print("Nueva dirección:", dir)
+		#print("New direction:", dir)
 
 	timer.wait_time = choose([1.0, 1.5, 2.0])
 	timer.start()
@@ -74,51 +68,51 @@ func choose(array):
 	array.shuffle()
 	return array[0]
 
-# --- DETECCIÓN DEL JUGADOR ---
+# --- PLAYER DETECTION ---
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is Personajes:
+	if body is Characters:
 		SPEED *= 2
 		player = body
 		is_chasing = true
-		#print("Cuerpo detectado, comenzando persecución")
+		#print("Body detected, starting chase")
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body is Personajes:
+	if body is Characters:
 		SPEED /= 2
 		is_chasing = false
 		player = null
-		#print("Cuerpo salió del área, dejando de perseguir")
-		_reanudar_patrullaje()  # Vuelve a patrullar cuando deja de perseguir
+		#print("Body left the area, stopping chase")
+		_resume_patrol()  # Resume patrol when stopping chase
 
-# --- DETECCIÓN EN ÁREA DE ATAQUE ---
+# --- ATTACK AREA DETECTION ---
 func _on_attack_area_body_entered(body: Node2D) -> void:
-	if body is Personajes:
+	if body is Characters:
 		SPEED += 10
-		is_attacking = true  # Comienza a atacar
+		is_attacking = true  # Start attacking
 		
-		body.recibirDaño(daño)  # Aplica el daño de inmediato
+		body.take_damage(damage)  # Apply damage immediately
 		
-		attack_timer.start()  # Comienza el temporizador para ataques consecutivos
-		_retroceso(retro_make_damage)
-		#print("Jugador en área de ataque:", body.name)
+		attack_timer.start()  # Start timer for consecutive attacks
+		_knockback(knockback_damage)
+		#print("Player in attack area:", body.name)
 
 func _on_attack_area_body_exited(body: Node2D) -> void:
-	if body is Personajes:
+	if body is Characters:
 		SPEED -= 10
-		#print("Jugador salió del área de ataque:", body.name)
-		is_attacking = false  # Deja de atacar
-		attack_timer.stop()  # Detener el temporizador de ataque
-		_reanudar_patrullaje()  # Vuelve a patrullar cuando deja de atacar
+		#print("Player left the attack area:", body.name)
+		is_attacking = false  # Stop attacking
+		attack_timer.stop()  # Stop attack timer
+		_resume_patrol()  # Resume patrol when stopping attack
 
-# --- Función de ataque repetido ---
-func _realizar_ataque():
+# --- Repeated attack function ---
+func _perform_attack():
 	if player:
-		player.recibirDaño(daño)  # Aplica el daño repetidamente
-		#print("Atacando al jugador, vida restante:", player.getVidaActual())
+		player.receive_damage(damage)  # Apply damage repeatedly
+		#print("Attacking player, remaining health:", player.get_current_health())
 		
-		_retroceso(retro_make_damage)
+		_knockback(knockback_damage)
 
-# --- Reanudar patrullaje si no hay jugadores cerca ---
-func _reanudar_patrullaje():
-	if not is_chasing and not is_attacking:  # Si no está atacando ni persiguiendo, patrulla
+# --- Resume patrol if no players nearby ---
+func _resume_patrol():
+	if not is_chasing and not is_attacking:  # If not attacking or chasing, patrol
 		timer.start()

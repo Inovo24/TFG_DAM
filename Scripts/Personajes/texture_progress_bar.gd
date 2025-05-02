@@ -1,18 +1,18 @@
 extends TextureProgressBar
 
-var personaje
+var character
 
 func _ready():
 	
-	personaje = Globales.get_player()
-	max_value = personaje.getVidaMaxima()
-	actualizar_barra()
+	character = Globales.get_player()
+	max_value = character.getMaxHealth()
+	update_bar()
 	print(value)
 	print(max_value)
 
 func _process(_delta: float) -> void:
-	actualizar_barra()
+	update_bar()
 
-func actualizar_barra():
-	value = personaje.getVidaActual()
-	$"../Label".text = str(value) +"/"+ str(max_value)
+func update_bar():
+	value = character.getCurrentHealth()
+	$"../Label".text = str(value) + "/" + str(max_value)

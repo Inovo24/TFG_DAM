@@ -34,4 +34,4 @@ shape = SubResource("RectangleShape2D_am5jd")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="area_entered" from="DetectarJugador" to="." method="_on_detectar_jugador_area_entered"]
-[connection signal="body_entered" from="DetectarJugador" to="." method="_on_detectar_jugador_body_entered"]
+[connection signal="body_entered" from="DetectarJugador" to="." method="_on_detect_player_body_entered"]

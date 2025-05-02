@@ -3,25 +3,19 @@ extends Node2D
 @export var speed: float = 200.0  
 @export var damage: int = 20  
 var direction: Vector2 = Vector2.RIGHT 
-var multiplicador_carga : float = 1.0
+var charge_multiplier: float = 1.0
 
 func _process(delta: float):
-	
 	position += direction * speed * delta
-	
 
 func _on_body_entered(_body):
 	if _body is TileMapLayer:
 		queue_free()
-		print("he tocado tierra")
-	if _body.is_in_group("Enemigos"):
-		_body.recibir_daño(damage)
+		print("I touched the ground")
+	if _body.is_in_group("Enemies"):
+		_body.receive_damage(damage)
 		queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
-	print("Me desaparezco")
-	 
-
-
-	
+	print("I disappear")

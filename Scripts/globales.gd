@@ -1,52 +1,52 @@
 extends Node
 
-var personajes = [preload("res://Personajes/vikingo.tscn"),preload("res://Personajes/valkiria.tscn"),preload("res://Personajes/arquero.tscn")]
-var personaje_actual = 0 #El 0 es el vikingo, el 1 la valkiria, y el 2 el arquero
-var volumenes = [1,1,1]
-var personaje: CharacterBody2D
+var characters = [preload("res://Personajes/vikingo.tscn"), preload("res://Personajes/valkiria.tscn"), preload("res://Personajes/arquero.tscn")]
+var current_character = 0 #El 0 es el vikingo, el 1 la valkiria, y el 2 el arquero
+var volumes = [1, 1, 1]
+var character: CharacterBody2D
 
-var player_instance = null  # Guardará la instancia del jugador
+var player_instance = null  # Will store the player instance
 
-var daltonismo = preload("res://Scenes/ajustes/Colorblindness.tscn")
+var colorblindness = preload("res://Scenes/ajustes/Colorblindness.tscn")
 
 const TYPE = {
-	"None":0,
-	"Protanopia":1,
+	"None": 0,
+	"Protanopia": 1,
 	"Deuteranopia": 2,
 	"Tritanopia": 3,
 	"Achromatopsia": 4
 }
-var daltonismo_type = TYPE.None
+var colorblindness_type = TYPE.None
 
-func inicio() -> void:
-	setVolumenGeneral(volumenes[0])
-	setVolumenMusica(volumenes[1])
-	setVolumenEnemigos(volumenes[2])
+func start() -> void:
+	setGeneralVolume(volumes[0])
+	setMusicVolume(volumes[1])
+	setEnemyVolume(volumes[2])
 
-# Método para instanciar el jugador si no está ya instanciado
+# Method to instantiate the player if not already instantiated
 func get_player():
-	if player_instance == null: # Si el jugador no ha sido instanciado aún
-		player_instance = personajes[personaje_actual].instantiate()  # Instancia el jugador
+	if player_instance == null: # If the player has not been instantiated yet
+		player_instance = characters[current_character].instantiate()  # Instantiate the player
 	return player_instance
 
-#Musica voumenes
-func setVolumenGeneral(value: float):
-	volumenes[0] = value
+# Music volumes
+func setGeneralVolume(value: float):
+	volumes[0] = value
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value))
 
-func setVolumenMusica(value: float):
-	volumenes[1] = value
+func setMusicVolume(value: float):
+	volumes[1] = value
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
 
-func setVolumenEnemigos(value: float):
-	volumenes[2] = value
+func setEnemyVolume(value: float):
+	volumes[2] = value
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
 
-func getVolumenGeneral() -> float:
-	return volumenes[0]
+func getGeneralVolume() -> float:
+	return volumes[0]
 
-func getVolumenMusica() -> float:
-	return volumenes[1]
+func getMusicVolume() -> float:
+	return volumes[1]
 
-func getVolumenEnemigos() -> float:
-	return volumenes[2]
+func getEnemyVolume() -> float:
+	return volumes[2]

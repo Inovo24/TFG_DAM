@@ -1,58 +1,56 @@
 extends Node2D
-class_name Niveles
+class_name Levels
 
-var camara 
-var posicion 
+var camera
+var initialPosition
 var player
 
-var barraVida
-@onready var barraVidaEscena = preload("res://Scenes/UI/Barravida.tscn")
-@onready var daltonismoEscena = preload("res://Scenes/ajustes/Colorblindness.tscn")
-var daltonismo
+var healthBar
+@onready var healthBarScene = preload("res://Scenes/UI/Barravida.tscn")
+@onready var colorblindnessScene = preload("res://Scenes/ajustes/Colorblindness.tscn")
+var colorblindness
 
-#Hud monedas
-@onready var hud_gemas_escena = preload("res://Scenes/UI/hud_gemas.tscn")
-var monedas_recogidas: int = 0
-var hud_gemas  # Variable para guardar la instancia
-# Variable para almacenar la instancia del menú
+# HUD gems
+@onready var hud_gems_scene = preload("res://Scenes/UI/hud_gemas.tscn")
+var collected_gems: int = 0
+var hud_gems  # Variable to store the instance
+# Variable to store the menu instance
 var menu_instance: Node = null
 
 func _ready():
-	player = Globales.get_player()  # Obtén el jugador desde la variable global
-	add_child(player)  # Añade el jugador a la escena actual
-	player.position = posicion.position # Ajusta la posición inicial del jugador
+	player = Globales.get_player()  # Get the player from the global variable
+	add_child(player)  # Add the player to the current scene
+	player.position = initialPosition.position  # Set the initial position of the player
 	
-	camara.position = player.position
+	camera.position = player.position
 	
-	barraVida = barraVidaEscena.instantiate()
-	add_child(barraVida)
+	healthBar = healthBarScene.instantiate()
+	add_child(healthBar)
 	
-	daltonismo = daltonismoEscena.instantiate()
-	daltonismo.Type = Globales.daltonismo_type
-	add_child(daltonismo)
-	Globales.daltonismo = daltonismo
+	colorblindness = colorblindnessScene.instantiate()
+	colorblindness.Type = Globales.colorblindness_type
+	add_child(colorblindness)
+	Globales.colorblindness = colorblindness
 	
 
-	#Hud monedas
-	hud_gemas = hud_gemas_escena.instantiate()
-	add_child(hud_gemas)
-	hud_gemas.actualizar_gema_label(monedas_recogidas)
+	# HUD gems
+	hud_gems = hud_gems_scene.instantiate()
+	add_child(hud_gems)
+	hud_gems.updateGemLabel(collected_gems)
 	
 
 func _process(_delta: float) -> void:
-	camara.position = player.position
-	hud_gemas.actualizar_gema_label(monedas_recogidas)
+	camera.position = player.position
+	hud_gems.updateGemLabel(collected_gems)
 	if Input.is_action_just_pressed("salir"):
 		if menu_instance == null:
 			menu_instance = preload("res://Scenes/ajustes/menu_inicio.tscn").instantiate()
 			add_child(menu_instance)
 			get_tree().paused = true
 
-#Función para actulizar monedas 
+# Function to update gems
 
-func recoger_moneda():
-	monedas_recogidas += 1
-	hud_gemas.actualizar_gema_label(monedas_recogidas)
+func collect_gem():
+	collected_gems += 1
+	hud_gems.updateGemLabel(collected_gems)
 	
-	if monedas_recogidas >= 10:
-		hud_gemas.portal_abierto()

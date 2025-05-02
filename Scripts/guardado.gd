@@ -4,9 +4,9 @@ extends Node
 var save_path = "user://save.game.dat"
 
 var game_data : Dictionary = {
-	"personaje_actual" = Globales.personaje_actual,
-	"volumenes" = Globales.volumenes,
-	"daltonismo_type" = Globales.daltonismo_type,
+	"current_character" = Globales.current_character,
+	"volumes" = Globales.volumes,
+	"colorblindness_type" = Globales.colorblindness_type,
 	"idioma" = TranslationServer.get_locale()
 }
 var primera_carga = true
@@ -31,22 +31,22 @@ func load_game():
 #Actualizar diccionario antes de guardar
 func upload_dictionary_data():
 	game_data = {
-	"personaje_actual" = Globales.personaje_actual,
-	"volumenes" = Globales.volumenes,
-	"daltonismo_type" = Globales.daltonismo_type,
+	"current_character" = Globales.current_character,
+	"volumes" = Globales.volumes,
+	"colorblindness_type" = Globales.colorblindness_type,
 	"idioma" = TranslationServer.get_locale()
 	}
 
 #Actualizar datos con el diccionario cargado
 func load_dictionary_data():
-	if "personaje_actual" in game_data:
-		Globales.personaje_actual = game_data["personaje_actual"]
+	if "current_character" in game_data:
+		Globales.current_character = game_data["current_character"]
 	
-	if "volumenes" in game_data:
-		Globales.volumenes = game_data["volumenes"]
+	if "volumes" in game_data:
+		Globales.volumes = game_data["volumes"]
 	
-	if "daltonismo_type" in game_data:
-		Globales.daltonismo_type = game_data["daltonismo_type"]
+	if "colorblindness_type" in game_data:
+		Globales.colorblindness_type = game_data["colorblindness_type"]
 	
 	if "idioma" in game_data:
 		TranslationServer.set_locale(game_data["idioma"])

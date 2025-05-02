@@ -1,15 +1,15 @@
 extends CanvasLayer
 
-# Diccionario para almacenar las acciones y sus botones en la interfaz
+# Dictionary to store actions and their buttons in the interface
 var action_buttons = {}
 
-# Acción actualmente en proceso de reasignación
+# Action currently in the process of reassignment
 var current_action = ""
 
-var opcion #0 si es la principal, 1 si es la secundaria
+var option # 0 if it's the primary, 1 if it's the secondary
 
 func _ready():
-	# Vincula acciones a botones
+	# Links actions to buttons
 	action_buttons = {
 		"mover_der": [$ContenedorPrincipal/Derecha/ButtonDerecha_1, $ContenedorPrincipal/Derecha/ButtonDerecha_2], 
 		"mover_izq": [$ContenedorPrincipal/Izquierda/ButtonIzquierda_1, $ContenedorPrincipal/Izquierda/ButtonIzquierda_2],
@@ -20,127 +20,127 @@ func _ready():
 		"salir": [$ContenedorPrincipal/Salir/ButtonSalir_1, $ContenedorPrincipal/Salir/ButtonSalir_2],
 		"aceptar_entrar": [$ContenedorPrincipal/Aceptar/ButtonAceptar_1, $ContenedorPrincipal/Aceptar/ButtonAceptar_2]
 	}
-# Muestra las teclas configuradas por defecto
+	# Displays the default configured keys
 	_update_button_texts()
 	
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("salir"):
-		_on_boton_volver_pressed()
+		_on_button_back_pressed()
 
-# Función para actualizar los textos de los botones con las teclas configuradas
+# Function to update the button texts with the configured keys
 func _update_button_texts():
 	for action_name in action_buttons.keys():
 		var events = InputMap.action_get_events(action_name)
 		
-		# Actualiza el texto del botón con la tecla configurada por defecto
+		# Updates the button text with the default configured key
 		action_buttons[action_name][0].text = events[0].as_text().replace(" (Physical)", "")
 		if events.size() > 1:
 			action_buttons[action_name][1].text = events[1].as_text().replace(" (Physical)", "")
 		else:
 			action_buttons[action_name][1].text = "tecl_txt_noasignado"
 	
-	#Cambiar texto salir
-	var salir_tecla = InputMap.action_get_events("salir")[0].as_text().replace(" (Physical)", "")
-	$BotonVolver/TextoSalir.text = tr("gen_salir").replace("{tecla}",salir_tecla)
+	# Change back button text
+	var salir_key = InputMap.action_get_events("salir")[0].as_text().replace(" (Physical)", "")
+	$BotonVolver/TextoSalir.text = tr("gen_salir").replace("{tecla}", salir_key)
 
 func _on_action_button_pressed(action_name):
-	# Inicia el proceso de reasignación
+	# Starts the reassignment process
 	current_action = action_name
-	action_buttons[action_name][opcion].text = "tecl_txt_pres"
+	action_buttons[action_name][option].text = "tecl_txt_pres"
 	set_process_input(true)
 
-# Maneja los eventos de entrada (como la tecla presionada)
+# Handles input events (like the pressed key)
 func _input(event):
 	if current_action != "" and event is InputEventKey and event.pressed:
-		#Obtenemos la configuracion previa
-		var eventosAntiguos = InputMap.action_get_events(current_action)
+		# Get the previous configuration
+		var old_events = InputMap.action_get_events(current_action)
 		
-		#Cambiamos la configuracion
-		if eventosAntiguos.size() < 2 && opcion == 1:
-			eventosAntiguos.append(event)
+		# Change the configuration
+		if old_events.size() < 2 && option == 1:
+			old_events.append(event)
 		else:
-			eventosAntiguos[opcion] = event
+			old_events[option] = event
 		
-		# Remueve la configuración previa
+		# Remove the previous configuration
 		InputMap.action_erase_events(current_action)
 		
-		# Asigna las teclas de nuevo
-		for tecla in eventosAntiguos:
-			InputMap.action_add_event(current_action, tecla)
+		# Assign the keys again
+		for key in old_events:
+			InputMap.action_add_event(current_action, key)
 
-		# Resetea el estado de reasignación
+		# Reset the reassignment state
 		current_action = ""
 		set_process_input(false)
 		
-		# Actualiza el texto del botón con el nombre de la tecla
+		# Update the button text with the key name
 		_update_button_texts()
 
-#Vincular señales de botones
-func _on_boton_volver_pressed() -> void:
-	get_parent().cambio_teclas_abierto = false
+# Link button signals
+func _on_button_back_pressed() -> void:
+	get_parent().key_change_open = false
 	queue_free()
 
 func _on_button_derecha_1_pressed() -> void:
-	opcion = 0
+	option = 0
 	_on_action_button_pressed("mover_der")
 
 func _on_button_derecha_2_pressed() -> void:
-	opcion = 1
+	option = 1
 	_on_action_button_pressed("mover_der")
 
 func _on_button_izquierda_1_pressed() -> void:
-	opcion = 0
+	option = 0
 	_on_action_button_pressed("mover_izq")
 
 func _on_button_izquierda_2_pressed() -> void:
-	opcion = 1
+	option = 1
 	_on_action_button_pressed("mover_izq")
 
 func _on_button_arriba_1_pressed() -> void:
-	opcion = 0
+	option = 0
 	_on_action_button_pressed("arriba")
 
 func _on_button_arriba_2_pressed() -> void:
-	opcion = 1
+	option = 1
 	_on_action_button_pressed("arriba")
 
 func _on_button_abajo_1_pressed() -> void:
-	opcion = 0
+	option = 0
 	_on_action_button_pressed("abajo")
 
 func _on_button_abajo_2_pressed() -> void:
-	opcion = 1
+	option = 1
 	_on_action_button_pressed("abajo")
 
 func _on_button_aceptar_1_pressed() -> void:
-	opcion = 0
+	option = 0
 	_on_action_button_pressed("aceptar_entrar")
 
 func _on_button_aceptar_2_pressed() -> void:
-	opcion = 1
+	option = 1
 	_on_action_button_pressed("aceptar_entrar")
 	
 func _on_button_salir_1_pressed() -> void:
-	opcion = 0
+	option = 0
 	_on_action_button_pressed("salir")
 
 func _on_button_salir_2_pressed() -> void:
-	opcion = 1
+	option = 1
 	_on_action_button_pressed("salir")
 
 func _on_button_ataque_1_pressed() -> void:
-	opcion = 0
+	option = 0
 	_on_action_button_pressed("ataque")
 
 func _on_button_ataque_2_pressed() -> void:
-	opcion = 1
+	option = 1
 	_on_action_button_pressed("ataque")
 
 func _on_button_salto_1_pressed() -> void:
-	opcion = 0
+	option = 0
 	_on_action_button_pressed("salto")
 
 func _on_button_salto_2_pressed() -> void:
-	opcion = 1
+	option = 1
 	_on_action_button_pressed("salto")

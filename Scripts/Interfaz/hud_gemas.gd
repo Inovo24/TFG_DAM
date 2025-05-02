@@ -3,11 +3,5 @@ class_name HUD
 @export var gema_label : Label
 @export var portal_label : Label
 
-func actualizar_gema_label(numero:int):
+func updateGemLabel(numero:int):
 	gema_label.text ="x " + str(numero)
-
-#ESTE TEXTO NO SE TRADUCE, HAY QUE PONERLO EN LAS TRADUCIONES SI SE QUIERE
-func portal_abierto():
-	portal_label.text = "Portal abierto!"
-func portal_cerrado():
-	portal_label.text = "Portal cerrado"

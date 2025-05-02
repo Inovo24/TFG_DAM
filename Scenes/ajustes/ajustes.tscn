@@ -163,10 +163,12 @@ popup/item_3/id = 3
 popup/item_4/text = "Achromatopsia"
 popup/item_4/id = 4
 
+[connection signal="pressed" from="BotonVolver" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="BotonVolver" to="." method="_on_boton_volver_pressed"]
 [connection signal="value_changed" from="HSplitContainer/Columna1/ContGeneral/HSliderGeneral" to="." method="_on_h_slider_general_value_changed"]
 [connection signal="value_changed" from="HSplitContainer/Columna1/ContMusica/HSliderMusic" to="." method="_on_h_slider_music_value_changed"]
 [connection signal="value_changed" from="HSplitContainer/Columna1/ContEnemigos/HSliderEnemigos" to="." method="_on_h_slider_enemigos_value_changed"]
+[connection signal="pressed" from="HSplitContainer/Columna2/Teclas" to="." method="_on_keys_pressed"]
 [connection signal="pressed" from="HSplitContainer/Columna2/Teclas" to="." method="_on_teclas_pressed"]
 [connection signal="item_selected" from="HSplitContainer/Columna2/Idiomas" to="." method="_on_option_button_item_selected"]
 [connection signal="item_selected" from="HSplitContainer/Columna2/Daltonismo" to="." method="_on_daltonismo_item_selected"]
