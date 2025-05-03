@@ -240,7 +240,10 @@ func set_checkpoint_position():
 func return_to_checkpoint():
 	position = checkpoint_position
 	current_health = max_health
-	
+	var efecto = anim_appearing.instantiate()
+	add_child(efecto)
+	efecto.global_position = global_position
+	await get_tree().create_timer(0.5).timeout
 
 
 # Makes it so when you press "abajo" and are on a platform, you go abajo
