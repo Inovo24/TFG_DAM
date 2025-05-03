@@ -14,7 +14,7 @@ var menu_instance: Node = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	player = Globals.get_player()  # Get the player from the global variable
+	player = Globales.get_player()  # Get the player from the global variable
 	add_child(player)  # Add the player to the current scene
 	player.position = Vector2(0, 0)  # Set the initial position of the player
 	
@@ -24,9 +24,9 @@ func _ready() -> void:
 	add_child(healthBar)
 	
 	colorblindness = colorblindnessScene.instantiate()
-	colorblindness.Type = Globals.colorblindness_type
+	colorblindness.Type = Globales.colorblindness_type
 	add_child(colorblindness)
-	Globals.colorblindness = colorblindness
+	Globales.colorblindness = colorblindness
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

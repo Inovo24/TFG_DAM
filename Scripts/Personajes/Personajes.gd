@@ -33,7 +33,7 @@ var next_attack : bool = false
 @onready var anim_appearing = preload("res://Scenes/Efectos/EfectoAparecer.tscn")
 
 # State machine declaration for better state management
-enum State { IDLE, RUN, JUMP, FALL, ATTACK }
+enum State { IDLE, RUN, JUMP, FALL, ATTACK, AIR_ATTACK, DOWN_ATTACK, UP_ATTACK }
 var current_state : State = State.IDLE
 var previous_state : State = State.IDLE
 
@@ -91,10 +91,13 @@ func _physics_process(delta):
 			velocity.x = 0
 		
 		if Input.is_action_just_pressed("ataque"):
-			#previous_state = current_state
-			#if current_state == State.ATTACK
-			switch_state(State.ATTACK)
-			#attack()
+			if is_on_floor:
+				switch_state(State.ATTACK)
+			if Input.is_action_just_pressed("arriba"):
+				switch_state(State.UP_ATTACK)
+			elif Input.is_action_just_pressed("abajo"):
+				switch_state(State.DOWN_ATTACK)
+			switch_state(State.AIR_ATTACK)
 			
 		# Jump logic with coyote time and gravity
 		if jump_attempt or input_buffer.time_left > 0:
@@ -174,7 +177,12 @@ func switch_state(new_state: State):
 				#combo_available = true
 				#combo_timer.start()
 				attack()
-				
+			State.AIR_ATTACK:
+				air_attack()
+			State.UP_ATTACK:
+				up_attack()
+			State.DOWN_ATTACK:
+				down_attack()
 			State.FALL:
 				anim_state_machine.travel("caer")
 				
@@ -203,7 +211,12 @@ func reset_velocity():
 
 func attack():
 	pass
-	
+func air_attack():
+	anim_state_machine.travel("air_attack")	
+func down_attack():
+	anim_state_machine.travel("down_attack")
+func up_attack():
+	anim_state_machine.travel("up_attack")
 
 func getMaxHealth() -> int:
 	return max_health

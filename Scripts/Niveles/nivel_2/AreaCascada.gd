@@ -14,6 +14,44 @@ func _ready():
 	# Hacemos invisible la cámara estática pero mantenemos su posición
 	staticCamera.enabled = false
 
+func _on_body_entered(_body):
+	# Cancelar cualquier tween anterior
+	if current_tween and current_tween.is_valid():
+		current_tween.kill()
+	
+	# Crear un nodo de cámara temporal para la transición
+	var temp_camera = Camera2D.new()
+	add_child(temp_camera)
+	
+	# Configurar la cámara temporal con las propiedades de la cámara del jugador
+	temp_camera.global_position = playerCamera.global_position
+	temp_camera.zoom = playerCamera.zoom
+	temp_camera.rotation = playerCamera.rotation
+	temp_camera.offset = playerCamera.offset
+	# Activar la cámara temporal
+	temp_camera.make_current()
+	
+	# Activar pero no hacer current la cámara estática
+	staticCamera.enabled = true
+	
+	# Crear el tween para la transición suave
+	current_tween = create_tween()
+	current_tween.set_ease(ease_type)
+	current_tween.set_trans(transition_type)
+	
+	# Interpolar la posición, zoom y rotación
+	current_tween.tween_property(temp_camera, "global_position", staticCamera.global_position, transition_duration)
+	current_tween.parallel().tween_property(temp_camera, "zoom", staticCamera.zoom, transition_duration)
+	current_tween.parallel().tween_property(temp_camera, "rotation", staticCamera.rotation, transition_duration)
+	current_tween.parallel().tween_property(temp_camera, "offset", staticCamera.offset, transition_duration)
+	
+	# Al finalizar la transición
+	current_tween.finished.connect(func():
+		# Activar la cámara estática
+		staticCamera.make_current()
+		# Eliminar la cámara temporal
+		temp_camera.queue_free()
+	)
 
 func _on_body_exited(_body):
 	# Cancelar cualquier tween anterior

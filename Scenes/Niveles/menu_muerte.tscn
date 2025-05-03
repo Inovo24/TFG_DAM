@@ -62,12 +62,12 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "menuin_btn_salir"
 
-[connection signal="pressed" from="Contenedor/FilaNormal/Ajustes" to="." method="_on_ajustes_pressed"]
 [connection signal="pressed" from="Contenedor/FilaNormal/Ajustes" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="Contenedor/FilaNormal/Reanudar" to="." method="_on_reanudar_pressed"]
+[connection signal="pressed" from="Contenedor/FilaNormal/Ajustes" to="." method="_on_ajustes_pressed"]
 [connection signal="pressed" from="Contenedor/FilaNormal/Reanudar" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Contenedor/FilaSalir/Si" to="." method="_on_si_pressed"]
+[connection signal="pressed" from="Contenedor/FilaNormal/Reanudar" to="." method="_on_reanudar_pressed"]
 [connection signal="pressed" from="Contenedor/FilaSalir/Si" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="Contenedor/FilaSalir/Si" to="." method="_on_si_pressed"]
 [connection signal="pressed" from="Contenedor/FilaSalir/No" to="." method="_on_no_pressed"]
-[connection signal="pressed" from="Contenedor/Salir" to="." method="_on_salir_pressed"]
 [connection signal="pressed" from="Contenedor/Salir" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Contenedor/Salir" to="." method="_on_salir_pressed"]
