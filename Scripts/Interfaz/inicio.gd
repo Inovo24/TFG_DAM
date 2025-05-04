@@ -5,7 +5,7 @@ extends Node2D
 var player 
 var barraVida
 var hudmonedas
-@onready var barraVidaEscena = preload("res://Scenes/UI/Barravida.tscn")
+#@onready var barraVidaEscena = preload("res://Scenes/UI/Barravida.tscn")
 @onready var daltonismoEscena = preload("res://Scenes/ajustes/Colorblindness.tscn")
 var daltonismo
 
@@ -26,8 +26,8 @@ func _ready() -> void:
 	
 	camara.position = player.position
 	
-	barraVida = barraVidaEscena.instantiate()
-	add_child(barraVida)
+	#barraVida = barraVidaEscena.instantiate()
+	#add_child(barraVida)
 	
 	daltonismo = daltonismoEscena.instantiate()
 	daltonismo.Type = Globales.colorblindness_type

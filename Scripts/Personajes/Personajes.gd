@@ -229,8 +229,8 @@ func take_damage(damage_received:int):
 	setCurrentHealth(getCurrentHealth() - damage_received)
 	
 	if getCurrentHealth() <= 0:
+		life_count -= 1
 		add_child(death_menu.instantiate())
-		
 		get_tree().paused = true
 		#queue_free()
 	

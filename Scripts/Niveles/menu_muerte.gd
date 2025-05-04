@@ -4,7 +4,7 @@ extends CanvasLayer
 
 func _ready() -> void:
 	if get_parent() is Characters:
-		if get_parent().has_checkpoint:
+		if get_parent().has_checkpoint and get_parent().life_count > 0:
 			$Contenedor/FilaNormal/Reanudar.text = "menumuer_lab_check"
 		else:
 			$Contenedor/FilaNormal/Reanudar.text = "menumuer_lab_reiniciar"
@@ -48,7 +48,7 @@ func make_visible_container():
 
 
 func _on_resume_pressed() -> void:
-	if get_parent().has_checkpoint:
+	if get_parent().has_checkpoint and get_parent().life_count > 0:
 		get_tree().paused = false
 		get_parent().return_to_checkpoint()
 	else:
