@@ -11,6 +11,7 @@ var daltonismo
 
 # Variable para almacenar la instancia del menú
 var menu_instance: Node = null
+var open_settings = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -41,7 +42,7 @@ func _process(_delta: float) -> void:
 	camara.position = player.position
 	ajustar_texture_rect_al_label()
 	
-	if Input.is_action_just_pressed("salir"):
+	if Input.is_action_just_pressed("salir") and !open_settings:
 		if menu_instance == null:
 			menu_instance = preload("res://Scenes/ajustes/menu_inicio.tscn").instantiate()
 			add_child(menu_instance)

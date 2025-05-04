@@ -45,6 +45,8 @@ func _on_back_button_pressed() -> void:
 	#get_tree().change_scene_to_file("res://Scenes/inicio.tscn")
 	if get_parent().has_method("make_container_visible"):
 		get_parent().make_container_visible()
+	elif get_parent().get_parent().has_node("AreaAjustes"):
+		get_parent().get_parent().open_settings = false
 	queue_free()
 
 # Sound

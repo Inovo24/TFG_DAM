@@ -39,5 +39,5 @@ func _on_cerrar_pressed() -> void:
 	queue_free()
 	get_tree().paused = false
 
-func hacer_visible_cont():
+func make_container_visible():
 	$Contenedor.visible = true
