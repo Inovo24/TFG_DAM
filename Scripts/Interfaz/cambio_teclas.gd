@@ -32,7 +32,6 @@ func _process(delta: float) -> void:
 func _update_button_texts():
 	for action_name in action_buttons.keys():
 		var events = InputMap.action_get_events(action_name)
-		print(events)
 		
 		# Updates the button text with the default configured key
 		action_buttons[action_name][0].text = events[0].as_text().replace(" (Physical)", "")

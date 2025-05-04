@@ -7,7 +7,17 @@ var game_data : Dictionary = {
 	"current_character" = Globales.current_character,
 	"volumes" = Globales.volumes,
 	"colorblindness_type" = Globales.colorblindness_type,
-	"idioma" = TranslationServer.get_locale()
+	"idioma" = TranslationServer.get_locale(),
+	"controls" = {
+		"mover_izq" = InputMap.action_get_events("mover_izq"),
+		"mover_der" = InputMap.action_get_events("mover_der"),
+		"salto" = InputMap.action_get_events("salto"),
+		"ataque" = InputMap.action_get_events("ataque"),
+		"arriba" = InputMap.action_get_events("arriba"),
+		"abajo" = InputMap.action_get_events("abajo"),
+		"aceptar_entrar" = InputMap.action_get_events("aceptar_entrar"),
+		"salir" = InputMap.action_get_events("salir")
+	}
 }
 var primera_carga = true
 var default_controls = {
@@ -41,11 +51,32 @@ func load_game():
 #Actualizar diccionario antes de guardar
 func upload_dictionary_data():
 	game_data = {
-	"current_character" = Globales.current_character,
-	"volumes" = Globales.volumes,
-	"colorblindness_type" = Globales.colorblindness_type,
-	"idioma" = TranslationServer.get_locale()
+		"current_character" = Globales.current_character,
+		"volumes" = Globales.volumes,
+		"colorblindness_type" = Globales.colorblindness_type,
+		"idioma" = TranslationServer.get_locale(),
+		"controls" = {
+			"mover_izq" = [],
+			"mover_der" = [],
+			"salto" = [],
+			"ataque" = [],
+			"arriba" = [],
+			"abajo" = [],
+			"aceptar_entrar" = [],
+			"salir" = []
+		}
 	}
+	
+	#Guardamos todas las acciones, una a una, con el codigo de la tecla correspondiente
+	for action in game_data["controls"].keys():
+		var events := InputMap.action_get_events(action)
+		var keycodes := []
+		
+		for ev in events:
+			if ev is InputEventKey:
+				keycodes.append(ev.physical_keycode)
+		
+		game_data["controls"][action] = keycodes
 
 #Actualizar datos con el diccionario cargado
 func load_dictionary_data():
@@ -61,6 +92,16 @@ func load_dictionary_data():
 	if "idioma" in game_data:
 		TranslationServer.set_locale(game_data["idioma"])
 	
+	if "controls" in game_data:
+		for action in game_data["controls"].keys():
+			InputMap.action_erase_events(action)
+			for key in game_data["controls"][action]:
+				var event = InputEventKey.new()
+				event.physical_keycode = key
+				event.pressed = true
+				#print(event.physical_keycode)
+				InputMap.action_add_event(action, event)
+	
 
 func reset_controls():
 	for action in default_controls.keys():
@@ -69,6 +110,5 @@ func reset_controls():
 			var event = InputEventKey.new()
 			event.physical_keycode = key
 			event.pressed = true
-			event.keycode = key 
-			print(event.physical_keycode)
+			#print(event.physical_keycode)
 			InputMap.action_add_event(action, event)
