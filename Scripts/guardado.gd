@@ -10,6 +10,16 @@ var game_data : Dictionary = {
 	"idioma" = TranslationServer.get_locale()
 }
 var primera_carga = true
+var default_controls = {
+	"mover_izq": [KEY_A, KEY_LEFT],
+	"mover_der": [KEY_D, KEY_RIGHT],
+	"salto": [KEY_X, KEY_SPACE],
+	"ataque": [KEY_Z],
+	"arriba": [KEY_UP, KEY_W],
+	"abajo": [KEY_DOWN, KEY_S],
+	"aceptar_entrar": [KEY_W, KEY_ENTER],
+	"salir": [KEY_ESCAPE]
+}
 
 func save_game():
 	var save_file = FileAccess.open(save_path, FileAccess.WRITE)
@@ -50,3 +60,15 @@ func load_dictionary_data():
 	
 	if "idioma" in game_data:
 		TranslationServer.set_locale(game_data["idioma"])
+	
+
+func reset_controls():
+	for action in default_controls.keys():
+		InputMap.action_erase_events(action)
+		for key in default_controls[action]:
+			var event = InputEventKey.new()
+			event.physical_keycode = key
+			event.pressed = true
+			event.keycode = key 
+			print(event.physical_keycode)
+			InputMap.action_add_event(action, event)

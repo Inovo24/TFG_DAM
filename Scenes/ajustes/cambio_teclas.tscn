@@ -222,6 +222,12 @@ offset_right = 194.0
 offset_bottom = 352.0
 text = "gen_volver"
 
+[node name="BotonReset" type="Button" parent="BotonVolver"]
+offset_left = 300.0
+offset_right = 457.0
+offset_bottom = 31.0
+text = "gen_reset"
+
 [node name="TextoSalir" type="Label" parent="BotonVolver"]
 auto_translate_mode = 1
 modulate = Color(0, 0, 0, 1)
@@ -252,5 +258,5 @@ language = "es_ES"
 [connection signal="pressed" from="ContenedorPrincipal/Ataque/ButtonAtaque_2" to="." method="_on_button_ataque_2_pressed"]
 [connection signal="pressed" from="ContenedorPrincipal/Salto/ButtonSalto_1" to="." method="_on_button_salto_1_pressed"]
 [connection signal="pressed" from="ContenedorPrincipal/Salto/ButtonSalto_2" to="." method="_on_button_salto_2_pressed"]
-[connection signal="pressed" from="BotonVolver" to="." method="_on_boton_volver_pressed"]
 [connection signal="pressed" from="BotonVolver" to="." method="_on_button_back_pressed"]
+[connection signal="pressed" from="BotonVolver/BotonReset" to="." method="_on_boton_reset_pressed"]

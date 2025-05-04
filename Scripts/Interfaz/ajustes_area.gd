@@ -15,3 +15,4 @@ func _process(_delta: float) -> void:
 		#get_tree().change_scene_to_file("res://Scenes/ajustes/ajustes.tscn")  # Cambia la escena
 		add_child(ajustes.instantiate())
 		get_parent().open_settings = true
+		get_tree().paused = true

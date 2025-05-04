@@ -32,6 +32,7 @@ func _process(delta: float) -> void:
 func _update_button_texts():
 	for action_name in action_buttons.keys():
 		var events = InputMap.action_get_events(action_name)
+		print(events)
 		
 		# Updates the button text with the default configured key
 		action_buttons[action_name][0].text = events[0].as_text().replace(" (Physical)", "")
@@ -43,6 +44,7 @@ func _update_button_texts():
 	# Change back button text
 	var salir_key = InputMap.action_get_events("salir")[0].as_text().replace(" (Physical)", "")
 	$BotonVolver/TextoSalir.text = tr("gen_salir").replace("{tecla}", salir_key)
+
 
 func _on_action_button_pressed(action_name):
 	# Starts the reassignment process
@@ -144,3 +146,8 @@ func _on_button_salto_1_pressed() -> void:
 func _on_button_salto_2_pressed() -> void:
 	option = 1
 	_on_action_button_pressed("salto")
+
+
+func _on_boton_reset_pressed() -> void:
+	Guardado.reset_controls()
+	_update_button_texts()

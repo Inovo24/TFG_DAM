@@ -46,6 +46,7 @@ func _process(_delta: float) -> void:
 		if menu_instance == null:
 			menu_instance = preload("res://Scenes/ajustes/menu_inicio.tscn").instantiate()
 			add_child(menu_instance)
+			get_tree().paused = true
 
 func reset_textos():
 	var aceptar_tecla = InputMap.action_get_events("aceptar_entrar")[0].as_text().replace(" (Physical)", "")
