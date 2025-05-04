@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://dadwpxs80q6xk"]
+[gd_scene load_steps=51 format=4 uid="uid://dadwpxs80q6xk"]
 
 [ext_resource type="Script" uid="uid://jj8ln8dc06al" path="res://Scripts/Niveles/nivel_1/nivel_1.gd" id="1_1kwi5"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_xmvmw"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://w7abqfow6xnu" path="res://Sprites/Elementos/Piedras/piedras.png" id="16_qieon"]
 [ext_resource type="Texture2D" uid="uid://7i2ewclqvc28" path="res://Sprites/Elementos/Arboles/Mas_arboles.png" id="17_5o6ik"]
 [ext_resource type="PackedScene" uid="uid://emki51xbyht2" path="res://Scenes/Plataformas/plataforma_normal.tscn" id="17_lb128"]
+[ext_resource type="PackedScene" uid="uid://dtygl6y6hpala" path="res://Scenes/Elementos/Mariposas/mariposa.tscn" id="21_few1d"]
 [ext_resource type="PackedScene" uid="uid://dllkuylvoehor" path="res://Scenes/Elementos/limites_muerte.tscn" id="22_fys6i"]
 [ext_resource type="PackedScene" uid="uid://dwapibi7c3dst" path="res://Scenes/Elementos/gema.tscn" id="23_s7bd2"]
 [ext_resource type="PackedScene" uid="uid://ciusdsdqdktrg" path="res://Scenes/Elementos/estalactita.tscn" id="23_wmniw"]
@@ -31,6 +32,8 @@
 [ext_resource type="PackedScene" uid="uid://d38t4kskhkxnc" path="res://Enemigos/Enemigo_aereo.tscn" id="26_qnefb"]
 [ext_resource type="PackedScene" uid="uid://bwlmbfrpgqfki" path="res://Scenes/Elementos/pinchos.tscn" id="27_qnefb"]
 [ext_resource type="PackedScene" uid="uid://cdhp6ctexp8rt" path="res://Scenes/Elementos/checkpoint.tscn" id="28_fys6i"]
+[ext_resource type="PackedScene" uid="uid://bpwl8xd5w8s8j" path="res://Scenes/Elementos/Mariposas/mariposaRoja.tscn" id="33_hc23b"]
+[ext_resource type="PackedScene" uid="uid://0wia2lcoo46o" path="res://Scenes/Elementos/Mariposas/mariposaAzul.tscn" id="34_a3xof"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0bsq"]
 texture = ExtResource("2_xmvmw")
@@ -2121,6 +2124,12 @@ position = Vector2(5344, 1344)
 [node name="Fuego11" parent="Decoracion/Fuego4" instance=ExtResource("14_61tto")]
 position = Vector2(5368, 1520)
 
+[node name="Mariposa" parent="Decoracion" instance=ExtResource("21_few1d")]
+position = Vector2(1420, 344)
+
+[node name="Mariposa2" parent="Decoracion" instance=ExtResource("21_few1d")]
+position = Vector2(480, 351)
+
 [node name="NPC" type="Node2D" parent="."]
 
 [node name="Granjero" parent="NPC" instance=ExtResource("11_3s6e8")]
@@ -2362,3 +2371,18 @@ position = Vector2(3592, 400)
 
 [node name="CheckPoint1" parent="CheckPoints" instance=ExtResource("28_fys6i")]
 position = Vector2(586, 265)
+
+[node name="Mariposa" parent="." instance=ExtResource("33_hc23b")]
+position = Vector2(1497, 332)
+
+[node name="Mariposa2" parent="." instance=ExtResource("34_a3xof")]
+position = Vector2(2427, 448)
+
+[node name="Mariposa3" parent="." instance=ExtResource("33_hc23b")]
+position = Vector2(2398, 447)
+
+[node name="Mariposa4" parent="." instance=ExtResource("33_hc23b")]
+position = Vector2(2657, 565)
+
+[node name="Mariposa5" parent="." instance=ExtResource("34_a3xof")]
+position = Vector2(3450, 616)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bgugdtotieaut"]
 
 [ext_resource type="Texture2D" uid="uid://vdvshywj6qge" path="res://Sprites/Elementos/Efectos/AparecerHumo.png" id="1_pifnq"]
-[ext_resource type="Script" uid="uid://bsay363rjac63" path="res://Scenes/Efectos/efecto_aparecer.gd" id="1_t8u5x"]
+[ext_resource type="Script" uid="uid://bsay363rjac63" path="res://Scripts/Elementos/efecto_aparecer.gd" id="1_t8u5x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5wpuf"]
 atlas = ExtResource("1_pifnq")
