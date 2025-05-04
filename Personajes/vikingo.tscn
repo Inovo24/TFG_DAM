@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cfltomgtwuoc"]
+[gd_scene load_steps=39 format=3 uid="uid://cfltomgtwuoc"]
 
 [ext_resource type="Script" uid="uid://conujhywlq0aw" path="res://Scripts/Personajes/vikingoScript.gd" id="1_dw0it"]
 [ext_resource type="Texture2D" uid="uid://qnqito2bokb3" path="res://Sprites/Vikingo/viking_run-Sheet.png" id="2_3x3oj"]
@@ -9,9 +9,16 @@
 [ext_resource type="Texture2D" uid="uid://b7786mfde0wrg" path="res://Sprites/Vikingo/vikingo_attack3-Sheet.png" id="2_ylgil"]
 [ext_resource type="Texture2D" uid="uid://bsfrb6w2lfv4p" path="res://Sprites/Vikingo/jump_viking-Sheet.png" id="8_25mdg"]
 [ext_resource type="Texture2D" uid="uid://tvuxxbduu5i3" path="res://Sprites/Vikingo/fall_viking-Sheet.png" id="9_hlwk2"]
+[ext_resource type="Texture2D" uid="uid://d3ouhgt0mohwm" path="res://Sprites/Vikingo/vikingo_upattack-Sheet.png" id="10_hlwk2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rahmg"]
 size = Vector2(9, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vyxn"]
+size = Vector2(25, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55uqw"]
+size = Vector2(30, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_peclk"]
 size = Vector2(13, 31)
@@ -33,7 +40,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D/Area2D/CollisionShape2D2:disabled")
+tracks/1/path = NodePath("Sprite2D/Area2D/frontal:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -65,6 +72,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("2_beggj")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/Area2D/aereo:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D/Area2D/bajo:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_gbp7j"]
@@ -98,7 +129,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D/Area2D/CollisionShape2D2:disabled")
+tracks/2/path = NodePath("Sprite2D/Area2D/frontal:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -139,7 +170,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D/Area2D/CollisionShape2D2:disabled")
+tracks/1/path = NodePath("Sprite2D/Area2D/frontal:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -204,7 +235,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D/Area2D/CollisionShape2D2:disabled")
+tracks/2/path = NodePath("Sprite2D/Area2D/frontal:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -393,12 +424,174 @@ tracks/2/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
+[sub_resource type="Animation" id="Animation_25mdg"]
+resource_name = "ataqueBajo"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_u8j7u")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/Area2D/bajo:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_hlwk2"]
+resource_name = "ataqueAereo"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_u8j7u")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/Area2D/frontal:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_6vyxn"]
+resource_name = "ataqueAlto"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_hlwk2")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/Area2D/aereo:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s28m3"]
 _data = {
 &"RESET": SubResource("Animation_it357"),
 &"ataque1": SubResource("Animation_gbp7j"),
 &"ataque2": SubResource("Animation_j0u2b"),
 &"ataque3": SubResource("Animation_cgx8d"),
+&"ataqueAereo": SubResource("Animation_hlwk2"),
+&"ataqueAlto": SubResource("Animation_6vyxn"),
+&"ataqueBajo": SubResource("Animation_25mdg"),
 &"caer": SubResource("Animation_beggj"),
 &"correr": SubResource("Animation_fst5v"),
 &"idle": SubResource("Animation_mwkqa"),
@@ -418,6 +611,15 @@ animation = &"ataque2"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_afwiq"]
 animation = &"ataque3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_55uqw"]
+animation = &"ataqueAereo"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8ydtl"]
+animation = &"ataqueAlto"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gsoov"]
+animation = &"ataqueBajo"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6vyxn"]
 animation = &"caer"
@@ -443,6 +645,12 @@ states/ataque2/node = SubResource("AnimationNodeAnimation_gawln")
 states/ataque2/position = Vector2(278, 110.011)
 states/ataque3/node = SubResource("AnimationNodeAnimation_afwiq")
 states/ataque3/position = Vector2(411, 164.011)
+states/ataqueAereo/node = SubResource("AnimationNodeAnimation_55uqw")
+states/ataqueAereo/position = Vector2(23.67, -20.9892)
+states/ataqueAlto/node = SubResource("AnimationNodeAnimation_8ydtl")
+states/ataqueAlto/position = Vector2(171.67, -16.9892)
+states/ataqueBajo/node = SubResource("AnimationNodeAnimation_gsoov")
+states/ataqueBajo/position = Vector2(183.67, 46.0108)
 states/caer/node = SubResource("AnimationNodeAnimation_6vyxn")
 states/caer/position = Vector2(455, 40.0108)
 states/correr/node = SubResource("AnimationNodeAnimation_i1o5r")
@@ -452,7 +660,7 @@ states/idle/position = Vector2(114, 133)
 states/saltar/node = SubResource("AnimationNodeAnimation_1s6bp")
 states/saltar/position = Vector2(300, 9)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_t3yva")]
-graph_offset = Vector2(-162.33, -44.9892)
+graph_offset = Vector2(-162.33, -52.5622)
 
 [node name="Vikingo" type="CharacterBody2D" groups=["player"]]
 z_index = 5
@@ -469,9 +677,19 @@ frame = 1
 collision_layer = 2
 collision_mask = 4
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+[node name="frontal" type="CollisionShape2D" parent="Sprite2D/Area2D"]
 position = Vector2(17, 4.5)
 shape = SubResource("RectangleShape2D_rahmg")
+disabled = true
+
+[node name="aereo" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(0, -21)
+shape = SubResource("RectangleShape2D_6vyxn")
+disabled = true
+
+[node name="bajo" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(0, 24)
+shape = SubResource("RectangleShape2D_55uqw")
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

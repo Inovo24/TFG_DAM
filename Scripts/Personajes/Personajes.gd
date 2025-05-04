@@ -91,13 +91,14 @@ func _physics_process(delta):
 			velocity.x = 0
 		
 		if Input.is_action_just_pressed("ataque"):
-			if is_on_floor:
-				switch_state(State.ATTACK)
-			if Input.is_action_just_pressed("arriba"):
+			if not is_on_floor:
+				switch_state(State.AIR_ATTACK)
+			elif Input.is_action_pressed("arriba"):
 				switch_state(State.UP_ATTACK)
-			elif Input.is_action_just_pressed("abajo"):
+			elif Input.is_action_pressed("abajo"):
 				switch_state(State.DOWN_ATTACK)
-			switch_state(State.AIR_ATTACK)
+			else:
+				switch_state(State.ATTACK)
 			
 		# Jump logic with coyote time and gravity
 		if jump_attempt or input_buffer.time_left > 0:
@@ -188,12 +189,18 @@ func switch_state(new_state: State):
 				
 
 func _on_animation_finished(_anim_name):
+	if current_state in [State.ATTACK, State.AIR_ATTACK, State.UP_ATTACK, State.DOWN_ATTACK]:
+		if _anim_name in ["ataque1", "ataqueAereo", "ataqueBajo", "ataqueAlto"]:
+			print("Animation finished: ", _anim_name)
+			switch_state(State.IDLE)
+	'''
 	if current_state == State.ATTACK:
 		if _anim_name == "ataque1":
 			print("attack")
 			#switch_state(State.ATTACK)
 		print("attack finished")
 		switch_state(State.IDLE)
+		'''
 
 func coyote_timeout():
 	coyote_jump_available = false
@@ -212,11 +219,14 @@ func reset_velocity():
 func attack():
 	pass
 func air_attack():
-	anim_state_machine.travel("air_attack")	
+	print("ataque aereo")
+	anim_state_machine.travel("ataqueAereo")	
 func down_attack():
-	anim_state_machine.travel("down_attack")
+	print("ataque bajo")
+	anim_state_machine.travel("ataqueBajo")
 func up_attack():
-	anim_state_machine.travel("up_attack")
+	print("ataque alto")
+	anim_state_machine.travel("ataqueAlto")
 
 func getMaxHealth() -> int:
 	return max_health

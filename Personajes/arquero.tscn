@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://brcqtuumjw2gy"]
+[gd_scene load_steps=28 format=3 uid="uid://brcqtuumjw2gy"]
 
 [ext_resource type="Script" uid="uid://bembmkp7s16vg" path="res://Scripts/Personajes/arqueroScript.gd" id="1_k2g1c"]
 [ext_resource type="Texture2D" uid="uid://bbfyi5bw1mw06" path="res://Sprites/Arquero/run_arquero-Sheet.png" id="2_5unkh"]
@@ -256,10 +256,22 @@ tracks/2/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
+[sub_resource type="Animation" id="Animation_6x35u"]
+resource_name = "ataqueAereo"
+
+[sub_resource type="Animation" id="Animation_dayqw"]
+resource_name = "ataqueAlto"
+
+[sub_resource type="Animation" id="Animation_ce8cu"]
+resource_name = "ataqueBajo"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aoste"]
 _data = {
 &"RESET": SubResource("Animation_a4t8d"),
 &"ataque1": SubResource("Animation_l5ou5"),
+&"ataqueAereo": SubResource("Animation_6x35u"),
+&"ataqueAlto": SubResource("Animation_dayqw"),
+&"ataqueBajo": SubResource("Animation_ce8cu"),
 &"caer": SubResource("Animation_3k3pe"),
 &"correr": SubResource("Animation_qope3"),
 &"idle": SubResource("Animation_cn7ll"),
@@ -268,6 +280,15 @@ _data = {
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kcv6c"]
 animation = &"ataque1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dayqw"]
+animation = &"ataqueAereo"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3k3pe"]
+animation = &"ataqueAlto"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ce8cu"]
+animation = &"ataqueBajo"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6x35u"]
 animation = &"caer"
@@ -287,6 +308,12 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_tfm08"]
 states/ataque1/node = SubResource("AnimationNodeAnimation_kcv6c")
 states/ataque1/position = Vector2(612, 123)
+states/ataqueAereo/node = SubResource("AnimationNodeAnimation_dayqw")
+states/ataqueAereo/position = Vector2(401, 37)
+states/ataqueAlto/node = SubResource("AnimationNodeAnimation_3k3pe")
+states/ataqueAlto/position = Vector2(777, 134)
+states/ataqueBajo/node = SubResource("AnimationNodeAnimation_ce8cu")
+states/ataqueBajo/position = Vector2(348, 144)
 states/caer/node = SubResource("AnimationNodeAnimation_6x35u")
 states/caer/position = Vector2(747, 60)
 states/correr/node = SubResource("AnimationNodeAnimation_qawjt")
@@ -320,7 +347,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_aoste")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." groups=["player"]]
 active = false
 tree_root = SubResource("AnimationNodeStateMachine_tfm08")
 anim_player = NodePath("../AnimationPlayer")

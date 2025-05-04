@@ -223,6 +223,7 @@ offset_bottom = 352.0
 text = "gen_volver"
 
 [node name="BotonReset" type="Button" parent="BotonVolver"]
+layout_mode = 0
 offset_left = 300.0
 offset_right = 457.0
 offset_bottom = 31.0
