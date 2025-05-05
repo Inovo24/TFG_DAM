@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d288qogm675qw"]
+
+[ext_resource type="Texture2D" uid="uid://cx51qruy2eewy" path="res://Sprites/Elementos/Bloques/bloque.png" id="1_6qiqu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_babtf"]
+size = Vector2(16, 16)
+
+[node name="Node2D" type="RigidBody2D"]
+collision_mask = 3
+mass = 0.003
+freeze_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_babtf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6qiqu")
