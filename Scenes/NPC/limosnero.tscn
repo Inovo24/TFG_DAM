@@ -64,7 +64,7 @@ offset_left = -72.0
 offset_top = -40.0
 offset_right = 71.0
 offset_bottom = -16.0
-text = "Una moneda porfavor..."
+text = "npc_mendigo"
 label_settings = ExtResource("2_vmhj0")
 
 [node name="Area2D" type="Area2D" parent="."]

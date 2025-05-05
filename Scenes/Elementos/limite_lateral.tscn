@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d10baod8a4y07"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pfwvq"]
+b = Vector2(704, 3.07728e-05)
+
+[node name="LimiteLateral" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.5708
+shape = SubResource("SegmentShape2D_pfwvq")

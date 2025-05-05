@@ -51,3 +51,5 @@ tecl_lab_slt,Salto,Jump,Pulo,Salto
 gen_salir,Pulsa {tecla} para salir,Press {tecla} to exit,Pressione {tecla} para sair,Premi {tecla} per uscire
 gen_volver,Volver,Go back,Voltar,Torna indietro
 gen_reset,Teclas por defecto,Default keys,Teclas padrão,Tasti predefiniti
+npc_granjero,¡Ha llegado el fin!,The end has come!,O fim chegou!,È giunta la fine!
+npc_mendigo,Una moneda porfavor...,A coin please...,Uma moeda por favor ...,Una moneta per favore...
