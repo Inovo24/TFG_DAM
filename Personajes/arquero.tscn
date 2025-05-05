@@ -90,6 +90,15 @@ tracks/2/keys = {
 "values": [6]
 }
 
+[sub_resource type="Animation" id="Animation_6x35u"]
+resource_name = "ataqueAereo"
+
+[sub_resource type="Animation" id="Animation_dayqw"]
+resource_name = "ataqueAlto"
+
+[sub_resource type="Animation" id="Animation_ce8cu"]
+resource_name = "ataqueBajo"
+
 [sub_resource type="Animation" id="Animation_3k3pe"]
 resource_name = "caer"
 length = 0.6
@@ -255,15 +264,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
 }
-
-[sub_resource type="Animation" id="Animation_6x35u"]
-resource_name = "ataqueAereo"
-
-[sub_resource type="Animation" id="Animation_dayqw"]
-resource_name = "ataqueAlto"
-
-[sub_resource type="Animation" id="Animation_ce8cu"]
-resource_name = "ataqueBajo"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aoste"]
 _data = {

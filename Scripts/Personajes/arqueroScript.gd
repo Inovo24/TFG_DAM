@@ -44,6 +44,9 @@ func attack():
 	else:
 		print("You cannot spam the bow")
 	
+func down_attack():
+	print("ataque bajo")
+	anim_state_machine.travel("ataqueBajo")
 func _physics_process(delta):
 	super._physics_process(delta)
 	if Input.is_action_just_released("ataque"):
