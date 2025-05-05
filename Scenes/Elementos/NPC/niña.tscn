@@ -1,37 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://dh5l8gdfaqlyy"]
+[gd_scene load_steps=6 format=3 uid="uid://dh5l8gdfaqlyy"]
 
 [ext_resource type="Texture2D" uid="uid://bipqr6h2vti2y" path="res://Sprites/NPC/niña.png" id="1_ps45k"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps45k"]
+atlas = ExtResource("1_ps45k")
+region = Rect2(0, 0, 26, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_0n0fb"]
 atlas = ExtResource("1_ps45k")
-region = Rect2(512, 0, 256, 400)
+region = Rect2(52, 0, 26, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6bgvb"]
 atlas = ExtResource("1_ps45k")
-region = Rect2(0, 0, 256, 400)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lr8oa"]
-atlas = ExtResource("1_ps45k")
-region = Rect2(768, 0, 256, 400)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3eafp"]
-atlas = ExtResource("1_ps45k")
-region = Rect2(256, 0, 256, 400)
+region = Rect2(26, 0, 26, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2o4wj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ps45k")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0n0fb")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6bgvb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lr8oa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3eafp")
 }],
 "loop": true,
 "name": &"default",
@@ -43,4 +36,5 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2o4wj")
 autoplay = "default"
-frame_progress = 0.312217
+frame = 1
+frame_progress = 0.15421

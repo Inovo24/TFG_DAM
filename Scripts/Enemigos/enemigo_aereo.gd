@@ -107,7 +107,7 @@ func _on_attack_area_body_exited(body: Node2D) -> void:
 # --- Repeated attack function ---
 func _perform_attack():
 	if player:
-		player.receive_damage(damage)  # Apply damage repeatedly
+		player.take_damage(damage)  # Apply damage repeatedly
 		#print("Attacking player, remaining health:", player.get_current_health())
 		
 		_knockback(knockback_damage)
