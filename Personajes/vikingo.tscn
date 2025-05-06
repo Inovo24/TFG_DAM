@@ -665,13 +665,8 @@ graph_offset = Vector2(-162.33, -52.5622)
 
 [node name="Vikingo" type="CharacterBody2D" groups=["player"]]
 z_index = 5
-<<<<<<< Updated upstream
 collision_layer = 514
 collision_mask = 13
-=======
-collision_layer = 2
-collision_mask = 525
->>>>>>> Stashed changes
 script = ExtResource("1_dw0it")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

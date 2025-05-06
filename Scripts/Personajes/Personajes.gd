@@ -21,7 +21,7 @@ var damage = 10
 var speed = 200
 var push_force = 80.0
 var initial_speed
-var push_force = 80
+
 var thorns_touching = 0
 
 var combo_count = 0
@@ -137,23 +137,12 @@ func _physics_process(delta):
 			if is_on_floor() and current_state not in [State.ATTACK, State.AIR_ATTACK, State.UP_ATTACK, State.DOWN_ATTACK]:
 				velocity.x = move_toward(velocity.x, 0, speed * delta * 5)
 				switch_state(State.IDLE)
+
 		move_and_slide()
 		for i in get_slide_collision_count():
-<<<<<<< Updated upstream
 					var c = get_slide_collision(i)
 					if c.get_collider() is RigidBody2D:
 						c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
-=======
-			var c = get_slide_collision(i)
-			var body := c.get_collider()
-			if body is RigidBody2D:
-				var direction := -c.get_normal()
-				var impulse = direction * push_force * 0.1  # Escalamos el impulso para suavizar
-				body.apply_central_impulse(impulse)
-
-
-
->>>>>>> Stashed changes
 
 	else:
 		velocity.x = 0
