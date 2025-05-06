@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyb3kkxyl18i6"]
+
+[ext_resource type="Script" uid="uid://ck6671eplqfhj" path="res://Scripts/Enemigos/boss_lvl1.gd" id="1_shxn8"]
+
+[node name="Wolf_Boss" type="CharacterBody2D"]
+script = ExtResource("1_shxn8")
+
+[node name="Area2D" type="Area2D" parent="."]

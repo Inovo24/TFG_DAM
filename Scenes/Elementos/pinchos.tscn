@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://bwlmbfrpgqfki"]
 
 [ext_resource type="Script" uid="uid://b05fs6jvftqrq" path="res://Scripts/Elementos/pinchos.gd" id="1_m4lgh"]
-[ext_resource type="Texture2D" uid="uid://juti4fxe6uxq" path="res://Sprites/sprites_para_borradores/pinchos.png" id="1_uikjg"]
+[ext_resource type="Texture2D" uid="uid://smqfnjqgydia" path="res://Sprites/Elementos/pinchos/pinchos.png" id="2_m4lgh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4lgh"]
-size = Vector2(63, 3)
+size = Vector2(34, 2.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_il75n"]
-size = Vector2(63, 15)
+size = Vector2(34, 10)
 
 [node name="Pinchos" type="StaticBody2D"]
 collision_mask = 7
@@ -15,10 +15,10 @@ script = ExtResource("1_m4lgh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.588496, 0.5)
-texture = ExtResource("1_uikjg")
+texture = ExtResource("2_m4lgh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 7.5)
+position = Vector2(0, 6.75)
 shape = SubResource("RectangleShape2D_m4lgh")
 disabled = true
 
@@ -26,7 +26,7 @@ disabled = true
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDano"]
-position = Vector2(1.5, 2.5)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_il75n")
 
 [connection signal="body_entered" from="AreaDano" to="." method="_on_damage_area_body_entered"]

@@ -184,7 +184,11 @@ func _on_animation_finished(_anim_name):
 		var current_animation = ""
 		match current_state:
 			State.ATTACK:
-				current_animation = "ataque1"
+				if _anim_name == "ataque1":
+					print("attack")
+					#switch_state(State.ATTACK)
+				print("attack finished")
+				switch_state(State.IDLE)
 			State.AIR_ATTACK:
 				current_animation = "ataqueAereo"
 			State.UP_ATTACK:
