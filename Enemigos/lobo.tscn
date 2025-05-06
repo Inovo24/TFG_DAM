@@ -127,7 +127,7 @@ scale = Vector2(17.0526, 21.6)
 
 [node name="RayoDetras" type="RayCast2D" parent="SpriteLobo/Node2D"]
 position = Vector2(3.70678, 0.814815)
-target_position = Vector2(10.7495, 0)
+target_position = Vector2(14.8365, 0.0462961)
 collision_mask = 2
 
 [node name="RayoDelante" type="RayCast2D" parent="SpriteLobo/Node2D"]
@@ -140,8 +140,8 @@ wait_time = 0.3
 one_shot = true
 
 [connection signal="body_entered" from="SpriteLobo/Atack" to="." method="_on_attack_body_entered"]
-[connection signal="body_exited" from="SpriteLobo/Atack" to="." method="_on_attack_body_exited"]
 [connection signal="body_exited" from="SpriteLobo/Atack" to="." method="_on_atack_body_exited"]
+[connection signal="body_exited" from="SpriteLobo/Atack" to="." method="_on_attack_body_exited"]
 [connection signal="timeout" from="SpriteLobo/Atack/TimerAtack" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="SpriteLobo/Atack/TimerAtack" to="." method="_on_timer_atack_timeout"]
 [connection signal="timeout" from="GiroTimer" to="." method="_on_turn_timer_timeout"]
