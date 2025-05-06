@@ -11,16 +11,16 @@ z_index = -1
 script = ExtResource("1_am5jd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+position = Vector2(0, -8)
 texture = ExtResource("1_0gve6")
-region_enabled = true
 region_rect = Rect2(191, 130, 641, 767)
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitbox"]
-position = Vector2(1, -1)
+position = Vector2(1, -8)
+scale = Vector2(0.555583, 0.645839)
 polygon = PackedVector2Array(-1, 20, -14, -18, 11, -18)
 
 [node name="DetectarJugador" type="Area2D" parent="."]
@@ -28,7 +28,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectarJugador"]
-position = Vector2(2.98023e-07, 169)
+position = Vector2(7.6294e-07, 168)
 scale = Vector2(0.05, 0.05)
 shape = SubResource("RectangleShape2D_am5jd")
 
