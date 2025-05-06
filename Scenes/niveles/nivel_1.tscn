@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://dadwpxs80q6xk"]
+[gd_scene load_steps=46 format=4 uid="uid://dadwpxs80q6xk"]
 
 [ext_resource type="Script" uid="uid://jj8ln8dc06al" path="res://Scripts/Niveles/nivel_1/nivel_1.gd" id="1_1kwi5"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_xmvmw"]
@@ -2269,5 +2269,13 @@ speed = 300.0
 position = Vector2(3105, 209)
 speed = 300.0
 
+<<<<<<< Updated upstream
 [node name="Node2D" parent="." instance=ExtResource("35_a3xof")]
 position = Vector2(240, 336)
+=======
+[node name="Lobo" parent="." instance=ExtResource("26_h8rjm")]
+position = Vector2(4824, 1032)
+
+[node name="Node2D3" parent="." instance=ExtResource("35_a3xof")]
+position = Vector2(984, 344)
+>>>>>>> Stashed changes

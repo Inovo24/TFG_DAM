@@ -6,7 +6,14 @@
 size = Vector2(16, 16)
 
 [node name="Node2D" type="RigidBody2D"]
+<<<<<<< Updated upstream
 collision_mask = 3
+=======
+collision_layer = 512
+collision_mask = 515
+mass = 0.291
+inertia = 4.55
+>>>>>>> Stashed changes
 freeze_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -93,6 +93,7 @@ locale/translations=PackedStringArray("res://Traducciones/Dialogos.en.translatio
 2d_physics/layer_1="Elementos de choque"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemigos"
+2d_physics/layer_10="BloquesMovibles"
 2d_physics/layer_11="Plataforma_normal"
 
 [rendering]
