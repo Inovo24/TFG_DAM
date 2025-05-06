@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://dadwpxs80q6xk"]
+[gd_scene load_steps=45 format=4 uid="uid://dadwpxs80q6xk"]
 
 [ext_resource type="Script" uid="uid://jj8ln8dc06al" path="res://Scripts/Niveles/nivel_1/nivel_1.gd" id="1_1kwi5"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_xmvmw"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://d10baod8a4y07" path="res://Scenes/Elementos/limite_lateral.tscn" id="33_1c24h"]
 [ext_resource type="PackedScene" uid="uid://bpwl8xd5w8s8j" path="res://Scenes/Elementos/Mariposas/mariposaRoja.tscn" id="33_hc23b"]
 [ext_resource type="PackedScene" uid="uid://0wia2lcoo46o" path="res://Scenes/Elementos/Mariposas/mariposaAzul.tscn" id="34_a3xof"]
+[ext_resource type="PackedScene" uid="uid://d288qogm675qw" path="res://Scenes/Elementos/Bloques/bloque.tscn" id="35_a3xof"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0bsq"]
 texture = ExtResource("2_xmvmw")
@@ -2267,3 +2268,6 @@ speed = 300.0
 [node name="Estalactita24" parent="Estalactitas" instance=ExtResource("23_wmniw")]
 position = Vector2(3105, 209)
 speed = 300.0
+
+[node name="Node2D" parent="." instance=ExtResource("35_a3xof")]
+position = Vector2(240, 336)
