@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://b7b16sionaqjg"]
+[gd_scene load_steps=7 format=4 uid="uid://b7b16sionaqjg"]
 
 [ext_resource type="Script" path="res://Scripts/Niveles/nivel_1/batalla_boss_1.gd" id="1_felyv"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="1_fl4gq"]
 [ext_resource type="PackedScene" uid="uid://dyb3kkxyl18i6" path="res://Enemigos/wolf_boss.tscn" id="2_ph433"]
+[ext_resource type="Texture2D" uid="uid://bwsqlinj76xkk" path="res://Sprites/backgrounds/background_level1/Fondo_Boss1.png" id="4_j7b2c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_felyv"]
 texture = ExtResource("1_fl4gq")
@@ -421,3 +422,16 @@ metadata/_edit_group_ = true
 
 [node name="Marker2D" type="Marker2D" parent="Camera2D"]
 position = Vector2(192, 256)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="fondoCaverna" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-245, 363)
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(700, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/fondoCaverna"]
+position = Vector2(81, -477)
+texture = ExtResource("4_j7b2c")
+centered = false
