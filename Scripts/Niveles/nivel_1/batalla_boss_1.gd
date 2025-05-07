@@ -8,3 +8,6 @@ func _ready():
 	camera = camara_level1
 	initialPosition = posicion_level1
 	super._ready()
+	
+
+	
