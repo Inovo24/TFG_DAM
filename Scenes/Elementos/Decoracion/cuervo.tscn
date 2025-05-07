@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://ducmsvbk74iix"]
+
+[ext_resource type="Texture2D" uid="uid://cfounf5b733wh" path="res://Sprites/Elementos/Decoracion/Cuervo.png" id="1_v4lvr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2gal"]
+atlas = ExtResource("1_v4lvr")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejk0y"]
+atlas = ExtResource("1_v4lvr")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7prta"]
+atlas = ExtResource("1_v4lvr")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xv1i"]
+atlas = ExtResource("1_v4lvr")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8a1n"]
+atlas = ExtResource("1_v4lvr")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4ab3"]
+atlas = ExtResource("1_v4lvr")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a78x0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2gal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejk0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7prta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xv1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8a1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4ab3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[node name="Cuervo" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_a78x0")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.159604
