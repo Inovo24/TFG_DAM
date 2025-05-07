@@ -1,43 +1,43 @@
 [gd_scene load_steps=48 format=4 uid="uid://dadwpxs80q6xk"]
 
-[ext_resource type="Script" uid="uid://jj8ln8dc06al" path="res://Scripts/Niveles/nivel_1/nivel_1.gd" id="1_1kwi5"]
-[ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_xmvmw"]
-[ext_resource type="Texture2D" uid="uid://y3rop3kkhj1j" path="res://Sprites/backgrounds/background_level1/Fondos/fondo_01.png" id="4_aa24j"]
-[ext_resource type="Texture2D" uid="uid://dbfsfk62b5o5b" path="res://Sprites/backgrounds/background_level1/Fondos/fondo_02.png" id="5_fw2ep"]
-[ext_resource type="Texture2D" uid="uid://2f3nb5kvudpi" path="res://Sprites/backgrounds/background_level1/Fondos/suelo_subterraneo.png" id="5_fys6i"]
-[ext_resource type="Texture2D" uid="uid://b3s8suesvnj5o" path="res://Sprites/backgrounds/background_level1/Arboles/arboles_01.png" id="6_4wobm"]
-[ext_resource type="Texture2D" uid="uid://bnap7jj5cdcdw" path="res://Sprites/backgrounds/background_level1/Fondos/caverna.png" id="6_wmniw"]
-[ext_resource type="Texture2D" uid="uid://dbh1ayprx2myv" path="res://Sprites/backgrounds/background_level1/Arboles/arboles_02.png" id="7_0dpfd"]
-[ext_resource type="Texture2D" uid="uid://dycni8ti35f5y" path="res://Sprites/backgrounds/background_level1/Fondos/lava_fondo.png" id="7_lbbsm"]
-[ext_resource type="Texture2D" uid="uid://1vltpchq0kae" path="res://Sprites/backgrounds/background_level1/Fondos/Ultima_capa.png" id="8_05o03"]
-[ext_resource type="Texture2D" uid="uid://dab024uovhugv" path="res://Sprites/backgrounds/background_level1/Arboles/arboles_03.png" id="8_sji21"]
-[ext_resource type="Texture2D" uid="uid://be6k6shbvweks" path="res://Sprites/backgrounds/background_level1/Arboles/arboles_04.png" id="9_o5p8x"]
-[ext_resource type="Texture2D" uid="uid://bfopn67ev7qmy" path="res://Sprites/backgrounds/background_level1/Fondos/suelo.png" id="10_v2gni"]
-[ext_resource type="PackedScene" uid="uid://cqdhwd0mrag1" path="res://Scenes/NPC/granjero.tscn" id="11_3s6e8"]
-[ext_resource type="Texture2D" uid="uid://d1r08kypgmx8d" path="res://Sprites/backgrounds/background_level1/Arboles/arbustillos.png" id="11_fw2ep"]
-[ext_resource type="PackedScene" uid="uid://cxmqlip12y7d8" path="res://Scenes/NPC/limosnero.tscn" id="12_78s11"]
-[ext_resource type="Texture2D" uid="uid://dq5hadn8aps8g" path="res://Sprites/Elementos/Arboles/arboles.png" id="13_bij32"]
-[ext_resource type="PackedScene" uid="uid://df3q078ettq20" path="res://Scenes/Plataformas/trampolin.tscn" id="13_xjwas"]
-[ext_resource type="PackedScene" uid="uid://cdpp1csevexpd" path="res://Scenes/Elementos/fuego.tscn" id="14_61tto"]
-[ext_resource type="Texture2D" uid="uid://be5a31qbr023" path="res://Sprites/Elementos/Arboles/plantas.png" id="14_fit41"]
-[ext_resource type="Texture2D" uid="uid://w7abqfow6xnu" path="res://Sprites/Elementos/Piedras/piedras.png" id="16_qieon"]
-[ext_resource type="Texture2D" uid="uid://7i2ewclqvc28" path="res://Sprites/Elementos/Arboles/Mas_arboles.png" id="17_5o6ik"]
-[ext_resource type="Texture2D" uid="uid://mr8pp35tt3eg" path="res://Sprites/backgrounds/background_level1/Cueva/Tumba.png" id="17_a3xof"]
-[ext_resource type="PackedScene" uid="uid://emki51xbyht2" path="res://Scenes/Plataformas/plataforma_normal.tscn" id="17_lb128"]
-[ext_resource type="PackedScene" uid="uid://dtygl6y6hpala" path="res://Scenes/Elementos/Mariposas/mariposa.tscn" id="21_few1d"]
-[ext_resource type="PackedScene" uid="uid://dllkuylvoehor" path="res://Scenes/Elementos/limites_muerte.tscn" id="22_fys6i"]
-[ext_resource type="PackedScene" uid="uid://dwapibi7c3dst" path="res://Scenes/Elementos/gema.tscn" id="23_s7bd2"]
-[ext_resource type="PackedScene" uid="uid://ciusdsdqdktrg" path="res://Scenes/Elementos/estalactita.tscn" id="23_wmniw"]
-[ext_resource type="PackedScene" uid="uid://coqvu88f812oh" path="res://Enemigos/lobo.tscn" id="26_h8rjm"]
-[ext_resource type="PackedScene" uid="uid://cdhp6ctexp8rt" path="res://Scenes/Elementos/checkpoint.tscn" id="28_fys6i"]
-[ext_resource type="PackedScene" uid="uid://d10baod8a4y07" path="res://Scenes/Elementos/limite_lateral.tscn" id="33_1c24h"]
-[ext_resource type="PackedScene" uid="uid://bpwl8xd5w8s8j" path="res://Scenes/Elementos/Mariposas/mariposaRoja.tscn" id="33_hc23b"]
-[ext_resource type="PackedScene" uid="uid://0wia2lcoo46o" path="res://Scenes/Elementos/Mariposas/mariposaAzul.tscn" id="34_a3xof"]
-[ext_resource type="PackedScene" uid="uid://bjq7fdjcfrerh" path="res://Scenes/Elementos/Entrada/Entrada_Caverna.tscn" id="34_hc23b"]
-[ext_resource type="PackedScene" uid="uid://dgsib8gnavlq3" path="res://Scenes/Elementos/Decoracion/Antorcha.tscn" id="35_mgkwp"]
+[ext_resource type="Script" uid="uid://jj8ln8dc06al" path="res://Scripts/Niveles/nivel_1/nivel_1.gd" id="1_640ix"]
+[ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_bnpcw"]
+[ext_resource type="Texture2D" uid="uid://y3rop3kkhj1j" path="res://Sprites/backgrounds/background_level1/Fondos/fondo_01.png" id="3_m2p2q"]
+[ext_resource type="Texture2D" uid="uid://dbfsfk62b5o5b" path="res://Sprites/backgrounds/background_level1/Fondos/fondo_02.png" id="4_00vbb"]
+[ext_resource type="Texture2D" uid="uid://2f3nb5kvudpi" path="res://Sprites/backgrounds/background_level1/Fondos/suelo_subterraneo.png" id="5_sae4p"]
+[ext_resource type="Texture2D" uid="uid://bnap7jj5cdcdw" path="res://Sprites/backgrounds/background_level1/Fondos/caverna.png" id="6_1dd2w"]
+[ext_resource type="Texture2D" uid="uid://dycni8ti35f5y" path="res://Sprites/backgrounds/background_level1/Fondos/lava_fondo.png" id="7_o3f68"]
+[ext_resource type="Texture2D" uid="uid://1vltpchq0kae" path="res://Sprites/backgrounds/background_level1/Fondos/Ultima_capa.png" id="8_olpjw"]
+[ext_resource type="Texture2D" uid="uid://b3s8suesvnj5o" path="res://Sprites/backgrounds/background_level1/Arboles/arboles_01.png" id="9_a26ko"]
+[ext_resource type="Texture2D" uid="uid://dbh1ayprx2myv" path="res://Sprites/backgrounds/background_level1/Arboles/arboles_02.png" id="10_xehsq"]
+[ext_resource type="Texture2D" uid="uid://dab024uovhugv" path="res://Sprites/backgrounds/background_level1/Arboles/arboles_03.png" id="11_ppvyp"]
+[ext_resource type="Texture2D" uid="uid://be6k6shbvweks" path="res://Sprites/backgrounds/background_level1/Arboles/arboles_04.png" id="12_yswk2"]
+[ext_resource type="Texture2D" uid="uid://bfopn67ev7qmy" path="res://Sprites/backgrounds/background_level1/Fondos/suelo.png" id="13_e6ank"]
+[ext_resource type="Texture2D" uid="uid://d1r08kypgmx8d" path="res://Sprites/backgrounds/background_level1/Arboles/arbustillos.png" id="14_nbcs1"]
+[ext_resource type="Texture2D" uid="uid://dq5hadn8aps8g" path="res://Sprites/Elementos/Arboles/arboles.png" id="15_i5vb5"]
+[ext_resource type="Texture2D" uid="uid://be5a31qbr023" path="res://Sprites/Elementos/Arboles/plantas.png" id="16_8erby"]
+[ext_resource type="Texture2D" uid="uid://w7abqfow6xnu" path="res://Sprites/Elementos/Piedras/piedras.png" id="17_w0xav"]
+[ext_resource type="Texture2D" uid="uid://7i2ewclqvc28" path="res://Sprites/Elementos/Arboles/Mas_arboles.png" id="18_hcexk"]
+[ext_resource type="Texture2D" uid="uid://mr8pp35tt3eg" path="res://Sprites/backgrounds/background_level1/Cueva/Tumba.png" id="19_k7lx4"]
+[ext_resource type="PackedScene" uid="uid://bpwl8xd5w8s8j" path="res://Scenes/Elementos/Mariposas/mariposaRoja.tscn" id="20_plj8i"]
+[ext_resource type="PackedScene" uid="uid://dtygl6y6hpala" path="res://Scenes/Elementos/Mariposas/mariposa.tscn" id="21_f2pc5"]
+[ext_resource type="PackedScene" uid="uid://0wia2lcoo46o" path="res://Scenes/Elementos/Mariposas/mariposaAzul.tscn" id="22_hco3n"]
+[ext_resource type="PackedScene" uid="uid://cdpp1csevexpd" path="res://Scenes/Elementos/fuego.tscn" id="23_u4gcg"]
+[ext_resource type="PackedScene" uid="uid://cqdhwd0mrag1" path="res://Scenes/NPC/granjero.tscn" id="24_ttdgh"]
+[ext_resource type="PackedScene" uid="uid://cxmqlip12y7d8" path="res://Scenes/NPC/limosnero.tscn" id="25_d8hf8"]
+[ext_resource type="PackedScene" uid="uid://dwapibi7c3dst" path="res://Scenes/Elementos/gema.tscn" id="26_ni6ft"]
+[ext_resource type="PackedScene" uid="uid://dllkuylvoehor" path="res://Scenes/Elementos/limites_muerte.tscn" id="27_t2brn"]
+[ext_resource type="PackedScene" uid="uid://d10baod8a4y07" path="res://Scenes/Elementos/limite_lateral.tscn" id="28_xxydp"]
+[ext_resource type="PackedScene" uid="uid://df3q078ettq20" path="res://Scenes/Plataformas/trampolin.tscn" id="29_t5s73"]
+[ext_resource type="PackedScene" uid="uid://emki51xbyht2" path="res://Scenes/Plataformas/plataforma_normal.tscn" id="30_wn0w5"]
+[ext_resource type="PackedScene" uid="uid://coqvu88f812oh" path="res://Enemigos/lobo.tscn" id="31_10dqi"]
+[ext_resource type="PackedScene" uid="uid://cdhp6ctexp8rt" path="res://Scenes/Elementos/checkpoint.tscn" id="32_hgcxe"]
+[ext_resource type="PackedScene" uid="uid://ciusdsdqdktrg" path="res://Scenes/Elementos/estalactita.tscn" id="33_ke2nu"]
+[ext_resource type="PackedScene" uid="uid://dgsib8gnavlq3" path="res://Scenes/Elementos/Decoracion/Antorcha.tscn" id="34_kb8t5"]
+[ext_resource type="PackedScene" uid="uid://bjq7fdjcfrerh" path="res://Scenes/Elementos/Entrada/Entrada_Caverna.tscn" id="35_da7uh"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0bsq"]
-texture = ExtResource("2_xmvmw")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7bod"]
+texture = ExtResource("2_bnpcw")
 5:0/0 = 0
 5:0/0/terrain_set = 0
 5:0/0/terrain = 0
@@ -436,10 +436,10 @@ physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.85625, 0, 0.203877, 1)
-sources/0 = SubResource("TileSetAtlasSource_f0bsq")
+sources/0 = SubResource("TileSetAtlasSource_v7bod")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_61tto"]
-texture = ExtResource("13_bij32")
+texture = ExtResource("15_i5vb5")
 3:0/0 = 0
 4:0/0 = 0
 2:1/0 = 0
@@ -535,7 +535,7 @@ texture = ExtResource("13_bij32")
 12:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnvlg"]
-texture = ExtResource("14_fit41")
+texture = ExtResource("16_8erby")
 6:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
@@ -645,7 +645,7 @@ texture = ExtResource("14_fit41")
 9:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5o6ik"]
-texture = ExtResource("16_qieon")
+texture = ExtResource("17_w0xav")
 0:1/0 = 0
 1:1/0 = 0
 3:1/0 = 0
@@ -689,7 +689,7 @@ texture = ExtResource("16_qieon")
 4:6/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v8v5i"]
-texture = ExtResource("17_5o6ik")
+texture = ExtResource("18_hcexk")
 2:0/0 = 0
 3:0/0 = 0
 4:0/0 = 0
@@ -1854,7 +1854,7 @@ texture = ExtResource("17_5o6ik")
 60:39/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a3xof"]
-texture = ExtResource("17_a3xof")
+texture = ExtResource("19_k7lx4")
 3:0/0 = 0
 4:0/0 = 0
 6:0/0 = 0
@@ -1925,7 +1925,7 @@ _data = {
 point_count = 2
 
 [node name="Nivel1" type="Node2D"]
-script = ExtResource("1_1kwi5")
+script = ExtResource("1_640ix")
 metadata/_edit_vertical_guides_ = [-245.0]
 metadata/_edit_horizontal_guides_ = [230.0]
 
@@ -1946,7 +1946,7 @@ motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/fondo_01"]
 position = Vector2(-3, -32)
-texture = ExtResource("4_aa24j")
+texture = ExtResource("3_m2p2q")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 700, 700)
@@ -1959,7 +1959,7 @@ motion_mirroring = Vector2(700, 0)
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/fondo_02"]
 position = Vector2(-141, -15)
 scale = Vector2(1.4, 1.4)
-texture = ExtResource("5_fw2ep")
+texture = ExtResource("4_00vbb")
 centered = false
 
 [node name="fondoCaverna" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
@@ -1969,7 +1969,7 @@ motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/fondoCaverna"]
 position = Vector2(43, 5)
-texture = ExtResource("5_fys6i")
+texture = ExtResource("5_sae4p")
 centered = false
 
 [node name="subsuelo" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
@@ -1979,7 +1979,7 @@ motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/subsuelo"]
 position = Vector2(2, 498)
-texture = ExtResource("6_wmniw")
+texture = ExtResource("6_1dd2w")
 centered = false
 
 [node name="lava" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
@@ -1989,7 +1989,7 @@ motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/lava"]
 position = Vector2(0, 997)
-texture = ExtResource("7_lbbsm")
+texture = ExtResource("7_o3f68")
 centered = false
 
 [node name="lava2" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
@@ -1999,7 +1999,7 @@ motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/lava2"]
 position = Vector2(0, 1497)
-texture = ExtResource("8_05o03")
+texture = ExtResource("8_olpjw")
 centered = false
 
 [node name="arboles_01" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
@@ -2008,7 +2008,7 @@ motion_scale = Vector2(0.2, 1)
 motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/arboles_01"]
-texture = ExtResource("6_4wobm")
+texture = ExtResource("9_a26ko")
 centered = false
 
 [node name="arboles_02" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
@@ -2017,7 +2017,7 @@ motion_scale = Vector2(0.3, 1)
 motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/arboles_02"]
-texture = ExtResource("7_0dpfd")
+texture = ExtResource("10_xehsq")
 centered = false
 
 [node name="arboles_03" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
@@ -2027,7 +2027,7 @@ motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/arboles_03"]
 position = Vector2(0, -162)
-texture = ExtResource("8_sji21")
+texture = ExtResource("11_ppvyp")
 centered = false
 
 [node name="arboles_04" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
@@ -2037,7 +2037,7 @@ motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/arboles_04"]
 position = Vector2(3, -6)
-texture = ExtResource("9_o5p8x")
+texture = ExtResource("12_yswk2")
 centered = false
 
 [node name="suelo" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
@@ -2046,7 +2046,7 @@ motion_scale = Vector2(0.7, 1)
 motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/suelo"]
-texture = ExtResource("10_v2gni")
+texture = ExtResource("13_e6ank")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 700, 350)
@@ -2058,14 +2058,14 @@ motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/arbustillos"]
 position = Vector2(0, 12)
-texture = ExtResource("11_fw2ep")
+texture = ExtResource("14_nbcs1")
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 
 [node name="Marker2D" type="Marker2D" parent="Camera2D"]
-position = Vector2(187, 291)
+position = Vector2(216, 272)
 
 [node name="Decoracion" type="Node2D" parent="."]
 
@@ -2076,252 +2076,252 @@ tile_set = SubResource("TileSet_4yggr")
 
 [node name="Mariposas" type="Node2D" parent="Decoracion"]
 
-[node name="Mariposa3" parent="Decoracion/Mariposas" instance=ExtResource("33_hc23b")]
+[node name="Mariposa3" parent="Decoracion/Mariposas" instance=ExtResource("20_plj8i")]
 position = Vector2(1497, 332)
 
-[node name="Mariposa" parent="Decoracion/Mariposas" instance=ExtResource("21_few1d")]
+[node name="Mariposa" parent="Decoracion/Mariposas" instance=ExtResource("21_f2pc5")]
 position = Vector2(1420, 344)
 
-[node name="Mariposa2" parent="Decoracion/Mariposas" instance=ExtResource("21_few1d")]
+[node name="Mariposa2" parent="Decoracion/Mariposas" instance=ExtResource("21_f2pc5")]
 position = Vector2(480, 351)
 
-[node name="Mariposa4" parent="Decoracion/Mariposas" instance=ExtResource("21_few1d")]
+[node name="Mariposa4" parent="Decoracion/Mariposas" instance=ExtResource("21_f2pc5")]
 position = Vector2(888, 344)
 
-[node name="Mariposa5" parent="Decoracion/Mariposas" instance=ExtResource("34_a3xof")]
+[node name="Mariposa5" parent="Decoracion/Mariposas" instance=ExtResource("22_hco3n")]
 position = Vector2(1536, 336)
 
 [node name="Fuego4" type="Node2D" parent="Decoracion"]
 
-[node name="Fuego" parent="Decoracion/Fuego4" instance=ExtResource("14_61tto")]
+[node name="Fuego" parent="Decoracion/Fuego4" instance=ExtResource("23_u4gcg")]
 position = Vector2(71, 480)
 
-[node name="Fuego3" parent="Decoracion/Fuego4" instance=ExtResource("14_61tto")]
+[node name="Fuego3" parent="Decoracion/Fuego4" instance=ExtResource("23_u4gcg")]
 position = Vector2(223, 448)
 
-[node name="Fuego2" parent="Decoracion/Fuego4" instance=ExtResource("14_61tto")]
+[node name="Fuego2" parent="Decoracion/Fuego4" instance=ExtResource("23_u4gcg")]
 position = Vector2(1211, 320)
 
 [node name="NPC" type="Node2D" parent="."]
 
-[node name="Granjero" parent="NPC" instance=ExtResource("11_3s6e8")]
+[node name="Granjero" parent="NPC" instance=ExtResource("24_ttdgh")]
 position = Vector2(-288, 576)
 
-[node name="Limosnero" parent="NPC" instance=ExtResource("12_78s11")]
+[node name="Limosnero" parent="NPC" instance=ExtResource("25_d8hf8")]
 position = Vector2(307, 480)
 
 [node name="Gemas" type="Node2D" parent="."]
 
-[node name="Gema2" parent="Gemas" instance=ExtResource("23_s7bd2")]
+[node name="Gema2" parent="Gemas" instance=ExtResource("26_ni6ft")]
 position = Vector2(-1, 280)
 
-[node name="Gema3" parent="Gemas" instance=ExtResource("23_s7bd2")]
+[node name="Gema3" parent="Gemas" instance=ExtResource("26_ni6ft")]
 position = Vector2(88, 260)
 
-[node name="Gema4" parent="Gemas" instance=ExtResource("23_s7bd2")]
+[node name="Gema4" parent="Gemas" instance=ExtResource("26_ni6ft")]
 position = Vector2(218, 213)
 
-[node name="Gema5" parent="Gemas" instance=ExtResource("23_s7bd2")]
+[node name="Gema5" parent="Gemas" instance=ExtResource("26_ni6ft")]
 position = Vector2(326, 244)
 
-[node name="Gema6" parent="Gemas" instance=ExtResource("23_s7bd2")]
+[node name="Gema6" parent="Gemas" instance=ExtResource("26_ni6ft")]
 position = Vector2(438, 277)
 
 [node name="Limites" type="Node2D" parent="."]
 
-[node name="Limites_muerte" parent="Limites" instance=ExtResource("22_fys6i")]
+[node name="Limites_muerte" parent="Limites" instance=ExtResource("27_t2brn")]
 position = Vector2(457, 724)
 
-[node name="Limites_muerte3" parent="Limites" instance=ExtResource("22_fys6i")]
+[node name="Limites_muerte3" parent="Limites" instance=ExtResource("27_t2brn")]
 position = Vector2(1624, 712)
 
-[node name="Limites_muerte4" parent="Limites" instance=ExtResource("22_fys6i")]
+[node name="Limites_muerte4" parent="Limites" instance=ExtResource("27_t2brn")]
 position = Vector2(2992, 744)
 
-[node name="Limites_muerte5" parent="Limites" instance=ExtResource("22_fys6i")]
+[node name="Limites_muerte5" parent="Limites" instance=ExtResource("27_t2brn")]
 position = Vector2(5368, 1160)
 
-[node name="Limites_muerte7" parent="Limites" instance=ExtResource("22_fys6i")]
+[node name="Limites_muerte7" parent="Limites" instance=ExtResource("27_t2brn")]
 position = Vector2(3912, 1152)
 
-[node name="Limites_muerte6" parent="Limites" instance=ExtResource("22_fys6i")]
+[node name="Limites_muerte6" parent="Limites" instance=ExtResource("27_t2brn")]
 position = Vector2(6288, 1160)
 
-[node name="Limites_muerte2" parent="Limites" instance=ExtResource("22_fys6i")]
+[node name="Limites_muerte2" parent="Limites" instance=ExtResource("27_t2brn")]
 position = Vector2(-1424, 448)
 
-[node name="LimiteLateral" parent="Limites" instance=ExtResource("33_1c24h")]
+[node name="LimiteLateral" parent="Limites" instance=ExtResource("28_xxydp")]
 position = Vector2(-512, 352)
 
 [node name="Hongos" type="Node2D" parent="."]
 
-[node name="Hongo" parent="Hongos" instance=ExtResource("13_xjwas")]
+[node name="Hongo" parent="Hongos" instance=ExtResource("29_t5s73")]
 position = Vector2(657, 300)
 
-[node name="Hongo2" parent="Hongos" instance=ExtResource("13_xjwas")]
+[node name="Hongo2" parent="Hongos" instance=ExtResource("29_t5s73")]
 position = Vector2(783, 364)
 
-[node name="Hongo3" parent="Hongos" instance=ExtResource("13_xjwas")]
+[node name="Hongo3" parent="Hongos" instance=ExtResource("29_t5s73")]
 position = Vector2(3342, 364)
 
-[node name="Hongo6" parent="Hongos" instance=ExtResource("13_xjwas")]
+[node name="Hongo6" parent="Hongos" instance=ExtResource("29_t5s73")]
 position = Vector2(3168, 350)
 
-[node name="Hongo4" parent="Hongos" instance=ExtResource("13_xjwas")]
+[node name="Hongo4" parent="Hongos" instance=ExtResource("29_t5s73")]
 position = Vector2(3487, 428)
 
-[node name="Hongo5" parent="Hongos" instance=ExtResource("13_xjwas")]
+[node name="Hongo5" parent="Hongos" instance=ExtResource("29_t5s73")]
 position = Vector2(3647, 396)
 
-[node name="Hongo7" parent="Hongos" instance=ExtResource("13_xjwas")]
+[node name="Hongo7" parent="Hongos" instance=ExtResource("29_t5s73")]
 position = Vector2(3805, 457)
 
 [node name="Plataforma" type="Node2D" parent="."]
 
-[node name="plataforma" parent="Plataforma" instance=ExtResource("17_lb128")]
+[node name="plataforma" parent="Plataforma" instance=ExtResource("30_wn0w5")]
 position = Vector2(723, 487)
 curve = SubResource("Curve2D_s7bd2")
 path_time = 2.0
 
-[node name="plataforma2" parent="Plataforma" instance=ExtResource("17_lb128")]
+[node name="plataforma2" parent="Plataforma" instance=ExtResource("30_wn0w5")]
 position = Vector2(1984, 376)
 curve = SubResource("Curve2D_1c24h")
 path_time = 2.0
 
-[node name="plataforma3" parent="Plataforma" instance=ExtResource("17_lb128")]
+[node name="plataforma3" parent="Plataforma" instance=ExtResource("30_wn0w5")]
 position = Vector2(5392, 1048)
 curve = SubResource("Curve2D_hc23b")
 path_time = 12.0
 
-[node name="plataforma5" parent="Plataforma" instance=ExtResource("17_lb128")]
+[node name="plataforma5" parent="Plataforma" instance=ExtResource("30_wn0w5")]
 position = Vector2(6664, 1048)
 curve = SubResource("Curve2D_a3xof")
 path_time = 12.0
 
 [node name="Enemigos" type="Node2D" parent="."]
 
-[node name="Lobo2" parent="Enemigos" instance=ExtResource("26_h8rjm")]
+[node name="Lobo2" parent="Enemigos" instance=ExtResource("31_10dqi")]
 position = Vector2(4835, 1021)
 
-[node name="Lobo" parent="Enemigos" instance=ExtResource("26_h8rjm")]
+[node name="Lobo" parent="Enemigos" instance=ExtResource("31_10dqi")]
 position = Vector2(1452, 351)
 
 [node name="CheckPoints" type="Node2D" parent="."]
 
-[node name="CheckPoint2" parent="CheckPoints" instance=ExtResource("28_fys6i")]
+[node name="CheckPoint2" parent="CheckPoints" instance=ExtResource("32_hgcxe")]
 position = Vector2(3123, 312)
 
-[node name="CheckPoint4" parent="CheckPoints" instance=ExtResource("28_fys6i")]
+[node name="CheckPoint4" parent="CheckPoints" instance=ExtResource("32_hgcxe")]
 position = Vector2(5320, 983)
 
 [node name="Estalactitas" type="Node2D" parent="."]
 
-[node name="Estalactita2" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita2" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(2401, 211)
 speed = 300.0
 
-[node name="Estalactita3" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita3" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(2433, 211)
 speed = 300.0
 
-[node name="Estalactita4" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita4" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(2465, 211)
 speed = 300.0
 
-[node name="Estalactita5" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita5" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(2497, 210)
 speed = 300.0
 
-[node name="Estalactita6" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita6" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(2529, 210)
 speed = 300.0
 
-[node name="Estalactita7" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita7" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(2561, 210)
 speed = 300.0
 
-[node name="Estalactita8" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita8" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(2593, 211)
 speed = 300.0
 
-[node name="Estalactita9" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita9" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(2625, 210)
 speed = 300.0
 
-[node name="Estalactita10" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita10" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(2657, 208)
 speed = 300.0
 
-[node name="Estalactita11" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita11" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(2689, 211)
 speed = 300.0
 
-[node name="Estalactita12" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita12" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(2721, 211)
 speed = 300.0
 
-[node name="Estalactita13" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita13" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(2753, 210)
 speed = 300.0
 
-[node name="Estalactita14" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita14" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(2785, 210)
 speed = 300.0
 
-[node name="Estalactita15" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita15" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(2817, 212)
 speed = 300.0
 
-[node name="Estalactita16" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita16" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(2849, 211)
 speed = 300.0
 
-[node name="Estalactita17" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita17" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(2881, 210)
 speed = 300.0
 
-[node name="Estalactita18" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita18" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(2913, 208)
 speed = 300.0
 
-[node name="Estalactita19" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita19" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(2945, 209)
 speed = 300.0
 
-[node name="Estalactita20" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita20" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(2977, 210)
 speed = 300.0
 
-[node name="Estalactita21" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita21" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(3009, 210)
 speed = 300.0
 
-[node name="Estalactita22" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita22" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(3041, 211)
 speed = 300.0
 
-[node name="Estalactita23" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita23" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(3073, 206)
 speed = 300.0
 
-[node name="Estalactita24" parent="Estalactitas" instance=ExtResource("23_wmniw")]
+[node name="Estalactita24" parent="Estalactitas" instance=ExtResource("33_ke2nu")]
 position = Vector2(3105, 209)
 speed = 300.0
 
-[node name="Antorcha" parent="." instance=ExtResource("35_mgkwp")]
+[node name="Antorcha" parent="." instance=ExtResource("34_kb8t5")]
 position = Vector2(8274, 1082)
 
-[node name="Antorcha4" parent="." instance=ExtResource("35_mgkwp")]
+[node name="Antorcha4" parent="." instance=ExtResource("34_kb8t5")]
 position = Vector2(8504, 1080)
 
-[node name="Antorcha5" parent="." instance=ExtResource("35_mgkwp")]
+[node name="Antorcha5" parent="." instance=ExtResource("34_kb8t5")]
 position = Vector2(8720, 1080)
 
-[node name="Antorcha2" parent="." instance=ExtResource("35_mgkwp")]
+[node name="Antorcha2" parent="." instance=ExtResource("34_kb8t5")]
 position = Vector2(8392, 1082)
 
-[node name="Antorcha3" parent="." instance=ExtResource("35_mgkwp")]
+[node name="Antorcha3" parent="." instance=ExtResource("34_kb8t5")]
 position = Vector2(8616, 1080)
 
-[node name="Node2D" parent="." instance=ExtResource("34_hc23b")]
+[node name="Node2D" parent="." instance=ExtResource("35_da7uh")]
 position = Vector2(9048, 1095)
