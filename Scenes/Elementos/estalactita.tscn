@@ -32,6 +32,8 @@ position = Vector2(7.6294e-07, 168)
 scale = Vector2(0.05, 0.05)
 shape = SubResource("RectangleShape2D_am5jd")
 
+[node name="DetectarSueloRomperse" type="RayCast2D" parent="."]
+target_position = Vector2(0, 13)
+
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="area_entered" from="DetectarJugador" to="." method="_on_detectar_jugador_area_entered"]
 [connection signal="body_entered" from="DetectarJugador" to="." method="_on_detect_player_body_entered"]
