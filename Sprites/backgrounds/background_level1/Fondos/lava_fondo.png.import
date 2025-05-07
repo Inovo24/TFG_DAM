@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://obfyug2rjhx3"
-path="res://.godot/imported/cascadaBaja-Sheet.png-377586e7735a04f5d99eb0464f6f85d4.ctex"
+uid="uid://dycni8ti35f5y"
+path="res://.godot/imported/lava_fondo.png-c1a206030a2a840bec59f749b0afddda.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/backgrounds/cascadaBaja-Sheet.png"
-dest_files=["res://.godot/imported/cascadaBaja-Sheet.png-377586e7735a04f5d99eb0464f6f85d4.ctex"]
+source_file="res://Sprites/backgrounds/background_level1/Fondos/lava_fondo.png"
+dest_files=["res://.godot/imported/lava_fondo.png-c1a206030a2a840bec59f749b0afddda.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dab024uovhugv"
-path="res://.godot/imported/arboles_03.png-3b3082f51d5ee2cfdc0d1b1de9c21621.ctex"
+uid="uid://dbh1ayprx2myv"
+path="res://.godot/imported/arboles_02.png-228ce5e3f9229b4eb4482cbf6a3b7054.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/backgrounds/background_level1/arboles_03.png"
-dest_files=["res://.godot/imported/arboles_03.png-3b3082f51d5ee2cfdc0d1b1de9c21621.ctex"]
+source_file="res://Sprites/backgrounds/background_level1/Arboles/arboles_02.png"
+dest_files=["res://.godot/imported/arboles_02.png-228ce5e3f9229b4eb4482cbf6a3b7054.ctex"]
 
 [params]
 

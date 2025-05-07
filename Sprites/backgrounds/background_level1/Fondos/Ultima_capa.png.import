@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbfsfk62b5o5b"
-path="res://.godot/imported/fondo_02.png-56ecd4ce390576f4b6560b52c17b7d3c.ctex"
+uid="uid://1vltpchq0kae"
+path="res://.godot/imported/Ultima_capa.png-ad984cb1ae4a1fa0b338bd57c175175b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/backgrounds/background_level1/fondo_02.png"
-dest_files=["res://.godot/imported/fondo_02.png-56ecd4ce390576f4b6560b52c17b7d3c.ctex"]
+source_file="res://Sprites/backgrounds/background_level1/Fondos/Ultima_capa.png"
+dest_files=["res://.godot/imported/Ultima_capa.png-ad984cb1ae4a1fa0b338bd57c175175b.ctex"]
 
 [params]
 

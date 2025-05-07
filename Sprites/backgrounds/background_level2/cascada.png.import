@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y3rop3kkhj1j"
-path="res://.godot/imported/fondo_01.png-2e4794999d8a28d5f84faaacc951c565.ctex"
+uid="uid://b4js4o7side31"
+path="res://.godot/imported/cascada.png-24e561ecbd8f514772f2afe2ecb6cfd2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/backgrounds/background_level1/fondo_01.png"
-dest_files=["res://.godot/imported/fondo_01.png-2e4794999d8a28d5f84faaacc951c565.ctex"]
+source_file="res://Sprites/backgrounds/background_level2/cascada.png"
+dest_files=["res://.godot/imported/cascada.png-24e561ecbd8f514772f2afe2ecb6cfd2.ctex"]
 
 [params]
 

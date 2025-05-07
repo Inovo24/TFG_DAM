@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1r08kypgmx8d"
-path="res://.godot/imported/arbustillos.png-a60eac0a9f066265427c8ef35de9306f.ctex"
+uid="uid://bnap7jj5cdcdw"
+path="res://.godot/imported/caverna.png-b7a0fb403c61c4fc8abfd0bd70ec9e4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/backgrounds/background_level1/arbustillos.png"
-dest_files=["res://.godot/imported/arbustillos.png-a60eac0a9f066265427c8ef35de9306f.ctex"]
+source_file="res://Sprites/backgrounds/background_level1/Fondos/caverna.png"
+dest_files=["res://.godot/imported/caverna.png-b7a0fb403c61c4fc8abfd0bd70ec9e4a.ctex"]
 
 [params]
 

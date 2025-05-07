@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du6c0flke44wh"
-path="res://.godot/imported/ChatGPT Image 20 abr 2025, 17_51_41-export.png-70d3aa21a4482204fc347bbce48af393.ctex"
+uid="uid://dab024uovhugv"
+path="res://.godot/imported/arboles_03.png-cd694b7281fa6c364497712eaf4b8aa1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/backgrounds/ChatGPT Image 20 abr 2025, 17_51_41-export.png"
-dest_files=["res://.godot/imported/ChatGPT Image 20 abr 2025, 17_51_41-export.png-70d3aa21a4482204fc347bbce48af393.ctex"]
+source_file="res://Sprites/backgrounds/background_level1/Arboles/arboles_03.png"
+dest_files=["res://.godot/imported/arboles_03.png-cd694b7281fa6c364497712eaf4b8aa1.ctex"]
 
 [params]
 

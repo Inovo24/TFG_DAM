@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1wuvf03sdaob"
-path="res://.godot/imported/cascada-Sheet.png-4ff6130dfb5f6a7730f44dead4041098.ctex"
+uid="uid://bfopn67ev7qmy"
+path="res://.godot/imported/suelo.png-740bc6fa269d091193feff5a7822ffb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/backgrounds/cascada-Sheet.png"
-dest_files=["res://.godot/imported/cascada-Sheet.png-4ff6130dfb5f6a7730f44dead4041098.ctex"]
+source_file="res://Sprites/backgrounds/background_level1/Fondos/suelo.png"
+dest_files=["res://.godot/imported/suelo.png-740bc6fa269d091193feff5a7822ffb5.ctex"]
 
 [params]
 

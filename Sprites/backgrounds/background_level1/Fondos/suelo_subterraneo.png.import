@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4js4o7side31"
-path="res://.godot/imported/cascada.png-8e5167130a8934053d24ac3605da4422.ctex"
+uid="uid://2f3nb5kvudpi"
+path="res://.godot/imported/suelo_subterraneo.png-c2ba47c19d56dd1e1378789965993b4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/backgrounds/cascada.png"
-dest_files=["res://.godot/imported/cascada.png-8e5167130a8934053d24ac3605da4422.ctex"]
+source_file="res://Sprites/backgrounds/background_level1/Fondos/suelo_subterraneo.png"
+dest_files=["res://.godot/imported/suelo_subterraneo.png-c2ba47c19d56dd1e1378789965993b4f.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2f3nb5kvudpi"
-path="res://.godot/imported/suelo_subterraneo.png-5f612d98057d02427b8c2a88da2b59f7.ctex"
+uid="uid://b7ea84pm58uks"
+path="res://.godot/imported/Entrada_Boss.png-edb504cacdf5761b7028d7d074507e0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/backgrounds/background_level1/suelo_subterraneo.png"
-dest_files=["res://.godot/imported/suelo_subterraneo.png-5f612d98057d02427b8c2a88da2b59f7.ctex"]
+source_file="res://Sprites/backgrounds/background_level1/Cueva/Entrada_Boss.png"
+dest_files=["res://.godot/imported/Entrada_Boss.png-edb504cacdf5761b7028d7d074507e0f.ctex"]
 
 [params]
 

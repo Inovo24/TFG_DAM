@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1vltpchq0kae"
-path="res://.godot/imported/Ultima_capa.png-b810fb3632f200d0de4215ffa18d2727.ctex"
+uid="uid://be6k6shbvweks"
+path="res://.godot/imported/arboles_04.png-a7a69599600c1b2b3b014b88221898da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/backgrounds/background_level1/Ultima_capa.png"
-dest_files=["res://.godot/imported/Ultima_capa.png-b810fb3632f200d0de4215ffa18d2727.ctex"]
+source_file="res://Sprites/backgrounds/background_level1/Arboles/arboles_04.png"
+dest_files=["res://.godot/imported/arboles_04.png-a7a69599600c1b2b3b014b88221898da.ctex"]
 
 [params]
 

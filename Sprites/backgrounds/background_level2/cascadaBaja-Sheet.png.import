@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3s8suesvnj5o"
-path="res://.godot/imported/arboles_01.png-c41da17f4d84fbe2067ed543fc61e5b4.ctex"
+uid="uid://obfyug2rjhx3"
+path="res://.godot/imported/cascadaBaja-Sheet.png-97909e4ac01cddd8768c1159072aba3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/backgrounds/background_level1/arboles_01.png"
-dest_files=["res://.godot/imported/arboles_01.png-c41da17f4d84fbe2067ed543fc61e5b4.ctex"]
+source_file="res://Sprites/backgrounds/background_level2/cascadaBaja-Sheet.png"
+dest_files=["res://.godot/imported/cascadaBaja-Sheet.png-97909e4ac01cddd8768c1159072aba3c.ctex"]
 
 [params]
 
