@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgsib8gnavlq3"]
+
+[ext_resource type="Texture2D" uid="uid://c5t40pi6eir58" path="res://Sprites/backgrounds/background_level1/Cueva/Antorcha.png" id="1_dttdn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dttdn"]
+atlas = ExtResource("1_dttdn")
+region = Rect2(0, 0, 51, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12jr6"]
+atlas = ExtResource("1_dttdn")
+region = Rect2(51, 0, 51, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0an7t"]
+atlas = ExtResource("1_dttdn")
+region = Rect2(102, 0, 51, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1tqa"]
+atlas = ExtResource("1_dttdn")
+region = Rect2(153, 0, 51, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ybole"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dttdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12jr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0an7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1tqa")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[node name="Antorcha" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ybole")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.950751
