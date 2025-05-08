@@ -3,33 +3,36 @@
 [ext_resource type="Texture2D" uid="uid://vdvshywj6qge" path="res://Sprites/Elementos/Efectos/AparecerHumo.png" id="1_pifnq"]
 [ext_resource type="Script" uid="uid://bsay363rjac63" path="res://Scripts/Elementos/efecto_aparecer.gd" id="1_t8u5x"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8u5x"]
+atlas = ExtResource("1_pifnq")
+region = Rect2(0, 0, 54, 54)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5wpuf"]
 atlas = ExtResource("1_pifnq")
-region = Rect2(0, 0, 273, 274)
+region = Rect2(54, 0, 54, 54)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_irfkb"]
 atlas = ExtResource("1_pifnq")
-region = Rect2(273, 0, 273, 274)
+region = Rect2(108, 0, 54, 54)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ts3fc"]
 atlas = ExtResource("1_pifnq")
-region = Rect2(546, 0, 273, 274)
+region = Rect2(0, 54, 54, 54)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4863b"]
 atlas = ExtResource("1_pifnq")
-region = Rect2(0, 274, 273, 274)
+region = Rect2(54, 54, 54, 54)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5livl"]
 atlas = ExtResource("1_pifnq")
-region = Rect2(273, 274, 273, 274)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_symu7"]
-atlas = ExtResource("1_pifnq")
-region = Rect2(546, 274, 273, 274)
+region = Rect2(108, 54, 54, 54)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y87yt"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8u5x")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5wpuf")
 }, {
@@ -44,13 +47,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5livl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_symu7")
 }],
 "loop": false,
 "name": &"reaparecer",
-"speed": 7.0
+"speed": 6.0
 }]
 
 [node name="Efecto" type="Node2D"]
@@ -58,9 +58,9 @@ script = ExtResource("1_t8u5x")
 
 [node name="Animación" type="AnimatedSprite2D" parent="."]
 z_index = -1
-position = Vector2(0, -8)
-scale = Vector2(0.3, 0.3)
+position = Vector2(0, 8)
 sprite_frames = SubResource("SpriteFrames_y87yt")
 animation = &"reaparecer"
 autoplay = "reaparecer"
-frame_progress = 0.073352
+frame = 5
+frame_progress = 1.0

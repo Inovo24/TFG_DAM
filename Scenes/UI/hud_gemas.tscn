@@ -40,6 +40,7 @@ text = "x 00"
 label_settings = ExtResource("2_x0xbv")
 
 [node name="PortalLabel" type="Label" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 520.0
 offset_top = 16.0

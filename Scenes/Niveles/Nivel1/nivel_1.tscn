@@ -2066,7 +2066,7 @@ centered = false
 position_smoothing_enabled = true
 
 [node name="Marker2D" type="Marker2D" parent="Camera2D"]
-position = Vector2(69, 319)
+position = Vector2(7472, 936)
 
 [node name="Decoracion" type="Node2D" parent="."]
 
@@ -2356,4 +2356,4 @@ position = Vector2(8392, 1083)
 position = Vector2(8616, 1083)
 
 [node name="Node2D" parent="." instance=ExtResource("35_da7uh")]
-position = Vector2(9048, 1095)
+position = Vector2(9048, 1094)
