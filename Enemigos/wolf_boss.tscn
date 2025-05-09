@@ -1,302 +1,52 @@
-[gd_scene load_steps=14 format=3 uid="uid://dyb3kkxyl18i6"]
+[gd_scene load_steps=8 format=3 uid="uid://c3tf7gobvcbfi"]
 
-[ext_resource type="Script" uid="uid://ck6671eplqfhj" path="res://Scripts/Enemigos/boss_lvl1.gd" id="1_shxn8"]
-[ext_resource type="Texture2D" uid="uid://ccsp16ouknbi4" path="res://Sprites/Enemigos/bosses/german-shephard-sniff-001-Sheet-export.png" id="2_5yftt"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yftt"]
-size = Vector2(20, 67)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ohl0"]
-size = Vector2(110, 67)
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5yftt"]
-animation = &"attack"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5ohl0"]
-animation = &"jump"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3iesc"]
-animation = &"jump_preparation"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0miex"]
-states/attack/node = SubResource("AnimationNodeAnimation_5yftt")
-states/attack/position = Vector2(343, 56)
-states/jump/node = SubResource("AnimationNodeAnimation_5ohl0")
-states/jump/position = Vector2(515, 81)
-states/jump_preparation/node = SubResource("AnimationNodeAnimation_3iesc")
-states/jump_preparation/position = Vector2(403, 127)
+[ext_resource type="Script" uid="uid://datq3xbavmpq7" path="res://Scripts/Enemigos/wolf_boss.gd" id="1_shxn8"]
 
 [sub_resource type="Animation" id="Animation_5ohl0"]
-resource_name = "jump_preparation"
-length = 0.8
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_5yftt")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
+resource_name = "charge"
 
-[sub_resource type="Animation" id="Animation_3iesc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_5yftt")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:flip_v")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D:flip_h")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_0miex"]
+[sub_resource type="Animation" id="Animation_5yftt"]
 resource_name = "jump"
-length = 0.8
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_5yftt")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:flip_v")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
-[sub_resource type="Animation" id="Animation_8f3qw"]
-resource_name = "attack"
-length = 0.8
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_5yftt")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:flip_h")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D:flip_v")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
+[sub_resource type="Animation" id="Animation_shxn8"]
+resource_name = "jump_preparation"
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8sgjo"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3iesc"]
 _data = {
-&"RESET": SubResource("Animation_3iesc"),
-&"attack": SubResource("Animation_8f3qw"),
-&"jump": SubResource("Animation_0miex"),
-&"jump_preparation": SubResource("Animation_5ohl0")
+&"charge": SubResource("Animation_5ohl0"),
+&"jump": SubResource("Animation_5yftt"),
+&"jump_preparation": SubResource("Animation_shxn8")
 }
 
-[node name="Wolf_Boss" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yftt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ohl0"]
+
+[node name="wolf_boss" type="CharacterBody2D"]
 script = ExtResource("1_shxn8")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(67, 14.5)
-shape = SubResource("RectangleShape2D_5yftt")
-debug_color = Color(0.604647, 0.458973, 0.7562, 0.42)
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_5yftt")
-flip_h = true
-flip_v = true
-hframes = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 14.5)
-shape = SubResource("RectangleShape2D_5ohl0")
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-active = false
-tree_root = SubResource("AnimationNodeStateMachine_0miex")
-anim_player = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_8sgjo")
+&"": SubResource("AnimationLibrary_3iesc")
 }
 
-[node name="preparation" type="Timer" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5yftt")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(24, 0)
+shape = SubResource("RectangleShape2D_5ohl0")
+debug_color = Color(0.486329, 0.00990663, 0.116801, 0.42)
+
+[node name="jumpCooldown" type="Timer" parent="."]
 one_shot = true
 
-[node name="cooldown" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
+[node name="chargeCooldown" type="Timer" parent="."]
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="timeout" from="preparation" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]
+[node name="stunCooldown" type="Timer" parent="."]
+
+[connection signal="timeout" from="jumpCooldown" to="." method="_on_jump_cooldown_timeout"]
