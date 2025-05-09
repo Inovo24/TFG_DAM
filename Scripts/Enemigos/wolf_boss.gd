@@ -4,7 +4,7 @@ const GRAVITY = 30000
 var speed = 100
 var chargeSpeed = 200
 
-
+var damage =20
 var maxHealth = 200
 @onready var currentHealth = maxHealth
 
@@ -12,9 +12,9 @@ enum  Phase{ONE,TWO,THREE}
 enum State {JUMP_PREPARATION, JUMP, CHARGE_PREPARATION, CHARGING, STUNNED}
 @onready var currentPhase = Phase.ONE
 @onready var currentState = State.JUMP_PREPARATION
-var player
+
 @onready var animation_player = $AnimationPlayer
-#@onready var player = get_tree().get_first_node_in_group("player")
+@onready var player = Globales.get_player()
 @onready var stun_cooldown = $stunCooldown
 @onready var charge_cooldown = $chargeCooldown
 @onready var jump_cooldown = $jumpCooldown
@@ -28,12 +28,12 @@ func _physics_process(delta):
 	
 	if not is_on_floor():
 		velocity.y = GRAVITY * delta
-	
+	#print(currentState)
 	match currentPhase:
 			Phase.ONE:
 				phase_one()
 			Phase.TWO:
-				pass
+				phase_two()
 			Phase.THREE:
 				pass
 	#print(charge_cooldown.time_left)
@@ -83,13 +83,13 @@ func jump_preparation():
 	jump_cooldown.start()
 	#print(jump_cooldown.time_left)
 func jump():
-	player = get_tree().get_first_node_in_group("player")
+	print(currentState)
 	if player:
 		#animation_player.play("jump")
 		#position.y = player.position.y + 100
 		position.x = player.global_position.x
 		position.y -= 200
-		receive_damage(20)
+		#receive_damage(20)
 		#print("salto")
 
 func charge_preparation():
@@ -108,8 +108,8 @@ func stun():
 func receive_damage(damage_received: int):
 	if currentState != State.CHARGING:
 		currentHealth = currentHealth - damage_received
-		print(currentHealth)
-		print(currentPhase)
+		#print(currentHealth)
+		#print(currentPhase)
 		if currentHealth <= 0:
 			print("muero")
 			queue_free()
@@ -133,3 +133,9 @@ func _on_charge_cooldown_timeout():
 
 func _on_stun_cooldown_timeout():
 	switch_state(State.CHARGE_PREPARATION)
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("player"):
+		body.take_damage(damage)
+		body.global_position.x += 80

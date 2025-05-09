@@ -29,7 +29,6 @@ size = Vector2(21, 57)
 
 [node name="wolf_boss" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 4
-collision_mask = 3
 script = ExtResource("1_shxn8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -50,7 +49,6 @@ collision_mask = 2
 [node name="jumpcolision" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 19)
 shape = SubResource("RectangleShape2D_5ohl0")
-disabled = true
 debug_color = Color(0.486329, 0.00990663, 0.116801, 0.42)
 
 [node name="chargecolision" type="CollisionShape2D" parent="Area2D"]
@@ -60,6 +58,7 @@ disabled = true
 debug_color = Color(0.408492, 0.606617, 0.0271558, 0.42)
 
 [node name="jumpCooldown" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [node name="chargeCooldown" type="Timer" parent="."]
@@ -67,6 +66,7 @@ one_shot = true
 
 [node name="stunCooldown" type="Timer" parent="."]
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="jumpCooldown" to="." method="_on_jump_cooldown_timeout"]
 [connection signal="timeout" from="chargeCooldown" to="." method="_on_charge_cooldown_timeout"]
 [connection signal="timeout" from="stunCooldown" to="." method="_on_stun_cooldown_timeout"]
