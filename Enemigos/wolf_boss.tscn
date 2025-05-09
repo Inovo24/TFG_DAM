@@ -46,7 +46,9 @@ debug_color = Color(0.486329, 0.00990663, 0.116801, 0.42)
 one_shot = true
 
 [node name="chargeCooldown" type="Timer" parent="."]
+one_shot = true
 
 [node name="stunCooldown" type="Timer" parent="."]
 
 [connection signal="timeout" from="jumpCooldown" to="." method="_on_jump_cooldown_timeout"]
+[connection signal="timeout" from="chargeCooldown" to="." method="_on_charge_cooldown_timeout"]
