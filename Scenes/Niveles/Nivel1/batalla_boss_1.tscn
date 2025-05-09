@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://b7b16sionaqjg"]
 
-[ext_resource type="Script" uid="uid://3nk4il0s88b0" path="res://Scripts/Niveles/nivel_1/batalla_boss_1.gd" id="1_felyv"]
+[ext_resource type="Script" path="res://Scripts/Niveles/nivel_1/batalla_boss_1.gd" id="1_felyv"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="1_fl4gq"]
 [ext_resource type="PackedScene" uid="uid://c3tf7gobvcbfi" path="res://Enemigos/wolf_boss.tscn" id="2_ph433"]
 [ext_resource type="Texture2D" uid="uid://bwsqlinj76xkk" path="res://Sprites/backgrounds/background_level1/Fondo_Boss1.png" id="4_j7b2c"]
@@ -438,10 +438,10 @@ centered = false
 [node name="SubCapa" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-245, 363)
 motion_scale = Vector2(0.8, 0.08)
-motion_mirroring = Vector2(700, 0)
+motion_mirroring = Vector2(900, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SubCapa"]
-position = Vector2(93, -227)
+position = Vector2(-16, -401)
 scale = Vector2(0.777143, 0.743719)
 texture = ExtResource("5_3g30o")
 centered = false
