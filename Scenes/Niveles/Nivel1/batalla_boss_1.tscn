@@ -420,7 +420,7 @@ metadata/_edit_group_ = true
 position = Vector2(351, 287)
 
 [node name="Marker2D" type="Marker2D" parent="Camera2D"]
-position = Vector2(192, 256)
+position = Vector2(1, 1)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true
