@@ -417,6 +417,7 @@ tile_set = SubResource("TileSet_smidx")
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(351, 287)
 
 [node name="Marker2D" type="Marker2D" parent="Camera2D"]
 position = Vector2(192, 256)

@@ -20,6 +20,7 @@ var player
 @onready var jump_cooldown = $jumpCooldown
 
 func _ready():
+	add_to_group("Enemies")
 	switch_state(State.JUMP_PREPARATION)
 	switch_phase(Phase.ONE)
 
@@ -35,7 +36,7 @@ func _physics_process(delta):
 				pass
 			Phase.THREE:
 				pass
-	print(charge_cooldown.time_left)
+	#print(charge_cooldown.time_left)
 	move_and_slide()
 
 func switch_phase(newPhase):
@@ -61,6 +62,8 @@ func switch_state(newState):
 				charge_preparation()
 			State.CHARGING:
 				charge()
+			State.STUNNED:
+				stun()
 
 func phase_one():
 	if currentState == State.JUMP_PREPARATION:
@@ -96,19 +99,28 @@ func charge_preparation():
 	charge_cooldown.start()
 func charge():
 	print("cargando")
+func stun():
+	print("quieto parao")
+	velocity.x = 0
+	stun_cooldown.start()
+
+
 func receive_damage(damage_received: int):
-	currentHealth = currentHealth - damage_received
-	print(currentHealth)
-	print(currentPhase)
-	if currentHealth <= 0:
-		print("muero")
-		queue_free()
-	elif  currentHealth <= (maxHealth * 2/3) and currentPhase != Phase.TWO:
-		print("fase 2")
-		switch_phase(Phase.TWO)
-	elif  currentHealth <= (maxHealth/ 3) and currentPhase != Phase.THREE:
-		print("fase 3")
-		switch_phase(Phase.THREE)
+	if currentState != State.CHARGING:
+		currentHealth = currentHealth - damage_received
+		print(currentHealth)
+		print(currentPhase)
+		if currentHealth <= 0:
+			print("muero")
+			queue_free()
+		elif  currentHealth <= (maxHealth * 2/3) and currentPhase != Phase.TWO:
+			print("fase 2")
+			switch_phase(Phase.TWO)
+		elif  currentHealth <= (maxHealth/ 3) and currentPhase != Phase.THREE:
+			print("fase 3")
+			switch_phase(Phase.THREE)
+	elif currentState == State.CHARGING:
+		switch_state(State.STUNNED)
 
 func _on_jump_cooldown_timeout():
 	if is_on_floor():
@@ -117,3 +129,7 @@ func _on_jump_cooldown_timeout():
 
 func _on_charge_cooldown_timeout():
 	switch_state(State.CHARGING)
+
+
+func _on_stun_cooldown_timeout():
+	switch_state(State.CHARGE_PREPARATION)
