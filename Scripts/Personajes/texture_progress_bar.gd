@@ -14,5 +14,6 @@ func _process(_delta: float) -> void:
 	update_bar()
 
 func update_bar():
-	value = character.getCurrentHealth()
-	$"../Label".text = str(value) + "/" + str(max_value)
+	if character:
+		value = character.getCurrentHealth()
+		$"../Label".text = str(value) + "/" + str(max_value)

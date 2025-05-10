@@ -7,7 +7,7 @@ var direction
 var damage =20
 var maxHealth = 200
 @onready var currentHealth = maxHealth
-
+var playerInstancate
 enum  Phase{ONE,TWO,THREE}
 enum State {JUMP_PREPARATION, JUMP, CHARGE_PREPARATION, CHARGING, STUNNED}
 @onready var currentPhase = Phase.ONE
@@ -141,9 +141,18 @@ func receive_damage(damage_received: int):
 			queue_free()
 		elif  currentHealth <= (maxHealth * 2/3) and currentPhase != Phase.TWO:
 			print("fase 2")
+			if Globales.current_character !=2:
+				Globales.current_character = 2
+				Globales.player_instance = null
+				playerInstancate = Globales.get_player()
+				get_parent().add_child(playerInstancate)
+				player.queue_free()
+				player = playerInstancate
+				
 			switch_phase(Phase.TWO)
 		elif  currentHealth <= (maxHealth/ 3) and currentPhase != Phase.THREE:
 			print("fase 3")
+			
 			switch_phase(Phase.THREE)
 	elif currentState == State.CHARGING:
 		switch_state(State.STUNNED)
