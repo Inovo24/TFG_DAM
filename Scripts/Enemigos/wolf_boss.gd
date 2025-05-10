@@ -3,7 +3,7 @@ extends CharacterBody2D
 const GRAVITY = 30000
 var speed = 100
 var chargeSpeed = 200
-
+var direction
 var damage =20
 var maxHealth = 200
 @onready var currentHealth = maxHealth
@@ -12,7 +12,7 @@ enum  Phase{ONE,TWO,THREE}
 enum State {JUMP_PREPARATION, JUMP, CHARGE_PREPARATION, CHARGING, STUNNED}
 @onready var currentPhase = Phase.ONE
 @onready var currentState = State.JUMP_PREPARATION
-
+@onready var sprite = $Sprite2D
 @onready var animation_player = $AnimationPlayer
 @onready var player = Globales.get_player()
 @onready var stun_cooldown = $stunCooldown
@@ -21,21 +21,24 @@ enum State {JUMP_PREPARATION, JUMP, CHARGE_PREPARATION, CHARGING, STUNNED}
 
 func _ready():
 	add_to_group("Enemies")
-	switch_state(State.JUMP_PREPARATION)
-	switch_phase(Phase.ONE)
+	#direction = 1
 
 func _physics_process(delta):
-	
+	if direction ==1:
+		sprite.scale.x = 1
+	else:
+		sprite.scale.x = -1
 	if not is_on_floor():
 		velocity.y = GRAVITY * delta
 	#print(currentState)
+	#print(velocity.x)
 	match currentPhase:
 			Phase.ONE:
 				phase_one()
 			Phase.TWO:
 				phase_two()
 			Phase.THREE:
-				pass
+				print("faaaaaseeeeeeee 3333")
 	#print(charge_cooldown.time_left)
 	move_and_slide()
 
@@ -44,9 +47,9 @@ func switch_phase(newPhase):
 		currentPhase = newPhase
 		match currentPhase:
 			Phase.ONE:
-				phase_one()
+				switch_state(State.JUMP_PREPARATION)
 			Phase.TWO:
-				phase_two()
+				switch_state(State.CHARGE_PREPARATION)
 			Phase.THREE:
 				pass
 
@@ -73,32 +76,55 @@ func phase_one():
 		if is_on_floor():
 			switch_state(State.JUMP_PREPARATION)
 func phase_two():
-	switch_state(State.CHARGE_PREPARATION)
+	if currentState == State.CHARGE_PREPARATION:
+		charge_preparation()
+	elif currentState == State.CHARGING:
+		charge()
 
 func jump_preparation():
 	if not jump_cooldown.is_stopped():
 		return
-	#print("aa")
 	#animation_player.play("jump_preparation")
 	jump_cooldown.start()
-	#print(jump_cooldown.time_left)
 func jump():
 	print(currentState)
 	if player:
 		#animation_player.play("jump")
-		#position.y = player.position.y + 100
 		position.x = player.global_position.x
 		position.y -= 200
-		#receive_damage(20)
+		receive_damage(20)
 		#print("salto")
 
 func charge_preparation():
-	print("preparando carga")
+	#print(charge_cooldown.time_left)
+	#print("preparando carga")
 	if not charge_cooldown.is_stopped():
 		return
+	#print("ey")
+	if is_on_wall():
+		if position.x < 300:
+			position.x +=10
+		else:
+			position.x -=10
+		print("estoy en pared")
+	velocity.x =0
 	charge_cooldown.start()
+	#direction = player.global_position.x - position.x
+	if player.global_position.x < position.x:
+		direction = -1
+	else:
+		direction = 1
+	#direction = Vector2((player.global_position.x - global_position.x), 0).normalized()
+	#print(direction[0])
 func charge():
-	print("cargando")
+	#print("cargando")
+	print (direction)
+	if player:
+		print("se mueve")
+		velocity.x = direction * chargeSpeed
+	if is_on_wall():
+		print("CAMBIO POR PARED")
+		switch_state(State.CHARGE_PREPARATION)
 func stun():
 	print("quieto parao")
 	velocity.x = 0
@@ -138,4 +164,7 @@ func _on_stun_cooldown_timeout():
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		body.take_damage(damage)
-		body.global_position.x += 80
+		if body.global_position.x < 300:
+			body.global_position.x += 80
+		else:
+			body.global_position.x -= 80

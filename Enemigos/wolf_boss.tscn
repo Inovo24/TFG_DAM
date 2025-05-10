@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://datq3xbavmpq7" path="res://Scripts/Enemigos/wolf_boss.gd" id="1_shxn8"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ohl0"]
+size = Vector2(68, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shxn8"]
+size = Vector2(21, 57)
+
 [sub_resource type="Animation" id="Animation_5ohl0"]
 resource_name = "charge"
 
@@ -21,17 +27,26 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yftt"]
 size = Vector2(75, 49)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ohl0"]
-size = Vector2(68, 14)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_shxn8"]
-size = Vector2(21, 57)
-
 [node name="wolf_boss" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 4
 script = ExtResource("1_shxn8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="jumpcolision" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(0, 19)
+shape = SubResource("RectangleShape2D_5ohl0")
+debug_color = Color(0.486329, 0.00990663, 0.116801, 0.42)
+
+[node name="chargecolision" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(37, -3)
+shape = SubResource("RectangleShape2D_shxn8")
+disabled = true
+debug_color = Color(0.408492, 0.606617, 0.0271558, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -42,31 +57,19 @@ libraries = {
 position = Vector2(-2.5, -6.5)
 shape = SubResource("RectangleShape2D_5yftt")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 2
-
-[node name="jumpcolision" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 19)
-shape = SubResource("RectangleShape2D_5ohl0")
-debug_color = Color(0.486329, 0.00990663, 0.116801, 0.42)
-
-[node name="chargecolision" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(37, -3)
-shape = SubResource("RectangleShape2D_shxn8")
-disabled = true
-debug_color = Color(0.408492, 0.606617, 0.0271558, 0.42)
-
 [node name="jumpCooldown" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
 [node name="chargeCooldown" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [node name="stunCooldown" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="jumpCooldown" to="." method="_on_jump_cooldown_timeout"]
 [connection signal="timeout" from="chargeCooldown" to="." method="_on_charge_cooldown_timeout"]
 [connection signal="timeout" from="stunCooldown" to="." method="_on_stun_cooldown_timeout"]
