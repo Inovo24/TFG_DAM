@@ -4,6 +4,7 @@ extends Node2D
 @export var damage: int = 20  
 var direction: Vector2 = Vector2.RIGHT 
 var charge_multiplier: float = 1.0
+var atack_player = false
 
 func _process(delta: float):
 	position += direction * speed * delta
@@ -14,6 +15,9 @@ func _on_body_entered(_body):
 		print("I touched the ground")
 	if _body.is_in_group("Enemies"):
 		_body.receive_damage(damage)
+		queue_free()
+	if _body.is_in_group("player") && atack_player:
+		_body.take_damage(damage)
 		queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

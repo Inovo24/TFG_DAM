@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbre37x4haidr"]
+
+[ext_resource type="Texture2D" uid="uid://bvv1cgadph1d1" path="res://Sprites/sprites_para_borradores/lanzador.png" id="1_8advs"]
+[ext_resource type="Script" uid="uid://d2d11lcwwcs32" path="res://Scripts/Elementos/lanza_flechas.gd" id="1_yy15k"]
+
+[node name="LanzaFlechas" type="Node2D"]
+script = ExtResource("1_yy15k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.033, 0.033)
+texture = ExtResource("1_8advs")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(8, 0)
+
+[node name="TimerLanzador" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="TimerLanzador" to="." method="_on_fire_timer_timeout"]
