@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3lt32bnk1f0u"]
+
+[ext_resource type="Script" uid="uid://c7o613ukpr6kl" path="res://Scripts/Elementos/pinchos_subebaja.gd" id="1_p3mjf"]
+[ext_resource type="Texture2D" uid="uid://smqfnjqgydia" path="res://Sprites/Elementos/pinchos/pinchos.png" id="2_xdt2v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_il75n"]
+size = Vector2(34, 10)
+
+[node name="Pinchos_subebaja" type="StaticBody2D"]
+collision_mask = 7
+script = ExtResource("1_p3mjf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.588496, 0.5)
+texture = ExtResource("2_xdt2v")
+
+[node name="AreaDano" type="Area2D" parent="."]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDano"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_il75n")
+
+[node name="SpikeTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="AreaDano" to="." method="_on_damage_area_body_entered"]
+[connection signal="timeout" from="SpikeTimer" to="." method="_on_spike_timer_timeout"]
