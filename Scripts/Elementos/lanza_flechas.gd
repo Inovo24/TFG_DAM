@@ -7,7 +7,7 @@ extends Node2D
 @onready var sprite_after = preload("res://Sprites/sprites_para_borradores/lanzador_disparo.png")
 @onready var sprite = $Sprite2D
 
-var arrow_speed = 100
+var arrow_speed = 200
 
 func _ready():
 	randomize()
@@ -25,11 +25,8 @@ func shoot_arrow():
 	get_tree().root.add_child(arrow)
 	arrow.global_position = shoot_point.global_position
 	
-	var charge_multiplier = 2.0 
-	
 	arrow.atack_player = true
-	arrow.speed = arrow_speed * charge_multiplier
-	arrow.charge_multiplier = charge_multiplier
+	arrow.speed = arrow_speed 
 	
 	var direction = Vector2($".".scale.x, 0)
 	arrow.direction = direction
