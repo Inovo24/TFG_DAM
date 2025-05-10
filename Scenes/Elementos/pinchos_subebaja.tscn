@@ -22,6 +22,7 @@ position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_il75n")
 
 [node name="SpikeTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="body_entered" from="AreaDano" to="." method="_on_damage_area_body_entered"]
 [connection signal="timeout" from="SpikeTimer" to="." method="_on_spike_timer_timeout"]
