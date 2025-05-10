@@ -21,7 +21,13 @@ enum State {JUMP_PREPARATION, JUMP, CHARGE_PREPARATION, CHARGING, STUNNED}
 
 func _ready():
 	add_to_group("Enemies")
-	#direction = 1
+	if Globales.current_character !=1:
+			Globales.current_character = 1
+			Globales.player_instance = null
+			playerInstancate = Globales.get_player()
+			get_parent().add_child(playerInstancate)
+			player.queue_free()
+			player = playerInstancate
 
 func _physics_process(delta):
 	if direction ==1:
@@ -141,6 +147,17 @@ func receive_damage(damage_received: int):
 			queue_free()
 		elif  currentHealth <= (maxHealth * 2/3) and currentPhase != Phase.TWO:
 			print("fase 2")
+			if Globales.current_character !=0:
+				Globales.current_character = 0
+				Globales.player_instance = null
+				playerInstancate = Globales.get_player()
+				get_parent().add_child(playerInstancate)
+				player.queue_free()
+				player = playerInstancate
+			
+			switch_phase(Phase.TWO)
+		elif  currentHealth <= (maxHealth/ 3) and currentPhase != Phase.THREE:
+			print("fase 3")
 			if Globales.current_character !=2:
 				Globales.current_character = 2
 				Globales.player_instance = null
@@ -148,11 +165,6 @@ func receive_damage(damage_received: int):
 				get_parent().add_child(playerInstancate)
 				player.queue_free()
 				player = playerInstancate
-				
-			switch_phase(Phase.TWO)
-		elif  currentHealth <= (maxHealth/ 3) and currentPhase != Phase.THREE:
-			print("fase 3")
-			
 			switch_phase(Phase.THREE)
 	elif currentState == State.CHARGING:
 		switch_state(State.STUNNED)
