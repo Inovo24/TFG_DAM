@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://dadwpxs80q6xk"]
+[gd_scene load_steps=50 format=4 uid="uid://dadwpxs80q6xk"]
 
 [ext_resource type="Script" uid="uid://jj8ln8dc06al" path="res://Scripts/Niveles/nivel_1/nivel_1.gd" id="1_640ix"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_bnpcw"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bfopn67ev7qmy" path="res://Sprites/backgrounds/background_level1/Fondos/suelo.png" id="13_e6ank"]
 [ext_resource type="Texture2D" uid="uid://d1r08kypgmx8d" path="res://Sprites/backgrounds/background_level1/Arboles/arbustillos.png" id="14_nbcs1"]
 [ext_resource type="Texture2D" uid="uid://dq5hadn8aps8g" path="res://Sprites/Elementos/Arboles/arboles.png" id="15_i5vb5"]
+[ext_resource type="PackedScene" uid="uid://cjurojyuklair" path="res://Scenes/Elementos/Elementos/placa.tscn" id="15_m2p2q"]
 [ext_resource type="Texture2D" uid="uid://be5a31qbr023" path="res://Sprites/Elementos/Arboles/plantas.png" id="16_8erby"]
 [ext_resource type="Texture2D" uid="uid://w7abqfow6xnu" path="res://Sprites/Elementos/Piedras/piedras.png" id="17_w0xav"]
 [ext_resource type="Texture2D" uid="uid://7i2ewclqvc28" path="res://Sprites/Elementos/Arboles/Mas_arboles.png" id="18_hcexk"]
@@ -2063,11 +2064,14 @@ position = Vector2(0, 12)
 texture = ExtResource("14_nbcs1")
 centered = false
 
+[node name="Placa" parent="Fondo" instance=ExtResource("15_m2p2q")]
+position = Vector2(282, 348)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 
 [node name="Marker2D" type="Marker2D" parent="Camera2D"]
-position = Vector2(5262, 917)
+position = Vector2(230, 293)
 
 [node name="Decoracion" type="Node2D" parent="."]
 
