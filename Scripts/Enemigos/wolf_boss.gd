@@ -69,21 +69,27 @@ func switch_phase(newPhase):
 func switch_state(newState):
 	if currentState != newState:
 		currentState = newState
-		match currentState:
-			State.JUMP_PREPARATION:
-				jump_preparation()
-			State.JUMP:
-				jump()
-			State.CHARGE_PREPARATION:
-				charge_preparation()
-			State.CHARGING:
-				charge()
-			State.STUNNED:
-				stun()
-			State.ATTACK_PREPARATION:
-				attack_preparation()
-			State.ATTACK:
-				attack()
+		match currentPhase:
+			Phase.ONE:
+				match currentState:
+					State.JUMP_PREPARATION:
+						jump_preparation()
+					State.JUMP:
+						jump()
+			Phase.TWO:
+				match currentState:
+					State.CHARGE_PREPARATION:
+						charge_preparation()
+					State.CHARGING:
+						charge()
+					State.STUNNED:
+						stun()
+			Phase.THREE:
+				match currentState:
+					State.ATTACK_PREPARATION:
+						attack_preparation()
+					State.ATTACK:
+						attack()
 
 func phase_one():
 	if currentState == State.JUMP_PREPARATION:
@@ -98,16 +104,17 @@ func phase_two():
 	elif currentState == State.CHARGING:
 		charge()
 func phase_three():
-	print(currentState)
+	#print(currentPhase)
+	#print(currentState)
 	if position.x != initialPosition:
 		position.x = initialPosition
 		direction = -1
 		#sprite.scale.x = -1
 	if currentState == State.ATTACK_PREPARATION:
-		print(2)
+		#print(2)
 		attack_preparation()
 	if currentState == State.ATTACK:
-		print(3)
+		#print(3)
 		attack()
 
 func jump_preparation():
@@ -135,7 +142,7 @@ func charge_preparation():
 			position.x +=10
 		else:
 			position.x -=10
-		print("estoy en pared")
+		#print("estoy en pared")
 	velocity.x =0
 	charge_cooldown.start()
 	#direction = player.global_position.x - position.x
@@ -147,15 +154,15 @@ func charge_preparation():
 	#print(direction[0])
 func charge():
 	#print("cargando")
-	print (direction)
+	#print (direction)
 	if player:
-		print("se mueve")
+		#print("se mueve")
 		velocity.x = direction * chargeSpeed
 	if is_on_wall():
-		print("CAMBIO POR PARED")
+		#print("CAMBIO POR PARED")
 		switch_state(State.CHARGE_PREPARATION)
 func stun():
-	print("quieto parao")
+	#print("quieto parao")
 	velocity.x = 0
 	stun_cooldown.start()
 
@@ -166,11 +173,11 @@ func attack_preparation():
 func attack():
 	if proyectile:
 		if hasAttacked==false:
-			print("paso por aqui")
+			#print("paso por aqui")
 			var a = proyectile.instantiate()
 			get_tree().root.add_child(a)
 			if attack_marker:
-				print("marker")
+				#print("marker")
 				a.global_position = attack_marker.global_position
 			
 			
@@ -184,10 +191,10 @@ func receive_damage(damage_received: int):
 		#print(currentHealth)
 		#print(currentPhase)
 		if currentHealth <= 0:
-			print("muero")
+			#print("muero")
 			queue_free()
 		elif  currentHealth <= (maxHealth * 2/3) and currentPhase == Phase.ONE:
-			print("fase 2")
+			#print("fase 2")
 			if Globales.current_character !=0:
 				Globales.current_character = 0
 				Globales.player_instance = null
@@ -198,7 +205,7 @@ func receive_damage(damage_received: int):
 			
 			switch_phase(Phase.TWO)
 		elif  currentHealth <= (maxHealth/ 3) and currentPhase == Phase.TWO:
-			print("fase 3")
+			#print("fase 3")
 			if Globales.current_character !=2:
 				Globales.current_character = 2
 				Globales.player_instance = null
