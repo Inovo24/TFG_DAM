@@ -6,10 +6,12 @@ var chargeSpeed = 200
 var direction
 var damage =20
 var maxHealth = 200
+var initialPosition
+var hasAttacked=false
 @onready var currentHealth = maxHealth
 var playerInstancate
 enum  Phase{ONE,TWO,THREE}
-enum State {JUMP_PREPARATION, JUMP, CHARGE_PREPARATION, CHARGING, STUNNED}
+enum State {JUMP_PREPARATION, JUMP, CHARGE_PREPARATION, CHARGING, STUNNED, ATTACK_PREPARATION, ATTACK}
 @onready var currentPhase = Phase.ONE
 @onready var currentState = State.JUMP_PREPARATION
 @onready var sprite = $Sprite2D
@@ -18,9 +20,13 @@ enum State {JUMP_PREPARATION, JUMP, CHARGE_PREPARATION, CHARGING, STUNNED}
 @onready var stun_cooldown = $stunCooldown
 @onready var charge_cooldown = $chargeCooldown
 @onready var jump_cooldown = $jumpCooldown
+@onready var attack_cooldown = $attackCooldown
+@onready var attack_marker = $Sprite2D/Area2D/attackMarker
+@onready var proyectile = preload("res://Scenes/flecha.tscn")
 
 func _ready():
 	add_to_group("Enemies")
+	initialPosition = position.x
 	if Globales.current_character !=1:
 			Globales.current_character = 1
 			Globales.player_instance = null
@@ -36,6 +42,7 @@ func _physics_process(delta):
 		sprite.scale.x = -1
 	if not is_on_floor():
 		velocity.y = GRAVITY * delta
+	#if currentPhase == Phase.THREE:
 	#print(currentState)
 	#print(velocity.x)
 	match currentPhase:
@@ -44,7 +51,7 @@ func _physics_process(delta):
 			Phase.TWO:
 				phase_two()
 			Phase.THREE:
-				print("faaaaaseeeeeeee 3333")
+				phase_three()
 	#print(charge_cooldown.time_left)
 	move_and_slide()
 
@@ -57,7 +64,7 @@ func switch_phase(newPhase):
 			Phase.TWO:
 				switch_state(State.CHARGE_PREPARATION)
 			Phase.THREE:
-				pass
+				switch_state(State.ATTACK_PREPARATION)
 
 func switch_state(newState):
 	if currentState != newState:
@@ -73,6 +80,10 @@ func switch_state(newState):
 				charge()
 			State.STUNNED:
 				stun()
+			State.ATTACK_PREPARATION:
+				attack_preparation()
+			State.ATTACK:
+				attack()
 
 func phase_one():
 	if currentState == State.JUMP_PREPARATION:
@@ -86,6 +97,18 @@ func phase_two():
 		charge_preparation()
 	elif currentState == State.CHARGING:
 		charge()
+func phase_three():
+	print(currentState)
+	if position.x != initialPosition:
+		position.x = initialPosition
+		direction = -1
+		#sprite.scale.x = -1
+	if currentState == State.ATTACK_PREPARATION:
+		print(2)
+		attack_preparation()
+	if currentState == State.ATTACK:
+		print(3)
+		attack()
 
 func jump_preparation():
 	if not jump_cooldown.is_stopped():
@@ -136,7 +159,25 @@ func stun():
 	velocity.x = 0
 	stun_cooldown.start()
 
-
+func attack_preparation():
+	if not attack_cooldown.is_stopped():
+		return
+	attack_cooldown.start()
+func attack():
+	if proyectile:
+		if hasAttacked==false:
+			print("paso por aqui")
+			var a = proyectile.instantiate()
+			get_tree().root.add_child(a)
+			if attack_marker:
+				print("marker")
+				a.global_position = attack_marker.global_position
+			
+			
+			a.direction = Vector2.LEFT
+			#a.scale.x = abs(a.scale.x) * direction.x
+			hasAttacked = true
+			attack_cooldown.start()
 func receive_damage(damage_received: int):
 	if currentState != State.CHARGING:
 		currentHealth = currentHealth - damage_received
@@ -145,7 +186,7 @@ func receive_damage(damage_received: int):
 		if currentHealth <= 0:
 			print("muero")
 			queue_free()
-		elif  currentHealth <= (maxHealth * 2/3) and currentPhase != Phase.TWO:
+		elif  currentHealth <= (maxHealth * 2/3) and currentPhase == Phase.ONE:
 			print("fase 2")
 			if Globales.current_character !=0:
 				Globales.current_character = 0
@@ -156,7 +197,7 @@ func receive_damage(damage_received: int):
 				player = playerInstancate
 			
 			switch_phase(Phase.TWO)
-		elif  currentHealth <= (maxHealth/ 3) and currentPhase != Phase.THREE:
+		elif  currentHealth <= (maxHealth/ 3) and currentPhase == Phase.TWO:
 			print("fase 3")
 			if Globales.current_character !=2:
 				Globales.current_character = 2
@@ -189,3 +230,11 @@ func _on_area_2d_body_entered(body):
 			body.global_position.x += 80
 		else:
 			body.global_position.x -= 80
+
+
+func _on_attack_cooldown_timeout():
+	if currentState == State.ATTACK_PREPARATION:
+		switch_state(State.ATTACK)
+	else:
+		hasAttacked = false
+		switch_state(State.ATTACK_PREPARATION)

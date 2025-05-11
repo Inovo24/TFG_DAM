@@ -444,7 +444,7 @@ texture = ExtResource("5_3g30o")
 centered = false
 
 [node name="wolf_boss" parent="." instance=ExtResource("2_ph433")]
-position = Vector2(523, 446)
+position = Vector2(648, 445)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(352, 299)
