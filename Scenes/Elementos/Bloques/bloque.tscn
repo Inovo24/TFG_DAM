@@ -6,6 +6,7 @@
 size = Vector2(16, 16)
 
 [node name="Node2D" type="RigidBody2D"]
+collision_layer = 512
 collision_mask = 3
 freeze_mode = 1
 

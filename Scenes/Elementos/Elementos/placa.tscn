@@ -1,7 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjurojyuklair"]
+[gd_scene load_steps=15 format=3 uid="uid://cjurojyuklair"]
 
 [ext_resource type="Script" uid="uid://j7mrwg6gdmen" path="res://Scripts/Elementos/placa.gd" id="1_2hf4b"]
 [ext_resource type="Texture2D" uid="uid://csrx3jpm11hvx" path="res://Sprites/Elementos/Placa presión/placa_presión.png" id="1_lpn5m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hf4b"]
+size = Vector2(16, 3)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hf4b"]
 atlas = ExtResource("1_lpn5m")
@@ -45,9 +48,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2hf4b")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -81,22 +84,34 @@ animations = [{
 }],
 "loop": false,
 "name": &"release",
-"speed": 5.0
+"speed": 7.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_un8um"]
 size = Vector2(16, 6)
 
-[node name="Placa" type="Area2D"]
-collision_mask = 3
+[node name="Placa" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 515
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 1.5)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_2hf4b")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 514
 script = ExtResource("1_2hf4b")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_55g2y")
-animation = &"release"
+animation = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_un8um")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]
