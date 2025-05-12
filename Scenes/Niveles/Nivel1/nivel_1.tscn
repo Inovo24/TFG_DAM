@@ -1971,7 +1971,7 @@ motion_scale = Vector2(0.7, 1)
 motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/fondoCaverna"]
-position = Vector2(43, 5)
+position = Vector2(0, -2)
 texture = ExtResource("5_sae4p")
 centered = false
 
@@ -1981,7 +1981,7 @@ motion_scale = Vector2(0.7, 1)
 motion_mirroring = Vector2(700, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/subsuelo"]
-position = Vector2(2, 498)
+position = Vector2(0, 498)
 texture = ExtResource("6_1dd2w")
 centered = false
 
@@ -2364,7 +2364,7 @@ position = Vector2(9048, 1094)
 position = Vector2(301, 336)
 
 [node name="PiedraRompible2" parent="." instance=ExtResource("37_m2p2q")]
-position = Vector2(301, 311)
+position = Vector2(301, 312)
 
 [node name="PiedraRompible3" parent="." instance=ExtResource("37_m2p2q")]
-position = Vector2(301, 286)
+position = Vector2(301, 288)
