@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://d4einawx6ugyq"]
+[gd_scene load_steps=10 format=4 uid="uid://d4einawx6ugyq"]
 
 [ext_resource type="Script" uid="uid://53678jayax5g" path="res://Scripts/Niveles/nivel_3/nivel_3.gd" id="1_5h3r2"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_ybgvm"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c3lt32bnk1f0u" path="res://Scenes/Elementos/pinchos_subebaja.tscn" id="4_g88ye"]
 [ext_resource type="Texture2D" uid="uid://c0jknkkeqhx2u" path="res://Sprites/backgrounds/background_level3/background_level3.png" id="5_ut1jm"]
 [ext_resource type="Texture2D" uid="uid://b3dqxqv377fw2" path="res://Sprites/backgrounds/background_level3/sub_capa_lvl3.png" id="6_qg605"]
+[ext_resource type="PackedScene" uid="uid://bsyoskref8vn1" path="res://Scenes/LanzaLlamas/lanza_llamas.tscn" id="7_ql8ao"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xsyli"]
 texture = ExtResource("2_ybgvm")
@@ -555,3 +556,6 @@ motion_mirroring = Vector2(700, 0)
 position = Vector2(245, 434)
 texture = ExtResource("6_qg605")
 centered = false
+
+[node name="LanzaLlamas" parent="." instance=ExtResource("7_ql8ao")]
+position = Vector2(186, 328)
