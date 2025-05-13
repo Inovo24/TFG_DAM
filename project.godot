@@ -22,8 +22,8 @@ Guardado="*res://Scripts/guardado.gd"
 
 [display]
 
-window/size/viewport_width=720
-window/size/viewport_height=360
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
 [editor_plugins]

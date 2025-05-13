@@ -10,6 +10,7 @@ var initialPosition
 var hasAttacked=false
 @onready var currentHealth = maxHealth
 var playerInstancate
+var playerPosition
 enum  Phase{ONE,TWO,THREE}
 enum State {JUMP_PREPARATION, JUMP, CHARGE_PREPARATION, CHARGING, STUNNED, ATTACK_PREPARATION, ATTACK}
 @onready var currentPhase = Phase.ONE
@@ -27,13 +28,7 @@ enum State {JUMP_PREPARATION, JUMP, CHARGE_PREPARATION, CHARGING, STUNNED, ATTAC
 func _ready():
 	add_to_group("Enemies")
 	initialPosition = position.x
-	if Globales.current_character !=1:
-			Globales.current_character = 1
-			Globales.player_instance = null
-			playerInstancate = Globales.get_player()
-			get_parent().add_child(playerInstancate)
-			player.queue_free()
-			player = playerInstancate
+	change_player(1)
 
 func _physics_process(delta):
 	if direction ==1:
@@ -175,6 +170,7 @@ func attack():
 		if hasAttacked==false:
 			#print("paso por aqui")
 			var a = proyectile.instantiate()
+			a.atack_player = true
 			get_tree().root.add_child(a)
 			if attack_marker:
 				#print("marker")
@@ -195,24 +191,11 @@ func receive_damage(damage_received: int):
 			queue_free()
 		elif  currentHealth <= (maxHealth * 2/3) and currentPhase == Phase.ONE:
 			#print("fase 2")
-			if Globales.current_character !=0:
-				Globales.current_character = 0
-				Globales.player_instance = null
-				playerInstancate = Globales.get_player()
-				get_parent().add_child(playerInstancate)
-				player.queue_free()
-				player = playerInstancate
-			
+			change_player(0)
 			switch_phase(Phase.TWO)
 		elif  currentHealth <= (maxHealth/ 3) and currentPhase == Phase.TWO:
 			#print("fase 3")
-			if Globales.current_character !=2:
-				Globales.current_character = 2
-				Globales.player_instance = null
-				playerInstancate = Globales.get_player()
-				get_parent().add_child(playerInstancate)
-				player.queue_free()
-				player = playerInstancate
+			change_player(2)
 			switch_phase(Phase.THREE)
 	elif currentState == State.CHARGING:
 		switch_state(State.STUNNED)
@@ -245,3 +228,15 @@ func _on_attack_cooldown_timeout():
 	else:
 		hasAttacked = false
 		switch_state(State.ATTACK_PREPARATION)
+
+func change_player(playerNum: int):
+	if Globales.current_character !=playerNum:
+			playerPosition = player.global_position
+			Globales.current_character = playerNum
+			Globales.player_instance = null
+			playerInstancate = Globales.get_player()
+			get_parent().add_child(playerInstancate)
+			player.queue_free()
+			player = playerInstancate
+			player.global_position = playerPosition
+			#get_parent().get_.update_player()

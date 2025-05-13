@@ -13,11 +13,12 @@ var desaparecido = false
 @export var looping = false
 
 @onready var colision: CollisionShape2D = $AnimatableBody2D/CollisionShape2D
-#@export var activo = colision.disabled
+@export var colision_activa: bool = true
 
 var tween: Tween
 
 func _ready() -> void:
+	colision.disabled = not colision_activa
 	reaparecer()
 
 func iniciar_movimiento():
@@ -66,7 +67,8 @@ func desaparecer():
 func reaparecer():
 	visible = true
 	desaparecido = false
-	colision.disabled = false
+	if colision_activa:
+		colision.disabled = false
 	#set_process_mode(PROCESS_MODE_INHERIT)
 	set_deferred("disable_mode", false)
 	if is_instance_valid(path_follow_2d):

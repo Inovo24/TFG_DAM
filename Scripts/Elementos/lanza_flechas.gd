@@ -22,7 +22,7 @@ func _on_fire_timer_timeout():
 
 func shoot_arrow():
 	var arrow = arrow_scene.instantiate()
-	get_tree().root.add_child(arrow)
+	get_parent().add_child(arrow)
 	arrow.global_position = shoot_point.global_position
 	
 	arrow.atack_player = true

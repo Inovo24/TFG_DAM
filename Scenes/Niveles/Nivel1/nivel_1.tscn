@@ -2065,6 +2065,7 @@ texture = ExtResource("14_nbcs1")
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
 [node name="Marker2D" type="Marker2D" parent="Camera2D"]
@@ -2243,10 +2244,10 @@ position = Vector2(1452, 351)
 [node name="CheckPoints" type="Node2D" parent="."]
 
 [node name="CheckPoint2" parent="CheckPoints" instance=ExtResource("32_hgcxe")]
-position = Vector2(3123, 312)
+position = Vector2(3123, 324)
 
 [node name="CheckPoint4" parent="CheckPoints" instance=ExtResource("32_hgcxe")]
-position = Vector2(5320, 983)
+position = Vector2(5319, 996)
 
 [node name="Estalactitas" type="Node2D" parent="."]
 

@@ -40,7 +40,7 @@ func _ready():
 	
 
 func _process(_delta: float) -> void:
-	camera.position = player.position
+	camera.position = player.position 
 	hud_gems.updateGemLabel(collected_gems)
 	if Input.is_action_just_pressed("salir"):
 		if menu_instance == null:

@@ -417,7 +417,8 @@ tile_set = SubResource("TileSet_smidx")
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(352, 299)
+position = Vector2(353, 288)
+zoom = Vector2(3, 3)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true

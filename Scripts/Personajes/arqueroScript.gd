@@ -56,7 +56,7 @@ func _physics_process(delta):
 func shoot_arrow():
 	if arrow:
 		var a = arrow.instantiate()
-		get_tree().root.add_child(a)
+		get_parent().add_child(a)
 		a.global_position = marker.global_position
 		
 		var charge_multiplier = 1.0 + (charge_time / max_charge_time)
