@@ -4,22 +4,34 @@ extends Node2D
 @export var damage: int = 20  
 var direction: Vector2 = Vector2.RIGHT 
 var charge_multiplier: float = 1.0
-var atack_player = false
+var atack_player: bool = false
 
 func _process(delta: float):
 	position += direction * speed * delta
 
-func _on_body_entered(_body):
-	if _body is TileMapLayer:
+func _on_body_entered(_body: Node) -> void:
+	# Impacta contra el suelo (TileMap u otros)
+	if _body is TileMap or _body is TileMapLayer:
+		print("Arrow hit the ground")
 		queue_free()
-		print("I touched the ground")
-	if _body.is_in_group("Enemies"):
+
+	# Daño a enemigos
+	elif _body.is_in_group("Enemies"):
 		_body.receive_damage(damage)
 		queue_free()
-	if _body.is_in_group("player") && atack_player:
+
+	# Daño a jugadores si es una flecha enemiga
+	elif _body.is_in_group("player") and atack_player:
 		_body.take_damage(damage)
 		queue_free()
 
+	# Daño solo a bloques
+	elif _body.has_method("take_damage") and _body.is_in_group("Blocks"):
+		print("Flecha impacta bloque")
+		_body.take_damage(damage)
+		queue_free()
+
+
 func _on_visible_on_screen_notifier_2d_screen_exited():
+	print("Arrow exited screen")
 	queue_free()
-	print("I disappear")

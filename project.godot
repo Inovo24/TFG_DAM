@@ -34,6 +34,7 @@ enabled=PackedStringArray("res://addons/agent/plugin.cfg", "res://addons/paulloz
 
 player=""
 Enemies=""
+Blocks=""
 
 [input]
 

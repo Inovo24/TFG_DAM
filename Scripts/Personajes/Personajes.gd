@@ -84,7 +84,6 @@ func _physics_process(delta):
 			velocity.x = 0
 
 		if attack_attempt:
-			detect_and_destroy()
 			if not is_on_floor():
 				if input_up:
 					switch_state(State.UP_ATTACK)
@@ -216,18 +215,18 @@ func reset_velocity():
 func attack():
 	print("ataque normal")
 	#Esto es para romper la piedra
-	detect_and_destroy()
+	
 func air_attack():
 	print("ataque aereo")
-	detect_and_destroy()
+	
 	# Aquí puedes añadir lógica específica para el ataque aéreo
 func down_attack():
 	print("ataque bajo")
-	detect_and_destroy()
+	
 	# Aquí puedes añadir lógica específica para el ataque hacia abajo
 func up_attack():
 	print("ataque alto")
-	detect_and_destroy()
+	
 	# Aquí puedes añadir lógica específica para el ataque hacia arriba
 
 func getMaxHealth() -> int:
@@ -269,23 +268,6 @@ func return_to_checkpoint():
 	efecto.global_position = global_position
 	await get_tree().create_timer(0.5).timeout
 
-
-func detect_and_destroy():
-	var space_state = get_world_2d().direct_space_state
-	var shape = RectangleShape2D.new()
-	shape.extents = Vector2(20, 20)  # Área de ataque
-
-	var params = PhysicsShapeQueryParameters2D.new()
-	params.shape = shape
-	params.transform = Transform2D(0, global_position + Vector2($Sprite2D.scale.x * 25, -10))  # Hacia adelante
-	params.collision_mask = 1 << 13  # Layer 14 (e el bit 0 es la capa 1)
-	params.collide_with_areas = false
-	params.collide_with_bodies = true
-
-	var result = space_state.intersect_shape(params, 10)
-	for hit in result:
-		if hit.collider.has_method("take_damage"):
-			hit.collider.take_damage(damage)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("abajo") and is_on_floor():

@@ -43,6 +43,7 @@ func attack():
 		anim_state_machine.travel("ataque1")
 	else:
 		print("You cannot spam the bow")
+	deal_damage_archer()
 	
 func down_attack():
 	print("ataque bajo")
@@ -71,3 +72,20 @@ func shoot_arrow():
 	else:
 		print("Error: arrow.tscn not found!")
 	switch_state(State.IDLE)
+
+#Para romper bloques
+func deal_damage_archer():
+	var space_state = get_world_2d().direct_space_state
+	var shape = RectangleShape2D.new()
+	shape.extents = Vector2(18, 18)  # Cuerpo a cuerpo del arquero, algo más pequeño
+
+	var params = PhysicsShapeQueryParameters2D.new()
+	params.shape = shape
+	params.transform = Transform2D(0, global_position + Vector2($Sprite2D.scale.x * 22, -10))
+	params.collision_mask = 1 << 13
+	params.collide_with_bodies = true
+
+	var result = space_state.intersect_shape(params, 10)
+	for hit in result:
+		if hit.collider.has_method("take_damage"):
+			hit.collider.take_damage(damage)

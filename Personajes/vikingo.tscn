@@ -13,10 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://d3ouhgt0mohwm" path="res://Sprites/Vikingo/vikingo_upattack-Sheet.png" id="10_hlwk2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rahmg"]
-size = Vector2(9, 27)
+size = Vector2(9, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vyxn"]
-size = Vector2(25, 9)
+size = Vector2(26.5, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55uqw"]
 size = Vector2(30, 9)
@@ -676,15 +676,15 @@ frame = 1
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
 collision_layer = 2
-collision_mask = 4
+collision_mask = 8196
 
 [node name="frontal" type="CollisionShape2D" parent="Sprite2D/Area2D"]
-position = Vector2(17, 4.5)
+position = Vector2(17, 2.5)
 shape = SubResource("RectangleShape2D_rahmg")
 disabled = true
 
 [node name="aereo" type="CollisionShape2D" parent="Sprite2D/Area2D"]
-position = Vector2(0, -21)
+position = Vector2(0.75, -21)
 shape = SubResource("RectangleShape2D_6vyxn")
 disabled = true
 
@@ -708,5 +708,5 @@ active = false
 tree_root = SubResource("AnimationNodeStateMachine_88xhp")
 anim_player = NodePath("../AnimationPlayer")
 
-[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_finished"]
