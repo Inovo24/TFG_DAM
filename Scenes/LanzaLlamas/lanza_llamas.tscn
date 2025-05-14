@@ -112,7 +112,7 @@ script = ExtResource("1_f6k4e")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_m4l4w")
 animation = &"off"
-frame_progress = 0.800874
+frame_progress = 0.780774
 
 [node name="Timer" type="Timer" parent="."]
 
