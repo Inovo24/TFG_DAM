@@ -5,3 +5,8 @@ class_name HUD
 
 func updateGemLabel(numero:int):
 	gema_label.text ="x " + str(numero)
+
+'''
+func updateTimeLable(numero:int):
+	$LabelTime.text = str(numero)
+'''

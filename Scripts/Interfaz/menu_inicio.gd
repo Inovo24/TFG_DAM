@@ -20,7 +20,7 @@ func _on_salir_pressed() -> void:
 
 
 func _on_si_pressed() -> void:
-	if get_parent() is Levels:
+	if get_parent() is Levels || get_parent() is Bosses:
 		get_tree().paused = false
 		get_tree().change_scene_to_file("res://Scenes/inicio.tscn")
 	else:

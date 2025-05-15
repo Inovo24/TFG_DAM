@@ -18,6 +18,9 @@ var hud_gems  # Variable to store the instance
 var menu_instance: Node = null
 #Para el guardado
 var has_boss = false
+#Teporizador
+var timer_running := false
+var elapsed_time := 0.0
 
 func _ready():
 	player = Globales.get_player()  # Get the player from the global variable
@@ -40,6 +43,9 @@ func _ready():
 	add_child(hud_gems)
 	hud_gems.updateGemLabel(collected_gems)
 	
+	#Teporizador
+	timer_running = true
+	elapsed_time = 0.0
 
 func _process(_delta: float) -> void:
 	camera.position = player.position 
@@ -49,6 +55,10 @@ func _process(_delta: float) -> void:
 			menu_instance = preload("res://Scenes/ajustes/menu_inicio.tscn").instantiate()
 			add_child(menu_instance)
 			get_tree().paused = true
+	
+	if timer_running:
+		elapsed_time += _delta
+		#hud_gems.updateTimeLable(elapsed_time)
 
 # Function to update gems
 
@@ -58,7 +68,9 @@ func collect_gem():
 	
 
 func save_data(level_name: String):
+	timer_running = false
+	print(elapsed_time)
 	if has_boss:
-		Guardado.save_temporal_data(level_name,collected_gems,0)
+		Guardado.save_temporal_data(level_name,collected_gems,elapsed_time)
 	else:
-		Guardado.mark_level_completed(level_name,collected_gems,0)
+		Guardado.mark_level_completed(level_name,collected_gems,elapsed_time)

@@ -14,6 +14,8 @@ var colorblindness
  # Variable to store the instance
 # Variable to store the menu instance
 var menu_instance: Node = null
+var timer_running := false
+var elapsed_time := 0.0
 
 func _ready():
 	player = Globales.get_player()  # Get the player from the global variable
@@ -29,7 +31,9 @@ func _ready():
 	add_child(colorblindness)
 	Globales.colorblindness = colorblindness
 	
-
+	#Teporizador
+	timer_running = true
+	elapsed_time = 0.0
 	
 
 func _process(_delta: float) -> void:
@@ -38,6 +42,13 @@ func _process(_delta: float) -> void:
 			menu_instance = preload("res://Scenes/ajustes/menu_inicio.tscn").instantiate()
 			add_child(menu_instance)
 			get_tree().paused = true
-
-
 	
+	#Teporizador
+	if timer_running:
+		elapsed_time += _delta 
+
+
+func end_level(level_name: String):
+	timer_running = false
+	print(elapsed_time)
+	Guardado.mark_completed_from_temporal_data(level_name,elapsed_time)

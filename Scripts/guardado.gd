@@ -172,8 +172,8 @@ func save_temporal_data(level_name: String,num_gems: int, time: float):
 	}
 
 #Para los bosses
-func mark_completed_from_temporal_data(level_name: String):
-	mark_level_completed(level_name,level_temporal_progress[level_name]["num_gems"],level_temporal_progress[level_name]["time"])
+func mark_completed_from_temporal_data(level_name: String,time: float):
+	mark_level_completed(level_name,level_temporal_progress[level_name]["num_gems"],level_temporal_progress[level_name]["time"]+time)
 
 #Para los niveles normales
 func mark_level_completed(level_name: String,num_gems: int, time: float):
