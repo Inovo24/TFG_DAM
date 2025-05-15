@@ -7,6 +7,7 @@ var current_health
 
 var knockback_damage = 0.5
 var knockback_receive_damage = 1
+var knockback_distance = 30
 
 var player
 var slow_mode = false
@@ -52,7 +53,6 @@ func _end_slow_effect():
 
 func _knockback(knockback: float):
 	var knockback_dir = (position - player.position).normalized()
-	var knockback_distance = 30
 	var destination = position + knockback_dir * knockback_distance
 	
 	# Check collision before applying tween

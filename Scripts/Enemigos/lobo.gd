@@ -24,7 +24,7 @@ var can_turn_from_rear := true
 func _ready() -> void:
 	velocity.x = -speed
 	animationTree.active = true
-	
+	knockback_distance = 60
 	damage = 20
 	max_health = 70
 	super._ready()

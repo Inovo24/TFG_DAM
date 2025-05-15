@@ -25,6 +25,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("hello?")
 	if body.is_in_group("Enemies"):
 		body.receive_damage(damage)
+	deal_damage_valkyrie()
 
 #Para romper bloques
 func deal_damage_valkyrie():

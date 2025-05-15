@@ -54,7 +54,9 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	set_hitbox(false, false, false)
 
 func _on_Area2D_body_entered(body: Node2D) -> void:
-	if body.has_method("take_damage"):
+	if body.is_in_group("Enemies"):
+		body.receive_damage(damage)
+	elif body.has_method("take_damage"):
 		body.take_damage(damage)
 
 func set_hitbox(act_bajo: bool, act_aereo: bool, act_frontal: bool):
