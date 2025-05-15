@@ -27,12 +27,45 @@ var level_progress = {
 		"hecho" = false,
 		"num_gems" = 0,
 		"time" = 0
+	},
+	"nivel2" = {
+		"hecho" = false,
+		"num_gems" = 0,
+		"time" = 0
+	},
+	"nivel3" = {
+		"hecho" = false,
+		"num_gems" = 0,
+		"time" = 0
+	},
+	"nivel4" = {
+		"hecho" = false,
+		"num_gems" = 0,
+		"time" = 0
+	},
+	"nivel5" = {
+		"hecho" = false,
+		"num_gems" = 0,
+		"time" = 0
+	},
+	"nivel6" = {
+		"hecho" = false,
+		"num_gems" = 0,
+		"time" = 0
 	}
 }
 
 #Para guardar los datos de los niveles con boss
 var level_temporal_progress = {
 	"nivel1" = {
+		"num_gems" = 0,
+		"time" = 0
+	},
+	"nivel3" = {
+		"num_gems" = 0,
+		"time" = 0
+	},
+	"nivel6" = {
 		"num_gems" = 0,
 		"time" = 0
 	}
