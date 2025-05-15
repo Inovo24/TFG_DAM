@@ -16,6 +16,8 @@ var collected_gems: int = 0
 var hud_gems  # Variable to store the instance
 # Variable to store the menu instance
 var menu_instance: Node = null
+#Para el guardado
+var has_boss = false
 
 func _ready():
 	player = Globales.get_player()  # Get the player from the global variable
@@ -54,3 +56,9 @@ func collect_gem():
 	collected_gems += 1
 	hud_gems.updateGemLabel(collected_gems)
 	
+
+func save_data(level_name: String):
+	if has_boss:
+		Guardado.save_temporal_data(level_name,collected_gems,0)
+	else:
+		Guardado.mark_level_completed(level_name,collected_gems,0)

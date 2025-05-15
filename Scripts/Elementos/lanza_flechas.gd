@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var arrow_scene = preload("res://Scenes/flecha_lanzaflechas.tscn")
+@onready var arrow_scene = preload("res://Scenes/Elementos/flecha_lanzaflechas.tscn")
 @onready var shoot_point = $Marker2D
 @onready var fire_timer = $TimerLanzador
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D

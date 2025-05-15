@@ -2358,7 +2358,7 @@ position = Vector2(8392, 1083)
 [node name="Antorcha3" parent="." instance=ExtResource("34_kb8t5")]
 position = Vector2(8616, 1083)
 
-[node name="Node2D" parent="." instance=ExtResource("35_da7uh")]
+[node name="EntadaBoss" parent="." instance=ExtResource("35_da7uh")]
 position = Vector2(9048, 1094)
 
 [node name="PiedraRompible" parent="." instance=ExtResource("37_m2p2q")]

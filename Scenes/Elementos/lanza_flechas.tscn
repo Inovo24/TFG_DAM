@@ -1,15 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6qduvwxpmalg"]
+[gd_scene load_steps=15 format=3 uid="uid://c6qduvwxpmalg"]
 
 [ext_resource type="Script" uid="uid://d2d11lcwwcs32" path="res://Scripts/Elementos/lanza_flechas.gd" id="1_yy15k"]
 [ext_resource type="Texture2D" uid="uid://bkmt24uvi3a01" path="res://Sprites/Elementos/LanzaFlechas/LanzaFlechas.png" id="2_yy15k"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_8advs"]
-animations = [{
-"frames": [],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lw7st"]
 atlas = ExtResource("2_yy15k")
@@ -104,11 +96,6 @@ animations = [{
 [node name="LanzaFlechas" type="Node2D"]
 script = ExtResource("1_yy15k")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.033, 0.033)
-sprite_frames = SubResource("SpriteFrames_8advs")
-animation = &"idle"
-
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(8, 0)
 
@@ -119,6 +106,5 @@ one_shot = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_faamw")
 animation = &"activado"
-frame_progress = 0.767439
 
 [connection signal="timeout" from="TimerLanzador" to="." method="_on_fire_timer_timeout"]

@@ -8,4 +8,5 @@ extends Levels
 func _ready():	
 	camera = camara_level1
 	initialPosition = posicion_level1
+	#has_boss = true
 	super._ready()

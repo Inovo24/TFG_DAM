@@ -2,7 +2,8 @@ extends Node
 
 #Datos de guardado
 var save_path = "user://save.game.dat"
-
+var game_data : Dictionary 
+'''
 var game_data : Dictionary = {
 	"current_character" = Globales.current_character,
 	"volumes" = Globales.volumes,
@@ -19,7 +20,24 @@ var game_data : Dictionary = {
 		"salir" = InputMap.action_get_events("salir")
 	}
 }
+'''
 var primera_carga = true
+var level_progress = {
+	"nivel1" = {
+		"hecho" = false,
+		"num_gems" = 0,
+		"time" = 0
+	}
+}
+
+#Para guardar los datos de los niveles con boss
+var level_temporal_progress = {
+	"nivel1" = {
+		"num_gems" = 0,
+		"time" = 0
+	}
+}
+
 var default_controls = {
 	"mover_izq": [KEY_A, KEY_LEFT],
 	"mover_der": [KEY_D, KEY_RIGHT],
@@ -34,7 +52,7 @@ var default_controls = {
 func save_game():
 	var save_file = FileAccess.open(save_path, FileAccess.WRITE)
 	upload_dictionary_data()
-	
+	print(level_progress)
 	save_file.store_var(game_data)
 	save_file = null
 	print("guardado")
@@ -64,7 +82,8 @@ func upload_dictionary_data():
 			"abajo" = [],
 			"aceptar_entrar" = [],
 			"salir" = []
-		}
+		},
+		"niveles" = level_progress
 	}
 	
 	#Guardamos todas las acciones, una a una, con el codigo de la tecla correspondiente
@@ -102,6 +121,26 @@ func load_dictionary_data():
 				#print(event.physical_keycode)
 				InputMap.action_add_event(action, event)
 	
+
+func save_temporal_data(level_name: String,num_gems: int, time: float):
+	level_temporal_progress[level_name] = {
+		"num_gems" = num_gems,
+		"time" = time
+	}
+
+func mark_level_completed(level_name: String,num_gems: int, time: float):
+	var level_data = level_progress[level_name]
+	
+	level_data["hecho"] = true
+	# Solo guardar las nuevas gemas si son más que las anteriores
+	if num_gems > level_data["num_gems"]:
+		level_data["num_gems"] = num_gems
+	# Solo guardar el nuevo tiempo si es menor (mejor tiempo)
+	if time < level_data["time"]:
+		level_data["time"] = time
+
+	level_progress[level_name] = level_data
+	save_game()
 
 func reset_controls():
 	for action in default_controls.keys():
