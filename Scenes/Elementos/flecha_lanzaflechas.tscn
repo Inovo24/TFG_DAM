@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://bnptfivkm36r2"]
+
+[ext_resource type="Script" uid="uid://dwqniysv5iqve" path="res://Scripts/Personajes/flecha.gd" id="1_4y0fc"]
+[ext_resource type="Texture2D" uid="uid://bm472j6mc2iuh" path="res://Sprites/Elementos/Flecha/flecha-lanzador-Sheet.png" id="2_4y0fc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dbj1"]
+size = Vector2(14, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdriu"]
+atlas = ExtResource("2_4y0fc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jj01y"]
+atlas = ExtResource("2_4y0fc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmm3q"]
+atlas = ExtResource("2_4y0fc")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0232"]
+atlas = ExtResource("2_4y0fc")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3itf"]
+atlas = ExtResource("2_4y0fc")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr46k"]
+atlas = ExtResource("2_4y0fc")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uuyi8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdriu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jj01y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmm3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0232")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3itf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr46k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Flecha" type="Area2D"]
+collision_layer = 6
+collision_mask = 8199
+script = ExtResource("1_4y0fc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7dbj1")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uuyi8")
+autoplay = "default"
+frame_progress = 0.705033
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

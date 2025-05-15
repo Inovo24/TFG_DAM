@@ -1,10 +1,101 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6qduvwxpmalg"]
+[gd_scene load_steps=16 format=3 uid="uid://c6qduvwxpmalg"]
 
 [ext_resource type="Script" uid="uid://d2d11lcwwcs32" path="res://Scripts/Elementos/lanza_flechas.gd" id="1_yy15k"]
+[ext_resource type="Texture2D" uid="uid://bkmt24uvi3a01" path="res://Sprites/Elementos/LanzaFlechas/LanzaFlechas.png" id="2_yy15k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8advs"]
 animations = [{
 "frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw7st"]
+atlas = ExtResource("2_yy15k")
+region = Rect2(50, 0, 50, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcb5e"]
+atlas = ExtResource("2_yy15k")
+region = Rect2(100, 0, 50, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aquf"]
+atlas = ExtResource("2_yy15k")
+region = Rect2(150, 0, 50, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55btx"]
+atlas = ExtResource("2_yy15k")
+region = Rect2(200, 0, 50, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi5ol"]
+atlas = ExtResource("2_yy15k")
+region = Rect2(250, 0, 50, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bh8dn"]
+atlas = ExtResource("2_yy15k")
+region = Rect2(300, 0, 50, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j70mf"]
+atlas = ExtResource("2_yy15k")
+region = Rect2(350, 0, 50, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7xko"]
+atlas = ExtResource("2_yy15k")
+region = Rect2(400, 0, 50, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s13p5"]
+atlas = ExtResource("2_yy15k")
+region = Rect2(450, 0, 50, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pleu"]
+atlas = ExtResource("2_yy15k")
+region = Rect2(500, 0, 50, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knpgd"]
+atlas = ExtResource("2_yy15k")
+region = Rect2(0, 0, 50, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_faamw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw7st")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcb5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2aquf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55btx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi5ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bh8dn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j70mf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7xko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s13p5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pleu")
+}],
+"loop": true,
+"name": &"activado",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knpgd")
+}],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
@@ -24,5 +115,10 @@ position = Vector2(8, 0)
 [node name="TimerLanzador" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_faamw")
+animation = &"activado"
+frame_progress = 0.767439
 
 [connection signal="timeout" from="TimerLanzador" to="." method="_on_fire_timer_timeout"]
