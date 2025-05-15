@@ -4,7 +4,7 @@ extends Node2D
 @onready var shoot_point = $Marker2D
 @onready var fire_timer = $TimerLanzador
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-
+@export var disparo_invertido := false  # Botón exportado para invertir dirección
 var arrow_speed = 200
 
 func _ready():
@@ -26,10 +26,13 @@ func shoot_arrow():
 	
 	arrow.atack_player = true 
 	arrow.speed = arrow_speed 
+
+	var x_dir = -1 if disparo_invertido else 1
+	x_dir *= sign(scale.x)  # Respeta si el lanzador está volteado
 	
-	var direction = Vector2($".".scale.x, 0) 
+	var direction = Vector2(x_dir, 0)
 	arrow.direction = direction
-	arrow.scale.x = abs(arrow.scale.x) * direction.x
+	arrow.scale.x = abs(arrow.scale.x) * direction.x  # Reflejo visual correcto
 
 func start_random_timer():
 	var random_time = randf_range(0.0, 2.0)  # Tiempo aleatorio entre 0.0 y 2.0 segundos

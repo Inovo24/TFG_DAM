@@ -1,30 +1,50 @@
-[gd_scene load_steps=9 format=3 uid="uid://dh5l8gdfaqlyy"]
+[gd_scene load_steps=14 format=3 uid="uid://dh5l8gdfaqlyy"]
 
 [ext_resource type="Texture2D" uid="uid://bipqr6h2vti2y" path="res://Sprites/NPC/niña.png" id="1_ps45k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ps45k"]
 atlas = ExtResource("1_ps45k")
-region = Rect2(0, 0, 50, 48)
+region = Rect2(0, 0, 56, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0n0fb"]
 atlas = ExtResource("1_ps45k")
-region = Rect2(55, 0, 50, 48)
+region = Rect2(56, 0, 56, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6bgvb"]
 atlas = ExtResource("1_ps45k")
-region = Rect2(110, 0, 50, 48)
+region = Rect2(112, 0, 56, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lr8oa"]
 atlas = ExtResource("1_ps45k")
-region = Rect2(165, 0, 50, 48)
+region = Rect2(168, 0, 56, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3eafp"]
 atlas = ExtResource("1_ps45k")
-region = Rect2(220, 0, 50, 48)
+region = Rect2(224, 0, 56, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t6nre"]
 atlas = ExtResource("1_ps45k")
-region = Rect2(275, 0, 50, 48)
+region = Rect2(280, 0, 56, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufgqs"]
+atlas = ExtResource("1_ps45k")
+region = Rect2(336, 0, 56, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0bg4"]
+atlas = ExtResource("1_ps45k")
+region = Rect2(392, 0, 56, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30v54"]
+atlas = ExtResource("1_ps45k")
+region = Rect2(448, 0, 56, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43vuh"]
+atlas = ExtResource("1_ps45k")
+region = Rect2(504, 0, 56, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjf6y"]
+atlas = ExtResource("1_ps45k")
+region = Rect2(560, 0, 56, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2o4wj"]
 animations = [{
@@ -48,13 +68,34 @@ animations = [{
 "texture": SubResource("AtlasTexture_t6nre")
 }],
 "loop": true,
-"name": &"default",
+"name": &"cry",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufgqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0bg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30v54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43vuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjf6y")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
 }]
 
 [node name="Niña" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2o4wj")
-autoplay = "default"
-frame_progress = 0.269664
+animation = &"idle"
+autoplay = "cry"
+frame_progress = 0.00558368
