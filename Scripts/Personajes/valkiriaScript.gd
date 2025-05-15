@@ -16,17 +16,20 @@ func _ready() -> void:
 
 func attack():
 	anim_state_machine.travel("ataque1")
-	deal_damage_valkyrie()
+	#deal_damage_valkyrie()
 func down_attack():
 	print("ataque bajo")
 	anim_state_machine.travel("ataqueBajo")
-	deal_damage_valkyrie()
+	#deal_damage_valkyrie()
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("hello?")
 	if body.is_in_group("Enemies"):
 		body.receive_damage(damage)
-	deal_damage_valkyrie()
+	elif body.has_method("take_damage"):
+		body.take_damage(damage)
+	#deal_damage_valkyrie()
 
+'''
 #Para romper bloques
 func deal_damage_valkyrie():
 	var space_state = get_world_2d().direct_space_state
@@ -43,3 +46,4 @@ func deal_damage_valkyrie():
 	for hit in result:
 		if hit.collider.has_method("take_damage"):
 			hit.collider.take_damage(damage)
+'''
