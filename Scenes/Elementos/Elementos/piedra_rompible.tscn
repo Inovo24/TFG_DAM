@@ -58,7 +58,7 @@ animation = &"break"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(1, 5)
 shape = SubResource("RectangleShape2D_jbeel")
 
 [node name="Timer" type="Timer" parent="."]
