@@ -33,6 +33,7 @@ func _ready():
 	add_child(pause_timer)
 	
 	knockback_tween = create_tween()
+	player = Globales.get_player()
 
 func receive_damage(damage_received: int):
 	current_health = current_health - damage_received

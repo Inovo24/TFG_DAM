@@ -121,13 +121,28 @@ func load_dictionary_data():
 				#print(event.physical_keycode)
 				InputMap.action_add_event(action, event)
 	
+	if "niveles" in game_data:
+		for level_name in game_data["niveles"].keys():
+			var data = game_data["niveles"][level_name]
+			level_progress[level_name] = {
+				"hecho": data.get("hecho", false),
+				"num_gems": data.get("num_gems", 0),
+				"time": data.get("time", 0.0)
+			}
 
+
+#Para el nivel que tenga bosses
 func save_temporal_data(level_name: String,num_gems: int, time: float):
 	level_temporal_progress[level_name] = {
 		"num_gems" = num_gems,
 		"time" = time
 	}
 
+#Para los bosses
+func mark_completed_from_temporal_data(level_name: String):
+	mark_level_completed(level_name,level_temporal_progress[level_name]["num_gems"],level_temporal_progress[level_name]["time"])
+
+#Para los niveles normales
 func mark_level_completed(level_name: String,num_gems: int, time: float):
 	var level_data = level_progress[level_name]
 	
@@ -136,7 +151,10 @@ func mark_level_completed(level_name: String,num_gems: int, time: float):
 	if num_gems > level_data["num_gems"]:
 		level_data["num_gems"] = num_gems
 	# Solo guardar el nuevo tiempo si es menor (mejor tiempo)
-	if time < level_data["time"]:
+	if level_data["time"]> 0:
+		if time < level_data["time"]:
+			level_data["time"] = time
+	else :
 		level_data["time"] = time
 
 	level_progress[level_name] = level_data

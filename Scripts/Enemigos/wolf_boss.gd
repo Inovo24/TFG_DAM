@@ -188,6 +188,8 @@ func receive_damage(damage_received: int):
 		#print(currentPhase)
 		if currentHealth <= 0:
 			#print("muero")
+			#Guarda el nivel 1 como completo
+			Guardado.mark_completed_from_temporal_data("nivel1")
 			queue_free()
 		elif  currentHealth <= (maxHealth * 2/3) and currentPhase == Phase.ONE:
 			#print("fase 2")
