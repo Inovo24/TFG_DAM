@@ -48,9 +48,9 @@ func _on_area_2d_cambiar_body_entered(body: Node2D) -> void:
 				Globales.player_instance = null
 				#print(playerPosition)
 				var playerInstancate = Globales.get_player()
-				get_parent().add_child(playerInstancate)
-				get_parent().player.queue_free()
-				get_parent().player = playerInstancate
-				get_parent().player.global_position = playerPosition
+				get_parent().get_parent().add_child(playerInstancate)
+				get_parent().get_parent().player.queue_free()
+				get_parent().get_parent().player = playerInstancate
+				get_parent().get_parent().player.global_position = playerPosition
 			
 			#get_parent().get_.update_player()

@@ -463,19 +463,19 @@ tile_map_data = PackedByteArray("AAAsAA8AAAACAAcAAAAsAA4AAAACAAYAAAAsAA0AAAACAAU
 tile_set = SubResource("TileSet_vfasi")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-19, 203)
+position = Vector2(-2, -7.99997)
 scale = Vector2(-2020.8, 77.7025)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
 [node name="Marker2D" type="Marker2D" parent="Camera2D"]
-position = Vector2(-0.00593823, 0.501914)
+position = Vector2(-0.155384, 1.57009)
 scale = Vector2(-2.92601, 1.36102)
 
 [node name="Cambios_perspectiva" type="Node" parent="."]
 
 [node name="Area2D" type="Area2D" parent="Cambios_perspectiva" node_paths=PackedStringArray("playerCamera", "staticCamera")]
-position = Vector2(1774, 130)
+position = Vector2(1777, 64)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("5_kuyr8")
@@ -488,23 +488,23 @@ shape = SubResource("RectangleShape2D_4fvw7")
 
 [node name="static" type="Camera2D" parent="Cambios_perspectiva"]
 z_index = 3
-position = Vector2(1979, 69)
+position = Vector2(1982, 3)
 zoom = Vector2(3, 3)
 
 [node name="Puertas" type="Node" parent="."]
 
 [node name="BloqueMovible" parent="Puertas" instance=ExtResource("4_kuyr8")]
-position = Vector2(1696, 119)
+position = Vector2(1699, 53)
 
 [node name="Placa" parent="Puertas" instance=ExtResource("3_ndpvp")]
-position = Vector2(1799, 187)
+position = Vector2(1802, 121)
 
 [node name="Puerta" parent="Puertas/Placa" instance=ExtResource("6_4fvw7")]
 z_index = -1
 position = Vector2(327, -136)
 
 [node name="Cambiador_Personaje" parent="Puertas" instance=ExtResource("7_udv5t")]
-position = Vector2(2287, 64)
+position = Vector2(2290, -2)
 spriteNewCharacter = ExtResource("8_luwei")
 spriteOldCharacter = ExtResource("9_bu7vh")
 
@@ -513,12 +513,6 @@ position = Vector2(104, 317)
 
 [node name="LanzaFlechas2" parent="." instance=ExtResource("10_n12st")]
 position = Vector2(74, 270)
-
-[node name="zarza" parent="." instance=ExtResource("11_8h0q8")]
-position = Vector2(638, 257)
-
-[node name="zarza2" parent="." instance=ExtResource("11_8h0q8")]
-position = Vector2(681, 257)
 
 [node name="Pinchos" type="Node" parent="."]
 
@@ -537,19 +531,28 @@ position = Vector2(1076, 242)
 [node name="Lobo" parent="Pinchos" instance=ExtResource("13_2hm6e")]
 position = Vector2(1501, 218)
 
-[node name="Area2D" parent="." instance=ExtResource("13_x3xw8")]
-position = Vector2(2035, 63)
+[node name="checkpoint" parent="." instance=ExtResource("13_x3xw8")]
+position = Vector2(2378, -2)
 
-[node name="tronco_rotura2" parent="." instance=ExtResource("14_3fyqh")]
-position = Vector2(584, 239)
-scale = Vector2(-1, 1)
+[node name="parte_zarzas" type="Node" parent="."]
 
-[node name="Hongo" parent="." instance=ExtResource("15_vfasi")]
+[node name="tronco_rotura4" parent="parte_zarzas" instance=ExtResource("14_3fyqh")]
+position = Vector2(617, 253)
+
+[node name="Hongo" parent="parte_zarzas" instance=ExtResource("15_vfasi")]
 position = Vector2(461, 338)
 scale = Vector2(1, 1)
 
-[node name="tronco_rotura4" parent="." instance=ExtResource("14_3fyqh")]
-position = Vector2(617, 253)
+[node name="tronco_rotura2" parent="parte_zarzas" instance=ExtResource("14_3fyqh")]
+position = Vector2(579, 240)
+rotation = -3.14159
+scale = Vector2(1, -1)
+
+[node name="zarza2" parent="parte_zarzas" instance=ExtResource("11_8h0q8")]
+position = Vector2(681, 257)
+
+[node name="zarza" parent="parte_zarzas" instance=ExtResource("11_8h0q8")]
+position = Vector2(638, 257)
 
 [connection signal="body_entered" from="Cambios_perspectiva/Area2D" to="Cambios_perspectiva/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Cambios_perspectiva/Area2D" to="Cambios_perspectiva/Area2D" method="_on_body_exited"]
