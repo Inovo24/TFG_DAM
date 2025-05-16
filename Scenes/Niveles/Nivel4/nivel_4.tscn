@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://weimvnhbrc2r"]
+[gd_scene load_steps=15 format=4 uid="uid://weimvnhbrc2r"]
 
 [ext_resource type="Script" uid="uid://dqft7eo8nbu6j" path="res://Scripts/Niveles/nivel_4/nivel_4.gd" id="1_el27e"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_t57un"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://d288qogm675qw" path="res://Scenes/Elementos/Elementos/bloque.tscn" id="4_kuyr8"]
 [ext_resource type="Script" uid="uid://b4t28u4b24g36" path="res://Scripts/Niveles/nivel_2/AreaCascada.gd" id="5_kuyr8"]
 [ext_resource type="PackedScene" uid="uid://i8ayr5akbljm" path="res://Scenes/Elementos/puerta.tscn" id="6_4fvw7"]
+[ext_resource type="PackedScene" uid="uid://d2qqalncnqbw2" path="res://Scenes/Elementos/cambiador_personaje.tscn" id="7_udv5t"]
+[ext_resource type="Texture2D" uid="uid://kybvbrj0wynp" path="res://Sprites/Vikingo/vikingo_idle-Sheet.png" id="8_luwei"]
+[ext_resource type="Texture2D" uid="uid://43p4ani0ic8i" path="res://Sprites/Arquero/idle_arquero-Sheet.png" id="9_bu7vh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ndpvp"]
 texture = ExtResource("2_t57un")
@@ -422,7 +425,7 @@ texture = ExtResource("2_t57un")
 sources/0 = SubResource("TileSetAtlasSource_el27e")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4fvw7"]
-size = Vector2(207, 208)
+size = Vector2(280, 208)
 
 [node name="nivel_4" type="Node2D"]
 script = ExtResource("1_el27e")
@@ -465,13 +468,18 @@ playerCamera = NodePath("../Camera2D")
 staticCamera = NodePath("../static")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(34.5, -19)
+position = Vector2(25, -19)
 shape = SubResource("RectangleShape2D_4fvw7")
 
 [node name="static" type="Camera2D" parent="."]
 z_index = 3
 position = Vector2(1582, -55)
 zoom = Vector2(3, 3)
+
+[node name="Cambiador_Personaje" parent="." instance=ExtResource("7_udv5t")]
+position = Vector2(1926, -57)
+spriteNewCharacter = ExtResource("8_luwei")
+spriteOldCharacter = ExtResource("9_bu7vh")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

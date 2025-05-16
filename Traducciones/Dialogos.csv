@@ -28,7 +28,7 @@ pers_vik_arm,Hacha (Corta distancia),Axe (Short range),Machado (Curto alcance),A
 pers_vik_his,De las profundidades de la tierra sale este vikingo con gran valentía,From the depths of the earth this Viking emerges with great courage,Das profundezas da terra surge este vikingue com grande coragem,Dalle profondità della terra emerge questo vichingo con grande coraggio
 ajus_vol_gen,Volumen general,General volume,Volume geral,Volume generale
 ajus_vol_mus,Volumen música,Music volume,Volume da música,Volume musica
-ajus_vol_ene,Volumen enemigos,Enemies volume,Volume dos inimigos,Volume nemici
+ajus_vol_ene,Volumen efectos de sonido,Sound effects volume,Volume dos efeitos sonoros,Volume effetti sonori
 ajus_btn_tecl,Cambiar teclas\npor defecto,Change keys\nto default,Alterar teclas\npara padrão,Cambia tasti\na predefiniti
 ajus_optbtn_es,Español,Spanish,Espanhol,Spagnolo
 ajus_optbtn_en,Inglés,English,Inglês,Inglese
@@ -53,3 +53,8 @@ gen_volver,Volver,Go back,Voltar,Torna indietro
 gen_reset,Teclas por defecto,Default keys,Teclas padrão,Tasti predefiniti
 npc_granjero,¡Ha llegado el fin!,The end has come!,O fim chegou!,È giunta la fine!
 npc_mendigo,Una moneda porfavor...,A coin please...,Uma moeda por favor ...,Una moneta per favore...
+chg_pers_1,"Ahora me toca a mí.","Now it's my turn.","Agora é a minha vez.","Ora tocca a me."
+chg_pers_2,"Aquí empiezo yo.","Here I begin.","Aqui começo eu.","Qui comincio io."
+chg_pers_3,"Soy yo quien sigue.","I'm the one who goes next.","Sou eu quem segue.","Sono io che continuo."
+chg_pers_4,"Es mi turno ahora.","It's my turn now.","É minha vez agora.","È il mio turno adesso."
+chg_pers_5,"A partir de aquí, soy yo.","From here on, it's me.","A partir daqui, sou eu.","Da qui in poi, sono io."
