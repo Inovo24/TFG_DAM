@@ -3,6 +3,8 @@ extends Levels
 @onready var level4_camera = $Camera2D
 @onready var level4_position = $Camera2D/Marker2D
 
+@onready var startarted = false
+
 func _ready() -> void:
 	camera = level4_camera
 	initialPosition = level4_position
@@ -11,10 +13,9 @@ func _ready() -> void:
 
 
 func _on_cambio_a_arquero_body_entered(body: Node2D) -> void:
-	print("entre")
-	if Globales.current_character !=2:
+	if Globales.current_character !=2 and !startarted:
 		print("ejecuto")
-		var playerPosition = Globales.get_player().global_position
+		var playerPosition = player.global_position
 		Globales.current_character = 2
 		Globales.player_instance = null
 		#print(playerPosition)
@@ -23,3 +24,6 @@ func _on_cambio_a_arquero_body_entered(body: Node2D) -> void:
 		player.queue_free()
 		player = playerInstancate
 		player.global_position = playerPosition
+		
+		startarted = true
+	
