@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://bri13kxv672ig"]
+[gd_scene load_steps=32 format=4 uid="uid://bri13kxv672ig"]
 
 [ext_resource type="Script" uid="uid://didwji534yd8d" path="res://Scripts/Interfaz/inicio.gd" id="1_6wmnn"]
 [ext_resource type="Script" uid="uid://calji8pm36a08" path="res://Scripts/Interfaz/area_niveles.gd" id="2_5rwxf"]
@@ -17,7 +17,6 @@
 [ext_resource type="Script" uid="uid://bv0pm2e14nhkj" path="res://Scripts/Interfaz/barco_area.gd" id="14_xldw7"]
 [ext_resource type="AudioStream" uid="uid://p74cf510edy4" path="res://Audio/3. Saga of the Sea Wolves.mp3" id="15_f4hti"]
 [ext_resource type="Script" uid="uid://b4aqtq736rojs" path="res://Scripts/Interfaz/ajustes_area.gd" id="16_3x7h1"]
-[ext_resource type="PackedScene" uid="uid://4un48fyer1de" path="res://Scenes/Elementos/Elementos/piedra_rompible.tscn" id="18_oqijo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h08hr"]
 size = Vector2(56, 45)
@@ -500,7 +499,7 @@ size = Vector2(109.5, 132.625)
 [sub_resource type="CanvasTexture" id="CanvasTexture_l5pea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_636ht"]
-size = Vector2(215, 83)
+size = Vector2(212.5, 83)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_yintj"]
 a = Vector2(39, 249)
@@ -679,7 +678,7 @@ collision_mask = 2
 script = ExtResource("16_3x7h1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAjustes"]
-position = Vector2(3, -2)
+position = Vector2(1.75, -2)
 shape = SubResource("RectangleShape2D_636ht")
 
 [node name="TextoAjustes" type="TextureRect" parent="."]
@@ -715,27 +714,6 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrera"]
 position = Vector2(-3, -109)
 shape = SubResource("SegmentShape2D_yintj")
-
-[node name="PiedraRompible" parent="." instance=ExtResource("18_oqijo")]
-position = Vector2(998, 510)
-
-[node name="PiedraRompible2" parent="." instance=ExtResource("18_oqijo")]
-position = Vector2(998, 485)
-
-[node name="PiedraRompible7" parent="." instance=ExtResource("18_oqijo")]
-position = Vector2(998, 460)
-
-[node name="PiedraRompible3" parent="." instance=ExtResource("18_oqijo")]
-position = Vector2(1107, 511)
-
-[node name="PiedraRompible4" parent="." instance=ExtResource("18_oqijo")]
-position = Vector2(1119, 488)
-
-[node name="PiedraRompible5" parent="." instance=ExtResource("18_oqijo")]
-position = Vector2(1129, 464)
-
-[node name="PiedraRompible6" parent="." instance=ExtResource("18_oqijo")]
-position = Vector2(1140, 440)
 
 [connection signal="body_entered" from="AreaNiveles" to="AreaNiveles" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaNiveles" to="AreaNiveles" method="_on_body_exited"]

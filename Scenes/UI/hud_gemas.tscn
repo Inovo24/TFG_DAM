@@ -8,6 +8,7 @@
 script = ExtResource("1_gfxw7")
 gema_label = NodePath("Control/GemaTextura/GemaLabel")
 portal_label = NodePath("Control/PortalLabel")
+metadata/_edit_horizontal_guides_ = [40.0]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -16,11 +17,12 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="GemaTextura" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_left = 616.0
-offset_top = 32.0
-offset_right = 656.0
-offset_bottom = 72.0
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1837.0
+offset_top = 1.0
+offset_right = 1877.0
+offset_bottom = 41.0
 texture = ExtResource("1_j2hho")
 stretch_mode = 4
 
