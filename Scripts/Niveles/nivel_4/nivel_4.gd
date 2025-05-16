@@ -6,7 +6,20 @@ extends Levels
 func _ready() -> void:
 	camera = level4_camera
 	initialPosition = level4_position
-	Globales.character = null
-	Globales.current_character = 2
 	super._ready()
 	
+
+
+func _on_cambio_a_arquero_body_entered(body: Node2D) -> void:
+	print("entre")
+	if Globales.current_character !=2:
+		print("ejecuto")
+		var playerPosition = Globales.get_player().global_position
+		Globales.current_character = 2
+		Globales.player_instance = null
+		#print(playerPosition)
+		var playerInstancate = Globales.get_player()
+		add_child(playerInstancate)
+		player.queue_free()
+		player = playerInstancate
+		player.global_position = playerPosition
