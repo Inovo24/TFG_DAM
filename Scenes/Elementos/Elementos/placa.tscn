@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjurojyuklair"]
+[gd_scene load_steps=16 format=3 uid="uid://cjurojyuklair"]
 
-[ext_resource type="Script" uid="uid://j7mrwg6gdmen" path="res://Scripts/Elementos/placa.gd" id="1_2hf4b"]
+[ext_resource type="Script" uid="uid://c2jn2k1q5c7pw" path="res://Scripts/Elementos/placa.gd" id="1_2hf4b"]
 [ext_resource type="Texture2D" uid="uid://csrx3jpm11hvx" path="res://Sprites/Elementos/Placa presión/placa_presión.png" id="1_lpn5m"]
+[ext_resource type="Script" uid="uid://j7mrwg6gdmen" path="res://Scripts/Elementos/placa_area.gd" id="2_bu5nr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hf4b"]
 size = Vector2(16, 3)
@@ -91,6 +92,7 @@ animations = [{
 size = Vector2(16, 6)
 
 [node name="Placa" type="Node2D"]
+script = ExtResource("1_2hf4b")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_mask = 515
@@ -102,7 +104,7 @@ shape = SubResource("RectangleShape2D_2hf4b")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 514
-script = ExtResource("1_2hf4b")
+script = ExtResource("2_bu5nr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 scale = Vector2(1.5, 1.5)
