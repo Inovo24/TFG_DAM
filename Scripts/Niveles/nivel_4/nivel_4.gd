@@ -6,6 +6,7 @@ extends Levels
 func _ready() -> void:
 	camera = level4_camera
 	initialPosition = level4_position
+	Globales.character = null
 	Globales.current_character = 2
 	super._ready()
 	

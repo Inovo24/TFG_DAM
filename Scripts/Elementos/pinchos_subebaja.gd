@@ -2,7 +2,7 @@ extends StaticBody2D
 
 @onready var spike_timer = $SpikeTimer
 var start_position: Vector2
-var up_offset: float = -10.0  #Tamaño de los pinchos, primero baja esto para estar oculto, y luego sube
+var up_offset: float = -15.0  #Tamaño de los pinchos, primero baja esto para estar oculto, y luego sube
 var damage = 20
 
 func _ready():
