@@ -33,7 +33,6 @@ func _ready():
 	add_child(pause_timer)
 	
 	knockback_tween = create_tween()
-	player = Globales.get_player()
 
 func receive_damage(damage_received: int):
 	current_health = current_health - damage_received
@@ -53,6 +52,7 @@ func _end_slow_effect():
 	slow_mode = false
 
 func _knockback(knockback: float):
+	player = Globales.get_player()
 	var knockback_dir = (position - player.position).normalized()
 	var destination = position + knockback_dir * knockback_distance
 	

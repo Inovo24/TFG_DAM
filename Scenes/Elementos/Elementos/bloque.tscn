@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cx51qruy2eewy" path="res://Sprites/Elementos/Bloques/bloque.png" id="1_6qiqu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_babtf"]
-size = Vector2(16, 16)
+size = Vector2(24, 24)
 
 [node name="Node2D" type="RigidBody2D"]
 collision_layer = 512
@@ -14,4 +14,5 @@ freeze_mode = 1
 shape = SubResource("RectangleShape2D_babtf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_6qiqu")

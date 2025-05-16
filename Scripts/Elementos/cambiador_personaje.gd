@@ -41,16 +41,22 @@ func _on_area_2d_cambiar_body_entered(body: Node2D) -> void:
 		$Vikingo.texture = spriteOldCharacter
 		limit.queue_free()
 		dialogue_label.visible = false
-	
 		if Globales.current_character !=playerNum:
 				var playerPosition = Globales.get_player().global_position
 				Globales.current_character = playerNum
 				Globales.player_instance = null
 				#print(playerPosition)
+				print("----------")
+				print(playerNum)
+				print(get_parent().get_parent().player)
+				print(Globales.get_player())
 				var playerInstancate = Globales.get_player()
 				get_parent().get_parent().add_child(playerInstancate)
+				print(playerInstancate)
 				get_parent().get_parent().player.queue_free()
 				get_parent().get_parent().player = playerInstancate
 				get_parent().get_parent().player.global_position = playerPosition
+				print(get_parent().get_parent().player)
+				print("----------")
 			
 			#get_parent().get_.update_player()
