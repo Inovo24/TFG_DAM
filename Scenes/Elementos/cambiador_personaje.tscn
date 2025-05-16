@@ -1,0 +1,211 @@
+[gd_scene load_steps=14 format=3 uid="uid://d2qqalncnqbw2"]
+
+[ext_resource type="Script" uid="uid://bpaeic35r2ypu" path="res://Scripts/Elementos/cambiador_personaje.gd" id="1_e2ox0"]
+[ext_resource type="LabelSettings" uid="uid://b1ywkn2uu61ot" path="res://Scenes/UI/UI_laber_settings/granjero.tres" id="3_0se2p"]
+[ext_resource type="Texture2D" uid="uid://bnv5cd248b37w" path="res://Sprites/Vikingo/selector_viki-Sheet.png" id="3_f3iej"]
+[ext_resource type="Texture2D" uid="uid://md6dnx6dva5e" path="res://Sprites/Vikingo/vikingo_seleccionado-Sheet.png" id="4_eil5g"]
+[ext_resource type="Texture2D" uid="uid://enii75c3plnd" path="res://Sprites/Vikingo/transicion_viki-Sheet.png" id="5_8kjai"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2ox0"]
+size = Vector2(175, 80)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ocndg"]
+radius = 36.0139
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ocndg"]
+a = Vector2(54, 30)
+b = Vector2(54, -51)
+
+[sub_resource type="Animation" id="Animation_dcmhm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vikingo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_12a5d"]
+resource_name = "seleccionado"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vikingo:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_eil5g")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vikingo:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Vikingo:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_1a7ns"]
+resource_name = "selector"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vikingo:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_f3iej")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vikingo:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Vikingo:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_rxjyw"]
+resource_name = "transicion"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vikingo:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_8kjai")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vikingo:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Vikingo:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jry54"]
+_data = {
+&"RESET": SubResource("Animation_dcmhm"),
+&"seleccionado": SubResource("Animation_12a5d"),
+&"selector": SubResource("Animation_1a7ns"),
+&"transicion": SubResource("Animation_rxjyw")
+}
+
+[node name="Cambiador_Personaje" type="Node2D"]
+script = ExtResource("1_e2ox0")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-45.5, -13)
+shape = SubResource("RectangleShape2D_e2ox0")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -56.0
+offset_top = -40.0
+offset_right = 64.0
+offset_bottom = -32.0
+text = "npc_granjero"
+label_settings = ExtResource("3_0se2p")
+
+[node name="Area2DCambiar" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DCambiar"]
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_ocndg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Limite" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_ocndg")
+
+[node name="Vikingo" type="Sprite2D" parent="."]
+position = Vector2(0, 7)
+hframes = 6
+frame = 1
+
+[node name="Vikingo" type="AnimationPlayer" parent="Vikingo"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_jry54")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Area2DCambiar" to="." method="_on_area_2d_cambiar_body_entered"]
