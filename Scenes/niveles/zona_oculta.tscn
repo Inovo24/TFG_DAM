@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvlktixgfymiy"]
+
+[ext_resource type="Script" uid="uid://d23bniy01dliy" path="res://Scripts/Niveles/zonas_ocultas.gd" id="1_smu2j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8v12"]
+
+[node name="zona_oculta" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_smu2j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u8v12")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

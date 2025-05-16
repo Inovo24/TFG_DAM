@@ -23,6 +23,7 @@ var push_force = 80.0
 var initial_speed
 
 var thorns_touching = 0
+var secretAreas =0
 
 var combo_count = 0
 var next_attack : bool = false
