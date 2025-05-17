@@ -103,6 +103,7 @@ texture = ExtResource("4_rjdik")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(353, 180)
+zoom = Vector2(3, 3)
 
 [node name="TextoSalir" type="Label" parent="."]
 auto_translate_mode = 1
