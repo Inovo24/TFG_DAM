@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlj46nmkptewd"]
+[gd_scene load_steps=6 format=3 uid="uid://dlj46nmkptewd"]
 
 [ext_resource type="Script" uid="uid://vmjt6it40qq6" path="res://Scripts/Interfaz/level_selector.gd" id="1_rjdik"]
 [ext_resource type="PackedScene" uid="uid://des2i8avsiygy" path="res://Scenes/selector_niveles/player_icon.tscn" id="2_8le48"]
 [ext_resource type="PackedScene" uid="uid://bjduehyd6cwwe" path="res://Scenes/selector_niveles/level_icon.tscn" id="3_vswd1"]
 [ext_resource type="Texture2D" uid="uid://c6q5vh6tes7ja" path="res://Sprites/fondoNiveles.png" id="4_rjdik"]
+[ext_resource type="LabelSettings" uid="uid://boqdkocgf1jjn" path="res://Scenes/UI/UI_laber_settings/inicioTexts.tres" id="5_8le48"]
 
 [node name="levelSelector" type="Control"]
 layout_mode = 3
@@ -107,14 +108,14 @@ zoom = Vector2(3, 3)
 
 [node name="TextoSalir" type="Label" parent="."]
 auto_translate_mode = 1
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 480.0
-offset_top = 2.0
-offset_right = 632.0
-offset_bottom = 25.0
+offset_left = 258.0
+offset_top = 7.0
+offset_right = 660.0
+offset_bottom = 30.0
 text = "gen_salir"
+label_settings = ExtResource("5_8le48")
 horizontal_alignment = 2
-vertical_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
 language = "es_ES"

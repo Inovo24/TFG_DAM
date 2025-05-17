@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bhvg63jhnpos1" path="res://Scripts/Interfaz/selector_personajes.gd" id="1_0wu1u"]
 [ext_resource type="Texture2D" uid="uid://be2stv0t7inhk" path="res://Sprites/fondo_selector.png" id="2_gmxq8"]
 [ext_resource type="Texture2D" uid="uid://bnv5cd248b37w" path="res://Sprites/Vikingo/selector_viki-Sheet.png" id="3_by8vm"]
+[ext_resource type="LabelSettings" uid="uid://boqdkocgf1jjn" path="res://Scenes/UI/UI_laber_settings/inicioTexts.tres" id="3_qu4mg"]
 [ext_resource type="Texture2D" uid="uid://enii75c3plnd" path="res://Sprites/Vikingo/transicion_viki-Sheet.png" id="4_2lv8s"]
 [ext_resource type="Texture2D" uid="uid://md6dnx6dva5e" path="res://Sprites/Vikingo/vikingo_seleccionado-Sheet.png" id="5_gu2w8"]
 [ext_resource type="Texture2D" uid="uid://dag5xjubuyi0r" path="res://Sprites/Guerrera/selector_valki-Sheet.png" id="6_5xpv3"]
@@ -13,8 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://c11oxobwnn5m3" path="res://Sprites/Arquero/arquero_seleccionado-Sheet.png" id="10_pjoqn"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_63qg4"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_1q6vu"]
 
 [sub_resource type="Animation" id="Animation_dcmhm"]
 length = 0.001
@@ -715,17 +714,17 @@ offset_left = 531.0
 offset_top = 8.0
 offset_right = 688.0
 offset_bottom = 31.0
-texture = SubResource("CanvasTexture_1q6vu")
 
 [node name="Label" type="Label" parent="TextoSalir"]
 auto_translate_mode = 1
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 7.0
-offset_right = 159.0
+offset_left = -314.0
+offset_right = 134.0
 offset_bottom = 23.0
 text = "gen_salir"
+label_settings = ExtResource("3_qu4mg")
+horizontal_alignment = 2
+vertical_alignment = 1
 autowrap_mode = 3
 language = "es_ES"
 

@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b1gtx4uxnb15b"]
+
+[ext_resource type="FontFile" uid="uid://c70w8hiljv1w" path="res://Scenes/UI/Fuentes_UI/PixelOperator8.ttf" id="1_l7t2f"]
+
+[resource]
+font = ExtResource("1_l7t2f")
