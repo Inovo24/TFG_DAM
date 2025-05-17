@@ -5,7 +5,7 @@ var damage = 10
 var max_health = 0
 var current_health
 
-var knockback_damage = 0.5
+var knockback_duration = 1.5
 var knockback_receive_damage = 1
 var knockback_distance = 30
 

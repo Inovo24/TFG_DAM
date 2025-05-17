@@ -11,7 +11,7 @@ var turning = false
 var can_attack = true
 var player_in_distance = false  # Is the player in the wolf's attack area?
 var in_knockback := false
-var knockback_duration := 0.1  # Knockback duration in seconds
+#var knockback_duration := 0.1  # Knockback duration in seconds
 var can_turn_from_rear := true
 
 @onready var animationTree = $AnimationTree
@@ -24,7 +24,7 @@ var can_turn_from_rear := true
 func _ready() -> void:
 	velocity.x = -speed
 	animationTree.active = true
-	knockback_distance = 60
+	knockback_distance = 260
 	damage = 20
 	max_health = 70
 	num_coins = 3
@@ -49,6 +49,7 @@ func _physics_process(_delta: float) -> void:
 	if not in_knockback:
 		velocity.x = speed * direction
 
+
 	if turning:
 		turn_wolf()
 		turning = false
@@ -72,14 +73,16 @@ func attack():
 	can_attack = false
 	attack_timer.start()
 	player.take_damage(damage)
-
-	# Knockback after attacking
-	in_knockback = true
-	velocity.x = -direction * 100  # Adjust knockback strength if needed
-	await get_tree().create_timer(knockback_duration).timeout
-	in_knockback = false
 	
-	_knockback(knockback_damage)
+	_knockback(knockback_duration)
+
+func _knockback(knockback_duration):
+	# Knockback after attacking
+	if !in_knockback:
+		in_knockback = true
+		velocity.x = -direction * 30  # Adjust knockback strength if needed
+		await get_tree().create_timer(knockback_duration).timeout
+		in_knockback = false
 
 func _on_attack_timer_timeout() -> void:
 	can_attack = true

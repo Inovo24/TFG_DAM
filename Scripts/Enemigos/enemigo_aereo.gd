@@ -94,7 +94,7 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 		body.take_damage(damage)  # Apply damage immediately
 		
 		attack_timer.start()  # Start timer for consecutive attacks
-		_knockback(knockback_damage)
+		_knockback(knockback_duration)
 		#print("Player in attack area:", body.name)
 
 func _on_attack_area_body_exited(body: Node2D) -> void:
@@ -111,7 +111,7 @@ func _perform_attack():
 		player.take_damage(damage)  # Apply damage repeatedly
 		#print("Attacking player, remaining health:", player.get_current_health())
 		
-		_knockback(knockback_damage)
+		_knockback(knockback_duration)
 
 # --- Resume patrol if no players nearby ---
 func _resume_patrol():
