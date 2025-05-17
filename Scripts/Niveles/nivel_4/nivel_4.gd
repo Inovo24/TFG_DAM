@@ -25,7 +25,10 @@ func _on_cambio_a_arquero_body_entered(body: Node2D) -> void:
 		player = playerInstancate
 		player.global_position = playerPosition
 		
-		healthBar = healthBarScene.instantiate()
-		add_child(healthBar)
+		reload_health_bar()
 		startarted = true
-	
+
+func reload_health_bar():
+	healthBar.queue_free()
+	healthBar = healthBarScene.instantiate()
+	add_child(healthBar)

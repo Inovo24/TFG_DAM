@@ -20,8 +20,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if !body.skill_active:
 			body.skill_active = true
 			label_skill.visible = true
+			await get_tree().create_timer(3).timeout
+			label_skill.visible = false
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		dialogue_label.visible = false
-		label_skill.visible = false

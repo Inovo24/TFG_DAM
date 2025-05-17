@@ -47,9 +47,18 @@ func _on_area_2d_cambiar_body_entered(body: Node2D) -> void:
 				Globales.player_instance = null
 				
 				var playerInstancate = Globales.get_player()
-				get_parent().get_parent().add_child(playerInstancate)
+				var grandparent = get_parent().get_parent()
+				grandparent.add_child(playerInstancate)
 				
-				get_parent().get_parent().player.queue_free()
-				get_parent().get_parent().player = playerInstancate
-				get_parent().get_parent().player.global_position = playerPosition
+				grandparent.player.queue_free()
+				grandparent.player = playerInstancate
+				grandparent.player.global_position = playerPosition
+				
+				
 				#get_parent().get_.update_player()
+
+
+func _on_area_2d_recargar_vida_barra_body_entered(body: Node2D) -> void:
+	var grandparent = get_parent().get_parent()
+	if grandparent.has_method("reload_health_bar"):
+		grandparent.reload_health_bar()
