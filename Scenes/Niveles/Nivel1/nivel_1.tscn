@@ -30,7 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://dllkuylvoehor" path="res://Scenes/Elementos/limites_muerte.tscn" id="27_t2brn"]
 [ext_resource type="PackedScene" uid="uid://d10baod8a4y07" path="res://Scenes/Elementos/limite_lateral.tscn" id="28_xxydp"]
 [ext_resource type="PackedScene" uid="uid://df3q078ettq20" path="res://Scenes/Plataformas/trampolin.tscn" id="29_t5s73"]
-[ext_resource type="PackedScene" uid="uid://emki51xbyht2" path="res://Scenes/Plataformas/plataforma_normal.tscn" id="30_wn0w5"]
+[ext_resource type="PackedScene" uid="uid://emki51xbyht2" path="res://Scenes/Plataformas/plataforma_Movible.tscn" id="30_wn0w5"]
 [ext_resource type="PackedScene" uid="uid://coqvu88f812oh" path="res://Enemigos/lobo.tscn" id="31_10dqi"]
 [ext_resource type="PackedScene" uid="uid://cdhp6ctexp8rt" path="res://Scenes/Elementos/checkpoint.tscn" id="32_hgcxe"]
 [ext_resource type="PackedScene" uid="uid://ciusdsdqdktrg" path="res://Scenes/Elementos/estalactita.tscn" id="33_ke2nu"]

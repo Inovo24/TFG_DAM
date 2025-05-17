@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=4 uid="uid://d4einawx6ugyq"]
+[gd_scene load_steps=14 format=4 uid="uid://d4einawx6ugyq"]
 
 [ext_resource type="Script" uid="uid://53678jayax5g" path="res://Scripts/Niveles/nivel_3/nivel_3.gd" id="1_5h3r2"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_ybgvm"]
 [ext_resource type="PackedScene" uid="uid://c6qduvwxpmalg" path="res://Scenes/Elementos/lanza_flechas.tscn" id="3_12ukg"]
-[ext_resource type="PackedScene" uid="uid://c3lt32bnk1f0u" path="res://Scenes/Elementos/pinchos_subebaja.tscn" id="4_g88ye"]
+[ext_resource type="PackedScene" path="res://Scenes/Elementos/pinchos_subebaja.tscn" id="4_g88ye"]
 [ext_resource type="Texture2D" uid="uid://c0jknkkeqhx2u" path="res://Sprites/backgrounds/background_level3/background_level3.png" id="5_ut1jm"]
 [ext_resource type="Texture2D" uid="uid://b3dqxqv377fw2" path="res://Sprites/backgrounds/background_level3/sub_capa_lvl3.png" id="6_qg605"]
 [ext_resource type="Texture2D" uid="uid://qh0mmegeuvyn" path="res://Sprites/backgrounds/background_level3/nubes.png" id="7_6svwx"]
 [ext_resource type="PackedScene" uid="uid://bsyoskref8vn1" path="res://Scenes/LanzaLlamas/lanza_llamas.tscn" id="7_ql8ao"]
+[ext_resource type="PackedScene" uid="uid://cowrpiduh2h6l" path="res://Scenes/Plataformas/plataforma_normal.tscn" id="9_tmh1a"]
+[ext_resource type="PackedScene" uid="uid://emki51xbyht2" path="res://Scenes/Plataformas/plataforma_Movible.tscn" id="10_y78mb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xsyli"]
 texture = ExtResource("2_ybgvm")
@@ -503,6 +505,13 @@ terrain_set_1/terrain_0/name = "Terrain 0"
 terrain_set_1/terrain_0/color = Color(0.449218, 0.374429, 0.212759, 1)
 sources/0 = SubResource("TileSetAtlasSource_xsyli")
 
+[sub_resource type="Curve2D" id="Curve2D_fdpa6"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -59)
+}
+point_count = 2
+
 [node name="Nivel3" type="Node2D"]
 position = Vector2(5, 0)
 script = ExtResource("1_5h3r2")
@@ -624,3 +633,11 @@ rotation = -1.5708
 [node name="LanzaLlamas9" parent="LanzaLlamas" instance=ExtResource("7_ql8ao")]
 position = Vector2(3699, 324)
 rotation = -1.5708
+
+[node name="plataforma" parent="." instance=ExtResource("10_y78mb")]
+position = Vector2(109, 316)
+curve = SubResource("Curve2D_fdpa6")
+path_time = 2.0
+
+[node name="PlataformaNormal" parent="." instance=ExtResource("9_tmh1a")]
+position = Vector2(189, 312)
