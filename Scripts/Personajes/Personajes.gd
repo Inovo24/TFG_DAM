@@ -27,7 +27,7 @@ var secretAreas =0
 
 var combo_count = 0
 var next_attack : bool = false
-
+@onready var sprite = $Sprite2D
 @onready var animPlayer = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
 @onready var anim_state_machine = animation_tree.get("parameters/playback")

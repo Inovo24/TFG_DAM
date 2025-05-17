@@ -5,6 +5,9 @@ var camera
 var initialPosition
 var player
 
+var offsetX = 100
+var offsetY = -25
+
 var healthBar
 @onready var healthBarScene = preload("res://Scenes/UI/Barravida.tscn")
 @onready var colorblindnessScene = preload("res://Scenes/ajustes/Colorblindness.tscn")
@@ -21,7 +24,7 @@ var has_boss = false
 #Teporizador
 var timer_running := false
 var elapsed_time := 0.0
-
+var target_position: Vector2
 func _ready():
 	player = Globales.get_player()  # Get the player from the global variable
 	add_child(player)  # Add the player to the current scene
@@ -48,7 +51,12 @@ func _ready():
 	elapsed_time = 0.0
 
 func _process(_delta: float) -> void:
-	camera.position = player.position 
+	var direction = player.sprite.scale.x
+	if direction > 0:
+		target_position = player.position + Vector2(offsetX, offsetY)
+	else:
+		target_position = player.position + Vector2(-offsetX, offsetY)
+	camera.position = camera.position.lerp(target_position,_delta* 5)
 	hud_gems.updateGemLabel(collected_gems)
 	if Input.is_action_just_pressed("salir"):
 		if menu_instance == null:
