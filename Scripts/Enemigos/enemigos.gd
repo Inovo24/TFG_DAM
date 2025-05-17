@@ -9,6 +9,7 @@ var knockback_damage = 0.5
 var knockback_receive_damage = 1
 var knockback_distance = 30
 
+var num_coins = 1
 var player
 var slow_mode = false
 var slow_timer: Timer
@@ -39,6 +40,10 @@ func receive_damage(damage_received: int):
 	print(current_health)
 	
 	if current_health <= 0:
+		for i in range(num_coins):
+			var moneda = preload("res://Scenes/Elementos/gema_drop.tscn").instantiate()
+			get_parent().add_child(moneda)
+			moneda.global_position = global_position + Vector2(i, -10)
 		queue_free()
 	
 	_knockback(knockback_receive_damage)

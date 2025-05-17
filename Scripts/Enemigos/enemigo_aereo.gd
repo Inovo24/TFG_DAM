@@ -15,6 +15,7 @@ var attack_timer: Timer  # Timer for repeated attacks
 func _ready() -> void:
 	damage = 10
 	max_health = 50
+	num_coins = 2
 	
 	timer.start()  # Start patrol timer
 

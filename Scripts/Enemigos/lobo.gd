@@ -27,6 +27,7 @@ func _ready() -> void:
 	knockback_distance = 60
 	damage = 20
 	max_health = 70
+	num_coins = 3
 	super._ready()
 
 func _physics_process(_delta: float) -> void:
