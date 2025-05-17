@@ -26,7 +26,7 @@ func _on_cambio_a_arquero_body_entered(body: Node2D) -> void:
 		player.global_position = playerPosition
 		
 		reload_health_bar()
-		startarted = true
+	startarted = true
 
 func reload_health_bar():
 	healthBar.queue_free()
