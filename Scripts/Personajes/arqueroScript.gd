@@ -15,6 +15,8 @@ var charge_time : float = 0.0
 var max_charge_time : float = 2.0
 var is_charging : bool = false
 
+var extra_jump_available: bool = false
+
 func _ready() -> void:
 	max_health = 75
 	speed = 250
@@ -23,7 +25,7 @@ func _ready() -> void:
 	#cooldown_timer = Timer.new()
 	#cooldown_timer.wait_time = ATTACK_COOLDOWN
 	#cooldown_timer.one_shot = true
-	
+	#skill_active = true
 	super._ready()
 	print(max_health)
 
@@ -89,3 +91,42 @@ func deal_damage_archer():
 	for hit in result:
 		if hit.collider.has_method("take_damage"):
 			hit.collider.take_damage(damage)
+
+# Lógica de salto personalizado (doble salto si skill_active)
+func jump(delta):
+	var jump_attempt = Input.is_action_just_pressed("salto")
+
+	if jump_attempt or input_buffer.time_left > 0:
+		if is_on_floor():
+			switch_state(State.JUMP)
+			coyote_jump_available = false
+			if skill_active:
+				extra_jump_available = true
+		elif coyote_jump_available:
+			switch_state(State.JUMP)
+			coyote_jump_available = false
+			if skill_active:
+				extra_jump_available = true
+		elif skill_active and extra_jump_available:
+			switch_state(State.JUMP)
+			extra_jump_available = false
+		elif jump_attempt:
+			input_buffer.start()
+
+	if Input.is_action_just_released("salto") and velocity.y < 0:
+		velocity.y = JUMP_SPEED / 2
+
+	if not is_on_floor() and current_state not in [State.AIR_ATTACK, State.DOWN_ATTACK, State.UP_ATTACK]:
+		if velocity.y < 0:
+			anim_state_machine.travel("saltar")
+		else:
+			switch_state(State.FALL)
+
+	if is_on_floor():
+		coyote_jump_available = true
+		coyote_timer.stop()
+		last_safe_position = position
+	else:
+		if coyote_jump_available and coyote_timer.is_stopped():
+			coyote_timer.start()
+		velocity.y += GRAVITY * delta

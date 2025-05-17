@@ -1,0 +1,98 @@
+[gd_scene load_steps=13 format=3 uid="uid://bp244lww2r80i"]
+
+[ext_resource type="Script" uid="uid://2l4py7gg773v" path="res://Scripts/Elementos/habilitar_skills.gd" id="1_5u8da"]
+[ext_resource type="Texture2D" uid="uid://d0jswlvnsg088" path="res://Sprites/NPC/limosnero.png" id="1_6qxof"]
+[ext_resource type="LabelSettings" uid="uid://b1ywkn2uu61ot" path="res://Scenes/UI/UI_laber_settings/granjero.tres" id="2_5u8da"]
+[ext_resource type="FontFile" uid="uid://c70w8hiljv1w" path="res://Scenes/UI/Fuentes_UI/PixelOperator8.ttf" id="4_xw27e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmhj0"]
+atlas = ExtResource("1_6qxof")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5olta"]
+atlas = ExtResource("1_6qxof")
+region = Rect2(34, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o37wo"]
+atlas = ExtResource("1_6qxof")
+region = Rect2(68, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnhqa"]
+atlas = ExtResource("1_6qxof")
+region = Rect2(102, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lisb"]
+atlas = ExtResource("1_6qxof")
+region = Rect2(136, 0, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xw27e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmhj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5olta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o37wo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnhqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lisb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6xf7"]
+radius = 58.2409
+
+[sub_resource type="LabelSettings" id="LabelSettings_g6xf7"]
+font = ExtResource("4_xw27e")
+font_size = 8
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="habilitar_skills" type="Node2D"]
+script = ExtResource("1_5u8da")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.1, 1.1)
+sprite_frames = SubResource("SpriteFrames_xw27e")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -69.0
+offset_top = -52.0
+offset_right = 74.0
+offset_bottom = -28.0
+text = "texto que indique cosas"
+label_settings = ExtResource("2_5u8da")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_g6xf7")
+
+[node name="Label_Skill_activa" type="Label" parent="."]
+visible = false
+offset_left = -71.0
+offset_top = -71.0
+offset_right = 72.0
+offset_bottom = -47.0
+text = "texto intrucciones"
+label_settings = SubResource("LabelSettings_g6xf7")
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

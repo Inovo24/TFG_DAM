@@ -40,6 +40,7 @@ var previous_state : State = State.IDLE
 var last_safe_position: Vector2
 var checkpoint_position: Vector2
 var has_checkpoint = false
+var skill_active = false
 
 var can_move = true
 
@@ -76,7 +77,7 @@ func _ready():
 func _physics_process(delta):
 	if can_move:
 		var input_horizontal = Input.get_axis("mover_izq", "mover_der")
-		var jump_attempt = Input.is_action_just_pressed("salto")
+		#var jump_attempt = Input.is_action_just_pressed("salto")
 		var attack_attempt = Input.is_action_just_pressed("ataque")
 		var input_up = Input.is_action_pressed("arriba")
 		var input_down = Input.is_action_pressed("abajo")
@@ -98,7 +99,9 @@ func _physics_process(delta):
 				switch_state(State.DOWN_ATTACK)
 			else:
 				switch_state(State.ATTACK)
-
+		
+		jump(delta)
+		'''
 		if jump_attempt or input_buffer.time_left > 0:
 			if coyote_jump_available:
 				switch_state(State.JUMP)
@@ -123,7 +126,8 @@ func _physics_process(delta):
 			if coyote_jump_available and coyote_timer.is_stopped():
 				coyote_timer.start()
 			velocity.y += GRAVITY * delta
-
+		'''
+		
 		if input_horizontal:
 			if input_horizontal < 0:
 				$Sprite2D.scale.x = -1
@@ -199,6 +203,35 @@ func _on_animation_finished(_anim_name):
 
 		if _anim_name == current_animation:
 			switch_state(State.IDLE)
+
+func jump(delta):
+	# Dentro de _physics_process(delta), solo lógica de salto
+	var jump_attempt = Input.is_action_just_pressed("salto")
+
+	if jump_attempt or input_buffer.time_left > 0:
+		if coyote_jump_available:
+			switch_state(State.JUMP)
+			coyote_jump_available = false
+		elif jump_attempt:
+			input_buffer.start()
+
+	if Input.is_action_just_released("salto") and velocity.y < 0:
+		velocity.y = JUMP_SPEED / 2
+
+	if not is_on_floor() and current_state not in [State.AIR_ATTACK, State.DOWN_ATTACK, State.UP_ATTACK]:
+		if velocity.y < 0:
+			anim_state_machine.travel("saltar")
+		else:
+			switch_state(State.FALL)
+
+	if is_on_floor():
+		coyote_jump_available = true
+		coyote_timer.stop()
+		last_safe_position = position
+	else:
+		if coyote_jump_available and coyote_timer.is_stopped():
+			coyote_timer.start()
+		velocity.y += GRAVITY * delta
 
 
 func coyote_timeout():
