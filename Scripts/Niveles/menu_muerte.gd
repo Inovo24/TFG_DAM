@@ -5,9 +5,9 @@ extends CanvasLayer
 func _ready() -> void:
 	if get_parent() is Characters:
 		if get_parent().has_checkpoint and get_parent().life_count > 0:
-			$Contenedor/FilaNormal/Reanudar.text = "menumuer_lab_check"
+			$Contenedor/Reanudar.text = "menumuer_lab_check"
 		else:
-			$Contenedor/FilaNormal/Reanudar.text = "menumuer_lab_reiniciar"
+			$Contenedor/Reanudar.text = "menumuer_lab_reiniciar"
 	
 
 func _process(delta: float) -> void:
@@ -22,7 +22,8 @@ func _on_settings_pressed() -> void:
 
 
 func _on_exit_pressed() -> void:
-	$Contenedor/FilaNormal.visible = false
+	$Contenedor/Ajustes.visible = false
+	$Contenedor/Reanudar.visible = false
 	$Contenedor/FilaSalir.visible = true
 	$Contenedor/Salir.visible = false
 	$Contenedor/Texto.text = "menuin_lab_confirmacion"
@@ -38,7 +39,8 @@ func _on_yes_pressed() -> void:
 
 func _on_no_pressed() -> void:
 	$Contenedor/FilaSalir.visible = false
-	$Contenedor/FilaNormal.visible = true
+	$Contenedor/Ajustes.visible = true
+	$Contenedor/Reanudar.visible = true
 	$Contenedor/Salir.visible = true
 	$Contenedor/Texto.text = "menuin_lab_titulo"
 

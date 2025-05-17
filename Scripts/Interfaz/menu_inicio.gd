@@ -13,7 +13,8 @@ func _on_ajustes_pressed() -> void:
 
 
 func _on_salir_pressed() -> void:
-	$Contenedor/FilaNormal.visible = false
+	$Contenedor/Ajustes.visible = false
+	$Contenedor/Salir.visible = false
 	$Contenedor/FilaSalir.visible = true
 	$Contenedor/Cerrar.visible = false
 	$Contenedor/Texto.text = "menuin_lab_confirmacion"
@@ -30,7 +31,8 @@ func _on_si_pressed() -> void:
 
 func _on_no_pressed() -> void:
 	$Contenedor/FilaSalir.visible = false
-	$Contenedor/FilaNormal.visible = true
+	$Contenedor/Ajustes.visible = true
+	$Contenedor/Salir.visible = true
 	$Contenedor/Cerrar.visible = true
 	$Contenedor/Texto.text = "menuin_lab_titulo"
 
