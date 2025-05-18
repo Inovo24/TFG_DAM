@@ -6,7 +6,7 @@ class_name Viking
 var wall_jump_speed = Vector2(250, -400)
 var is_on_wall := false
 var wall_normal := Vector2.ZERO
-const WALL_SLIDE_SPEED = 80  # Velocidad máxima de deslizamiento por pared
+const WALL_SLIDE_SPEED:float = 80  # Velocidad máxima de deslizamiento por pared
 
 func _ready() -> void:
 	add_to_group("player")
