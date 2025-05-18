@@ -30,8 +30,8 @@ func _physics_process(delta: float) -> void:
 		if is_on_wall:
 			# Wall slide: desacelera la caída si va presionando hacia la pared
 			var pressing_towards_wall = (
-				(Input.is_action_pressed("ui_left") and wall_normal.x > 0) or
-				(Input.is_action_pressed("ui_right") and wall_normal.x < 0)
+				(Input.is_action_pressed("mover_izq") and wall_normal.x > 0) or
+				(Input.is_action_pressed("mover_der") and wall_normal.x < 0)
 			)
 
 			if velocity.y > 0 and pressing_towards_wall:
