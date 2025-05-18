@@ -4,6 +4,7 @@ extends Levels
 @onready var level4_position = $Camera2D/Marker2D
 
 @onready var startarted = false
+@onready var doorclose = false
 
 func _ready() -> void:
 	camera = level4_camera
@@ -32,3 +33,14 @@ func reload_health_bar():
 	healthBar.queue_free()
 	healthBar = healthBarScene.instantiate()
 	add_child(healthBar)
+
+
+func _on_cerrar_parte_vikingo_body_entered(body: Node2D) -> void:
+	if !doorclose:
+		doorclose = true 
+		var position = $CerraduraVikingo.position - Vector2(50,0)
+		$CerraduraVikingo.position = position
+		'''
+		$CerraduraVikingo.visible = true
+		$CerraduraVikingo/CollisionShape2D.disabled = false
+		'''

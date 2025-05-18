@@ -73,6 +73,9 @@ func _ready():
 	combo_timer.timeout.connect(combo_timeout)
 
 	Globales.character = self
+	
+	if Guardado.level_progress["nivel4"]["hecho"]:
+		skill_active = true
 
 func _physics_process(delta):
 	if can_move:
