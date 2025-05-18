@@ -32,6 +32,8 @@ var patrol_target: Vector2
 var sprite: AnimatedSprite2D
 var attack_timer: Timer
 var idle_timer: Timer
+var jump_counter := 0
+var jump_timer: Timer
 
 func _ready():
 	sprite = $AnimatedSprite2D
@@ -40,21 +42,27 @@ func _ready():
 	attack_timer = Timer.new()
 	attack_timer.wait_time = attack_cooldown
 	attack_timer.one_shot = false
-	add_child(attack_timer)
 	attack_timer.timeout.connect(_on_attack_timer_timeout)
+	add_child(attack_timer)
 	attack_timer.start()
 
 	idle_timer = Timer.new()
 	idle_timer.wait_time = idle_time
 	idle_timer.one_shot = true
-	add_child(idle_timer)
 	idle_timer.timeout.connect(_on_idle_timeout)
+	add_child(idle_timer)
+
+	jump_timer = Timer.new()
+	jump_timer.wait_time = 1.0
+	jump_timer.one_shot = true
+	jump_timer.timeout.connect(_on_jump_timer_timeout)
+	add_child(jump_timer)
 
 	player_detection.body_entered.connect(_on_player_detection_body_entered)
 	player_detection.body_exited.connect(_on_player_detection_body_exited)
 
 func _physics_process(delta):
-	# --- PRIORIDAD: jugador dentro del área siempre activa persecución ---
+	_update_raycast_direction()
 	if player and state != State.ATTACK:
 		state = State.CHASE
 
@@ -71,7 +79,6 @@ func _physics_process(delta):
 		State.CHASE:
 			if not is_instance_valid(player):
 				state = State.RETURN
-				player = null
 				return
 
 			var dist = position.distance_to(player.position)
@@ -83,7 +90,6 @@ func _physics_process(delta):
 		State.ATTACK:
 			if not is_instance_valid(player):
 				state = State.RETURN
-				player = null
 				return
 
 			sprite.play("attack")
@@ -92,14 +98,13 @@ func _physics_process(delta):
 			if position.distance_to(player.position) > attack_radius:
 				state = State.CHASE
 
-			velocity.x = 0
-			velocity.y += gravity * delta
-			move_and_slide()
+			# Aplicar movimiento hacia el jugador, incluyendo salto y desplazamiento
+			var offset = player.position + Vector2(sign(player.position.x - position.x) * 20.0, 0)
+			_move_towards(offset, delta)
 
 		State.RETURN:
 			_return_to_patrol(delta)
 
-# --- Patrulla ---
 func _patrol(delta):
 	if not idle_timer.is_stopped():
 		return
@@ -127,14 +132,11 @@ func _chase_player(delta):
 	_move_towards(player.position, delta)
 	sprite.play("walk")
 
-# --- Movimiento con salto e impulso horizontal ---
 func _move_towards(target: Vector2, delta):
 	var dir = (target - position).normalized()
 	var direction_sign = sign(dir.x)
+	_update_raycast_direction(direction_sign)
 	var current_speed = speed * (0.5 if slow_mode else 1.0)
-
-	floor_check.target_position = Vector2(10.0 * direction_sign, 10.0)
-	obstacle_check.target_position = Vector2(12.0 * direction_sign, 2.0)
 
 	var jumped = false
 	var on_ground = is_on_floor()
@@ -144,6 +146,12 @@ func _move_towards(target: Vector2, delta):
 		velocity.y = jump_force
 		velocity.x = dir.x * current_speed
 		jumped = true
+		jump_counter += 1
+		if jump_counter >= 3:
+			if jump_timer.is_stopped():
+				jump_timer.start()
+			floor_check.target_position.y += 4.0
+			obstacle_check.target_position.y += 4.0
 
 	if not jumped:
 		if floor_check.is_colliding() or state == State.CHASE:
@@ -157,10 +165,16 @@ func _move_towards(target: Vector2, delta):
 	_face_target(target)
 	move_and_slide()
 
+func _update_raycast_direction(direction_sign: int = -999):
+	if direction_sign == -999:
+		direction_sign = 1 if not sprite.flip_h else -1
+
+	floor_check.target_position = Vector2(10.0 * direction_sign, 12.0)  # ligeramente más bajo
+	obstacle_check.target_position = Vector2(12.0 * direction_sign, 2.0)
+
 func _face_target(target: Vector2):
 	sprite.flip_h = target.x < position.x
 
-# --- Ataque ---
 func _on_attack_timer_timeout():
 	if state == State.ATTACK and is_instance_valid(player):
 		_shoot_arrow()
@@ -174,7 +188,6 @@ func _shoot_arrow():
 	arrow.direction = dir
 	arrow.speed = arrow_speed
 
-# --- Recibir daño ---
 func receive_damage(damage_received: int):
 	current_health -= damage_received
 	sprite.play("damage")
@@ -189,9 +202,8 @@ func receive_damage(damage_received: int):
 	_knockback(knockback_receive_damage)
 	_start_pause_and_slow()
 
-# --- Área de detección del jugador ---
 func _on_player_detection_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
+	if body is Characters:
 		player = body
 
 func _on_player_detection_body_exited(body: Node2D) -> void:
@@ -199,3 +211,12 @@ func _on_player_detection_body_exited(body: Node2D) -> void:
 		player = null
 		if state != State.ATTACK:
 			state = State.RETURN
+
+func _on_jump_timer_timeout():
+	jump_counter = 0
+
+	# Forzar avance si sigue atascado saltando
+	if is_instance_valid(player):
+		velocity.x += 20.0 * sign(player.position.x - position.x)
+	else:
+		velocity.x += 20.0  # Avance genérico hacia la derecha como fallback
