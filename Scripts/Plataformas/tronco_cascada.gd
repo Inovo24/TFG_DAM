@@ -34,7 +34,7 @@ func iniciar_movimiento():
 	tween = get_tree().create_tween()
 	
 	# EASE_IN hace que comience rápido y termine lento
-	tween.tween_property(path_follow_2d, "progress_ratio", 1.0, tiempo_movimiento_total).set_ease(ease_type).set_trans(transition_type)
+	tween.tween_property(path_follow_2d, "progress_ratio", 2.0, tiempo_movimiento_total).set_ease(ease_type).set_trans(transition_type)
 	
 	if looping:
 		tween.set_loops()

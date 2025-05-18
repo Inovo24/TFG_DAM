@@ -1,10 +1,10 @@
-[gd_scene load_steps=50 format=4 uid="uid://cbectauge503f"]
+[gd_scene load_steps=51 format=4 uid="uid://cbectauge503f"]
 
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="1_7tdjr"]
 [ext_resource type="Script" uid="uid://duqs6hjk26o8e" path="res://Scripts/Niveles/nivel_2/nivel_2.gd" id="1_xsyli"]
 [ext_resource type="Texture2D" uid="uid://0gh52gokkg0e" path="res://Assets/tileset_nievet.png" id="2_iafik"]
 [ext_resource type="Texture2D" uid="uid://y3rop3kkhj1j" path="res://Sprites/backgrounds/background_level1/Fondos/fondo_01.png" id="3_e12np"]
-[ext_resource type="PackedScene" uid="uid://cvlktixgfymiy" path="res://Scenes/Niveles/zona_oculta.tscn" id="3_gwqgy"]
+[ext_resource type="PackedScene" uid="uid://cvlktixgfymiy" path="res://Scenes/niveles/zona_oculta.tscn" id="3_gwqgy"]
 [ext_resource type="PackedScene" uid="uid://cowrpiduh2h6l" path="res://Scenes/Plataformas/plataforma_normal.tscn" id="4_mjuac"]
 [ext_resource type="Texture2D" uid="uid://dbfsfk62b5o5b" path="res://Sprites/backgrounds/background_level1/Fondos/fondo_02.png" id="4_p5n24"]
 [ext_resource type="Texture2D" uid="uid://dav63fdfblajo" path="res://Sprites/backgrounds/background_level1/aldea/fondocaverna.png" id="5_g5tjl"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://coqvu88f812oh" path="res://Enemigos/lobo.tscn" id="24_cn6ga"]
 [ext_resource type="PackedScene" uid="uid://d38t4kskhkxnc" path="res://Enemigos/Enemigo_aereo.tscn" id="25_gnxbl"]
 [ext_resource type="PackedScene" uid="uid://cdhp6ctexp8rt" path="res://Scenes/Elementos/checkpoint.tscn" id="27_u6q8d"]
+[ext_resource type="PackedScene" uid="uid://dwapibi7c3dst" path="res://Scenes/Elementos/gema.tscn" id="28_1y861"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cn6ga"]
 texture = ExtResource("2_iafik")
@@ -623,13 +624,15 @@ position = Vector2(345, 185)
 zoom = Vector2(4, 4)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(5011, 280)
+position = Vector2(4232, 365)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 0, 0)
 scroll_ignore_camera_zoom = true
 
 [node name="fondo_01" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-340, 41)
+position = Vector2(-159.333, -239.667)
 motion_scale = Vector2(0.1, 1)
 motion_mirroring = Vector2(700, 0)
 
@@ -641,7 +644,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 700, 700)
 
 [node name="fondo_02" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-340, 41)
+position = Vector2(-159.333, -239.667)
 motion_scale = Vector2(0.1, 1)
 motion_mirroring = Vector2(700, 0)
 
@@ -652,7 +655,7 @@ texture = ExtResource("4_p5n24")
 centered = false
 
 [node name="fondoCaverna" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-95, 11)
+position = Vector2(85.6667, -269.667)
 motion_scale = Vector2(0.3, 1)
 motion_mirroring = Vector2(1050, 0)
 
@@ -663,7 +666,7 @@ texture = ExtResource("5_g5tjl")
 centered = false
 
 [node name="arboles_01" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-340, 41)
+position = Vector2(-159.333, -239.667)
 motion_scale = Vector2(0.2, 1)
 motion_mirroring = Vector2(700, 0)
 
@@ -672,7 +675,7 @@ texture = ExtResource("6_7vnmi")
 centered = false
 
 [node name="arboles_02" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-340, 41)
+position = Vector2(-159.333, -239.667)
 motion_scale = Vector2(0.3, 1)
 motion_mirroring = Vector2(700, 0)
 
@@ -681,7 +684,7 @@ texture = ExtResource("7_gphre")
 centered = false
 
 [node name="arboles_03" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-340, 41)
+position = Vector2(-159.333, -239.667)
 motion_scale = Vector2(0.4, 1)
 motion_mirroring = Vector2(700, 0)
 
@@ -691,7 +694,7 @@ texture = ExtResource("8_iqq83")
 centered = false
 
 [node name="arboles_04" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-340, 41)
+position = Vector2(-159.333, -239.667)
 motion_scale = Vector2(0.5, 1)
 motion_mirroring = Vector2(700, 0)
 
@@ -700,7 +703,7 @@ texture = ExtResource("9_i42ei")
 centered = false
 
 [node name="suelo" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-340, 41)
+position = Vector2(-159.333, -239.667)
 motion_scale = Vector2(0.7, 1)
 motion_mirroring = Vector2(700, 0)
 
@@ -711,7 +714,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 700, 350)
 
 [node name="arbustillos" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-340, 41)
+position = Vector2(-159.333, -239.667)
 motion_scale = Vector2(0.8, 1)
 motion_mirroring = Vector2(700, 0)
 
@@ -769,40 +772,32 @@ frame_progress = 0.582096
 z_index = 1
 position = Vector2(3556, 465)
 scale = Vector2(2, 2)
-tiempo_minimo_reaparicion = 1.5
 
 [node name="Path2D2" parent="cascada/Troncos" instance=ExtResource("17_i42ei")]
 z_index = 1
 position = Vector2(3697, 470)
 scale = Vector2(2, 2)
-tiempo_minimo_reaparicion = 1.5
-tiempo_maximo_reaparicion = 2.5
 
 [node name="Path2D3" parent="cascada/Troncos" instance=ExtResource("17_i42ei")]
 z_index = 1
 position = Vector2(3841, 471)
 scale = Vector2(2, 2)
-tiempo_minimo_reaparicion = 1.5
 
 [node name="Path2D4" parent="cascada/Troncos" instance=ExtResource("17_i42ei")]
 z_index = 1
 position = Vector2(3964, 469)
 scale = Vector2(2, 2)
-tiempo_minimo_reaparicion = 1.5
 
 [node name="Path2D5" parent="cascada/Troncos" instance=ExtResource("17_i42ei")]
 position = Vector2(3783, 300)
-tiempo_minimo_reaparicion = 1.5
 colision_activa = false
 
 [node name="Path2D6" parent="cascada/Troncos" instance=ExtResource("17_i42ei")]
 position = Vector2(3845, 300)
-tiempo_minimo_reaparicion = 1.5
 colision_activa = false
 
 [node name="Path2D7" parent="cascada/Troncos" instance=ExtResource("17_i42ei")]
 position = Vector2(3732, 300)
-tiempo_minimo_reaparicion = 1.5
 colision_activa = false
 
 [node name="Area2D" type="Area2D" parent="cascada" node_paths=PackedStringArray("playerCamera", "staticCamera")]
@@ -900,42 +895,34 @@ frame_progress = 0.582096
 z_index = 1
 position = Vector2(6177, 450)
 scale = Vector2(2, 2)
-tiempo_minimo_reaparicion = 1.5
 colision_activa = false
 
 [node name="Path2D2" parent="cascada2/Troncos" instance=ExtResource("17_i42ei")]
 z_index = 1
 position = Vector2(6318, 455)
 scale = Vector2(2, 2)
-tiempo_minimo_reaparicion = 1.5
-tiempo_maximo_reaparicion = 2.5
 colision_activa = false
 
 [node name="Path2D3" parent="cascada2/Troncos" instance=ExtResource("17_i42ei")]
 z_index = 1
 position = Vector2(6462, 456)
 scale = Vector2(2, 2)
-tiempo_minimo_reaparicion = 1.5
 colision_activa = false
 
 [node name="Path2D4" parent="cascada2/Troncos" instance=ExtResource("17_i42ei")]
 z_index = 1
 position = Vector2(6585, 454)
 scale = Vector2(2, 2)
-tiempo_minimo_reaparicion = 1.5
 colision_activa = false
 
 [node name="Path2D5" parent="cascada2/Troncos" instance=ExtResource("17_i42ei")]
 position = Vector2(6404, 285)
-tiempo_minimo_reaparicion = 1.5
 
 [node name="Path2D6" parent="cascada2/Troncos" instance=ExtResource("17_i42ei")]
 position = Vector2(6466, 285)
-tiempo_minimo_reaparicion = 1.5
 
 [node name="Path2D7" parent="cascada2/Troncos" instance=ExtResource("17_i42ei")]
 position = Vector2(6353, 285)
-tiempo_minimo_reaparicion = 1.5
 
 [node name="Area2D" type="Area2D" parent="cascada2" node_paths=PackedStringArray("playerCamera", "staticCamera")]
 position = Vector2(6195, 317)
@@ -1023,6 +1010,53 @@ position = Vector2(2654, 404)
 
 [node name="Area2D2" parent="checkpoints" instance=ExtResource("27_u6q8d")]
 position = Vector2(4952, 244)
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Gema" parent="Coins" instance=ExtResource("28_1y861")]
+position = Vector2(1095, 299)
+
+[node name="Gema2" parent="Coins" instance=ExtResource("28_1y861")]
+position = Vector2(1297, 300)
+
+[node name="Gema3" parent="Coins" instance=ExtResource("28_1y861")]
+position = Vector2(1741, -64)
+
+[node name="Gema4" parent="Coins" instance=ExtResource("28_1y861")]
+position = Vector2(1525, 124)
+
+[node name="Gema5" parent="Coins" instance=ExtResource("28_1y861")]
+position = Vector2(2246, 280)
+
+[node name="Gema6" parent="Coins" instance=ExtResource("28_1y861")]
+position = Vector2(2046, 132)
+
+[node name="Gema7" parent="Coins" instance=ExtResource("28_1y861")]
+position = Vector2(3386, 594)
+
+[node name="Gema8" parent="Coins" instance=ExtResource("28_1y861")]
+position = Vector2(4238, 416)
+
+[node name="Gema9" parent="Coins" instance=ExtResource("28_1y861")]
+position = Vector2(5372, 187)
+
+[node name="Gema10" parent="Coins" instance=ExtResource("28_1y861")]
+position = Vector2(5501, 124)
+
+[node name="Gema11" parent="Coins" instance=ExtResource("28_1y861")]
+position = Vector2(5244, 211)
+
+[node name="Gema12" parent="Coins" instance=ExtResource("28_1y861")]
+position = Vector2(5062, 257)
+
+[node name="Gema13" parent="Coins" instance=ExtResource("28_1y861")]
+position = Vector2(5415, 607)
+
+[node name="Gema14" parent="Coins" instance=ExtResource("28_1y861")]
+position = Vector2(5828, 143)
+
+[node name="Gema15" parent="Coins" instance=ExtResource("28_1y861")]
+position = Vector2(6727, 256)
 
 [connection signal="body_entered" from="cascada/Area2D" to="cascada/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="cascada/Area2D" to="cascada/Area2D" method="_on_body_exited"]

@@ -66,7 +66,9 @@ size = Vector2(12, 32)
 position = Vector2(0, 1)
 curve = SubResource("Curve2D_8tg74")
 script = ExtResource("1_rt28r")
-tiempo_maximo_reaparicion = 3.0
+tiempo_minimo_reaparicion = 1.0
+tiempo_maximo_reaparicion = 2.0
+tiempo_movimiento_total = 4.0
 path_follow_2d = NodePath("PathFollow2D")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
@@ -80,6 +82,7 @@ remote_path = NodePath("../../AnimatableBody2D")
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 position = Vector2(0, -1)
 rotation = 1.56498
+scale = Vector2(1, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatableBody2D"]
 rotation = -1.5708

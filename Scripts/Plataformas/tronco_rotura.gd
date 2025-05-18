@@ -17,6 +17,5 @@ func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
 		player_on_top = false
 		timer.stop()
-		timer.wait_time = 2
 		timer.one_shot = true
 		print("me rompi")
