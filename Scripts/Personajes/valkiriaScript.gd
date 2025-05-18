@@ -2,6 +2,15 @@ extends Characters
 
 class_name Valkyrie
 
+var dash_cooldown = 0.25  # Tiempo para detectar doble tap
+var dash_duration = 0.2
+var dash_speed = 800      # Velocidad del dash
+var is_dashing = false
+
+var last_dash_direction = ""
+var dash_timer := Timer.new()
+
+
 func _ready() -> void:
 	add_to_group("player")
 	super._ready()
@@ -11,7 +20,41 @@ func _ready() -> void:
 	damage = 35
 	print(max_health)
 	
+	dash_timer.wait_time = dash_cooldown
+	dash_timer.one_shot = true
+	add_child(dash_timer)
 
+func _physics_process(delta):
+	# 🔁 Ejecuta primero la lógica base del personaje
+	super._physics_process(delta)
+
+	# Añade solo el comportamiento especial de Valkyrie
+	if not skill_active or not can_move or is_dashing:
+		return
+
+	if Input.is_action_just_pressed("mover_der"):
+		if last_dash_direction == "right" and dash_timer.time_left > 0:
+			start_dash(Vector2.RIGHT)
+		else:
+			last_dash_direction = "right"
+			dash_timer.start()
+	elif Input.is_action_just_pressed("mover_izq"):
+		if last_dash_direction == "left" and dash_timer.time_left > 0:
+			start_dash(Vector2.LEFT)
+		else:
+			last_dash_direction = "left"
+			dash_timer.start()
+
+func start_dash(direction: Vector2):
+	is_dashing = true
+	#can_move = false
+	velocity.x = direction.x * dash_speed
+	#anim_state_machine.travel("dash") # si tienes una animación
+	await get_tree().create_timer(dash_duration).timeout
+	
+	velocity.x = 0
+	is_dashing = false
+	#can_move = true
 
 
 func attack():

@@ -70,4 +70,10 @@ msg_escalada_3,"La pared no es obstáculo, sino impulso.","The wall is not an ob
 msg_escalada_4,"El que confía en su arma, sube donde otros caen.","He who trusts his weapon climbs where others fall.","Quem confia em sua arma sobe onde outros caem.","Chi si fida della sua arma sale dove altri cadono."
 msg_escalada_5,"Si la caída es segura, la escalada es elección.","If the fall is certain, climbing is a choice.","Se a queda é certa, escalar é uma escolha.","Se la caduta è certa, scalare è una scelta."
 msg_escalada_unlock,"¡Escalada con el hacha desbloqueada!","Axe wall climbing unlocked!","Escalada com machado desbloqueada!","Arrampicata con l'ascia sbloccata!"
+msg_dash_1,"Donde el paso falla, el impulso triunfa.","Where the step fails, the surge prevails.","Onde o passo falha, o impulso vence.","Dove il passo fallisce, l’impulso trionfa."
+msg_dash_2,"No todos los caminos se caminan; algunos se atraviesan.","Not all paths are walked; some are dashed through.","Nem todos os caminhos são percorridos; alguns são atravessados.","Non tutti i sentieri si percorrono; alcuni si attraversano di slancio."
+msg_dash_3,"La velocidad no es huida, es decisión.","Speed is not escape, it is resolve.","Velocidade não é fuga, é decisão.","La velocità non è fuga, è decisione."
+msg_dash_4,"El aire responde solo a quien se lanza sin dudar.","The air answers only to those who leap without hesitation.","O ar responde apenas a quem se lança sem hesitar.","L’aria risponde solo a chi si lancia senza esitazione."
+msg_dash_5,"La brecha no se salta, se corta con voluntad.","The gap is not jumped over, it's sliced through with will.","O vão não se salta, se corta com vontade.","Il vuoto non si salta, si taglia con la volontà."
+msg_dash_unlock,"¡Dash desbloqueado!","Dash unlocked!","Dash desbloqueado!","Scatto sbloccato!"
 
