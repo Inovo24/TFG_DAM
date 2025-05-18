@@ -50,10 +50,16 @@ func make_visible_container():
 
 
 func _on_resume_pressed() -> void:
-	if get_parent().has_checkpoint and get_parent().life_count > 0:
-		get_tree().paused = false
-		get_parent().return_to_checkpoint()
-	else:
-		get_tree().paused = false
-		get_tree().change_scene_to_file(get_parent().get_parent().scene_file_path)
+	if get_parent() is Characters:
+		if get_parent().has_checkpoint and get_parent().life_count > 0:
+			get_tree().paused = false
+			get_parent().return_to_checkpoint()
+		elif get_parent().get_parent() is Bosses:
+			var grand = get_parent().get_parent()
+			get_tree().paused = false
+			grand.return_to_level()
+		else:
+			get_tree().paused = false
+			get_tree().change_scene_to_file(get_parent().get_parent().scene_file_path)
+		
 	queue_free()

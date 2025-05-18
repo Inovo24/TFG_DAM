@@ -16,12 +16,13 @@ var colorblindness
 var menu_instance: Node = null
 var timer_running := false
 var elapsed_time := 0.0
+var level_name
 
 func _ready():
 	player = Globales.get_player()  # Get the player from the global variable
 	add_child(player)  # Add the player to the current scene
 	player.position = initialPosition.position  # Set the initial position of the player
-	
+	player.checkpoint_position = initialPosition.position
 	
 	healthBar = healthBarScene.instantiate()
 	add_child(healthBar)
@@ -48,7 +49,10 @@ func _process(_delta: float) -> void:
 		elapsed_time += _delta 
 
 
-func end_level(level_name: String):
+func end_level():
 	timer_running = false
 	print(elapsed_time)
 	Guardado.mark_completed_from_temporal_data(level_name,elapsed_time)
+
+func return_to_level():
+	pass

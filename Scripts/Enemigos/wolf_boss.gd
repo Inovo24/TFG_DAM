@@ -189,7 +189,7 @@ func receive_damage(damage_received: int):
 		if currentHealth <= 0:
 			#print("muero")
 			#Guarda el nivel 1 como completo
-			get_parent().end_level("nivel1")
+			get_parent().end_level()
 			queue_free()
 		elif  currentHealth <= (maxHealth * 2/3) and currentPhase == Phase.ONE:
 			#print("fase 2")
@@ -234,6 +234,7 @@ func _on_attack_cooldown_timeout():
 func change_player(playerNum: int):
 	if Globales.current_character !=playerNum:
 			playerPosition = player.global_position
+			var player_checkpoint = player.checkpoint_position
 			Globales.current_character = playerNum
 			Globales.player_instance = null
 			playerInstancate = Globales.get_player()
@@ -241,4 +242,6 @@ func change_player(playerNum: int):
 			player.queue_free()
 			player = playerInstancate
 			player.global_position = playerPosition
+			player.has_checkpoint = true
+			player.checkpoint_position = player_checkpoint
 			#get_parent().get_.update_player()
