@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://43p4ani0ic8i" path="res://Sprites/Arquero/idle_arquero-Sheet.png" id="9_bu7vh"]
 [ext_resource type="PackedScene" uid="uid://c6qduvwxpmalg" path="res://Scenes/Elementos/lanza_flechas.tscn" id="10_n12st"]
 [ext_resource type="PackedScene" uid="uid://cs7ydd6a5li1d" path="res://Scenes/Elementos/zarza.tscn" id="11_8h0q8"]
-[ext_resource type="PackedScene" uid="uid://c3lt32bnk1f0u" path="res://Scenes/Elementos/pinchos_subebaja.tscn" id="12_x3xw8"]
+[ext_resource type="PackedScene" path="res://Scenes/Elementos/pinchos_subebaja.tscn" id="12_x3xw8"]
 [ext_resource type="PackedScene" uid="uid://coqvu88f812oh" path="res://Enemigos/lobo.tscn" id="13_2hm6e"]
 [ext_resource type="PackedScene" uid="uid://cdhp6ctexp8rt" path="res://Scenes/Elementos/checkpoint.tscn" id="13_x3xw8"]
 [ext_resource type="PackedScene" uid="uid://bqdjs2thft3vb" path="res://Scenes/Plataformas/tronco_rotura.tscn" id="14_3fyqh"]
