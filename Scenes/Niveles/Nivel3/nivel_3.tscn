@@ -652,4 +652,4 @@ path_time = 2.0
 position = Vector2(20, 312)
 
 [node name="Esquelo_arquero" parent="." instance=ExtResource("11_fdpa6")]
-position = Vector2(354, 389)
+position = Vector2(343, 388)

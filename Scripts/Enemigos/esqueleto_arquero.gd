@@ -3,14 +3,16 @@ class_name ArcherEnemy
 
 @onready var player_detection: Area2D = $playerDetection
 
+# --- Vida ---
+
 # --- Zona de patrulla ---
-@export var patrol_point_a: Vector2
-@export var patrol_point_b: Vector2
+var patrol_point_a: Vector2
+var patrol_point_b: Vector2
 
 # --- Movimiento y detección ---
 @export var speed: float = 100.0
 @export var gravity: float = 600.0
-@export var jump_force: float = -300.0
+@export var jump_force: float = -220.0  # salto menos vertical
 @export var detection_radius: float = 200.0
 @export var attack_radius: float = 150.0
 @export var attack_cooldown: float = 1.5
@@ -18,6 +20,7 @@ class_name ArcherEnemy
 
 @onready var floor_check: RayCast2D = $FloorChecker
 @onready var obstacle_check: RayCast2D = $ObstacleChecker
+@onready var obstacle_checker_2: RayCast2D = $ObstacleChecker2
 
 # --- Flechas ---
 @export var arrow_scene: PackedScene = preload("res://Scenes/Enemigos/Esqueleto_Arquero/flecha_esquelo.tscn")
@@ -36,6 +39,19 @@ var jump_counter := 0
 var jump_timer: Timer
 
 func _ready():
+	damage = 10
+	max_health = 50
+	current_health = max_health
+	num_coins = 2
+
+	super._ready()
+
+	# Definir puntos de patrulla fijos a 100 unidades del punto de inicio
+	patrol_point_a = global_position + Vector2(-100, 0)
+	patrol_point_b = global_position + Vector2(100, 0)
+	# Definir puntos fijos de patrulla relativos a la posición inicial
+	patrol_point_a = global_position + Vector2(-100, 0)
+	patrol_point_b = global_position + Vector2(100, 0)
 	sprite = $AnimatedSprite2D
 	patrol_target = patrol_point_a
 
@@ -92,15 +108,14 @@ func _physics_process(delta):
 				state = State.RETURN
 				return
 
-			sprite.play("attack")
 			_face_target(player.position)
 
 			if position.distance_to(player.position) > attack_radius:
 				state = State.CHASE
 
-			# Aplicar movimiento hacia el jugador, incluyendo salto y desplazamiento
 			var offset = player.position + Vector2(sign(player.position.x - position.x) * 20.0, 0)
 			_move_towards(offset, delta)
+
 
 		State.RETURN:
 			_return_to_patrol(delta)
@@ -108,6 +123,12 @@ func _physics_process(delta):
 func _patrol(delta):
 	if not idle_timer.is_stopped():
 		return
+
+	# Limitar patrullaje dentro del área
+	if position.distance_to(patrol_point_a) > 300 or position.distance_to(patrol_point_b) > 300:
+		state = State.RETURN
+		return
+
 	_move_towards(patrol_target, delta)
 	sprite.play("walk")
 	if position.distance_to(patrol_target) < 5.0:
@@ -133,6 +154,8 @@ func _chase_player(delta):
 	sprite.play("walk")
 
 func _move_towards(target: Vector2, delta):
+	if sprite.animation != "attack":
+		sprite.play("walk")
 	var dir = (target - position).normalized()
 	var direction_sign = sign(dir.x)
 	_update_raycast_direction(direction_sign)
@@ -140,11 +163,18 @@ func _move_towards(target: Vector2, delta):
 
 	var jumped = false
 	var on_ground = is_on_floor()
-	var obstacle_ahead = obstacle_check.is_colliding()
-
-	if on_ground and obstacle_ahead and not slow_mode:
-		velocity.y = jump_force
+	var obstacle_ahead = false
+	if obstacle_check.is_colliding():
+		obstacle_ahead = true
+	elif not obstacle_check.is_colliding() and obstacle_checker_2.is_colliding() and floor_check.is_colliding():
+		# Solo avanzar, no saltar, al detectar suelo más adelante
 		velocity.x = dir.x * current_speed
+
+
+	if on_ground and obstacle_check.is_colliding():
+		# Salto normal al detectar obstáculo real
+		velocity.y = jump_force
+		velocity.x = dir.x * current_speed * 2.2  # se impulsa en salto automáticamente
 		jumped = true
 		jump_counter += 1
 		if jump_counter >= 3:
@@ -152,12 +182,20 @@ func _move_towards(target: Vector2, delta):
 				jump_timer.start()
 			floor_check.target_position.y += 4.0
 			obstacle_check.target_position.y += 4.0
+		
 
-	if not jumped:
-		if floor_check.is_colliding() or state == State.CHASE:
+		if jumped:
 			velocity.x = dir.x * current_speed
-		else:
-			velocity.x = 0
+		if not jumped:
+			if floor_check.is_colliding() or state == State.CHASE:
+				velocity.x = dir.x * current_speed
+			elif not obstacle_check.is_colliding() and obstacle_checker_2.is_colliding():
+				# Avance suave en bajada por pendiente
+				velocity.x = dir.x * current_speed
+			else:
+				velocity.x = 0
+		
+
 
 	if not jumped:
 		velocity.y += gravity * delta
@@ -169,14 +207,26 @@ func _update_raycast_direction(direction_sign: int = -999):
 	if direction_sign == -999:
 		direction_sign = 1 if not sprite.flip_h else -1
 
-	floor_check.target_position = Vector2(10.0 * direction_sign, 12.0)  # ligeramente más bajo
+	# Mantener siempre las posiciones en (-2, 18)
+	floor_check.target_position = Vector2(10.0 * direction_sign, 18.0)
 	obstacle_check.target_position = Vector2(12.0 * direction_sign, 2.0)
+
+	# Forzar dirección manual del segundo RayCast según el giro
+	if direction_sign == 1:
+		obstacle_checker_2.position = Vector2(-2, 18)
+		obstacle_checker_2.target_position = Vector2(3.0, 10.0)
+	else:
+		obstacle_checker_2.position = Vector2(-2, 18)
+		obstacle_checker_2.target_position = Vector2(-3.0, 10.0)
+
 
 func _face_target(target: Vector2):
 	sprite.flip_h = target.x < position.x
 
 func _on_attack_timer_timeout():
 	if state == State.ATTACK and is_instance_valid(player):
+		if sprite.animation != "attack":
+			sprite.play("attack")
 		_shoot_arrow()
 
 func _shoot_arrow():
@@ -187,10 +237,12 @@ func _shoot_arrow():
 	var dir = (player.position - global_position).normalized()
 	arrow.direction = dir
 	arrow.speed = arrow_speed
+	arrow.atack_player = true
 
 func receive_damage(damage_received: int):
-	current_health -= damage_received
 	sprite.play("damage")
+	current_health -= damage_received
+	
 
 	if current_health <= 0:
 		for i in range(num_coins):
@@ -219,4 +271,28 @@ func _on_jump_timer_timeout():
 	if is_instance_valid(player):
 		velocity.x += 20.0 * sign(player.position.x - position.x)
 	else:
-		velocity.x += 20.0  # Avance genérico hacia la derecha como fallback
+		velocity.x += 20.0
+func _knockback(knockback: float):
+	sprite.stop()
+	sprite.play("damage")
+	if not is_instance_valid(player):
+		return
+
+	var knockback_dir = (position - player.position).normalized()
+	var reduced_distance = 10  # 🔽 menor distancia
+	var destination = position + knockback_dir * reduced_distance
+
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(position, destination)
+	query.exclude = [self]
+	var result = space_state.intersect_ray(query)
+
+	if result:
+		destination = result.position
+
+	# Aplicar un tween más corto
+	if knockback_tween and knockback_tween.is_running():
+		knockback_tween.kill()
+
+	knockback_tween = create_tween()
+	knockback_tween.tween_property(self, "position", destination, 0.3)  # 🔽 más rápido.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)

@@ -22,8 +22,8 @@ animations = [{
 size = Vector2(14, 6)
 
 [node name="Flecha" type="Area2D"]
-collision_layer = 2
-collision_mask = 8199
+collision_layer = 6
+collision_mask = 8195
 script = ExtResource("1_k50sj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

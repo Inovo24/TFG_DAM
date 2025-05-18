@@ -212,14 +212,15 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_18s1i"]
-radius = 7.0
+radius = 5.0
+height = 27.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gnu2t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gnu2t"]
 radius = 133.004
 
-[node name="Esquelo_arquero" type="CharacterBody2D"]
+[node name="Esquelo_arquero" type="CharacterBody2D" groups=["Enemies"]]
 position = Vector2(2, -12)
 collision_layer = 4
 collision_mask = 3
@@ -242,6 +243,13 @@ position = Vector2(-2, 12)
 shape = SubResource("CapsuleShape2D_gnu2t")
 debug_color = Color(0.477964, 0.444999, 0.984109, 0.42)
 
+[node name="playerDetection" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetection"]
+position = Vector2(-1, 28)
+shape = SubResource("CircleShape2D_gnu2t")
+
 [node name="FloorChecker" type="RayCast2D" parent="."]
 position = Vector2(-2, 18)
 target_position = Vector2(10, 6)
@@ -250,12 +258,9 @@ target_position = Vector2(10, 6)
 position = Vector2(-2, 20)
 target_position = Vector2(12, 0)
 
-[node name="playerDetection" type="Area2D" parent="."]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetection"]
-position = Vector2(-2, 12)
-shape = SubResource("CircleShape2D_gnu2t")
+[node name="ObstacleChecker2" type="RayCast2D" parent="."]
+position = Vector2(-2, 18)
+target_position = Vector2(3, 10)
 
 [connection signal="body_entered" from="playerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="playerDetection" to="." method="_on_player_detection_body_exited"]
