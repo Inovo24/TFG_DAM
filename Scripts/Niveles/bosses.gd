@@ -26,6 +26,7 @@ func _ready():
 	
 	healthBar = healthBarScene.instantiate()
 	add_child(healthBar)
+	healthBar.default = int(Guardado.level_temporal_progress[level_name]["time"])
 	
 	colorblindness = colorblindnessScene.instantiate()
 	colorblindness.Type = Globales.colorblindness_type
@@ -46,7 +47,8 @@ func _process(_delta: float) -> void:
 	
 	#Teporizador
 	if timer_running:
-		elapsed_time += _delta 
+		elapsed_time += _delta
+		healthBar.updateTimeLabel(elapsed_time)
 
 
 func end_level():

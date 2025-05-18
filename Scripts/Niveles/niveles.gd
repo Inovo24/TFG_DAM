@@ -66,7 +66,7 @@ func _process(_delta: float) -> void:
 	
 	if timer_running:
 		elapsed_time += _delta
-		#hud_gems.updateTimeLable(elapsed_time)
+		healthBar.updateTimeLabel(elapsed_time)
 
 # Function to update gems
 

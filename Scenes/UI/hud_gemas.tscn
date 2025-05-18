@@ -7,7 +7,7 @@
 [node name="HUD_Gemas" type="CanvasLayer" node_paths=PackedStringArray("gema_label", "portal_label")]
 script = ExtResource("1_gfxw7")
 gema_label = NodePath("Control/GemaTextura/GemaLabel")
-portal_label = NodePath("Control/PortalLabel")
+portal_label = NodePath("")
 metadata/_edit_horizontal_guides_ = [40.0]
 
 [node name="Control" type="Control" parent="."]
@@ -39,14 +39,4 @@ offset_right = 80.0
 offset_bottom = 16.0
 grow_vertical = 2
 text = "x 00"
-label_settings = ExtResource("2_x0xbv")
-
-[node name="PortalLabel" type="Label" parent="Control"]
-visible = false
-layout_mode = 0
-offset_left = 520.0
-offset_top = 16.0
-offset_right = 704.0
-offset_bottom = 39.0
-text = "Portal Cerrado"
 label_settings = ExtResource("2_x0xbv")
