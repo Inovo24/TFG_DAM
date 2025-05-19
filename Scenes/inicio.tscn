@@ -18,7 +18,7 @@
 [ext_resource type="Script" uid="uid://bv0pm2e14nhkj" path="res://Scripts/Interfaz/barco_area.gd" id="14_xldw7"]
 [ext_resource type="AudioStream" uid="uid://p74cf510edy4" path="res://Audio/3. Saga of the Sea Wolves.mp3" id="15_f4hti"]
 [ext_resource type="Script" uid="uid://b4aqtq736rojs" path="res://Scripts/Interfaz/ajustes_area.gd" id="16_3x7h1"]
-[ext_resource type="PackedScene" uid="uid://foow48tmur6c" path="res://Enemigos/Esqueleto_arquero.tscn" id="19_k1pry"]
+[ext_resource type="PackedScene" uid="uid://d38t4kskhkxnc" path="res://Enemigos/Enemigo_aereo.tscn" id="20_nmj2t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h08hr"]
 size = Vector2(56, 45)
@@ -713,8 +713,8 @@ collision_mask = 7
 position = Vector2(-3, -109)
 shape = SubResource("SegmentShape2D_yintj")
 
-[node name="Esquelo_arquero" parent="." instance=ExtResource("19_k1pry")]
-position = Vector2(1107, 502)
+[node name="EnemigoAereo" parent="." instance=ExtResource("20_nmj2t")]
+position = Vector2(842, 355)
 
 [connection signal="body_entered" from="AreaNiveles" to="AreaNiveles" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaNiveles" to="AreaNiveles" method="_on_body_exited"]

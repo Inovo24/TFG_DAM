@@ -732,7 +732,7 @@ states/idle/position = Vector2(114, 133)
 states/saltar/node = SubResource("AnimationNodeAnimation_1s6bp")
 states/saltar/position = Vector2(303, 9)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_t3yva")]
-graph_offset = Vector2(-447.129, 69.0623)
+graph_offset = Vector2(-293.983, -63.9623)
 
 [node name="Vikingo" type="CharacterBody2D" groups=["player"]]
 z_index = 5

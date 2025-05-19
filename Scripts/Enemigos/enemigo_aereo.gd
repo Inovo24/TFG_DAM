@@ -33,6 +33,8 @@ func _process(delta: float) -> void:
 	handle_animation()
 
 func handle_animation():
+	if is_taking_damage:
+		return  # No cambiar animación si está en daño
 	if is_attacking:
 		animated_sprite_2d.play("attack")
 	elif velocity.length() > 0:
@@ -117,3 +119,17 @@ func _perform_attack():
 func _resume_patrol():
 	if not is_chasing and not is_attacking:  # If not attacking or chasing, patrol
 		timer.start()
+var is_taking_damage := false  # Asegúrate de tener esta variable declarada al principio del script
+
+func receive_damage(damage_received: int):
+	super.receive_damage(damage_received)
+
+	is_taking_damage = true
+
+	if animated_sprite_2d.animation != "damage":
+		var previous_animation = animated_sprite_2d.animation
+		animated_sprite_2d.play("damage")
+
+		await get_tree().create_timer(0.15).timeout
+
+	is_taking_damage = false

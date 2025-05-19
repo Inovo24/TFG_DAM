@@ -13,6 +13,7 @@ var coyote_timer : Timer
 var coyote_jump_available : bool = true
 var combo_timer : Timer
 
+var is_taking_damage := false
 var max_health = 125
 var current_health
 var life_count = 3
@@ -280,6 +281,21 @@ func take_damage(damage_received:int):
 		life_count -= 1
 		add_child(death_menu.instantiate())
 		get_tree().paused = true
+	if is_taking_damage:
+		return
+
+	is_taking_damage = true
+
+	if animPlayer and animPlayer.has_animation("daño"):
+		var previous_anim = anim_state_machine.get_current_node()
+		anim_state_machine.travel("daño")
+
+		await get_tree().create_timer(0.15).timeout
+
+		if current_health > 0:
+			anim_state_machine.travel(previous_anim)
+
+	is_taking_damage = false
 
 
 func return_to_safe_position():

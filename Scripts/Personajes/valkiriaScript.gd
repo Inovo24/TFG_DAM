@@ -6,7 +6,7 @@ var dash_cooldown = 0.25  # Tiempo para detectar doble tap
 var dash_duration = 0.2
 var dash_speed = 800      # Velocidad del dash
 var is_dashing = false
-var is_taking_damage := false
+
 var last_dash_direction = ""
 var dash_timer := Timer.new()
 
@@ -71,40 +71,3 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	elif body.has_method("take_damage"):
 		body.take_damage(damage)
 	#deal_damage_valkyrie()
-
-'''
-#Para romper bloques
-func deal_damage_valkyrie():
-	var space_state = get_world_2d().direct_space_state
-	var shape = RectangleShape2D.new()
-	shape.extents = Vector2(2, 2)
-
-	var params = PhysicsShapeQueryParameters2D.new()
-	params.shape = shape
-	params.transform = Transform2D(0, global_position + Vector2($Sprite2D.scale.x * 24, 0))
-	params.collision_mask = 1 << 13
-	params.collide_with_bodies = true
-
-	var result = space_state.intersect_shape(params, 20)
-	for hit in result:
-		if hit.collider.has_method("take_damage"):
-			hit.collider.take_damage(damage)
-'''
-#Llamada función padre y solo agrega la animación de daño
-func take_damage(damage_received: int):
-	if is_taking_damage:
-		return
-
-	is_taking_damage = true
-	super.take_damage(damage_received)
-
-	if animPlayer and animPlayer.has_animation("daño"):
-		var previous_anim = anim_state_machine.get_current_node()
-		anim_state_machine.travel("daño")
-
-		await get_tree().create_timer(0.15).timeout
-
-		if current_health > 0:
-			anim_state_machine.travel(previous_anim)
-
-	is_taking_damage = false
