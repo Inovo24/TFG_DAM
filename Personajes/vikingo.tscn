@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cfltomgtwuoc"]
+[gd_scene load_steps=43 format=3 uid="uid://cfltomgtwuoc"]
 
 [ext_resource type="Script" uid="uid://conujhywlq0aw" path="res://Scripts/Personajes/vikingoScript.gd" id="1_dw0it"]
 [ext_resource type="Texture2D" uid="uid://qnqito2bokb3" path="res://Sprites/Vikingo/viking_run-Sheet.png" id="2_3x3oj"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bsfrb6w2lfv4p" path="res://Sprites/Vikingo/jump_viking-Sheet.png" id="8_25mdg"]
 [ext_resource type="Texture2D" uid="uid://tvuxxbduu5i3" path="res://Sprites/Vikingo/fall_viking-Sheet.png" id="9_hlwk2"]
 [ext_resource type="Texture2D" uid="uid://d3ouhgt0mohwm" path="res://Sprites/Vikingo/vikingo_upattack-Sheet.png" id="10_hlwk2"]
+[ext_resource type="Texture2D" uid="uid://bje84alhp1n2a" path="res://Sprites/Vikingo/vikingo_damage.png" id="12_55uqw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rahmg"]
 size = Vector2(9, 31)
@@ -97,6 +98,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_gbp7j"]
@@ -584,6 +597,58 @@ tracks/2/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
+[sub_resource type="Animation" id="Animation_8ydtl"]
+resource_name = "daño"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_55uqw")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 0.2),
+"transitions": PackedFloat32Array(1, 0.8),
+"update": 0,
+"values": [Color(1, 1, 1, 0.454902), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s28m3"]
 _data = {
 &"RESET": SubResource("Animation_it357"),
@@ -595,6 +660,7 @@ _data = {
 &"ataqueBajo": SubResource("Animation_25mdg"),
 &"caer": SubResource("Animation_beggj"),
 &"correr": SubResource("Animation_fst5v"),
+&"daño": SubResource("Animation_8ydtl"),
 &"idle": SubResource("Animation_mwkqa"),
 &"saltar": SubResource("Animation_af52v")
 }
@@ -628,6 +694,9 @@ animation = &"caer"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i1o5r"]
 animation = &"correr"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0o4t5"]
+animation = &"daño"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h0o15"]
 animation = &"idle"
 
@@ -656,12 +725,14 @@ states/caer/node = SubResource("AnimationNodeAnimation_6vyxn")
 states/caer/position = Vector2(455, 40.0108)
 states/correr/node = SubResource("AnimationNodeAnimation_i1o5r")
 states/correr/position = Vector2(604, 123)
+"states/daño/node" = SubResource("AnimationNodeAnimation_0o4t5")
+"states/daño/position" = Vector2(619.003, 17.4378)
 states/idle/node = SubResource("AnimationNodeAnimation_h0o15")
 states/idle/position = Vector2(114, 133)
 states/saltar/node = SubResource("AnimationNodeAnimation_1s6bp")
 states/saltar/position = Vector2(303, 9)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_t3yva")]
-graph_offset = Vector2(-162.33, -52.5622)
+graph_offset = Vector2(-447.129, 69.0623)
 
 [node name="Vikingo" type="CharacterBody2D" groups=["player"]]
 z_index = 5
@@ -672,7 +743,6 @@ script = ExtResource("1_dw0it")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_beggj")
 hframes = 6
-frame = 1
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
 collision_layer = 2

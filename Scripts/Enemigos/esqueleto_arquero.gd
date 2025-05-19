@@ -295,4 +295,4 @@ func _knockback(knockback: float):
 		knockback_tween.kill()
 
 	knockback_tween = create_tween()
-	knockback_tween.tween_property(self, "position", destination, 0.3)  # 🔽 más rápido.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	knockback_tween.tween_property(self, "position", destination, 0.3)  
