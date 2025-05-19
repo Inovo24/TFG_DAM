@@ -5,6 +5,7 @@ extends Enemies
 @onready var detection_area: Area2D = $Area2D  # General detection area
 @onready var attack_area: Area2D = $AttackArea  # Attack area
 
+
 var SPEED = 60
 var dir: Vector2 = Vector2.ZERO
 var is_chasing: bool = false
@@ -36,9 +37,9 @@ func handle_animation():
 	if is_taking_damage:
 		return  # No cambiar animación si está en daño
 	if is_attacking:
-		animated_sprite_2d.play("attack")
+		animated_sprite_2d.play("ataque")
 	elif velocity.length() > 0:
-		animated_sprite_2d.play("flying")
+		animated_sprite_2d.play("idle")
 
 	if velocity.x < 0:
 		animated_sprite_2d.flip_h = true
@@ -119,17 +120,3 @@ func _perform_attack():
 func _resume_patrol():
 	if not is_chasing and not is_attacking:  # If not attacking or chasing, patrol
 		timer.start()
-var is_taking_damage := false  # Asegúrate de tener esta variable declarada al principio del script
-
-func receive_damage(damage_received: int):
-	super.receive_damage(damage_received)
-
-	is_taking_damage = true
-
-	if animated_sprite_2d.animation != "damage":
-		var previous_animation = animated_sprite_2d.animation
-		animated_sprite_2d.play("damage")
-
-		await get_tree().create_timer(0.15).timeout
-
-	is_taking_damage = false

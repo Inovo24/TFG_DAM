@@ -4,6 +4,7 @@ class_name Enemies
 var damage = 10
 var max_health = 0
 var current_health
+var is_taking_damage := false
 
 var knockback_duration = 1.5
 var knockback_receive_damage = 1
@@ -16,6 +17,9 @@ var slow_timer: Timer
 var pause_timer: Timer
 var knockback_tween: Tween
 
+@onready var animPlayer = $AnimationPlayer
+@onready var animation_tree = $AnimationTree
+@onready var anim_state_machine = animation_tree.get("parameters/playback")
 func _ready():
 	add_to_group("Enemies")
 	current_health = max_health
@@ -37,7 +41,21 @@ func _ready():
 
 func receive_damage(damage_received: int):
 	current_health = current_health - damage_received
-	print(current_health)
+	if is_taking_damage:
+		return
+
+	is_taking_damage = true
+
+	if animPlayer and animPlayer.has_animation("daño"):
+		var previous_anim = anim_state_machine.get_current_node()
+		anim_state_machine.travel("daño")
+
+		await get_tree().create_timer(0.15).timeout
+
+		if current_health > 0:
+			anim_state_machine.travel(previous_anim)
+
+	is_taking_damage = false
 	
 	if current_health <= 0:
 		for i in range(num_coins):

@@ -25,7 +25,7 @@ func _ready() -> void:
 	add_child(dash_timer)
 
 func _physics_process(delta):
-	# 🔁 Ejecuta primero la lógica base del personaje
+
 	super._physics_process(delta)
 
 	# Añade solo el comportamiento especial de Valkyrie

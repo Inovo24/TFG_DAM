@@ -34,7 +34,7 @@ var next_attack : bool = false
 @onready var anim_state_machine = animation_tree.get("parameters/playback")
 @onready var anim_appearing = preload("res://Scenes/Efectos/EfectoAparecer.tscn")
 
-enum State { IDLE, RUN, JUMP, FALL, ATTACK, AIR_ATTACK, UP_ATTACK, DOWN_ATTACK }
+enum State { IDLE, RUN, JUMP, FALL, ATTACK, AIR_ATTACK, UP_ATTACK, DOWN_ATTACK, DAMAGE  }
 var current_state : State = State.IDLE
 var previous_state : State = State.IDLE
 
@@ -79,7 +79,7 @@ func _ready():
 		skill_active = true
 
 func _physics_process(delta):
-	if can_move:
+	if can_move and current_state != State.DAMAGE:
 		var input_horizontal = Input.get_axis("mover_izq", "mover_der")
 		#var jump_attempt = Input.is_action_just_pressed("salto")
 		var attack_attempt = Input.is_action_just_pressed("ataque")
@@ -186,6 +186,9 @@ func switch_state(new_state: State):
 				down_attack()
 			State.FALL:
 				anim_state_machine.travel("caer")
+			State.DAMAGE:
+				anim_state_machine.travel("daño")
+
 
 
 func _on_animation_finished(_anim_name):
@@ -274,13 +277,15 @@ func getCurrentHealth():
 func setCurrentHealth(health:int):
 	current_health = health
 
-func take_damage(damage_received:int):
+func take_damage(damage_received: int):
 	setCurrentHealth(getCurrentHealth() - damage_received)
 
 	if getCurrentHealth() <= 0:
 		life_count -= 1
 		add_child(death_menu.instantiate())
 		get_tree().paused = true
+		return
+
 	if is_taking_damage:
 		return
 
@@ -295,8 +300,13 @@ func take_damage(damage_received:int):
 		if current_health > 0:
 			anim_state_machine.travel(previous_anim)
 
+	
+	can_move = true
 	is_taking_damage = false
+	if current_health > 0:
+		switch_state(State.IDLE)
 
+	
 
 func return_to_safe_position():
 	can_move = false

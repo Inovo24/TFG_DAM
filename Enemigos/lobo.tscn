@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qsrl1"]
 radius = 15.0
-height = 52.0
+height = 48.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g1fwt"]
 animation = &"daño"
@@ -195,7 +195,7 @@ hframes = 4
 [node name="Atack" type="Area2D" parent="SpriteLobo"]
 position = Vector2(-68.2103, -21.6)
 scale = Vector2(17.0526, 21.6)
-collision_layer = 4
+collision_layer = 32
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteLobo/Atack"]
@@ -224,7 +224,6 @@ one_shot = true
 
 [connection signal="body_entered" from="SpriteLobo/Atack" to="." method="_on_attack_body_entered"]
 [connection signal="body_exited" from="SpriteLobo/Atack" to="." method="_on_attack_body_exited"]
-[connection signal="body_exited" from="SpriteLobo/Atack" to="." method="_on_atack_body_exited"]
 [connection signal="timeout" from="SpriteLobo/Atack/TimerAtack" to="." method="_on_timer_atack_timeout"]
 [connection signal="timeout" from="SpriteLobo/Atack/TimerAtack" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="GiroTimer" to="." method="_on_turn_timer_timeout"]
