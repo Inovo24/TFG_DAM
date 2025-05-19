@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://2oodd2mcba48"]
+[gd_scene load_steps=37 format=3 uid="uid://2oodd2mcba48"]
 
 [ext_resource type="Script" uid="uid://dtl7w87dc1njk" path="res://Scripts/Personajes/valkiriaScript.gd" id="1_edgug"]
 [ext_resource type="Texture2D" uid="uid://bnvvl23e1esrt" path="res://Sprites/Guerrera/jump_valkiria-Sheet.png" id="2_5vck1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://tjk3nvib0x3d" path="res://Sprites/Guerrera/valkiria_upattack-Sheet.png" id="4_sx14a"]
 [ext_resource type="Texture2D" uid="uid://5u7qs33mrnfr" path="res://Sprites/Guerrera/valkiria_downattack-Sheet.png" id="5_4ng45"]
 [ext_resource type="Texture2D" uid="uid://v2457hb7clx8" path="res://Sprites/Guerrera/fall_valkiria-Sheet.png" id="6_uqljf"]
+[ext_resource type="Texture2D" uid="uid://b22kk1k0rvgi6" path="res://Sprites/Guerrera/valkiria_damage.png" id="10_3jogb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vck1"]
 size = Vector2(19, 20)
@@ -95,6 +96,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_h7ury"]
@@ -475,6 +488,58 @@ tracks/2/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
+[sub_resource type="Animation" id="Animation_485r7"]
+resource_name = "daño"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_3jogb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 2),
+"transitions": PackedFloat32Array(1, 0.8),
+"update": 0,
+"values": [Color(1, 1, 1, 0.705882), Color(1, 1, 1, 0.705882)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sosqj"]
 _data = {
 &"RESET": SubResource("Animation_yafkg"),
@@ -484,6 +549,7 @@ _data = {
 &"ataqueBajo": SubResource("Animation_4ng45"),
 &"caer": SubResource("Animation_sx14a"),
 &"correr": SubResource("Animation_ieji3"),
+&"daño": SubResource("Animation_485r7"),
 &"idle": SubResource("Animation_heg4g"),
 &"saltar": SubResource("Animation_ar1lh")
 }
@@ -505,6 +571,9 @@ animation = &"caer"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iuuvc"]
 animation = &"correr"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3jogb"]
+animation = &"daño"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h1rsh"]
 animation = &"idle"
@@ -528,6 +597,8 @@ states/caer/node = SubResource("AnimationNodeAnimation_5vck1")
 states/caer/position = Vector2(708, 68)
 states/correr/node = SubResource("AnimationNodeAnimation_iuuvc")
 states/correr/position = Vector2(530, 41)
+"states/daño/node" = SubResource("AnimationNodeAnimation_3jogb")
+"states/daño/position" = Vector2(832, 46)
 states/idle/node = SubResource("AnimationNodeAnimation_h1rsh")
 states/idle/position = Vector2(280, 49)
 states/saltar/node = SubResource("AnimationNodeAnimation_qluc5")
@@ -543,7 +614,6 @@ script = ExtResource("1_edgug")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_5vck1")
 hframes = 6
-frame = 1
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
 collision_layer = 2
