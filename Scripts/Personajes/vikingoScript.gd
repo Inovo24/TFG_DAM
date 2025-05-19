@@ -7,7 +7,7 @@ var wall_jump_speed = Vector2(250, -400)
 var is_on_wall := false
 var wall_normal := Vector2.ZERO
 const WALL_SLIDE_SPEED:float = 80  # Velocidad máxima de deslizamiento por pared
-
+var is_taking_damage := false
 func _ready() -> void:
 	add_to_group("player")
 	#skill_active = true
@@ -70,8 +70,8 @@ func _on_Area2D_body_entered(body: Node2D) -> void:
 	elif body.has_method("take_damage"):
 		body.take_damage(damage)
 
-var is_taking_damage := false  # Asegúrate de tener esta variable al inicio del script
 
+#Llamada función padre y solo agrega la animación de daño
 func take_damage(damage_received: int):
 	if is_taking_damage:
 		return

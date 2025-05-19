@@ -1,11 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://coqvu88f812oh"]
+[gd_scene load_steps=14 format=3 uid="uid://coqvu88f812oh"]
 
 [ext_resource type="Script" uid="uid://brkxpdqtafm4j" path="res://Scripts/Enemigos/lobo.gd" id="1_qsrl1"]
 [ext_resource type="Texture2D" uid="uid://beikhcvw72w4b" path="res://Sprites/Enemigos/wolf-Sheet.png" id="2_qsrl1"]
+[ext_resource type="Texture2D" uid="uid://buy45ge86dk2l" path="res://Sprites/Enemigos/wolf-damage.png" id="3_g1fwt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qsrl1"]
 radius = 15.0
 height = 52.0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g1fwt"]
+animation = &"daño"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qsrl1"]
 animation = &"patrulla"
@@ -14,6 +18,8 @@ animation = &"patrulla"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_g1fwt"]
+"states/daño/node" = SubResource("AnimationNodeAnimation_g1fwt")
+"states/daño/position" = Vector2(504, 79.3333)
 states/patrulla/node = SubResource("AnimationNodeAnimation_qsrl1")
 states/patrulla/position = Vector2(305, 100)
 transitions = ["Start", "patrulla", SubResource("AnimationNodeStateMachineTransition_qsrl1")]
@@ -43,6 +49,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteLobo:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteLobo:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_g1fwt"]
@@ -75,9 +105,62 @@ tracks/1/keys = {
 "values": [0, 0, 1, 2]
 }
 
+[sub_resource type="Animation" id="Animation_5fixg"]
+resource_name = "daño"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteLobo:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_g1fwt")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteLobo:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteLobo:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteLobo:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 2),
+"transitions": PackedFloat32Array(1, 0.8),
+"update": 0,
+"values": [Color(1, 1, 1, 0.513726), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5fixg"]
 _data = {
 &"RESET": SubResource("Animation_okuhp"),
+&"daño": SubResource("Animation_5fixg"),
 &"patrulla": SubResource("Animation_g1fwt")
 }
 

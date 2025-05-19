@@ -6,6 +6,7 @@ var speed = NORMAL_SPEED
 var direction = -1
 const gravity = 98
 var health = 100
+var is_taking_damage := false  # Asegúrate de tener esta variable al inicio del script
 
 var turning = false
 var can_attack = true
@@ -104,3 +105,12 @@ func _on_attack_body_entered(body):
 	if body.is_in_group("player"):
 		player = body
 		player_in_distance = true
+		
+#Llamada función padre y solo agrega la animación de daño
+func receive_damage(damage_received: int):
+	super.receive_damage(damage_received)  # lógica de Enemies
+
+	var previous_anim = animationTree.get("parameters/playback").get_current_node()
+	animationTree.get("parameters/playback").travel("daño")
+	await get_tree().create_timer(0.15).timeout
+	animationTree.get("parameters/playback").travel(previous_anim)
