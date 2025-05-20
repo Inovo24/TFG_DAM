@@ -35,8 +35,8 @@ func _input(event):
 				$Camera2D/Panel/VSplitContainer/Tiempo.visible = true
 				$Camera2D/Panel/VSplitContainer/Jugar.visible = true
 				
-				var minutos = level["time"] / 60
-				var segundos_restantes = level["time"] % 60
+				var minutos = int(level["time"]) / 60
+				var segundos_restantes = int(level["time"]) % 60
 				
 				$Camera2D/Panel/VSplitContainer/Gemas.text = tr("lbl_maximo_gemas")+": "+str(level["num_gems"])
 				$Camera2D/Panel/VSplitContainer/Tiempo.text = tr("lbl_tiempo_minimo")+": "+"%02d:%02d" % [minutos, segundos_restantes]

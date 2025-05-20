@@ -78,7 +78,7 @@ var default_controls = {
 	"ataque": [KEY_Z],
 	"arriba": [KEY_UP, KEY_W],
 	"abajo": [KEY_DOWN, KEY_S],
-	"aceptar_entrar": [KEY_W, KEY_ENTER],
+	"aceptar_entrar": [KEY_ENTER],
 	"salir": [KEY_ESCAPE]
 }
 
