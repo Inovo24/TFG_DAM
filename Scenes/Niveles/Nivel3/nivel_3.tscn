@@ -616,15 +616,15 @@ scale = Vector2(1, -1)
 random = true
 
 [node name="LanzaLlamas" parent="LanzaLlamas" instance=ExtResource("7_ql8ao")]
-position = Vector2(3717, 406)
+position = Vector2(3724, 406)
 random = true
 
 [node name="LanzaLlamas5" parent="LanzaLlamas" instance=ExtResource("7_ql8ao")]
-position = Vector2(3780, 390)
+position = Vector2(3788, 390)
 random = true
 
 [node name="LanzaLlamas6" parent="LanzaLlamas" instance=ExtResource("7_ql8ao")]
-position = Vector2(3845, 406)
+position = Vector2(3853, 406)
 random = true
 
 [node name="PlataformaNormal" parent="." instance=ExtResource("9_tmh1a")]
