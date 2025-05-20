@@ -52,11 +52,17 @@ func _ready():
 
 func _process(_delta: float) -> void:
 	var direction = player.sprite.scale.x
-	if direction > 0:
-		target_position = player.position + Vector2(offsetX, offsetY)
+	if player.is_on_floor():
+		offsetY = -80
 	else:
-		target_position = player.position + Vector2(-offsetX, offsetY)
+		offsetY = 0
+		#print(offsetY)
+	if direction > 0:
+		target_position = player.position + Vector2(offsetX, offsetY+25)
+	else:
+		target_position = player.position + Vector2(-offsetX, offsetY+25)
 	camera.position = camera.position.lerp(target_position,_delta* 5)
+	#print(offsetY)
 	hud_gems.updateGemLabel(collected_gems)
 	if Input.is_action_just_pressed("salir"):
 		if menu_instance == null:
