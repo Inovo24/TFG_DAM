@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://b7b16sionaqjg"]
+[gd_scene load_steps=10 format=4 uid="uid://b7b16sionaqjg"]
 
 [ext_resource type="Script" uid="uid://3nk4il0s88b0" path="res://Scripts/Niveles/nivel_1/batalla_boss_1.gd" id="1_felyv"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="1_fl4gq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bwsqlinj76xkk" path="res://Sprites/backgrounds/background_level1/Fondo_Boss1.png" id="4_j7b2c"]
 [ext_resource type="Texture2D" uid="uid://dx8yafexkfsy3" path="res://Sprites/backgrounds/background_level1/SubcapaLvlBoss1.png" id="5_3g30o"]
 [ext_resource type="Texture2D" uid="uid://b14u1ukre6dy2" path="res://Sprites/backgrounds/background_level1/estalactitas.png" id="5_jqx4k"]
+[ext_resource type="PackedScene" uid="uid://bfakpxclv64ql" path="res://Enemigos/snake_boss.tscn" id="7_ax4xq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_felyv"]
 texture = ExtResource("1_fl4gq")
@@ -457,7 +458,10 @@ texture = ExtResource("5_jqx4k")
 centered = false
 
 [node name="wolf_boss" parent="." instance=ExtResource("2_ph433")]
-position = Vector2(648, 445)
+position = Vector2(648, 432)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(352, 299)
+
+[node name="SnakeBoss" parent="." instance=ExtResource("7_ax4xq")]
+position = Vector2(336, 456)

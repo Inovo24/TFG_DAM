@@ -1,9 +1,11 @@
-[gd_scene load_steps=74 format=3 uid="uid://bfakpxclv64ql"]
+[gd_scene load_steps=86 format=3 uid="uid://bfakpxclv64ql"]
 
+[ext_resource type="Script" uid="uid://x85xsubxy0ri" path="res://Scripts/Enemigos/snake_boss.gd" id="1_43t1e"]
 [ext_resource type="Texture2D" uid="uid://vsaxflxudmpl" path="res://Sprites/Enemigos/bosses/Serpiente/snake - appear.png" id="1_pmi6h"]
 [ext_resource type="Texture2D" uid="uid://bywerqk0q6xf7" path="res://Sprites/Enemigos/bosses/Serpiente/snake - attack.png" id="1_w4abk"]
 [ext_resource type="Texture2D" uid="uid://c82hrd1latvu" path="res://Sprites/Enemigos/bosses/Serpiente/snake - idle.png" id="2_h65et"]
 [ext_resource type="Texture2D" uid="uid://uxfs7hweuhwa" path="res://Sprites/Enemigos/bosses/Serpiente/snake - Whitehit.png" id="2_pmi6h"]
+[ext_resource type="Texture2D" uid="uid://d1qo5iusnldrf" path="res://Sprites/Enemigos/bosses/Serpiente/snake - dive.png" id="4_4ucd0"]
 [ext_resource type="Texture2D" uid="uid://dkyr3l8kfmy6b" path="res://Sprites/Enemigos/bosses/Serpiente/snake - moveEnd.png" id="4_rd7va"]
 [ext_resource type="Texture2D" uid="uid://de4it84lvyfts" path="res://Sprites/Enemigos/bosses/Serpiente/snake - Death.png" id="5_1fg61"]
 [ext_resource type="Texture2D" uid="uid://cd4505bjlw34l" path="res://Sprites/Enemigos/bosses/Serpiente/snake - moving.png" id="5_dxtf2"]
@@ -120,6 +122,42 @@ region = Rect2(192, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tlfgv"]
 atlas = ExtResource("2_pmi6h")
 region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnat5"]
+atlas = ExtResource("4_4ucd0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbevo"]
+atlas = ExtResource("4_4ucd0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_susu4"]
+atlas = ExtResource("4_4ucd0")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11wsj"]
+atlas = ExtResource("4_4ucd0")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkuh8"]
+atlas = ExtResource("4_4ucd0")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmki4"]
+atlas = ExtResource("4_4ucd0")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkj0v"]
+atlas = ExtResource("4_4ucd0")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms4jx"]
+atlas = ExtResource("4_4ucd0")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl70o"]
+atlas = ExtResource("4_4ucd0")
+region = Rect2(512, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uyphc"]
 atlas = ExtResource("4_rd7va")
@@ -364,6 +402,38 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_cnat5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbevo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_susu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11wsj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkuh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmki4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkj0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms4jx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tl70o")
+}],
+"loop": true,
+"name": &"divear",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_uyphc")
 }, {
 "duration": 1.0,
@@ -493,14 +563,49 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mb8ln"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ucd0"]
+size = Vector2(21, 20)
 
-[node name="SnakeBoss" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_43t1e"]
+radius = 24.0208
+
+[node name="SnakeBoss" type="Node2D"]
+script = ExtResource("1_43t1e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -7)
 sprite_frames = SubResource("SpriteFrames_t4y7o")
-animation = &"aparicion"
+animation = &"idle"
 autoplay = "idle"
+frame = 4
+frame_progress = 0.000733931
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_mb8ln")
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_4ucd0")
+
+[node name="attack_timer" type="Timer" parent="."]
+
+[node name="initialPosition" type="Marker2D" parent="."]
+
+[node name="damage_area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_area"]
+shape = SubResource("CircleShape2D_43t1e")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Point1" type="Marker2D" parent="SpawnPoints"]
+
+[node name="Point2" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(-92, 0)
+
+[node name="Point3" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(97, 0)
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
