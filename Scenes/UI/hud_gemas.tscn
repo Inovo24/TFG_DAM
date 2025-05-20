@@ -4,10 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cv7n43gsv6kup" path="res://Sprites/Elementos/Gemas/GemaHud.png" id="1_j2hho"]
 [ext_resource type="LabelSettings" uid="uid://b1gtx4uxnb15b" path="res://Scenes/UI/UI_laber_settings/font.tres" id="2_x0xbv"]
 
-[node name="HUD_Gemas" type="CanvasLayer" node_paths=PackedStringArray("gema_label", "portal_label")]
+[node name="HUD_Gemas" type="CanvasLayer" node_paths=PackedStringArray("gema_label")]
 script = ExtResource("1_gfxw7")
 gema_label = NodePath("Control/GemaTextura/GemaLabel")
-portal_label = NodePath("")
 metadata/_edit_horizontal_guides_ = [40.0]
 
 [node name="Control" type="Control" parent="."]

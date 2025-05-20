@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://brcqtuumjw2gy"]
+[gd_scene load_steps=31 format=3 uid="uid://brcqtuumjw2gy"]
 
 [ext_resource type="Script" uid="uid://bembmkp7s16vg" path="res://Scripts/Personajes/arqueroScript.gd" id="1_k2g1c"]
 [ext_resource type="Texture2D" uid="uid://bbfyi5bw1mw06" path="res://Sprites/Arquero/run_arquero-Sheet.png" id="2_5unkh"]
@@ -6,12 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://43p4ani0ic8i" path="res://Sprites/Arquero/idle_arquero-Sheet.png" id="3_xo4jv"]
 [ext_resource type="Texture2D" uid="uid://b22144w0c6b8b" path="res://Sprites/Arquero/jump_arquero-Sheet.png" id="5_6x35u"]
 [ext_resource type="Texture2D" uid="uid://nkt2csctuotu" path="res://Sprites/Arquero/fall_arquero-Sheet.png" id="6_dayqw"]
+[ext_resource type="Texture2D" uid="uid://821qjqnuw3jc" path="res://Sprites/Arquero/arquero_damage.png" id="7_dayqw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrfbw"]
 size = Vector2(17, 27)
 
 [sub_resource type="Animation" id="Animation_a4t8d"]
-length = 0.001
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -47,6 +48,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [6]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_l5ou5"]
@@ -265,6 +278,58 @@ tracks/2/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
+[sub_resource type="Animation" id="Animation_rca37"]
+resource_name = "daño"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_dayqw")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 0.8),
+"update": 0,
+"values": [Color(1, 1, 1, 0.662745), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aoste"]
 _data = {
 &"RESET": SubResource("Animation_a4t8d"),
@@ -274,6 +339,7 @@ _data = {
 &"ataqueBajo": SubResource("Animation_ce8cu"),
 &"caer": SubResource("Animation_3k3pe"),
 &"correr": SubResource("Animation_qope3"),
+&"daño": SubResource("Animation_rca37"),
 &"idle": SubResource("Animation_cn7ll"),
 &"saltar": SubResource("Animation_2mfpl")
 }
@@ -295,6 +361,9 @@ animation = &"caer"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qawjt"]
 animation = &"correr"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rca37"]
+animation = &"daño"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_byc7g"]
 animation = &"idle"
@@ -318,6 +387,8 @@ states/caer/node = SubResource("AnimationNodeAnimation_6x35u")
 states/caer/position = Vector2(747, 60)
 states/correr/node = SubResource("AnimationNodeAnimation_qawjt")
 states/correr/position = Vector2(589, 37)
+"states/daño/node" = SubResource("AnimationNodeAnimation_rca37")
+"states/daño/position" = Vector2(853, 37)
 states/idle/node = SubResource("AnimationNodeAnimation_byc7g")
 states/idle/position = Vector2(288, 70)
 states/saltar/node = SubResource("AnimationNodeAnimation_8geib")
@@ -333,7 +404,6 @@ script = ExtResource("1_k2g1c")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_sykx0")
 hframes = 6
-frame = 1
 
 [node name="Marker2D" type="Marker2D" parent="Sprite2D"]
 position = Vector2(8, 1)
@@ -346,6 +416,7 @@ shape = SubResource("RectangleShape2D_xrfbw")
 libraries = {
 &"": SubResource("AnimationLibrary_aoste")
 }
+autoplay = "idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="." groups=["player"]]
 active = false
