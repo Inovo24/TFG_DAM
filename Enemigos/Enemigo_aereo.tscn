@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d38t4kskhkxnc"]
+[gd_scene load_steps=16 format=3 uid="uid://d38t4kskhkxnc"]
 
 [ext_resource type="Texture2D" uid="uid://bite0v3nks3wv" path="res://Sprites/Enemigos/Crow.png" id="1_3vuf6"]
 [ext_resource type="Script" uid="uid://bj3cerfxcqwy8" path="res://Scripts/Enemigos/enemigo_aereo.gd" id="1_s3nne"]
@@ -87,121 +87,6 @@ radius = 300.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3nne"]
 radius = 17.1172
 
-[sub_resource type="Animation" id="Animation_7o1yw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [null]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-
-[sub_resource type="Animation" id="Animation_yshs1"]
-resource_name = "daño"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_7o1yw")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.96667),
-"transitions": PackedFloat32Array(1, 0.8),
-"update": 0,
-"values": [Color(1, 1, 1, 0.513726), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_o7r5p"]
-_data = {
-&"RESET": SubResource("Animation_7o1yw"),
-&"daño": SubResource("Animation_yshs1")
-}
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7o1yw"]
-animation = &"ataque"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yshs1"]
-animation = &"daño"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0dlr5"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7khuv"]
-states/Start/position = Vector2(189.333, 84.8889)
-states/ataque/node = SubResource("AnimationNodeAnimation_7o1yw")
-states/ataque/position = Vector2(484, 38)
-"states/daño/node" = SubResource("AnimationNodeAnimation_yshs1")
-"states/daño/position" = Vector2(505.333, 108.667)
-states/idle/node = SubResource("AnimationNodeAnimation_0dlr5")
-states/idle/position = Vector2(338.667, 166)
-
 [node name="EnemigoAereo" type="CharacterBody2D" groups=["Enemigos"]]
 z_index = 2
 collision_layer = 4
@@ -209,7 +94,6 @@ collision_mask = 3
 script = ExtResource("1_s3nne")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.635294)
 sprite_frames = SubResource("SpriteFrames_joso8")
 animation = &"daño"
 autoplay = "idle"
@@ -231,19 +115,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource("CircleShape2D_s3nne")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_o7r5p")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-active = false
-tree_root = SubResource("AnimationNodeStateMachine_7khuv")
-anim_player = NodePath("../AnimationPlayer")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.513726)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
