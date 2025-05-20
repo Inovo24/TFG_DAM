@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlj46nmkptewd"]
+[gd_scene load_steps=8 format=3 uid="uid://dlj46nmkptewd"]
 
 [ext_resource type="Script" uid="uid://vmjt6it40qq6" path="res://Scripts/Interfaz/level_selector.gd" id="1_rjdik"]
 [ext_resource type="PackedScene" uid="uid://des2i8avsiygy" path="res://Scenes/selector_niveles/player_icon.tscn" id="2_8le48"]
 [ext_resource type="PackedScene" uid="uid://bjduehyd6cwwe" path="res://Scenes/selector_niveles/level_icon.tscn" id="3_vswd1"]
 [ext_resource type="Texture2D" uid="uid://c6q5vh6tes7ja" path="res://Sprites/fondoNiveles.png" id="4_rjdik"]
 [ext_resource type="LabelSettings" uid="uid://boqdkocgf1jjn" path="res://Scenes/UI/UI_laber_settings/inicioTexts.tres" id="5_8le48"]
+[ext_resource type="FontFile" uid="uid://c70w8hiljv1w" path="res://Scenes/UI/Fuentes_UI/PixelOperator8.ttf" id="5_vswd1"]
+[ext_resource type="LabelSettings" uid="uid://dfgb640btujhh" path="res://Scenes/UI/UI_laber_settings/text8.tres" id="5_yyxm2"]
 
 [node name="levelSelector" type="Control"]
 layout_mode = 3
@@ -43,17 +45,20 @@ offset_top = 184.0
 offset_right = 311.0
 offset_bottom = 223.0
 level_name = "2"
+next_scene_path = "uid://cbectauge503f"
 next_level_up = NodePath("../4")
 next_level_left = NodePath("../3")
 next_level_right = NodePath("../1")
 
-[node name="3" parent="." node_paths=PackedStringArray("next_level_right") instance=ExtResource("3_vswd1")]
+[node name="3" parent="." node_paths=PackedStringArray("next_level_up", "next_level_right") instance=ExtResource("3_vswd1")]
 z_index = 1
 offset_left = 159.0
 offset_top = 211.0
 offset_right = 223.0
 offset_bottom = 275.0
 level_name = "3"
+next_scene_path = "uid://d4einawx6ugyq"
+next_level_up = NodePath("../4")
 next_level_right = NodePath("../2")
 
 [node name="4" parent="." node_paths=PackedStringArray("next_level_down", "next_level_right") instance=ExtResource("3_vswd1")]
@@ -63,6 +68,7 @@ offset_top = 99.0
 offset_right = 302.0
 offset_bottom = 163.0
 level_name = "4"
+next_scene_path = "uid://weimvnhbrc2r"
 next_level_down = NodePath("../2")
 next_level_right = NodePath("../5")
 
@@ -102,10 +108,6 @@ next_level_left = NodePath("../1")
 position = Vector2(353, 180)
 texture = ExtResource("4_rjdik")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(353, 180)
-zoom = Vector2(3, 3)
-
 [node name="TextoSalir" type="Label" parent="."]
 auto_translate_mode = 1
 layout_mode = 0
@@ -119,3 +121,84 @@ horizontal_alignment = 2
 vertical_alignment = 1
 autowrap_mode = 2
 language = "es_ES"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 1
+position = Vector2(353, 180)
+zoom = Vector2(3, 3)
+
+[node name="Panel" type="Panel" parent="Camera2D"]
+visible = false
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSplitContainer" type="VBoxContainer" parent="Camera2D/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 194.0
+offset_bottom = 98.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/Panel/VSplitContainer"]
+layout_mode = 2
+
+[node name="Nivel" type="Label" parent="Camera2D/Panel/VSplitContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 7.89
+label_settings = ExtResource("5_8le48")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cerrar" type="Button" parent="Camera2D/Panel/VSplitContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("5_vswd1")
+theme_override_font_sizes/font_size = 24
+text = "X"
+
+[node name="Sin hacer" type="Label" parent="Camera2D/Panel/VSplitContainer"]
+layout_mode = 2
+text = "lbl_sin_hacer"
+label_settings = ExtResource("5_yyxm2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Gemas" type="Label" parent="Camera2D/Panel/VSplitContainer"]
+layout_mode = 2
+text = "Max Gemas:"
+label_settings = ExtResource("5_yyxm2")
+
+[node name="Espacio3" type="Panel" parent="Camera2D/Panel/VSplitContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Tiempo" type="Label" parent="Camera2D/Panel/VSplitContainer"]
+layout_mode = 2
+text = "Tiempo min:"
+label_settings = ExtResource("5_yyxm2")
+
+[node name="Espacio2" type="Panel" parent="Camera2D/Panel/VSplitContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Jugar" type="Button" parent="Camera2D/Panel/VSplitContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_vswd1")
+text = "Jugar"
+
+[connection signal="pressed" from="Camera2D/Panel/VSplitContainer/HBoxContainer/Cerrar" to="." method="_on_cerrar_pressed"]
+[connection signal="pressed" from="Camera2D/Panel/VSplitContainer/Jugar" to="." method="_on_jugar_pressed"]

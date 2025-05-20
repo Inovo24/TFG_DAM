@@ -76,4 +76,9 @@ msg_dash_3,"La velocidad no es huida, es decisión.","Speed is not escape, it is
 msg_dash_4,"El aire responde solo a quien se lanza sin dudar.","The air answers only to those who leap without hesitation.","O ar responde apenas a quem se lança sem hesitar.","L’aria risponde solo a chi si lancia senza esitazione."
 msg_dash_5,"La brecha no se salta, se corta con voluntad.","The gap is not jumped over, it's sliced through with will.","O vão não se salta, se corta com vontade.","Il vuoto non si salta, si taglia con la volontà."
 msg_dash_unlock,"¡Dash desbloqueado!","Dash unlocked!","Dash desbloqueado!","Scatto sbloccato!"
-
+lbl_nivel,Nivel,Level,Nível,Livello
+lbl_maximo_gemas,Gemas máximas,Max gems,Gemas máximas,Gemme massime
+lbl_tiempo_minimo,Tiempo mínimo,Minimum time,Tempo mínimo,Tempo minimo
+btn_jugar,Jugar,Play,Jogar,Gioca
+btn_volver_a_jugar,Volver a jugar,Play again,Jogar novamente,Gioca di nuovo
+lbl_sin_hacer,Nivel sin completar,Level not completed,Nível não completado,Livello non completato
