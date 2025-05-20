@@ -85,7 +85,7 @@ radius = 8.0
 radius = 300.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3nne"]
-radius = 17.1172
+radius = 18.0
 
 [node name="EnemigoAereo" type="CharacterBody2D" groups=["Enemigos"]]
 z_index = 2
@@ -95,7 +95,7 @@ script = ExtResource("1_s3nne")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_joso8")
-animation = &"daño"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
