@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c6qduvwxpmalg"]
+[gd_scene load_steps=16 format=3 uid="uid://c6qduvwxpmalg"]
 
 [ext_resource type="Script" uid="uid://d2d11lcwwcs32" path="res://Scripts/Elementos/lanza_flechas.gd" id="1_yy15k"]
 [ext_resource type="Texture2D" uid="uid://bkmt24uvi3a01" path="res://Sprites/Elementos/LanzaFlechas/LanzaFlechas.png" id="2_yy15k"]
@@ -93,6 +93,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yy15k"]
+size = Vector2(21, 24)
+
 [node name="LanzaFlechas" type="Node2D"]
 script = ExtResource("1_yy15k")
 
@@ -106,5 +109,11 @@ one_shot = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_faamw")
 animation = &"activado"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1.5, 2)
+shape = SubResource("RectangleShape2D_yy15k")
 
 [connection signal="timeout" from="TimerLanzador" to="." method="_on_fire_timer_timeout"]
