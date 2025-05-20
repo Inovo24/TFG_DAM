@@ -135,9 +135,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rkmu5")
 }],
-"loop": true,
+"loop": false,
 "name": &"daño",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -216,8 +216,9 @@ target_position = Vector2(12, 0)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_rkmu5")
-animation = &"idle"
+animation = &"daño"
 autoplay = "idle"
+frame_progress = 1.0
 
 [node name="SueloDetector" type="Area2D" parent="."]
 collision_layer = 0
