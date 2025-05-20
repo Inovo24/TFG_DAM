@@ -36,7 +36,7 @@ offset_bottom = 230.0
 next_scene_path = "uid://dadwpxs80q6xk"
 next_level_up = NodePath("../5")
 next_level_left = NodePath("../2")
-next_level_right = NodePath("../7")
+next_level_right = NodePath("")
 
 [node name="2" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left", "next_level_right") instance=ExtResource("3_vswd1")]
 z_index = 1
@@ -83,26 +83,14 @@ next_level_down = NodePath("../1")
 next_level_left = NodePath("../4")
 next_level_right = NodePath("../6")
 
-[node name="6" parent="." node_paths=PackedStringArray("next_level_down", "next_level_left", "next_level_right") instance=ExtResource("3_vswd1")]
+[node name="6" parent="." node_paths=PackedStringArray("next_level_left") instance=ExtResource("3_vswd1")]
 z_index = 1
 offset_left = 453.0
 offset_top = 93.0
 offset_right = 517.0
 offset_bottom = 157.0
 level_name = "6"
-next_level_down = NodePath("../7")
 next_level_left = NodePath("../5")
-next_level_right = NodePath("../7")
-
-[node name="7" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left") instance=ExtResource("3_vswd1")]
-z_index = 1
-offset_left = 506.0
-offset_top = 126.0
-offset_right = 570.0
-offset_bottom = 190.0
-level_name = "7"
-next_level_up = NodePath("../6")
-next_level_left = NodePath("../1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(353, 180)
