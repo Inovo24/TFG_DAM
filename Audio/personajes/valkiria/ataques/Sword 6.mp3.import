@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bd4b0ewu5hqlt"
+path="res://.godot/imported/Sword 6.mp3-eb38d75abd64419dc699a2a07b58b5d2.mp3str"
+
+[deps]
+
+source_file="res://Audio/personajes/valkiria/ataques/Sword 6.mp3"
+dest_files=["res://.godot/imported/Sword 6.mp3-eb38d75abd64419dc699a2a07b58b5d2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
