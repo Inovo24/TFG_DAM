@@ -72,7 +72,7 @@ func receive_damage(damage_received: int):
 		anim_state_machine.travel("daño")
 
 	# 4. Espera para el efecto de daño (animación breve)
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.1).timeout
 
 	# 5. Restaurar animación anterior (solo si no está muerto y había AnimationTree)
 	if current_health > 0 and previous_anim != "":

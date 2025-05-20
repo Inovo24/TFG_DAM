@@ -104,7 +104,7 @@ animations = [{
 size = Vector2(26, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6k4e"]
-size = Vector2(29, 21)
+size = Vector2(26, 21)
 
 [node name="LanzaLlamas" type="Node2D"]
 script = ExtResource("1_f6k4e")
@@ -126,7 +126,7 @@ shape = SubResource("RectangleShape2D_8jjaa")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1.5, 28.5)
+position = Vector2(-3, 28.5)
 shape = SubResource("RectangleShape2D_f6k4e")
 debug_color = Color(0.614743, 0.358331, 1, 0.42)
 
