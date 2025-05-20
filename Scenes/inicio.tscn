@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://bri13kxv672ig"]
+[gd_scene load_steps=31 format=4 uid="uid://bri13kxv672ig"]
 
 [ext_resource type="Script" uid="uid://didwji534yd8d" path="res://Scripts/Interfaz/inicio.gd" id="1_6wmnn"]
 [ext_resource type="Script" uid="uid://calji8pm36a08" path="res://Scripts/Interfaz/area_niveles.gd" id="2_5rwxf"]
@@ -18,8 +18,6 @@
 [ext_resource type="Script" uid="uid://bv0pm2e14nhkj" path="res://Scripts/Interfaz/barco_area.gd" id="14_xldw7"]
 [ext_resource type="AudioStream" uid="uid://p74cf510edy4" path="res://Audio/3. Saga of the Sea Wolves.mp3" id="15_f4hti"]
 [ext_resource type="Script" uid="uid://b4aqtq736rojs" path="res://Scripts/Interfaz/ajustes_area.gd" id="16_3x7h1"]
-[ext_resource type="PackedScene" uid="uid://d38t4kskhkxnc" path="res://Enemigos/Enemigo_aereo.tscn" id="20_nmj2t"]
-[ext_resource type="PackedScene" uid="uid://foow48tmur6c" path="res://Enemigos/Esqueleto_arquero.tscn" id="20_wcx5y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h08hr"]
 size = Vector2(56, 45)
@@ -713,12 +711,6 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrera"]
 position = Vector2(-3, -109)
 shape = SubResource("SegmentShape2D_yintj")
-
-[node name="EnemigoAereo" parent="." instance=ExtResource("20_nmj2t")]
-position = Vector2(842, 355)
-
-[node name="Esquelo_arquero" parent="." instance=ExtResource("20_wcx5y")]
-position = Vector2(999, 502)
 
 [connection signal="body_entered" from="AreaNiveles" to="AreaNiveles" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaNiveles" to="AreaNiveles" method="_on_body_exited"]
