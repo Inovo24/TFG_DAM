@@ -165,7 +165,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1fwt"]
-size = Vector2(1.42559, 1.46412)
+size = Vector2(1.19103, 1.46412)
 
 [node name="Lobo" type="CharacterBody2D"]
 collision_layer = 4
@@ -199,7 +199,8 @@ collision_layer = 32
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteLobo/Atack"]
-position = Vector2(2.95353, 0.806132)
+position = Vector2(3.07081, 0.806133)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_g1fwt")
 
 [node name="TimerAtack" type="Timer" parent="SpriteLobo/Atack"]
@@ -224,7 +225,7 @@ one_shot = true
 
 [connection signal="body_entered" from="SpriteLobo/Atack" to="." method="_on_attack_body_entered"]
 [connection signal="body_exited" from="SpriteLobo/Atack" to="." method="_on_attack_body_exited"]
-[connection signal="timeout" from="SpriteLobo/Atack/TimerAtack" to="." method="_on_timer_atack_timeout"]
 [connection signal="timeout" from="SpriteLobo/Atack/TimerAtack" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="SpriteLobo/Atack/TimerAtack" to="." method="_on_timer_atack_timeout"]
 [connection signal="timeout" from="GiroTimer" to="." method="_on_turn_timer_timeout"]
 [connection signal="timeout" from="GiroTimer" to="." method="_on_giro_timer_timeout"]

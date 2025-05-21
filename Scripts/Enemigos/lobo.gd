@@ -76,6 +76,10 @@ func attack():
 		return
 	can_attack = false
 	attack_timer.start()
+	await get_tree().create_timer(0.1).timeout #Cooldown para que tarde en atacar
+	if !player_in_distance:
+		can_attack = true
+		return
 	player.take_damage(damage)
 	
 	_knockback(knockback_duration)
