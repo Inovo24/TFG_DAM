@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://2oodd2mcba48"]
+[gd_scene load_steps=44 format=3 uid="uid://2oodd2mcba48"]
 
 [ext_resource type="Script" uid="uid://dtl7w87dc1njk" path="res://Scripts/Personajes/valkiriaScript.gd" id="1_edgug"]
 [ext_resource type="Texture2D" uid="uid://bnvvl23e1esrt" path="res://Sprites/Guerrera/jump_valkiria-Sheet.png" id="2_5vck1"]
@@ -10,6 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://5u7qs33mrnfr" path="res://Sprites/Guerrera/valkiria_downattack-Sheet.png" id="5_4ng45"]
 [ext_resource type="Texture2D" uid="uid://v2457hb7clx8" path="res://Sprites/Guerrera/fall_valkiria-Sheet.png" id="6_uqljf"]
 [ext_resource type="Texture2D" uid="uid://b22kk1k0rvgi6" path="res://Sprites/Guerrera/valkiria_damage.png" id="10_3jogb"]
+[ext_resource type="AudioStream" uid="uid://cebhr2icrgx2" path="res://Audio/personajes/valkiria/pasos/Step Armor 1.mp3" id="11_7ewcw"]
+[ext_resource type="AudioStream" uid="uid://bgxwj4jdt8yx1" path="res://Audio/personajes/valkiria/pasos/Step Armor 2.mp3" id="12_q05gp"]
+[ext_resource type="AudioStream" uid="uid://h0lfncc836k8" path="res://Audio/personajes/valkiria/pasos/Step Armor 3.mp3" id="13_qjro1"]
+[ext_resource type="AudioStream" uid="uid://cv4qp7yxs8wl8" path="res://Audio/personajes/valkiria/pasos/Step Armor 4.mp3" id="14_kr1rf"]
+[ext_resource type="AudioStream" uid="uid://dh1d7jg6yh3va" path="res://Audio/personajes/valkiria/ataques/Cut Flesh 3.mp3" id="15_kfxum"]
+[ext_resource type="AudioStream" uid="uid://bgbgsxqte7tfi" path="res://Audio/personajes/Impact 2.mp3" id="16_t4inx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vck1"]
 size = Vector2(19, 20)
@@ -605,6 +611,13 @@ states/saltar/node = SubResource("AnimationNodeAnimation_qluc5")
 states/saltar/position = Vector2(623, 60)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_8d2jb")]
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_kfxum"]
+stream_count = 4
+stream_0 = ExtResource("11_7ewcw")
+stream_1 = ExtResource("12_q05gp")
+stream_2 = ExtResource("13_qjro1")
+stream_3 = ExtResource("14_kr1rf")
+
 [node name="Valkiria" type="CharacterBody2D" groups=["Personajes", "player"]]
 z_index = 5
 collision_layer = 514
@@ -648,6 +661,29 @@ libraries = {
 active = false
 tree_root = SubResource("AnimationNodeStateMachine_ye7ff")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="SFX_Run" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_kfxum")
+volume_db = 4.223
+pitch_scale = 1.51
+bus = &"SFX"
+
+[node name="SFX_Jump" type="AudioStreamPlayer" parent="."]
+volume_db = 4.223
+pitch_scale = 1.51
+bus = &"SFX"
+
+[node name="SFX_Attack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_kfxum")
+volume_db = 4.223
+pitch_scale = 0.92
+bus = &"SFX"
+
+[node name="SFX_Damaged" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_t4inx")
+volume_db = 10.558
+pitch_scale = 0.56
+bus = &"SFX"
 
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_finished"]

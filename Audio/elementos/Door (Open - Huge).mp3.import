@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ceb10d4w3i53a"
+path="res://.godot/imported/Door (Open - Huge).mp3-a9407649f5923195d494829ed4e27129.mp3str"
+
+[deps]
+
+source_file="res://Audio/elementos/Door (Open - Huge).mp3"
+dest_files=["res://.godot/imported/Door (Open - Huge).mp3-a9407649f5923195d494829ed4e27129.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

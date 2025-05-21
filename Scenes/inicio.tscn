@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://bri13kxv672ig"]
+[gd_scene load_steps=32 format=4 uid="uid://bri13kxv672ig"]
 
 [ext_resource type="Script" uid="uid://didwji534yd8d" path="res://Scripts/Interfaz/inicio.gd" id="1_6wmnn"]
 [ext_resource type="Script" uid="uid://calji8pm36a08" path="res://Scripts/Interfaz/area_niveles.gd" id="2_5rwxf"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://kn0n2soufi7j" path="res://Scripts/Interfaz/selector_personajes_casa.gd" id="11_x26qx"]
 [ext_resource type="Texture2D" uid="uid://bly4js7rsrd86" path="res://Sprites/Inicio/fondo_aldea_nubladov2.png" id="12_2amer"]
 [ext_resource type="Texture2D" uid="uid://cdj7eckpm5ma7" path="res://Sprites/Inicio/salidaBarco.png" id="13_dkt54"]
+[ext_resource type="AudioStream" uid="uid://ceb10d4w3i53a" path="res://Audio/elementos/Door (Open - Huge).mp3" id="13_k1pry"]
 [ext_resource type="Script" uid="uid://bv0pm2e14nhkj" path="res://Scripts/Interfaz/barco_area.gd" id="14_xldw7"]
 [ext_resource type="AudioStream" uid="uid://p74cf510edy4" path="res://Audio/3. Saga of the Sea Wolves.mp3" id="15_f4hti"]
 [ext_resource type="Script" uid="uid://b4aqtq736rojs" path="res://Scripts/Interfaz/ajustes_area.gd" id="16_3x7h1"]
@@ -586,6 +587,10 @@ script = ExtResource("11_x26qx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CasaArea"]
 position = Vector2(-9, 2)
 shape = SubResource("RectangleShape2D_1bu3n")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CasaArea"]
+stream = ExtResource("13_k1pry")
+bus = &"SFX"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(585, 517)

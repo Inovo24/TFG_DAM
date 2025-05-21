@@ -1,7 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bsyoskref8vn1"]
+[gd_scene load_steps=20 format=3 uid="uid://bsyoskref8vn1"]
 
 [ext_resource type="Texture2D" uid="uid://bgqcsms2k618b" path="res://Sprites/LanzaLlamas/LanzaLlamas.png" id="1_8jjaa"]
 [ext_resource type="Script" uid="uid://cnxvkceed6wn0" path="res://Scripts/Lanzallamas/lanza_llamas.gd" id="1_f6k4e"]
+[ext_resource type="AudioStream" uid="uid://dg522xve2di5y" path="res://Audio/elementos/fire_start_light_flame_ignite_01.wav" id="3_m4l4w"]
+[ext_resource type="AudioStream" uid="uid://bj81go1o5g6ht" path="res://Audio/elementos/fire_burning_flames_crackle_loop_01.wav" id="4_q43xi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8jjaa"]
 atlas = ExtResource("1_8jjaa")
@@ -133,6 +135,16 @@ debug_color = Color(0.614743, 0.358331, 1, 0.42)
 [node name="RandomTimer" type="Timer" parent="."]
 
 [node name="DamageTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m4l4w")
+max_distance = 160.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_q43xi")
+max_distance = 147.0
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

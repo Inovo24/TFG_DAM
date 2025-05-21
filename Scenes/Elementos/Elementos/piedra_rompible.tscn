@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://4un48fyer1de"]
+[gd_scene load_steps=11 format=3 uid="uid://4un48fyer1de"]
 
 [ext_resource type="Script" uid="uid://n3ticmxxvh5o" path="res://Scripts/Elementos/piedra_rompible.gd" id="1_iptnt"]
 [ext_resource type="Texture2D" uid="uid://cc1tqdud2wqdc" path="res://Sprites/Elementos/Bloques/sprite_sheet_rocas.png" id="2_jbeel"]
+[ext_resource type="AudioStream" uid="uid://b0uaq12okrbmw" path="res://Audio/elementos/rock_smashable_hit_impact_01.wav" id="3_t8x6g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jbeel"]
 atlas = ExtResource("2_jbeel")
@@ -56,13 +57,13 @@ collision_mask = 7
 script = ExtResource("1_iptnt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.45, 0.4)
 sprite_frames = SubResource("SpriteFrames_3xmfl")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.06817, 2.70944)
 shape = SubResource("RectangleShape2D_jbeel")
 debug_color = Color(0.772549, 0.282353, 0.85098, 0.0823529)
 
@@ -72,7 +73,11 @@ debug_color = Color(0.772549, 0.282353, 0.85098, 0.0823529)
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(2.06817, 2.70944)
 shape = SubResource("RectangleShape2D_t8x6g")
 debug_color = Color(0, 0.6, 0.701961, 0.0666667)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_t8x6g")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

@@ -34,6 +34,11 @@ var next_attack : bool = false
 @onready var anim_state_machine = animation_tree.get("parameters/playback")
 @onready var anim_appearing = preload("res://Scenes/Efectos/EfectoAparecer.tscn")
 
+@onready var sfx_run = $SFX_Run
+@onready var sfx_jump = $SFX_Jump
+@onready var sfx_attack = $SFX_Attack
+@onready var sfx_damaged = $SFX_Damaged
+
 enum State { IDLE, RUN, JUMP, FALL, ATTACK, AIR_ATTACK, UP_ATTACK, DOWN_ATTACK, DAMAGE  }
 var current_state : State = State.IDLE
 var previous_state : State = State.IDLE
@@ -105,32 +110,6 @@ func _physics_process(delta):
 				switch_state(State.ATTACK)
 		
 		jump(delta)
-		'''
-		if jump_attempt or input_buffer.time_left > 0:
-			if coyote_jump_available:
-				switch_state(State.JUMP)
-				coyote_jump_available = false
-			elif jump_attempt:
-				input_buffer.start()
-
-		if Input.is_action_just_released("salto") and velocity.y < 0:
-			velocity.y = JUMP_SPEED / 2
-
-		if not is_on_floor() and current_state not in  [State.AIR_ATTACK, State.DOWN_ATTACK, State.UP_ATTACK]:
-			if velocity.y < 0:
-				anim_state_machine.travel("saltar")
-			else:
-				switch_state(State.FALL)
-
-		if is_on_floor():
-			coyote_jump_available = true
-			coyote_timer.stop()
-			last_safe_position = position
-		else:
-			if coyote_jump_available and coyote_timer.is_stopped():
-				coyote_timer.start()
-			velocity.y += GRAVITY * delta
-		'''
 		
 		if input_horizontal:
 			if input_horizontal < 0:
@@ -140,7 +119,8 @@ func _physics_process(delta):
 
 			if current_state not in [State.ATTACK, State.AIR_ATTACK, State.UP_ATTACK, State.DOWN_ATTACK]:
 				velocity.x = move_toward(velocity.x, input_horizontal * speed, speed * delta * 5)
-				switch_state(State.RUN)
+				if is_on_floor():
+					switch_state(State.RUN)
 
 		else:
 			if is_on_floor() and current_state not in [State.ATTACK, State.AIR_ATTACK, State.UP_ATTACK, State.DOWN_ATTACK]:
@@ -164,27 +144,38 @@ func switch_state(new_state: State):
 		match current_state:
 			State.IDLE:
 				anim_state_machine.travel("idle")
+				sfx_run.stop() # Detén el sonido de correr al estar quieto
 
 			State.RUN:
 				anim_state_machine.travel("correr")
+				if not sfx_run.playing:
+					sfx_run.play()
 
 			State.JUMP:
+				sfx_attack.stop()
 				anim_state_machine.travel("saltar")
 				velocity.y = JUMP_SPEED
+				sfx_jump.play()
 
 			State.ATTACK:
 				anim_state_machine.travel("ataque1")
+				sfx_attack.play()
 				attack()
 			State.AIR_ATTACK:
 				anim_state_machine.travel("ataqueAereo")
+				sfx_attack.play()
 				air_attack()
 			State.UP_ATTACK:
 				anim_state_machine.travel("ataqueAlto")
+				sfx_attack.play()
 				up_attack()
 			State.DOWN_ATTACK:
 				anim_state_machine.travel("ataqueBajo")
+				sfx_attack.play()
 				down_attack()
 			State.FALL:
+				sfx_run.stop()
+				sfx_attack.stop()
 				anim_state_machine.travel("caer")
 			State.DAMAGE:
 				anim_state_machine.travel("daño")
@@ -193,6 +184,7 @@ func switch_state(new_state: State):
 
 func _on_animation_finished(_anim_name):
 	if current_state in [State.ATTACK, State.AIR_ATTACK, State.UP_ATTACK, State.DOWN_ATTACK]:
+		#sfx_attack.stop()
 		var current_animation = ""
 		match current_state:
 			State.ATTACK:
@@ -279,6 +271,7 @@ func setCurrentHealth(health:int):
 
 func take_damage(damage_received: int):
 	setCurrentHealth(getCurrentHealth() - damage_received)
+	sfx_damaged.play()
 
 	if getCurrentHealth() <= 0:
 		life_count -= 1

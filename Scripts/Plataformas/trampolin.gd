@@ -1,11 +1,13 @@
 extends Node2D
 @onready var timer: Timer = $Animaciones_Trampolin/Timer
 @onready var trampoline_animations: AnimatedSprite2D = $Animaciones_Trampolin
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
 # When a body enters the area, it will activate the trampoline
 func _on_activation_area_body_entered(body: Node2D) -> void:
 	# This sets the Timer to wait for the animation duration
 	timer.wait_time = trampoline_animations.animation.length()
+	audio_stream_player_2d.play()
 	trampoline_animations.play("launch")
 	# Height the trampoline launches the body
 	body.velocity.y = -650
