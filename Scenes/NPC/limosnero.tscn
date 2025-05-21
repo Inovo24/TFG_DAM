@@ -66,6 +66,7 @@ offset_right = 71.0
 offset_bottom = -16.0
 text = "npc_mendigo"
 label_settings = ExtResource("2_vmhj0")
+horizontal_alignment = 1
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 2

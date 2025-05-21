@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxi510oxu03cq"]
+
+[ext_resource type="Script" uid="uid://befut4byae5e" path="res://Scripts/Elementos/NPC/granjero.gd" id="1_ruipy"]
+[ext_resource type="Texture2D" uid="uid://b8yjuarcmefef" path="res://Sprites/NPC/perro.png" id="2_ruipy"]
+[ext_resource type="LabelSettings" uid="uid://b1ywkn2uu61ot" path="res://Scenes/UI/UI_laber_settings/granjero.tres" id="3_h7fad"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arh7t"]
+atlas = ExtResource("2_ruipy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7fad"]
+atlas = ExtResource("2_ruipy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wglmc"]
+atlas = ExtResource("2_ruipy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx73m"]
+atlas = ExtResource("2_ruipy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rdqba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arh7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7fad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wglmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx73m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l6jxh"]
+radius = 56.0
+
+[node name="Perro" type="Node2D"]
+script = ExtResource("1_ruipy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.1, 1.1)
+sprite_frames = SubResource("SpriteFrames_rdqba")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.797749
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_l6jxh")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -56.0
+offset_top = -40.0
+offset_right = 64.0
+offset_bottom = -32.0
+text = "npc_perro"
+label_settings = ExtResource("3_h7fad")
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

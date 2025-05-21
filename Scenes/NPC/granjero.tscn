@@ -58,8 +58,7 @@ scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_rdqba")
 animation = &"idle"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.414452
+frame_progress = 0.10867
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 2
@@ -74,6 +73,7 @@ offset_right = 64.0
 offset_bottom = -32.0
 text = "npc_granjero"
 label_settings = ExtResource("3_l6jxh")
+horizontal_alignment = 1
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

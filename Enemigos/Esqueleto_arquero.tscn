@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://foow48tmur6c"]
+[gd_scene load_steps=33 format=3 uid="uid://foow48tmur6c"]
 
 [ext_resource type="Script" uid="uid://c3bna5phcemgu" path="res://Scripts/Enemigos/esqueleto_arquero.gd" id="1_gnu2t"]
 [ext_resource type="Texture2D" uid="uid://dqjeuluf4gp7g" path="res://Sprites/Enemigos/Esqueleto_arquero/caminar.png" id="2_7y3go"]
@@ -57,6 +57,18 @@ region = Rect2(432, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkmu5"]
 atlas = ExtResource("2_nud2k")
 region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc3e4"]
+atlas = ExtResource("2_nud2k")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1abk"]
+atlas = ExtResource("2_nud2k")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1x86"]
+atlas = ExtResource("2_nud2k")
+region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nud2k"]
 atlas = ExtResource("2_7y3go")
@@ -134,10 +146,19 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rkmu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc3e4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1abk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1x86")
 }],
 "loop": false,
 "name": &"daño",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -216,9 +237,8 @@ target_position = Vector2(12, 0)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_rkmu5")
-animation = &"daño"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 1.0
 
 [node name="SueloDetector" type="Area2D" parent="."]
 collision_layer = 0
