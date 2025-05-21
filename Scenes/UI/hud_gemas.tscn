@@ -5,6 +5,8 @@
 [ext_resource type="LabelSettings" uid="uid://b1gtx4uxnb15b" path="res://Scenes/UI/UI_laber_settings/font.tres" id="2_x0xbv"]
 
 [node name="HUD_Gemas" type="CanvasLayer" node_paths=PackedStringArray("gema_label")]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
 script = ExtResource("1_gfxw7")
 gema_label = NodePath("Control/GemaTextura/GemaLabel")
 metadata/_edit_horizontal_guides_ = [40.0]
@@ -18,10 +20,10 @@ offset_bottom = 40.0
 [node name="GemaTextura" type="TextureRect" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 1837.0
-offset_top = 1.0
-offset_right = 1877.0
-offset_bottom = 41.0
+offset_left = 868.5
+offset_top = 5.0
+offset_right = 908.5
+offset_bottom = 45.0
 texture = ExtResource("1_j2hho")
 stretch_mode = 4
 

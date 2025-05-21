@@ -7,6 +7,8 @@
 [ext_resource type="LabelSettings" uid="uid://boqdkocgf1jjn" path="res://Scenes/UI/UI_laber_settings/inicioTexts.tres" id="5_uckoq"]
 
 [node name="Barravida" type="CanvasLayer"]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
 script = ExtResource("1_dmbr0")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
@@ -52,9 +54,10 @@ custom_minimum_size = Vector2(300, 0)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -631.0
+offset_top = 1.0
+offset_right = -331.0
+offset_bottom = 24.0
 grow_horizontal = 2
 label_settings = ExtResource("5_uckoq")
 horizontal_alignment = 1
