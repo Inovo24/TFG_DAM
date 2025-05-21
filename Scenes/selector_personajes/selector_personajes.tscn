@@ -1,10 +1,12 @@
-[gd_scene load_steps=31 format=3 uid="uid://dc42x16lyph7c"]
+[gd_scene load_steps=30 format=3 uid="uid://dc42x16lyph7c"]
 
 [ext_resource type="Script" uid="uid://bhvg63jhnpos1" path="res://Scripts/Interfaz/selector_personajes.gd" id="1_0wu1u"]
 [ext_resource type="Texture2D" uid="uid://be2stv0t7inhk" path="res://Sprites/fondo_selector.png" id="2_gmxq8"]
 [ext_resource type="Texture2D" uid="uid://bnv5cd248b37w" path="res://Sprites/Vikingo/selector_viki-Sheet.png" id="3_by8vm"]
+[ext_resource type="StyleBox" uid="uid://crtilaosn66p8" path="res://Scenes/UI/ui_fondos/selector_personajes.tres" id="3_oe3cv"]
 [ext_resource type="LabelSettings" uid="uid://boqdkocgf1jjn" path="res://Scenes/UI/UI_laber_settings/inicioTexts.tres" id="3_qu4mg"]
 [ext_resource type="Texture2D" uid="uid://enii75c3plnd" path="res://Sprites/Vikingo/transicion_viki-Sheet.png" id="4_2lv8s"]
+[ext_resource type="LabelSettings" uid="uid://b3wfqidqjwq8f" path="res://Scenes/UI/UI_laber_settings/inicioTexts24.tres" id="4_hmx1f"]
 [ext_resource type="Texture2D" uid="uid://md6dnx6dva5e" path="res://Sprites/Vikingo/vikingo_seleccionado-Sheet.png" id="5_gu2w8"]
 [ext_resource type="Texture2D" uid="uid://dag5xjubuyi0r" path="res://Sprites/Guerrera/selector_valki-Sheet.png" id="6_5xpv3"]
 [ext_resource type="Texture2D" uid="uid://7080jyv6xgn0" path="res://Sprites/Guerrera/transicion_valki-Sheet.png" id="6_wprnk"]
@@ -14,8 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://c11oxobwnn5m3" path="res://Sprites/Arquero/arquero_seleccionado-Sheet.png" id="10_pjoqn"]
 [ext_resource type="AudioStream" uid="uid://btubqats04141" path="res://Audio/miscelanea/selectorPJS.wav" id="13_oe3cv"]
 [ext_resource type="AudioStream" uid="uid://ceb10d4w3i53a" path="res://Audio/elementos/Door (Open - Huge).mp3" id="14_hmx1f"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_63qg4"]
 
 [sub_resource type="Animation" id="Animation_dcmhm"]
 length = 0.001
@@ -446,268 +446,277 @@ position = Vector2(349, 180)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_gmxq8")
 
-[node name="ArqueroInfo" type="TextureRect" parent="."]
+[node name="ArqueroInfo" type="Panel" parent="."]
 visible = false
 z_index = 2
-offset_left = 205.0
-offset_top = 225.0
-offset_right = 489.0
-offset_bottom = 337.0
-texture = SubResource("CanvasTexture_63qg4")
+offset_left = 47.0
+offset_top = 155.0
+offset_right = 486.0
+offset_bottom = 285.0
+theme_override_styles/panel = ExtResource("3_oe3cv")
 
-[node name="Nombre" type="Label" parent="ArqueroInfo"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ArqueroInfo"]
+layout_mode = 0
+offset_right = 434.0
+offset_bottom = 130.0
+
+[node name="Nombre" type="Label" parent="ArqueroInfo/VBoxContainer"]
 auto_translate_mode = 1
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.899
-anchor_top = -2.684
-anchor_right = -0.899
-anchor_bottom = -2.684
-offset_left = 254.316
-offset_top = 299.608
-offset_right = 539.316
-offset_bottom = 328.608
+layout_mode = 2
+size_flags_vertical = 0
 text = "pers_arq_nom"
+label_settings = ExtResource("4_hmx1f")
 horizontal_alignment = 1
 vertical_alignment = 1
 language = "es_ES"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ArqueroInfo"]
-layout_mode = 0
-offset_top = 84.0
-offset_right = 291.0
-offset_bottom = 112.0
-alignment = 1
-
-[node name="Vida" type="Label" parent="ArqueroInfo/HBoxContainer"]
-auto_translate_mode = 1
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-z_index = 1
+[node name="ColorRect" type="ColorRect" parent="ArqueroInfo/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
-text = "50"
-horizontal_alignment = 1
-vertical_alignment = 1
-language = "es_ES"
+size_flags_vertical = 2
 
-[node name="Velocidad" type="Label" parent="ArqueroInfo/HBoxContainer"]
+[node name="Historia" type="Label" parent="ArqueroInfo/VBoxContainer"]
 auto_translate_mode = 1
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-z_index = 1
 layout_mode = 2
-text = "pers_arq_vel"
-horizontal_alignment = 1
-vertical_alignment = 1
-language = "es_ES"
-
-[node name="Arma" type="Label" parent="ArqueroInfo/HBoxContainer"]
-auto_translate_mode = 1
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-z_index = 1
-layout_mode = 2
-text = "pers_arq_arm"
-horizontal_alignment = 1
-vertical_alignment = 1
-language = "es_ES"
-
-[node name="Historia" type="Label" parent="ArqueroInfo"]
-auto_translate_mode = 1
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.899
-anchor_top = -2.684
-anchor_right = -0.899
-anchor_bottom = -2.684
-offset_left = 256.316
-offset_top = 325.608
-offset_right = 549.316
-offset_bottom = 388.608
+size_flags_vertical = 6
 text = "pers_arq_his"
+label_settings = ExtResource("3_qu4mg")
 vertical_alignment = 1
 autowrap_mode = 3
 ellipsis_char = ""
 language = "es_ES"
 
-[node name="ValkiriaInfo" type="TextureRect" parent="."]
-visible = false
-z_index = 2
-offset_left = 224.0
-offset_top = 222.0
-offset_right = 508.0
-offset_bottom = 334.0
-texture = SubResource("CanvasTexture_63qg4")
+[node name="ColorRect2" type="ColorRect" parent="ArqueroInfo/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+size_flags_vertical = 10
 
-[node name="Nombre" type="Label" parent="ValkiriaInfo"]
-auto_translate_mode = 1
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.899
-anchor_top = -2.684
-anchor_right = -0.899
-anchor_bottom = -2.684
-offset_left = 256.316
-offset_top = 300.608
-offset_right = 539.316
-offset_bottom = 328.608
-text = "pers_valk_nom"
-horizontal_alignment = 1
-vertical_alignment = 1
-language = "es_ES"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ValkiriaInfo"]
-layout_mode = 0
-offset_top = 84.0
-offset_right = 291.0
-offset_bottom = 112.0
+[node name="HBoxContainer" type="HBoxContainer" parent="ArqueroInfo/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
 alignment = 1
 
-[node name="Vida" type="Label" parent="ValkiriaInfo/HBoxContainer"]
+[node name="Vida" type="Label" parent="ArqueroInfo/VBoxContainer/HBoxContainer"]
 auto_translate_mode = 1
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
 z_index = 1
 layout_mode = 2
-text = "100"
+size_flags_horizontal = 0
+text = "50"
+label_settings = ExtResource("3_qu4mg")
 horizontal_alignment = 1
 vertical_alignment = 1
 language = "es_ES"
 
-[node name="Velocidad" type="Label" parent="ValkiriaInfo/HBoxContainer"]
+[node name="ColorRect2" type="ColorRect" parent="ArqueroInfo/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+
+[node name="Velocidad" type="Label" parent="ArqueroInfo/VBoxContainer/HBoxContainer"]
 auto_translate_mode = 1
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
 z_index = 1
 layout_mode = 2
-text = "pers_valk_vel"
+size_flags_horizontal = 6
+text = "pers_arq_vel"
+label_settings = ExtResource("3_qu4mg")
 horizontal_alignment = 1
 vertical_alignment = 1
 language = "es_ES"
 
-[node name="Arma" type="Label" parent="ValkiriaInfo/HBoxContainer"]
+[node name="ColorRect3" type="ColorRect" parent="ArqueroInfo/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+
+[node name="Arma" type="Label" parent="ArqueroInfo/VBoxContainer/HBoxContainer"]
 auto_translate_mode = 1
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
 z_index = 1
 layout_mode = 2
-text = "pers_valk_arm"
+size_flags_horizontal = 10
+text = "pers_arq_arm"
+label_settings = ExtResource("3_qu4mg")
 horizontal_alignment = 1
 vertical_alignment = 1
 language = "es_ES"
 
-[node name="Historia" type="Label" parent="ValkiriaInfo"]
-auto_translate_mode = 1
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.899
-anchor_top = -2.684
-anchor_right = -0.899
-anchor_bottom = -2.684
-offset_left = 256.316
-offset_top = 325.608
-offset_right = 549.316
-offset_bottom = 388.608
-text = "pers_valk_his"
-vertical_alignment = 1
-autowrap_mode = 3
-ellipsis_char = ""
-language = "es_ES"
-
-[node name="VikingoInfo" type="TextureRect" parent="."]
+[node name="ValkiriaInfo" type="Panel" parent="."]
 visible = false
 z_index = 2
-offset_left = 230.0
+offset_left = 117.0
 offset_top = 224.0
-offset_right = 507.0
-offset_bottom = 337.0
-texture = SubResource("CanvasTexture_63qg4")
+offset_right = 556.0
+offset_bottom = 354.0
+theme_override_styles/panel = ExtResource("3_oe3cv")
 
-[node name="Nombre" type="Label" parent="VikingoInfo"]
-auto_translate_mode = 1
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.899
-anchor_top = -2.684
-anchor_right = -0.899
-anchor_bottom = -2.684
-offset_left = 247.023
-offset_top = 301.292
-offset_right = 525.023
-offset_bottom = 329.292
-text = "pers_vik_nom"
-horizontal_alignment = 1
-vertical_alignment = 1
-language = "es_ES"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VikingoInfo"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ValkiriaInfo"]
 layout_mode = 0
-offset_top = 84.0
-offset_right = 291.0
-offset_bottom = 112.0
-alignment = 1
+offset_right = 441.0
+offset_bottom = 129.0
 
-[node name="Vida" type="Label" parent="VikingoInfo/HBoxContainer"]
+[node name="Nombre" type="Label" parent="ValkiriaInfo/VBoxContainer"]
 auto_translate_mode = 1
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-z_index = 1
 layout_mode = 2
-text = "150"
+size_flags_vertical = 0
+text = "pers_valk_nom"
+label_settings = ExtResource("4_hmx1f")
 horizontal_alignment = 1
 vertical_alignment = 1
 language = "es_ES"
 
-[node name="Velocidad" type="Label" parent="VikingoInfo/HBoxContainer"]
-auto_translate_mode = 1
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-z_index = 1
+[node name="ColorRect" type="ColorRect" parent="ValkiriaInfo/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
-text = "pers_vik_vel"
-horizontal_alignment = 1
-vertical_alignment = 1
-language = "es_ES"
+size_flags_vertical = 2
 
-[node name="Arma" type="Label" parent="VikingoInfo/HBoxContainer"]
+[node name="Historia" type="Label" parent="ValkiriaInfo/VBoxContainer"]
 auto_translate_mode = 1
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-z_index = 1
 layout_mode = 2
-text = "pers_vik_arm"
-horizontal_alignment = 1
-vertical_alignment = 1
-language = "es_ES"
-
-[node name="Historia" type="Label" parent="VikingoInfo"]
-auto_translate_mode = 1
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.899
-anchor_top = -2.684
-anchor_right = -0.899
-anchor_bottom = -2.684
-offset_left = 256.023
-offset_top = 325.292
-offset_right = 526.023
-offset_bottom = 388.292
-text = "pers_vik_his"
+size_flags_vertical = 6
+text = "pers_valk_his"
+label_settings = ExtResource("3_qu4mg")
 vertical_alignment = 1
 autowrap_mode = 3
 ellipsis_char = ""
+language = "es_ES"
+
+[node name="ColorRect2" type="ColorRect" parent="ValkiriaInfo/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ValkiriaInfo/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="Vida" type="Label" parent="ValkiriaInfo/VBoxContainer/HBoxContainer"]
+auto_translate_mode = 1
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 0
+text = "100"
+label_settings = ExtResource("3_qu4mg")
+horizontal_alignment = 1
+vertical_alignment = 1
+language = "es_ES"
+
+[node name="ColorRect2" type="ColorRect" parent="ValkiriaInfo/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+
+[node name="Velocidad" type="Label" parent="ValkiriaInfo/VBoxContainer/HBoxContainer"]
+auto_translate_mode = 1
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 6
+text = "pers_valk_vel"
+label_settings = ExtResource("3_qu4mg")
+horizontal_alignment = 1
+vertical_alignment = 1
+language = "es_ES"
+
+[node name="ColorRect3" type="ColorRect" parent="ValkiriaInfo/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+
+[node name="Arma" type="Label" parent="ValkiriaInfo/VBoxContainer/HBoxContainer"]
+auto_translate_mode = 1
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 10
+text = "pers_valk_arm"
+label_settings = ExtResource("3_qu4mg")
+horizontal_alignment = 1
+vertical_alignment = 1
+language = "es_ES"
+
+[node name="VikingoInfo" type="Panel" parent="."]
+visible = false
+z_index = 2
+offset_left = 222.0
+offset_top = 162.0
+offset_right = 656.0
+offset_bottom = 292.0
+theme_override_styles/panel = ExtResource("3_oe3cv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VikingoInfo"]
+layout_mode = 0
+offset_right = 435.0
+offset_bottom = 130.0
+
+[node name="Nombre" type="Label" parent="VikingoInfo/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_vertical = 0
+text = "pers_vik_nom"
+label_settings = ExtResource("4_hmx1f")
+horizontal_alignment = 1
+vertical_alignment = 1
+language = "es_ES"
+
+[node name="ColorRect" type="ColorRect" parent="VikingoInfo/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="Historia" type="Label" parent="VikingoInfo/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_vertical = 6
+text = "pers_vik_his"
+label_settings = ExtResource("3_qu4mg")
+vertical_alignment = 1
+autowrap_mode = 3
+ellipsis_char = ""
+language = "es_ES"
+
+[node name="ColorRect2" type="ColorRect" parent="VikingoInfo/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VikingoInfo/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="Vida" type="Label" parent="VikingoInfo/VBoxContainer/HBoxContainer"]
+auto_translate_mode = 1
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 0
+text = "150"
+label_settings = ExtResource("3_qu4mg")
+horizontal_alignment = 1
+vertical_alignment = 1
+language = "es_ES"
+
+[node name="ColorRect2" type="ColorRect" parent="VikingoInfo/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+
+[node name="Velocidad" type="Label" parent="VikingoInfo/VBoxContainer/HBoxContainer"]
+auto_translate_mode = 1
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 6
+text = "pers_vik_vel"
+label_settings = ExtResource("3_qu4mg")
+horizontal_alignment = 1
+vertical_alignment = 1
+language = "es_ES"
+
+[node name="ColorRect3" type="ColorRect" parent="VikingoInfo/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+
+[node name="Arma" type="Label" parent="VikingoInfo/VBoxContainer/HBoxContainer"]
+auto_translate_mode = 1
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 10
+text = "pers_vik_arm"
+label_settings = ExtResource("3_qu4mg")
+horizontal_alignment = 1
+vertical_alignment = 1
 language = "es_ES"
 
 [node name="TextoSalir" type="TextureRect" parent="."]

@@ -22,7 +22,7 @@ position = Vector2(2, -1.25)
 shape = SubResource("RectangleShape2D_qsvd8")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.75
+wait_time = 0.5
 one_shot = true
 
 [node name="Area2D" type="Area2D" parent="."]
