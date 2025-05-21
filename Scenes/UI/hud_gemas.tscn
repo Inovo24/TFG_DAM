@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://j2pt10tpwuqk"]
 
 [ext_resource type="Script" uid="uid://c7mcwvkw4gopq" path="res://Scripts/Interfaz/hud_gemas.gd" id="1_gfxw7"]
-[ext_resource type="Texture2D" uid="uid://cv7n43gsv6kup" path="res://Sprites/Elementos/Gemas/GemaHud.png" id="1_j2hho"]
+[ext_resource type="Texture2D" uid="uid://cv7n43gsv6kup" path="res://Sprites/Elementos/GemaHud.png" id="1_j2hho"]
 [ext_resource type="LabelSettings" uid="uid://b1gtx4uxnb15b" path="res://Scenes/UI/UI_laber_settings/font.tres" id="2_x0xbv"]
 
 [node name="HUD_Gemas" type="CanvasLayer" node_paths=PackedStringArray("gema_label")]

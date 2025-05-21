@@ -8,7 +8,7 @@ class_name ArcherEnemy
 @onready var obstacle_check: RayCast2D = $ObstacleChecker
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var suelo_detector: Area2D = $SueloDetector
-@export var arrow_scene: PackedScene = preload("res://Scenes/Enemigos/Esqueleto_Arquero/flecha_esquelo.tscn")
+@export var arrow_scene: PackedScene = preload("res://Scenes/Elementos/flecha_esqueleto.tscn")
 #endregion
 
 #region PARÁMETROS DE MOVIMIENTO Y ATAQUE

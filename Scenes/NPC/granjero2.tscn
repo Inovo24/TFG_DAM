@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dx4nx0p64hdth"]
 
-[ext_resource type="Script" uid="uid://befut4byae5e" path="res://Scripts/Elementos/NPC/granjero.gd" id="1_07t1d"]
+[ext_resource type="Script" uid="uid://befut4byae5e" path="res://Scripts/NPC/granjero.gd" id="1_07t1d"]
 [ext_resource type="Texture2D" uid="uid://blhgake6h3pss" path="res://Sprites/NPC/viejo.png" id="2_07t1d"]
 [ext_resource type="LabelSettings" uid="uid://b1ywkn2uu61ot" path="res://Scenes/UI/UI_laber_settings/granjero.tres" id="3_m1w6c"]
 

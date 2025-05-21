@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cxmqlip12y7d8"]
 
-[ext_resource type="Script" uid="uid://bjupvuuc3btyr" path="res://Scripts/Elementos/NPC/limosnero.gd" id="1_5olta"]
+[ext_resource type="Script" uid="uid://bjupvuuc3btyr" path="res://Scripts/NPC/limosnero.gd" id="1_5olta"]
 [ext_resource type="Texture2D" uid="uid://d0jswlvnsg088" path="res://Sprites/NPC/limosnero.png" id="1_ql8uh"]
 [ext_resource type="LabelSettings" uid="uid://b1ywkn2uu61ot" path="res://Scenes/UI/UI_laber_settings/granjero.tres" id="2_vmhj0"]
 

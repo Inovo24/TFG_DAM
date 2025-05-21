@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bite0v3nks3wv" path="res://Sprites/Enemigos/Crow.png" id="1_3vuf6"]
 [ext_resource type="Script" uid="uid://bj3cerfxcqwy8" path="res://Scripts/Enemigos/enemigo_aereo.gd" id="1_s3nne"]
-[ext_resource type="Texture2D" uid="uid://b32gle11xgoyq" path="res://Sprites/Enemigos/Enemigo_aereo/crow_damage.png" id="3_7o1yw"]
+[ext_resource type="Texture2D" uid="uid://b32gle11xgoyq" path="res://Sprites/Enemigos/crow_damage.png" id="3_7o1yw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_joso8"]
 atlas = ExtResource("1_3vuf6")

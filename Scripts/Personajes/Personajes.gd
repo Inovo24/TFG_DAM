@@ -32,7 +32,7 @@ var next_attack : bool = false
 @onready var animPlayer = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
 @onready var anim_state_machine = animation_tree.get("parameters/playback")
-@onready var anim_appearing = preload("res://Scenes/Efectos/EfectoAparecer.tscn")
+@onready var anim_appearing = preload("res://Scenes/Elementos/Decoracion/EfectoAparecer.tscn")
 
 @onready var sfx_run = $SFX_Run
 @onready var sfx_jump = $SFX_Jump

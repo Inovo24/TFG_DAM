@@ -1,0 +1,153 @@
+[gd_scene load_steps=20 format=3 uid="uid://bsyoskref8vn1"]
+
+[ext_resource type="Texture2D" uid="uid://bgqcsms2k618b" path="res://Sprites/Elementos/LanzaLlamas.png" id="1_8jjaa"]
+[ext_resource type="Script" uid="uid://cnxvkceed6wn0" path="res://Scripts/Elementos/lanza_llamas.gd" id="1_f6k4e"]
+[ext_resource type="AudioStream" uid="uid://dg522xve2di5y" path="res://Audio/elementos/fire_start_light_flame_ignite_01.wav" id="3_m4l4w"]
+[ext_resource type="AudioStream" uid="uid://bj81go1o5g6ht" path="res://Audio/elementos/fire_burning_flames_crackle_loop_01.wav" id="4_q43xi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jjaa"]
+atlas = ExtResource("1_8jjaa")
+region = Rect2(0, 0, 40, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6k4e"]
+atlas = ExtResource("1_8jjaa")
+region = Rect2(40, 0, 40, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inbc0"]
+atlas = ExtResource("1_8jjaa")
+region = Rect2(80, 0, 40, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4l4w"]
+atlas = ExtResource("1_8jjaa")
+region = Rect2(120, 0, 40, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7oaj"]
+atlas = ExtResource("1_8jjaa")
+region = Rect2(0, 154, 40, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufqeg"]
+atlas = ExtResource("1_8jjaa")
+region = Rect2(40, 154, 40, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1h0m"]
+atlas = ExtResource("1_8jjaa")
+region = Rect2(80, 154, 40, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt5pu"]
+atlas = ExtResource("1_8jjaa")
+region = Rect2(120, 154, 40, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1g3pq"]
+atlas = ExtResource("1_8jjaa")
+region = Rect2(0, 231, 40, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4p6a"]
+atlas = ExtResource("1_8jjaa")
+region = Rect2(40, 231, 40, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbt12"]
+atlas = ExtResource("1_8jjaa")
+region = Rect2(80, 231, 40, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3x2ey"]
+atlas = ExtResource("1_8jjaa")
+region = Rect2(120, 231, 40, 77)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m4l4w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jjaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6k4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inbc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4l4w")
+}],
+"loop": true,
+"name": &"off",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7oaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufqeg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1h0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt5pu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1g3pq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4p6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbt12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3x2ey")
+}],
+"loop": true,
+"name": &"on",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jjaa"]
+size = Vector2(26, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6k4e"]
+size = Vector2(26, 21)
+
+[node name="LanzaLlamas" type="Node2D"]
+script = ExtResource("1_f6k4e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m4l4w")
+animation = &"off"
+frame_progress = 0.780774
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3, -9)
+shape = SubResource("RectangleShape2D_8jjaa")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-3, 28.5)
+shape = SubResource("RectangleShape2D_f6k4e")
+debug_color = Color(0.614743, 0.358331, 1, 0.42)
+
+[node name="RandomTimer" type="Timer" parent="."]
+
+[node name="DamageTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m4l4w")
+max_distance = 160.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_q43xi")
+max_distance = 147.0
+bus = &"SFX"
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="timeout" from="RandomTimer" to="." method="_on_RandomTimer_timeout"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_DamageTimer_timeout"]

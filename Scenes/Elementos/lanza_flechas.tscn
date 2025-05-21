@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://c6qduvwxpmalg"]
 
 [ext_resource type="Script" uid="uid://d2d11lcwwcs32" path="res://Scripts/Elementos/lanza_flechas.gd" id="1_yy15k"]
-[ext_resource type="Texture2D" uid="uid://bkmt24uvi3a01" path="res://Sprites/Elementos/LanzaFlechas/LanzaFlechas.png" id="2_yy15k"]
+[ext_resource type="Texture2D" uid="uid://bkmt24uvi3a01" path="res://Sprites/Elementos/LanzaFlechas.png" id="2_yy15k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lw7st"]
 atlas = ExtResource("2_yy15k")

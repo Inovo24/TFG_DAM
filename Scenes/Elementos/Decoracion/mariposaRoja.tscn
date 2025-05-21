@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bpwl8xd5w8s8j"]
+
+[ext_resource type="Texture2D" uid="uid://dtn0orldlcu1g" path="res://Sprites/Elementos/MariposasColores.png" id="1_2h05d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4sq0"]
+atlas = ExtResource("1_2h05d")
+region = Rect2(341, 0, 341, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnn33"]
+atlas = ExtResource("1_2h05d")
+region = Rect2(341, 256, 341, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57i2y"]
+atlas = ExtResource("1_2h05d")
+region = Rect2(341, 512, 341, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8c0u"]
+atlas = ExtResource("1_2h05d")
+region = Rect2(341, 768, 341, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h05d"]
+atlas = ExtResource("1_2h05d")
+region = Rect2(341, 512, 341, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w5vr4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4sq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnn33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57i2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8c0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2h05d")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[node name="Mariposa" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_w5vr4")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.740709

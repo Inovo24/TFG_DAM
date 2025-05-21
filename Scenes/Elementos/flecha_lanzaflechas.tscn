@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bnptfivkm36r2"]
 
 [ext_resource type="Script" uid="uid://dwqniysv5iqve" path="res://Scripts/Personajes/flecha.gd" id="1_4y0fc"]
-[ext_resource type="Texture2D" uid="uid://bm472j6mc2iuh" path="res://Sprites/Elementos/Flecha/flecha-lanzador-Sheet.png" id="2_4y0fc"]
+[ext_resource type="Texture2D" uid="uid://bm472j6mc2iuh" path="res://Sprites/Elementos/flecha-lanzador-Sheet.png" id="2_4y0fc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dbj1"]
 size = Vector2(14, 6)

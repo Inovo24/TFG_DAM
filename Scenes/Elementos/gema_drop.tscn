@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bxmii5rkg8aiq"]
 
 [ext_resource type="Script" uid="uid://dwbvphra0l5rm" path="res://Scripts/Elementos/gema_drop.gd" id="1_efuk1"]
-[ext_resource type="Texture2D" uid="uid://bqsrec304vkhp" path="res://Sprites/Elementos/Gemas/gemaAmarilla.png" id="2_b3k6k"]
+[ext_resource type="Texture2D" uid="uid://bqsrec304vkhp" path="res://Sprites/Elementos/gemaAmarilla.png" id="2_b3k6k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k48bk"]
 atlas = ExtResource("2_b3k6k")

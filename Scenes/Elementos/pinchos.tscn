@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bwlmbfrpgqfki"]
 
 [ext_resource type="Script" uid="uid://b05fs6jvftqrq" path="res://Scripts/Elementos/pinchos.gd" id="1_m4lgh"]
-[ext_resource type="Texture2D" uid="uid://smqfnjqgydia" path="res://Sprites/Elementos/pinchos/pinchos.png" id="2_m4lgh"]
+[ext_resource type="Texture2D" uid="uid://smqfnjqgydia" path="res://Sprites/Elementos/pinchos.png" id="2_m4lgh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4lgh"]
 size = Vector2(34, 2.5)

@@ -706,7 +706,7 @@ position = Vector2(3203, 408)
 position = Vector2(4656, 248)
 
 [node name="PlataformaNormal13" parent="Plataformas" instance=ExtResource("9_tmh1a")]
-position = Vector2(4170, 352)
+position = Vector2(4171, 352)
 
 [node name="PlataformaNormal14" parent="Plataformas" instance=ExtResource("9_tmh1a")]
 position = Vector2(4655, 296)
@@ -721,19 +721,19 @@ position = Vector2(4656, 131)
 position = Vector2(4656, 68)
 
 [node name="PlataformaNormal8" parent="Plataformas" instance=ExtResource("9_tmh1a")]
-position = Vector2(4656, 7)
+position = Vector2(4656, 3)
 
 [node name="PlataformaNormal9" parent="Plataformas" instance=ExtResource("9_tmh1a")]
-position = Vector2(4656, -52)
+position = Vector2(4656, -61)
 
 [node name="PlataformaNormal10" parent="Plataformas" instance=ExtResource("9_tmh1a")]
-position = Vector2(4656, -114)
+position = Vector2(4656, -124)
 
 [node name="PlataformaNormal11" parent="Plataformas" instance=ExtResource("9_tmh1a")]
-position = Vector2(4656, -174)
+position = Vector2(4656, -189)
 
 [node name="PlataformaNormal12" parent="Plataformas" instance=ExtResource("9_tmh1a")]
-position = Vector2(4656, -232)
+position = Vector2(4656, -253)
 
 [node name="Enemigos" type="Node2D" parent="."]
 
