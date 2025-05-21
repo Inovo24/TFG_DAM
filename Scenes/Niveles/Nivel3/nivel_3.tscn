@@ -739,6 +739,3 @@ position = Vector2(4656, -253)
 
 [node name="Esquelo_arquero" parent="Enemigos" instance=ExtResource("12_26gfu")]
 position = Vector2(4443, 293)
-
-[node name="Esquelo_arquero" parent="." instance=ExtResource("12_26gfu")]
-position = Vector2(349, 389)

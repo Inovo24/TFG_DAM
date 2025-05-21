@@ -127,7 +127,7 @@ func _teleport_to_new_position() -> void:
 func _on_Hitbox_body_entered(body: Node) -> void:
 	# Cuando algo entra en la hitbox del jefe (por ejemplo, un proyectil del jugador o el propio jugador)
 	# Determinar si es un ataque del jugador
-	if body.is_in_group("player_attack") or body.name == "Player":
+	if body.is_in_group("players"):
 		# Aplicar daño al jefe
 		_take_damage(body.damage if typeof(body.damage) == TYPE_FLOAT or TYPE_INT else 10)
 		# Opcional: si es el jugador mismo, también podríamos dañarlo o empujarlo, etc.

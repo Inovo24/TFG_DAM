@@ -250,7 +250,7 @@ func _knockback(knockback: float):
 		return
 
 	var knockback_dir = (position - player.position).normalized()
-	var reduced_distance := 20.0
+	var reduced_distance := 5.0
 	var destination = position + knockback_dir * reduced_distance
 
 	var space_state = get_world_2d().direct_space_state
@@ -265,7 +265,7 @@ func _knockback(knockback: float):
 		knockback_tween.kill()
 
 	knockback_tween = create_tween()
-	knockback_tween.tween_property(self, "position", destination, 0.25) \
+	knockback_tween.tween_property(self, "position", destination, 0.15) \
 		.set_trans(Tween.TRANS_SINE) \
 		.set_ease(Tween.EASE_OUT)
 

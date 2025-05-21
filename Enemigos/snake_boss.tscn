@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://bfakpxclv64ql"]
+[gd_scene load_steps=87 format=3 uid="uid://bfakpxclv64ql"]
 
 [ext_resource type="Script" uid="uid://x85xsubxy0ri" path="res://Scripts/Enemigos/snake_boss.gd" id="1_43t1e"]
 [ext_resource type="Texture2D" uid="uid://vsaxflxudmpl" path="res://Sprites/Enemigos/bosses/Serpiente/snake - appear.png" id="1_pmi6h"]
@@ -567,13 +567,18 @@ animations = [{
 size = Vector2(21, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_43t1e"]
-radius = 24.0208
+radius = 164.003
 
-[node name="SnakeBoss" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43t1e"]
+
+[node name="SnakeBoss" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_43t1e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -7)
+position = Vector2(-3, -17)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_t4y7o")
 animation = &"idle"
 autoplay = "idle"
@@ -591,11 +596,11 @@ shape = SubResource("RectangleShape2D_4ucd0")
 
 [node name="initialPosition" type="Marker2D" parent="."]
 
-[node name="damage_area" type="Area2D" parent="."]
+[node name="detention_player" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detention_player"]
 shape = SubResource("CircleShape2D_43t1e")
 
 [node name="SpawnPoints" type="Node2D" parent="."]
@@ -607,5 +612,9 @@ position = Vector2(-92, 0)
 
 [node name="Point3" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(97, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_43t1e")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
