@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bfqt7c4dsfj80"
+path="res://.godot/imported/collect_coin_01 (mp3cut.net).wav-f80c95702ef317d09ca7379ded288a1b.sample"
+
+[deps]
+
+source_file="res://Audio/elementos/collect_coin_01 (mp3cut.net).wav"
+dest_files=["res://.godot/imported/collect_coin_01 (mp3cut.net).wav-f80c95702ef317d09ca7379ded288a1b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

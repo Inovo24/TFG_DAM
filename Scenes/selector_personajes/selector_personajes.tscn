@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dc42x16lyph7c"]
+[gd_scene load_steps=31 format=3 uid="uid://dc42x16lyph7c"]
 
 [ext_resource type="Script" uid="uid://bhvg63jhnpos1" path="res://Scripts/Interfaz/selector_personajes.gd" id="1_0wu1u"]
 [ext_resource type="Texture2D" uid="uid://be2stv0t7inhk" path="res://Sprites/fondo_selector.png" id="2_gmxq8"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://d0kcxtgl45m5j" path="res://Sprites/Arquero/selector_arque-Sheet.png" id="8_aju4g"]
 [ext_resource type="Texture2D" uid="uid://cpvvu0m2hx50e" path="res://Sprites/Arquero/transicion_arquero-Sheet.png" id="9_bjsyv"]
 [ext_resource type="Texture2D" uid="uid://c11oxobwnn5m3" path="res://Sprites/Arquero/arquero_seleccionado-Sheet.png" id="10_pjoqn"]
+[ext_resource type="AudioStream" uid="uid://btubqats04141" path="res://Audio/miscelanea/selectorPJS.wav" id="13_oe3cv"]
+[ext_resource type="AudioStream" uid="uid://ceb10d4w3i53a" path="res://Audio/elementos/Door (Open - Huge).mp3" id="14_hmx1f"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_63qg4"]
 
@@ -770,3 +772,12 @@ libraries = {
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(351, 181)
 zoom = Vector2(3, 3)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_oe3cv")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_hmx1f")
+pitch_scale = 1.74
+bus = &"SFX"

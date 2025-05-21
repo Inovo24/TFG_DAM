@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dh1d7jg6yh3va"
+path="res://.godot/imported/Cut Flesh 3.mp3-800151e2a605e1387a9f9726b837345f.mp3str"
+
+[deps]
+
+source_file="res://Audio/personajes/valkiria/ataques/Cut Flesh 3.mp3"
+dest_files=["res://.godot/imported/Cut Flesh 3.mp3-800151e2a605e1387a9f9726b837345f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -5,6 +5,7 @@ extends StaticBody2D
 @export var max_health: int = 30
 @export var drop_coin = false
 @export var interruptor: bool = false
+@onready var audio_stream_player = $AudioStreamPlayer
 
 var current_health: int
 var is_breaking := false
@@ -30,6 +31,7 @@ func break_apart():
 		return
 	is_breaking = true
 	anim.play("break")
+	audio_stream_player.play()
 	await anim.animation_finished
 	
 	if not drop_coin:

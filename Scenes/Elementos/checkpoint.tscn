@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdhp6ctexp8rt"]
+[gd_scene load_steps=5 format=3 uid="uid://cdhp6ctexp8rt"]
 
 [ext_resource type="Script" uid="uid://dvkmmsc1273bv" path="res://Scripts/Elementos/checkpoint.gd" id="1_7yfvi"]
 [ext_resource type="Texture2D" uid="uid://dxx5dykiiff1h" path="res://Sprites/Elementos/checkPoint/desactivado.png" id="2_7yfvi"]
+[ext_resource type="AudioStream" uid="uid://daen60ltljcex" path="res://Audio/elementos/battle_viking_horn_call_close_04.wav" id="3_0vfb1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7yfvi"]
 size = Vector2(23, 51)
@@ -17,5 +18,10 @@ texture = ExtResource("2_7yfvi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 18.5)
 shape = SubResource("RectangleShape2D_7yfvi")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0vfb1")
+volume_db = -15.838
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -2,6 +2,8 @@ extends Node2D
 
 @export var speed: float = 200.0  
 @export var damage: int = 20  
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
+
 var direction: Vector2 = Vector2.RIGHT 
 var charge_multiplier: float = 1.0
 var atack_player: bool = false
@@ -10,6 +12,7 @@ func _process(delta: float):
 	position += direction * speed * delta
 
 func _on_body_entered(_body: Node) -> void:
+	audio_stream_player_2d.play()
 	# Impacta contra el suelo (TileMap u otros)
 	if _body is TileMap or _body is TileMapLayer:
 		print("Arrow hit the ground")

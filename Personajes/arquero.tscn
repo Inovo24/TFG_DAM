@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://brcqtuumjw2gy"]
+[gd_scene load_steps=38 format=3 uid="uid://brcqtuumjw2gy"]
 
 [ext_resource type="Script" uid="uid://bembmkp7s16vg" path="res://Scripts/Personajes/arqueroScript.gd" id="1_k2g1c"]
 [ext_resource type="Texture2D" uid="uid://bbfyi5bw1mw06" path="res://Sprites/Arquero/run_arquero-Sheet.png" id="2_5unkh"]
@@ -8,6 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://b22144w0c6b8b" path="res://Sprites/Arquero/jump_arquero-Sheet.png" id="5_6x35u"]
 [ext_resource type="Texture2D" uid="uid://nkt2csctuotu" path="res://Sprites/Arquero/fall_arquero-Sheet.png" id="6_dayqw"]
 [ext_resource type="Texture2D" uid="uid://821qjqnuw3jc" path="res://Sprites/Arquero/arquero_damage.png" id="7_dayqw"]
+[ext_resource type="AudioStream" uid="uid://4ex2uxeb5lfe" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_02.wav" id="9_eysm5"]
+[ext_resource type="AudioStream" uid="uid://cysoqqawjvpct" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_03.wav" id="10_rlkw1"]
+[ext_resource type="AudioStream" uid="uid://cmebvo75uhxr" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_04.wav" id="11_xy5ku"]
+[ext_resource type="AudioStream" uid="uid://b5ge6ncyjpfta" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_05.wav" id="12_xglho"]
+[ext_resource type="AudioStream" uid="uid://bgbgsxqte7tfi" path="res://Audio/personajes/Impact 2.mp3" id="13_eysm5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrfbw"]
 size = Vector2(17, 27)
@@ -444,6 +449,13 @@ states/saltar/node = SubResource("AnimationNodeAnimation_8geib")
 states/saltar/position = Vector2(475, 94)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_2i8xw")]
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_v1lxq"]
+stream_count = 4
+stream_0 = ExtResource("9_eysm5")
+stream_1 = ExtResource("10_rlkw1")
+stream_2 = ExtResource("11_xy5ku")
+stream_3 = ExtResource("12_xglho")
+
 [node name="Arquero" type="CharacterBody2D" groups=["Personajes", "player"]]
 z_index = 5
 collision_layer = 514
@@ -475,6 +487,25 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_3k3pe")
+bus = &"SFX"
+
+[node name="SFX_Run" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_v1lxq")
+volume_db = -10.03
+pitch_scale = 0.7
+bus = &"SFX"
+
+[node name="SFX_Jump" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="SFX_Attack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3k3pe")
+bus = &"SFX"
+
+[node name="SFX_Damaged" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_eysm5")
+volume_db = 10.558
+pitch_scale = 0.88
 bus = &"SFX"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

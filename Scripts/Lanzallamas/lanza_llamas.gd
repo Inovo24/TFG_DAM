@@ -13,6 +13,8 @@ var body_in_area : Node2D = null
 @onready var random_timer := $RandomTimer
 @onready var area := $Area2D
 @onready var damage_timer := $DamageTimer
+@onready var audio_stream_player = $AudioStreamPlayer
+@onready var audio_stream_player_2 = $AudioStreamPlayer2
 
 func _ready():
 	active = active_by_default
@@ -42,10 +44,13 @@ func _randomize_next_activation():
 
 func _update_state():
 	if active:
+		audio_stream_player_2.stop()
 		sprite.play("on")
+		audio_stream_player.play()
 		area.monitoring = true
 	else:
 		sprite.play("off")
+		audio_stream_player_2.play()
 		area.monitoring = false
 		body_in_area = null
 		damage_timer.stop()

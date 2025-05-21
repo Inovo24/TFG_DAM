@@ -25,6 +25,8 @@ var has_boss = false
 var timer_running := false
 var elapsed_time := 0.0
 var target_position: Vector2
+var gem_sfx: AudioStreamPlayer
+
 func _ready():
 	player = Globales.get_player()  # Get the player from the global variable
 	add_child(player)  # Add the player to the current scene
@@ -40,6 +42,10 @@ func _ready():
 	add_child(colorblindness)
 	Globales.colorblindness = colorblindness
 	
+	gem_sfx = AudioStreamPlayer.new()
+	var gem_sound = preload("res://Audio/elementos/collect_coin_01 (mp3cut.net).wav")
+	gem_sfx.stream = gem_sound
+	add_child(gem_sfx)
 
 	# HUD gems
 	hud_gems = hud_gems_scene.instantiate()
@@ -79,6 +85,7 @@ func _process(_delta: float) -> void:
 func collect_gem():
 	collected_gems += 1
 	hud_gems.updateGemLabel(collected_gems)
+	gem_sfx.play()
 	
 
 func save_data(level_name: String):

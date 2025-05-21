@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cfltomgtwuoc"]
+[gd_scene load_steps=50 format=3 uid="uid://cfltomgtwuoc"]
 
 [ext_resource type="Script" uid="uid://conujhywlq0aw" path="res://Scripts/Personajes/vikingoScript.gd" id="1_dw0it"]
 [ext_resource type="Texture2D" uid="uid://qnqito2bokb3" path="res://Sprites/Vikingo/viking_run-Sheet.png" id="2_3x3oj"]
@@ -12,12 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://bsfrb6w2lfv4p" path="res://Sprites/Vikingo/jump_viking-Sheet.png" id="8_25mdg"]
 [ext_resource type="Texture2D" uid="uid://tvuxxbduu5i3" path="res://Sprites/Vikingo/fall_viking-Sheet.png" id="9_hlwk2"]
 [ext_resource type="Texture2D" uid="uid://d3ouhgt0mohwm" path="res://Sprites/Vikingo/vikingo_upattack-Sheet.png" id="10_hlwk2"]
-[ext_resource type="AudioStream" uid="uid://bbvxl4rvhl7l1" path="res://Audio/personajes/pasos/arquero/footstep_concrete_land_v2_01.wav" id="11_cvisx"]
 [ext_resource type="Texture2D" uid="uid://bje84alhp1n2a" path="res://Sprites/Vikingo/vikingo_damage.png" id="12_55uqw"]
-[ext_resource type="AudioStream" uid="uid://kralrvbutwqq" path="res://Audio/personajes/pasos/arquero/footstep_concrete_land_v2_02.wav" id="12_ar7ew"]
-[ext_resource type="AudioStream" uid="uid://drj6v3xm42wfc" path="res://Audio/personajes/pasos/arquero/footstep_concrete_land_v2_04.wav" id="13_yx4cb"]
-[ext_resource type="AudioStream" uid="uid://5nehqxdqjtnj" path="res://Audio/personajes/pasos/arquero/footstep_concrete_land_v2_05.wav" id="14_ucsjm"]
-[ext_resource type="AudioStream" uid="uid://bmcdbuf76katy" path="res://Audio/personajes/pasos/arquero/footstep_concrete_land_v2_06.wav" id="15_s6w0h"]
+[ext_resource type="AudioStream" uid="uid://4ex2uxeb5lfe" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_02.wav" id="14_yx4cb"]
+[ext_resource type="AudioStream" uid="uid://cysoqqawjvpct" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_03.wav" id="15_ucsjm"]
+[ext_resource type="AudioStream" uid="uid://cmebvo75uhxr" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_04.wav" id="16_s6w0h"]
+[ext_resource type="AudioStream" uid="uid://b5ge6ncyjpfta" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_05.wav" id="17_cbi8t"]
+[ext_resource type="AudioStream" uid="uid://bgbgsxqte7tfi" path="res://Audio/personajes/Impact 2.mp3" id="18_cvisx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rahmg"]
 size = Vector2(9, 31)
@@ -117,54 +117,6 @@ tracks/6/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("AudioStreamPlayer:playing")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("AudioStreamPlayer:stream")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_8ydtl")]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("AudioStreamPlayer:pitch_scale")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("AudioStreamPlayer:bus")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"SFX"]
-}
 
 [sub_resource type="Animation" id="Animation_gbp7j"]
 resource_name = "ataque1"
@@ -217,54 +169,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [6]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("AudioStreamPlayer:stream")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_8ydtl")]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AudioStreamPlayer:playing")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AudioStreamPlayer:pitch_scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("AudioStreamPlayer:bus")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Music"]
 }
 
 [sub_resource type="Animation" id="Animation_j0u2b"]
@@ -319,42 +223,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [6]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("AudioStreamPlayer:stream")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_8ydtl")]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AudioStreamPlayer:playing")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AudioStreamPlayer:pitch_scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.2]
-}
 
 [sub_resource type="Animation" id="Animation_cgx8d"]
 resource_name = "ataque3"
@@ -407,42 +275,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [6]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("AudioStreamPlayer:stream")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_8ydtl")]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AudioStreamPlayer:playing")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AudioStreamPlayer:pitch_scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.8]
 }
 
 [sub_resource type="Animation" id="Animation_hlwk2"]
@@ -687,42 +519,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [6]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AudioStreamPlayer:stream")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("11_cvisx"), ExtResource("12_ar7ew"), ExtResource("13_yx4cb"), ExtResource("14_ucsjm"), ExtResource("15_s6w0h")]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("AudioStreamPlayer:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, true, true, true, true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AudioStreamPlayer:bus")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [&"SFX", &"SFX"]
-}
 
 [sub_resource type="Animation" id="Animation_8ydtl"]
 resource_name = "daño"
@@ -944,6 +740,13 @@ states/saltar/position = Vector2(303, 9)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_t3yva")]
 graph_offset = Vector2(-750.737, -63.9623)
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_yx4cb"]
+stream_count = 4
+stream_0 = ExtResource("14_yx4cb")
+stream_1 = ExtResource("15_ucsjm")
+stream_2 = ExtResource("16_s6w0h")
+stream_3 = ExtResource("17_cbi8t")
+
 [node name="Vikingo" type="CharacterBody2D" groups=["player"]]
 z_index = 5
 collision_layer = 514
@@ -990,8 +793,21 @@ reset_on_save = false
 tree_root = SubResource("AnimationNodeStateMachine_88xhp")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="SFX_Run" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_yx4cb")
+bus = &"SFX"
+
+[node name="SFX_Jump" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="SFX_Attack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_8ydtl")
+bus = &"SFX"
+
+[node name="SFX_Damaged" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_cvisx")
+volume_db = 10.558
+pitch_scale = 0.56
 bus = &"SFX"
 
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_Area2D_body_entered"]

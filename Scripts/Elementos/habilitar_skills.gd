@@ -4,6 +4,7 @@ extends Node2D
 @export var active_phrase : String
 @onready var dialogue_label = $Label
 @onready var label_skill = $Label_Skill_activa
+@onready var audio_stream_player = $AudioStreamPlayer
 
 func _ready() -> void:
 	randomize()
@@ -18,6 +19,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		show_random_phrase() 
 		dialogue_label.visible = true
 		if !body.skill_active:
+			audio_stream_player.play()
 			body.skill_active = true
 			label_skill.visible = true
 			await get_tree().create_timer(3).timeout

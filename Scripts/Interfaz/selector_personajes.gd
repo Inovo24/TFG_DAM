@@ -3,12 +3,15 @@ extends Node2D
 @onready var viking: AnimationPlayer = $Vikingo/Vikingo
 @onready var valkyrie: AnimationPlayer = $Valkiria/Valkiria
 @onready var archer: AnimationPlayer = $Arquero/Arquero
+@onready var audio_stream_player = $AudioStreamPlayer
+@onready var audio_stream_player_2 = $AudioStreamPlayer2
 
 var characters
 var infos  
 
 func _ready() -> void:
 	# Set exit message
+	audio_stream_player_2.play()
 	var exit_key = InputMap.action_get_events("salir")[0].as_text().replace(" (Physical)", "")
 	$TextoSalir/Label.text = tr("gen_salir").replace("{tecla}", exit_key)
 	
@@ -40,7 +43,7 @@ func move_left():
 
 
 func change_character(direction):
-	
+	audio_stream_player.play()
 	infos[Globales.current_character].visible = false
 	characters[Globales.current_character].play("selector")
 	
