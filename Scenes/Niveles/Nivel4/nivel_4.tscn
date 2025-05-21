@@ -596,10 +596,13 @@ rotation = -3.14159
 scale = Vector2(1, -1)
 
 [node name="zarza2" parent="parte_zarzas" instance=ExtResource("11_8h0q8")]
-position = Vector2(681, 257)
+position = Vector2(675, 256)
+
+[node name="zarza3" parent="parte_zarzas" instance=ExtResource("11_8h0q8")]
+position = Vector2(604, 255)
 
 [node name="zarza" parent="parte_zarzas" instance=ExtResource("11_8h0q8")]
-position = Vector2(638, 257)
+position = Vector2(638, 256)
 
 [node name="CambioAArquero" type="Area2D" parent="."]
 visible = false

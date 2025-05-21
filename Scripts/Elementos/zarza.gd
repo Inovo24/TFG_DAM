@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var damage: int = 2
+var damage: int = 1
 var player
 
 @onready var timer: Timer = $damage
@@ -9,7 +9,7 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		player = body
 		if player.thorns_touching == 0:
-			player.change_speed(0.5)
+			player.change_speed(0.15)
 			timer.start()
 
 		player.thorns_touching += 1
