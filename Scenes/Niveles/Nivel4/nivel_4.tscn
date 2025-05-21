@@ -554,6 +554,9 @@ playerNum = 1
 
 [node name="pinchos" type="Node" parent="."]
 
+[node name="Pinchos_subebaja5" parent="pinchos" instance=ExtResource("12_x3xw8")]
+position = Vector2(1212, 242)
+
 [node name="Pinchos_subebaja4" parent="pinchos" instance=ExtResource("12_x3xw8")]
 position = Vector2(1178, 242)
 
@@ -574,6 +577,9 @@ position = Vector2(7333, -589)
 
 [node name="Pinchos3" parent="pinchos" instance=ExtResource("14_4t4fu")]
 position = Vector2(7372, -589)
+
+[node name="Pinchos_subebaja6" parent="pinchos" instance=ExtResource("12_x3xw8")]
+position = Vector2(1042, 242)
 
 [node name="checkpoint" parent="." instance=ExtResource("13_x3xw8")]
 position = Vector2(2378, -2)
