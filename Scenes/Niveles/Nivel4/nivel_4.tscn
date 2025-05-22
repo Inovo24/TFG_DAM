@@ -542,12 +542,12 @@ z_index = -1
 position = Vector2(305, -127)
 
 [node name="cambiar_vikingp" parent="puertas" instance=ExtResource("7_udv5t")]
-position = Vector2(2289, -1)
+position = Vector2(2290, 5)
 spriteNewCharacter = ExtResource("8_luwei")
 spriteOldCharacter = ExtResource("9_bu7vh")
 
 [node name="cambiar_valkiria" parent="puertas" instance=ExtResource("7_udv5t")]
-position = Vector2(5578, -785)
+position = Vector2(5578, -781)
 spriteNewCharacter = ExtResource("17_qsvht")
 spriteOldCharacter = ExtResource("8_luwei")
 playerNum = 1
@@ -628,12 +628,12 @@ turn_phrases = PackedStringArray("msg_doble_1", "msg_doble_2", "msg_doble_3", "m
 active_phrase = "msg_doble_unlock"
 
 [node name="habilitar_skills2" parent="skills" instance=ExtResource("17_3lgj7")]
-position = Vector2(5226, -151)
+position = Vector2(5226, -149)
 turn_phrases = PackedStringArray("msg_escalada_1", "msg_escalada_2", "msg_escalada_3", "msg_escalada_4", "msg_escalada_5")
 active_phrase = "msg_escalada_unlock"
 
 [node name="habilitar_skills3" parent="skills" instance=ExtResource("17_3lgj7")]
-position = Vector2(7075, -696)
+position = Vector2(7075, -693)
 turn_phrases = PackedStringArray("msg_dash_1", "msg_dash_2", "msg_dash_3", "msg_dash_4", "msg_dash_5")
 active_phrase = "msg_dash_unlock"
 
