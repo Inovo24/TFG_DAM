@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3lt32bnk1f0u"]
+[gd_scene load_steps=5 format=3 uid="uid://c3lt32bnk1f0u"]
 
 [ext_resource type="Script" uid="uid://c7o613ukpr6kl" path="res://Scripts/Elementos/pinchos_subebaja.gd" id="1_p3mjf"]
 [ext_resource type="Texture2D" uid="uid://smqfnjqgydia" path="res://Sprites/Elementos/pinchos.png" id="2_xdt2v"]
+[ext_resource type="Texture2D" uid="uid://drv312apx6l8e" path="res://Sprites/Elementos/barro.png" id="3_xdt2v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_il75n"]
 size = Vector2(34, 10)
@@ -13,6 +14,10 @@ script = ExtResource("1_p3mjf")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.588496, 0.5)
 texture = ExtResource("2_xdt2v")
+
+[node name="barro" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(0, -20)
+texture = ExtResource("3_xdt2v")
 
 [node name="AreaDano" type="Area2D" parent="."]
 collision_mask = 6
