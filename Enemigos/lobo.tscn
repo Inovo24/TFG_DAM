@@ -200,7 +200,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteLobo/Atack"]
 position = Vector2(3.07081, 0.806133)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_g1fwt")
 
 [node name="TimerAtack" type="Timer" parent="SpriteLobo/Atack"]
@@ -222,6 +221,8 @@ collision_mask = 3
 [node name="GiroTimer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="body_entered" from="SpriteLobo/Atack" to="." method="_on_attack_body_entered"]
 [connection signal="body_exited" from="SpriteLobo/Atack" to="." method="_on_attack_body_exited"]
