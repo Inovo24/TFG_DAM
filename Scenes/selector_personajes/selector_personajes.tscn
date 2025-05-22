@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dc42x16lyph7c"]
+[gd_scene load_steps=32 format=3 uid="uid://dc42x16lyph7c"]
 
 [ext_resource type="Script" uid="uid://bhvg63jhnpos1" path="res://Scripts/Interfaz/selector_personajes.gd" id="1_0wu1u"]
 [ext_resource type="Texture2D" uid="uid://be2stv0t7inhk" path="res://Sprites/fondo_selector.png" id="2_gmxq8"]

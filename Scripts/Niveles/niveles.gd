@@ -6,7 +6,7 @@ var initialPosition
 var player
 
 var offsetX = 100
-var offsetY = -25
+var offsetY = -50
 
 var healthBar
 @onready var healthBarScene = preload("res://Scenes/UI/Barravida.tscn")
@@ -26,6 +26,10 @@ var timer_running := false
 var elapsed_time := 0.0
 var target_position: Vector2
 var gem_sfx: AudioStreamPlayer
+
+var down_pressed_time := 0.0
+const DOWN_HOLD_TIME := 1.0 # segundos que hay que mantener
+var camera_ground_y := 0.0
 
 func _ready():
 	player = Globales.get_player()  # Get the player from the global variable
@@ -55,20 +59,47 @@ func _ready():
 	#Teporizador
 	timer_running = true
 	elapsed_time = 0.0
+	camera_ground_y = player.position.y + offsetY
 
 func _process(_delta: float) -> void:
 	var direction = player.sprite.scale.x
+	var is_down_pressed = Input.is_action_pressed("abajo")
+
+	# --- Lógica para bajar la cámara si mantiene abajo ---
 	if player.is_on_floor():
-		offsetY = -80
+		if is_down_pressed:
+			down_pressed_time += _delta
+			if down_pressed_time >= DOWN_HOLD_TIME:
+				offsetY = +30  # La cámara baja un poco
+			else:
+				offsetY = -50  # Valor normal en el suelo
+		else:
+			down_pressed_time = 0.0
+			offsetY = -50
+		# Guardar la posición Y de la cámara cuando está en el suelo
+		camera_ground_y = player.position.y + offsetY
 	else:
-		offsetY = 0
-		#print(offsetY)
+		down_pressed_time = 0.0
+		#offsetY = -50
+
+	# --- Cálculo de target_position ---
+	var target_y: float
+	var high_jump_threshold = -400
+	if player.is_on_floor():
+		target_y = player.position.y + offsetY
+	else:
+		if player.velocity.y < high_jump_threshold:
+			target_y = player.position.y -100
+		else:
+			target_y = camera_ground_y  # Mantener la Y guardada durante el salto
+
 	if direction > 0:
-		target_position = player.position + Vector2(offsetX, offsetY+25)
+		target_position = Vector2(player.position.x + offsetX, target_y)
 	else:
-		target_position = player.position + Vector2(-offsetX, offsetY+25)
-	camera.position = camera.position.lerp(target_position,_delta* 5)
-	#print(offsetY)
+		target_position = Vector2(player.position.x - offsetX, target_y)
+
+	camera.position = camera.position.lerp(target_position, _delta * 5)
+
 	hud_gems.updateGemLabel(collected_gems)
 	if Input.is_action_just_pressed("salir"):
 		if menu_instance == null:
