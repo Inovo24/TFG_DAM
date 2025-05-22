@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Step Armor 4.mp3-b35ce8ead2404c9af5ca5d916142
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
-beat_count=0
+loop_offset=0.0
+bpm=150.0
+beat_count=1
 bar_beats=4

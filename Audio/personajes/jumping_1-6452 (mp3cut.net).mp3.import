@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://duddtrnavk050"
+path="res://.godot/imported/jumping_1-6452 (mp3cut.net).mp3-fcc41e2c67145eeb2e34e88021c6b08f.mp3str"
+
+[deps]
+
+source_file="res://Audio/personajes/jumping_1-6452 (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/jumping_1-6452 (mp3cut.net).mp3-fcc41e2c67145eeb2e34e88021c6b08f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

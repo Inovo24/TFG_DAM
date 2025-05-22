@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgi4ioitbrdrd"
+path="res://.godot/imported/Event 7.mp3-cb670346fcd9e0158a976597750096b4.mp3str"
+
+[deps]
+
+source_file="res://Audio/miscelanea/Event 7.mp3"
+dest_files=["res://.godot/imported/Event 7.mp3-cb670346fcd9e0158a976597750096b4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cfltomgtwuoc"]
+[gd_scene load_steps=51 format=3 uid="uid://cfltomgtwuoc"]
 
 [ext_resource type="Script" uid="uid://conujhywlq0aw" path="res://Scripts/Personajes/vikingoScript.gd" id="1_dw0it"]
 [ext_resource type="Texture2D" uid="uid://qnqito2bokb3" path="res://Sprites/Vikingo/viking_run-Sheet.png" id="2_3x3oj"]
@@ -16,8 +16,9 @@
 [ext_resource type="AudioStream" uid="uid://4ex2uxeb5lfe" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_02.wav" id="14_yx4cb"]
 [ext_resource type="AudioStream" uid="uid://cysoqqawjvpct" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_03.wav" id="15_ucsjm"]
 [ext_resource type="AudioStream" uid="uid://cmebvo75uhxr" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_04.wav" id="16_s6w0h"]
+[ext_resource type="AudioStream" uid="uid://duddtrnavk050" path="res://Audio/personajes/jumping_1-6452 (mp3cut.net).mp3" id="17_ar7ew"]
 [ext_resource type="AudioStream" uid="uid://b5ge6ncyjpfta" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_05.wav" id="17_cbi8t"]
-[ext_resource type="AudioStream" uid="uid://bgbgsxqte7tfi" path="res://Audio/personajes/Impact 2.mp3" id="18_cvisx"]
+[ext_resource type="AudioStream" uid="uid://bqxt1q1ytxyjm" path="res://Audio/personajes/Female Hit 2.mp3" id="19_yx4cb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rahmg"]
 size = Vector2(9, 31)
@@ -760,7 +761,7 @@ frame = 1
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
 collision_layer = 16
-collision_mask = 8196
+collision_mask = 8260
 
 [node name="frontal" type="CollisionShape2D" parent="Sprite2D/Area2D"]
 position = Vector2(17, 2.5)
@@ -795,9 +796,13 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="SFX_Run" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamPlaylist_yx4cb")
+volume_db = -2.538
 bus = &"SFX"
 
 [node name="SFX_Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_ar7ew")
+volume_db = 10.03
+pitch_scale = 0.8
 bus = &"SFX"
 
 [node name="SFX_Attack" type="AudioStreamPlayer" parent="."]
@@ -805,8 +810,7 @@ stream = ExtResource("3_8ydtl")
 bus = &"SFX"
 
 [node name="SFX_Damaged" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("18_cvisx")
-volume_db = 10.558
+stream = ExtResource("19_yx4cb")
 pitch_scale = 0.56
 bus = &"SFX"
 

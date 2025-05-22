@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://brcqtuumjw2gy"]
+[gd_scene load_steps=39 format=3 uid="uid://brcqtuumjw2gy"]
 
 [ext_resource type="Script" uid="uid://bembmkp7s16vg" path="res://Scripts/Personajes/arqueroScript.gd" id="1_k2g1c"]
 [ext_resource type="Texture2D" uid="uid://bbfyi5bw1mw06" path="res://Sprites/Arquero/run_arquero-Sheet.png" id="2_5unkh"]
@@ -12,7 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://cysoqqawjvpct" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_03.wav" id="10_rlkw1"]
 [ext_resource type="AudioStream" uid="uid://cmebvo75uhxr" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_04.wav" id="11_xy5ku"]
 [ext_resource type="AudioStream" uid="uid://b5ge6ncyjpfta" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_05.wav" id="12_xglho"]
-[ext_resource type="AudioStream" uid="uid://bgbgsxqte7tfi" path="res://Audio/personajes/Impact 2.mp3" id="13_eysm5"]
+[ext_resource type="AudioStream" uid="uid://duddtrnavk050" path="res://Audio/personajes/jumping_1-6452 (mp3cut.net).mp3" id="13_rlkw1"]
+[ext_resource type="AudioStream" uid="uid://bqxt1q1ytxyjm" path="res://Audio/personajes/Female Hit 2.mp3" id="14_xy5ku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrfbw"]
 size = Vector2(17, 27)
@@ -496,6 +497,7 @@ pitch_scale = 0.7
 bus = &"SFX"
 
 [node name="SFX_Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_rlkw1")
 bus = &"SFX"
 
 [node name="SFX_Attack" type="AudioStreamPlayer" parent="."]
@@ -503,9 +505,9 @@ stream = ExtResource("3_3k3pe")
 bus = &"SFX"
 
 [node name="SFX_Damaged" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_eysm5")
-volume_db = 10.558
-pitch_scale = 0.88
+stream = ExtResource("14_xy5ku")
+volume_db = -6.335
+pitch_scale = 0.74
 bus = &"SFX"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -87,6 +87,8 @@ func _process(_delta: float) -> void:
 	var high_jump_threshold = -400
 	if player.is_on_floor():
 		target_y = player.position.y + offsetY
+	elif player.is_on_wall():
+		target_y = player.position.y + offsetY
 	else:
 		if player.velocity.y < high_jump_threshold:
 			target_y = player.position.y -100

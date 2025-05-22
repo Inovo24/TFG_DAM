@@ -1,192 +1,232 @@
-extends Bosses
-# Script para el jefe serpiente con 3 fases de combate
+extends CharacterBody2D
+class_name SnakeBoss
 
-# Constantes para identificar las fases (opcionalmente usar enum para legibilidad)
-enum Phase { FASE1 = 1, FASE2 = 2, FASE3 = 3 }
+@export var velocidad: float = 100.0
+@export var velocidad_embestida: float = 200.0
+@export var daño_embestida: int = 10
+@export var daño_aparicion: int = 15
+@export var vida_maxima: int = 300
+@export var gravedad: float = 800.0
+@export var fuerza_knockback: float = 450.0
 
-# Propiedades del jefe
-var current_phase: int = Phase.FASE1
-var max_health: int = 100  # Vida máxima (ejemplo)
-var health: int = max_health  # Vida actual del jefe
-var speed: float = 100.0  # Velocidad base de movimiento
-var direction: int = 1    # Dirección horizontal (1 derecha, -1 izquierda)
+var vida_actual: int = 300
 
-# Referencias a nodos hijos importantes (usamos onready para obtenerlos en _ready)
+const FASE_1 = 1
+const FASE_2 = 2
+const FASE_3 = 3
+var fase_actual: int = FASE_1
+
+enum Estado { INACTIVO, MOVIENDO, ATACANDO, BUCEANDO, APARECIENDO, MUERTO }
+var estado: Estado = Estado.INACTIVO
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var hitbox: Area2D = $Hitbox
-@onready var phase_timer: Timer = $attack_timer
+@onready var area_detec: Area2D = $detection_player
+@onready var area_ataque: Area2D = $ataque_normal
+@onready var colision_derecha: CollisionShape2D = $ataque_normal/derecha
+@onready var colision_izquierda: CollisionShape2D = $ataque_normal/izquierda
+@onready var ataque_aparicion: Area2D = $Ataque_aparicion
+@onready var area_recibir_daño: Area2D = $area_recibir_daño
+@onready var spawnpoints: Node2D = $SpawnPoints
+@onready var point1: Node2D = $SpawnPoints/Point1
+@onready var point2: Node2D = $SpawnPoints/Point2
+@onready var point3: Node2D = $SpawnPoints/Point3
+@onready var timer_ataque: Timer = $attack_timer
+
+var embestida_timer := 0.0
+var embestida_interval := 4.0
+
+var direccion_horizontal: int = 1
+var objetivo: Node2D = null
 
 func _ready() -> void:
-	# Configuración inicial del jefe
-	sprite.play("idle")  # Comienza en animación idle
-	current_phase = Phase.FASE1
-	# Conectar señales de colisión y temporizador
-	hitbox.body_entered.connect(_on_Hitbox_body_entered)  # Detectar cuerpos que entren (ej. balas o jugador)
-	phase_timer.timeout.connect(_on_Timer_timeout)       # Temporizador para manejar ataques/fase
-	phase_timer.wait_time = 2.0  # Intervalo inicial de ataque (ejemplo 2s)
-	phase_timer.start()  # Iniciar el temporizador (repetitivo por defecto)
+	vida_actual = vida_maxima
 
-func _process(delta: float) -> void:
-	# Comportamiento continuo frame a frame según la fase actual
-	match current_phase:
-		Phase.FASE1:
-			_phase1_behavior(delta)
-		Phase.FASE2:
-			_phase2_behavior(delta)
-		Phase.FASE3:
-			_phase3_behavior(delta)
+	colision_derecha.disabled = true
+	colision_izquierda.disabled = true
+	ataque_aparicion.monitoring = false
 
-func _phase1_behavior(delta: float) -> void:
-	# Fase 1: Movimiento básico y ataque sencillo
-	# Ejemplo: mover de lado a lado lentamente y atacar esporádicamente (controlado por temporizador)
-	sprite.play("movimiento")
-	position.x += direction * (speed * 0.5) * delta  # en fase1 mueve al 50% de velocidad base
-	_check_screen_bounds()  # cambia de dirección si llega a los límites horizontales
+	area_recibir_daño.add_to_group("enemigos")
 
-func _phase2_behavior(delta: float) -> void:
-	# Fase 2: Movimiento más rápido/agresivo y ataques más frecuentes o múltiples
-	sprite.play("movimiento")
-	position.x += direction * (speed * 0.8) * delta  # fase2 un 80% de velocidad
-	_check_screen_bounds()
-	# Podría añadirse ligero movimiento vertical u otra pauta de movimiento si se desea
+	area_detec.body_entered.connect(_on_detection_player_body_entered)
+	area_detec.body_exited.connect(_on_detection_player_body_exited)
+	area_ataque.body_entered.connect(_on_ataque_normal_body_entered)
+	ataque_aparicion.body_entered.connect(_on_ataque_aparicion_body_entered)
+	area_recibir_daño.area_entered.connect(_on_area_recibir_daño_area_entered)
 
-func _phase3_behavior(delta: float) -> void:
-	# Fase 3: Fase final - el jefe usa 'divear' y 'aparicion' en lugar de patrullar continuamente
-	# En esta fase, el movimiento normal puede reducirse o detenerse, enfocándose en teletransportarse y atacar
-	# Si no está realizando dive/aparicion, podría mantenerse quieto o apuntando al jugador
-	if not _is_diving:
-		# Ejemplo: el jefe podría apuntar hacia el jugador (no movemos mucho en esta fase)
-		sprite.play("idle")
+	timer_ataque.timeout.connect(_on_attack_timer_timeout)
 
-# Bandera para saber si está en medio de desaparecer/aparecer
-var _is_diving: bool = false
+	sprite.play("idle")
 
-func _on_Timer_timeout() -> void:
-	# Esta función se llama cada vez que el Timer llega a cero (timeout)
-	if current_phase < Phase.FASE3:
-		# En fase 1 y 2, el temporizador controla ataques regulares
-		_execute_attack()
+func _physics_process(delta: float) -> void:
+	if estado == Estado.MUERTO:
+		return
+
+	velocity.y += gravedad * delta
+
+	if estado == Estado.MOVIENDO:
+		velocity.x = velocidad * float(direccion_horizontal)
+		move_and_slide()
+		if is_on_wall():
+			direccion_horizontal *= -1
+			sprite.flip_h = direccion_horizontal < 0
+
+		if fase_actual == FASE_1:
+			embestida_timer += delta
+			if embestida_timer >= embestida_interval:
+				embestida_timer = 0
+				await iniciar_embestida()
+	elif estado == Estado.ATACANDO:
+		move_and_slide()
+		if is_on_wall():
+			velocity.x = 0
 	else:
-		# En fase 3, el temporizador controla el dive/aparición
-		if not _is_diving:
-			_start_dive_sequence()
-		# Si ya estaba diveando, no hacemos nada aquí; la secuencia de dive controla su propio flujo
+		move_and_slide()
 
-func _execute_attack() -> void:
-	# Lógica de ataque general según la fase
-	sprite.play("ataque")  # reproducir animación de ataque
-	if current_phase == Phase.FASE1:
-		# Ataque sencillo: p.ej., disparar un proyectil recto
-		_shoot_projectile(1)
-	elif current_phase == Phase.FASE2:
-		# Ataque mejorado: p.ej., disparar varios proyectiles en abanico
-		_shoot_projectile(3)
-	elif current_phase == Phase.FASE3:
-		# En fase3, los ataques podrían ser manejados tras aparecer (ver _finish_dive_sequence)
-		_shoot_projectile(5)
-	# *Nota:* _shoot_projectile sería una función que instancia balas (Node2D/Area2D) y las añade a la escena.
-	# Aquí asumimos su existencia para ilustrar.
+func _on_detection_player_body_entered(body: Node) -> void:
+	if body.is_in_group("player"):
+		objetivo = body
+		if estado == Estado.INACTIVO:
+			await _activar_movimiento_inicial()
 
-func _start_dive_sequence() -> void:
-	# Inicia la secuencia de desaparición (divear)
-	_is_diving = true
-	sprite.play("divear")    # reproducir animación de desaparecer
-	hitbox.disabled = true   # desactivar colisiones mientras está desaparecido
-	# Una vez termine la animación de divear, continuaremos en _finish_dive_sequence.
-	sprite.animation_finished.connect(_finish_dive_sequence)  # conectar señal para saber cuándo terminar dive
+func _activar_movimiento_inicial() -> void:
+	sprite.play("inicio_movimiento")
+	await sprite.animation_finished
+	estado = Estado.MOVIENDO
+	sprite.play("movimiento")
+	sprite.flip_h = direccion_horizontal < 0
 
-func _finish_dive_sequence() -> void:
-	# Esta función se llama cuando la animación 'divear' termina
-	sprite.animation_finished.disconnect(_finish_dive_sequence)  # desconectar para evitar llamadas múltiples
-	# Teletransportar/reubicar al jefe en otra posición (por ejemplo, aleatoria en la pantalla)
-	_teleport_to_new_position()
-	# Reaparecer con animación de aparición
+func _on_detection_player_body_exited(body: Node) -> void:
+	if body == objetivo:
+		objetivo = null
+
+func _on_attack_timer_timeout() -> void:
+	if fase_actual == FASE_2 and estado == Estado.MOVIENDO:
+		await iniciar_embestida()
+	elif fase_actual == FASE_3 and estado == Estado.MOVIENDO:
+		await iniciar_teleport()
+
+func iniciar_embestida() -> void:
+	if estado != Estado.MOVIENDO:
+		return
+
+	estado = Estado.ATACANDO
+
+	if objetivo:
+		direccion_horizontal = -1 if objetivo.global_position.x < global_position.x else 1
+		sprite.flip_h = direccion_horizontal < 0
+
+	colision_derecha.disabled = direccion_horizontal < 0
+	colision_izquierda.disabled = direccion_horizontal > 0
+
+	velocity.x = velocidad_embestida * direccion_horizontal
+	sprite.play("ataque")
+	await sprite.animation_finished
+
+	velocity.x = 0
+	colision_derecha.disabled = true
+	colision_izquierda.disabled = true
+
+	sprite.play("fin_movimiento")
+	await sprite.animation_finished
+
+	sprite.play("idle")
+	await get_tree().create_timer(0.5).timeout
+
+	sprite.play("inicio_movimiento")
+	await sprite.animation_finished
+
+	estado = Estado.MOVIENDO
+	sprite.play("movimiento")
+
+	if fase_actual == FASE_2:
+		timer_ataque.start(randf_range(2.0, 4.0))
+
+func iniciar_teleport() -> void:
+	estado = Estado.BUCEANDO
+	velocity.x = 0
+	if sprite.animation != "fin_movimiento":
+		sprite.play("fin_movimiento")
+		await sprite.animation_finished
+
+	sprite.play("divear")
+	await sprite.animation_finished
+	_calcular_puntos_reaparicion()
+	var posibles = [point1, point2, point3]
+	var punto = posibles[randi() % posibles.size()]
+	global_position = punto.global_position
+	estado = Estado.APARECIENDO
+	ataque_aparicion.monitoring = true
 	sprite.play("aparicion")
-	# Conectar para saber cuándo termina la animación de aparición, y entonces reactivar colisiones y ataques
-	sprite.animation_finished.connect(_on_appear_finished)
+	await sprite.animation_finished
+	ataque_aparicion.monitoring = false
+	sprite.play("idle")
+	await get_tree().create_timer(0.5).timeout
+	sprite.play("inicio_movimiento")
+	await sprite.animation_finished
+	estado = Estado.MOVIENDO
+	sprite.play("movimiento")
+	timer_ataque.start(randf_range(3.0, 6.0))
 
-func _on_appear_finished() -> void:
-	# Al finalizar la animación 'aparicion'
-	sprite.animation_finished.disconnect(_on_appear_finished)
-	hitbox.disabled = false    # reactivar colisiones (el jefe puede ser dañado de nuevo)
-	_is_diving = false
-	# Realizar un ataque inmediato tras aparecer, por ejemplo
-	_execute_attack()
-	# Opcional: ajustar temporizador para próximo dive, p.ej. incrementar velocidad de dive o frecuencia
-	phase_timer.wait_time = 3.0  # reducir tiempo entre dives si se quiere intensificar
+func _calcular_puntos_reaparicion() -> void:
+	var dist_cerca: float = 150.0
+	var dist_lejos: float = 400.0
+	var lado_lejano: float = -1.0 if randf() < 0.5 else 1.0
+	point1.position = Vector2(-dist_cerca, 0)
+	point2.position = Vector2(dist_cerca, 0)
+	point3.position = Vector2(lado_lejano * dist_lejos, 0)
 
-func _teleport_to_new_position() -> void:
-	# Posicionar al jefe en un nuevo lugar de la arena tras desaparecer.
-	# Esto puede ser aleatorio dentro de ciertos límites o en puntos fijos predefinidos.
-	var arena_rect = get_viewport_rect()  # como ejemplo, usar el tamaño de la vista
-	# Elegir una nueva posición aleatoria lejos del jugador para reaparecer
-	var new_x = randf_range(0.1, 0.9) * arena_rect.size.x
-	var new_y = randf_range(0.2, 0.8) * arena_rect.size.y
-	position = Vector2(new_x, new_y)
-
-func _on_Hitbox_body_entered(body: Node) -> void:
-	# Cuando algo entra en la hitbox del jefe (por ejemplo, un proyectil del jugador o el propio jugador)
-	# Determinar si es un ataque del jugador
-	if body.is_in_group("players"):
-		# Aplicar daño al jefe
-		_take_damage(body.damage if typeof(body.damage) == TYPE_FLOAT or TYPE_INT else 10)
-		# Opcional: si es el jugador mismo, también podríamos dañarlo o empujarlo, etc.
-
-func _take_damage(amount: float) -> void:
-	if health <= 0:
-		return  # si ya está muerto o muriendo, ignorar
-	health -= amount
-	if health < 0:
-		health = 0
-	# Reproducir animación de daño y quizás un destello
-	sprite.play("daño")
-	# Actualizar barra de vida del HUD a través del sistema del juego
-	# Comprobar cambio de fase por porcentaje de vida
-	var health_ratio = float(health) / float(max_health)
-	if current_phase == Phase.FASE1 and health_ratio <= 0.66:
-		_enter_phase(Phase.FASE2)
-	elif current_phase == Phase.FASE2 and health_ratio <= 0.33:
-		_enter_phase(Phase.FASE3)
-	# Si la vida llega a 0, iniciar secuencia de muerte
-	if health == 0:
-		_die()
-
-func _enter_phase(new_phase: int) -> void:
-	current_phase = new_phase
-	match current_phase:
-		Phase.FASE2:
-			# Cambios al entrar fase 2: p.ej., acelerar temporizador de ataque, cambiar patrón
-			phase_timer.wait_time = 1.5  # ataques más frecuentes
-			sprite.play("idle")  # podría haber una animación/transición
-		Phase.FASE3:
-			# Cambios al entrar fase 3 (fase final)
-			phase_timer.wait_time = 2.5  # ajustar frecuencia de dive
+func receive_damage(cantidad: int) -> void:
+	if estado == Estado.MUERTO:
+		return
+	vida_actual -= cantidad
+	if vida_actual > 0:
+		sprite.play("daño")
+		await sprite.animation_finished
+		if estado == Estado.MOVIENDO:
+			sprite.play("movimiento")
+		elif estado == Estado.ATACANDO:
+			sprite.play("ataque")
+		else:
 			sprite.play("idle")
-			# Quizá algún efecto visual o sonido indicando enraged/fase final
-	# Sincronizar HUD si hubiera indicadores de fase (p.ej., cambiar color de barra de vida)
+	else:
+		vida_actual = 0
+		estado = Estado.MUERTO
+		timer_ataque.stop()
+		colision_derecha.disabled = true
+		colision_izquierda.disabled = true
+		ataque_aparicion.monitoring = false
+		area_detec.monitoring = false
+		sprite.play("muerte")
+		await sprite.animation_finished
+		queue_free()
+	actualizar_fase()
 
-func _die() -> void:
-	# Secuencia de muerte del jefe
-	phase_timer.stop()      # detener cualquier temporizador de ataque
-	hitbox.disabled = true  # ya no colisiona
-	sprite.play("muerte")   # reproducir animación de muerte
-	# Opcional: desconectar señales, reproducir sonido de muerte, etc.
-	# Cuando termine la animación de muerte, remover al jefe del escenario
-	sprite.animation_finished.connect(_on_death_animation_finished)
+func actualizar_fase() -> void:
+	var porcentaje = float(vida_actual) / float(vida_maxima)
+	if fase_actual == FASE_1 and porcentaje <= 0.66:
+		fase_actual = FASE_2
+		timer_ataque.start(randf_range(2.0, 4.0))
+	elif fase_actual == FASE_2 and porcentaje <= 0.33:
+		fase_actual = FASE_3
+		timer_ataque.stop()
+		timer_ataque.start(randf_range(3.0, 5.0))
 
-func _on_death_animation_finished() -> void:
-	sprite.animation_finished.disconnect(_on_death_animation_finished)
-	# Notificar al sistema de juego que el jefe ha sido derrotado (puede ser vía señal, por ejemplo)
-	emit_signal("boss_defeated", self)
-	queue_free()  # eliminar nodo del jefe
-	# La barra de vida del HUD puede ocultarse vía la lógica del HUD o base class Bosses
+func _on_ataque_normal_body_entered(body: Node) -> void:
+	if body.is_in_group("player"):
+		if body.has_method("take_damage"):
+			body.take_damage(daño_embestida)
 
-func _check_screen_bounds() -> void:
-	# Comprueba si el jefe alcanza los bordes de la pantalla (u otros límites) para invertir dirección
-	var arena_rect = get_viewport_rect()
-	if position.x < 0 or position.x > arena_rect.size.x:
-		direction *= -1
-		# Reproducir animación de voltear si se requiere, o simplemente espejar sprite:
-		sprite.flip_h = (direction < 0)
-func _shoot_projectile(count: int):
-	print("Disparando", count, "proyectiles (placeholder)")
+		if body is CharacterBody2D:
+			var dir = sign(body.global_position.x - global_position.x)
+			body.velocity.x = dir * fuerza_knockback
+
+func _on_ataque_aparicion_body_entered(body: Node) -> void:
+	if body.is_in_group("player"):
+		if body.has_method("take_damage"):
+			body.take_damage(daño_aparicion)
+
+func _on_area_recibir_daño_area_entered(area: Area2D) -> void:
+	if area.has_method("get_damage"):
+		receive_damage(area.get_damage())
+	else:
+		receive_damage(10)
