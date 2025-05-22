@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://duqs6hjk26o8e" path="res://Scripts/Niveles/nivel_2/nivel_2.gd" id="1_xsyli"]
 [ext_resource type="Texture2D" uid="uid://0gh52gokkg0e" path="res://Assets/tileset_nievet.png" id="2_iafik"]
 [ext_resource type="Texture2D" uid="uid://y3rop3kkhj1j" path="res://Sprites/backgrounds/background_level1/Fondos/fondo_01.png" id="3_e12np"]
-[ext_resource type="PackedScene" uid="uid://cvlktixgfymiy" path="res://Scenes/niveles/zona_oculta.tscn" id="3_gwqgy"]
+[ext_resource type="PackedScene" uid="uid://cvlktixgfymiy" path="res://Scenes/Niveles/zona_oculta.tscn" id="3_gwqgy"]
 [ext_resource type="PackedScene" uid="uid://cowrpiduh2h6l" path="res://Scenes/Plataformas/plataforma_normal.tscn" id="4_mjuac"]
 [ext_resource type="Texture2D" uid="uid://dbfsfk62b5o5b" path="res://Sprites/backgrounds/background_level1/Fondos/fondo_02.png" id="4_p5n24"]
 [ext_resource type="Texture2D" uid="uid://dav63fdfblajo" path="res://Sprites/backgrounds/background_level1/aldea/fondocaverna.png" id="5_g5tjl"]

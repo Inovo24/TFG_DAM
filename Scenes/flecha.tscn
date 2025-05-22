@@ -59,7 +59,7 @@ size = Vector2(14, 6)
 
 [node name="Flecha" type="Area2D"]
 collision_layer = 2
-collision_mask = 8199
+collision_mask = 8279
 script = ExtResource("1_8iulq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
