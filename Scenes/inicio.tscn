@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://bri13kxv672ig"]
+[gd_scene load_steps=33 format=4 uid="uid://bri13kxv672ig"]
 
 [ext_resource type="Script" uid="uid://didwji534yd8d" path="res://Scripts/Interfaz/inicio.gd" id="1_6wmnn"]
 [ext_resource type="Script" uid="uid://calji8pm36a08" path="res://Scripts/Interfaz/area_niveles.gd" id="2_5rwxf"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://bv0pm2e14nhkj" path="res://Scripts/Interfaz/barco_area.gd" id="14_xldw7"]
 [ext_resource type="AudioStream" uid="uid://p74cf510edy4" path="res://Audio/3. Saga of the Sea Wolves.mp3" id="15_f4hti"]
 [ext_resource type="Script" uid="uid://b4aqtq736rojs" path="res://Scripts/Interfaz/ajustes_area.gd" id="16_3x7h1"]
+[ext_resource type="Texture2D" uid="uid://bd2k1muqcl7ws" path="res://Sprites/Inicio/yunque.png" id="20_nmj2t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h08hr"]
 size = Vector2(56, 45)
@@ -559,11 +560,11 @@ max_distance = 275.0
 bus = &"SFX"
 
 [node name="vikiHerrero" type="AnimatedSprite2D" parent="."]
-z_index = 10
+z_index = 2
 position = Vector2(782, 508)
 sprite_frames = SubResource("SpriteFrames_uw2pv")
 autoplay = "default"
-frame_progress = 0.598029
+frame_progress = 0.92445
 
 [node name="vikiFogata" type="Sprite2D" parent="."]
 z_index = 1
@@ -571,6 +572,7 @@ position = Vector2(618, 510)
 texture = ExtResource("6_xc3es")
 
 [node name="Barco" type="Sprite2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(-97, 456)
 texture = ExtResource("7_jeciw")
@@ -631,10 +633,12 @@ position = Vector2(605, 353)
 texture = ExtResource("12_2amer")
 
 [node name="SalidaBarco" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(49, 460)
 texture = ExtResource("13_dkt54")
 
 [node name="BarcoArea" type="Area2D" parent="."]
+visible = false
 position = Vector2(43, 462)
 collision_layer = 2
 collision_mask = 2
@@ -713,12 +717,19 @@ position = Vector2(662, 519)
 texture = ExtResource("10_tgk5d")
 
 [node name="Barrera" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2(-10, 391)
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrera"]
 position = Vector2(-3, -109)
 shape = SubResource("SegmentShape2D_yintj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(788, 518)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("20_nmj2t")
 
 [connection signal="body_entered" from="AreaNiveles" to="AreaNiveles" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaNiveles" to="AreaNiveles" method="_on_body_exited"]
