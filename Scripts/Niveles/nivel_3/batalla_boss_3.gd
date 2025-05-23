@@ -13,5 +13,4 @@ func reload_health_bar():
 	add_child(healthBar)
 func _on_final_body_entered(body: Node2D) -> void:
 	if body is Characters:
-		save_data("nivel3")
 		get_tree().change_scene_to_file("res://Scenes/inicio.tscn")
