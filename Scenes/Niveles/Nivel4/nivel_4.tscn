@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://0gh52gokkg0e" path="res://Assets/tileset_nievet.png" id="3_3ukl6"]
 [ext_resource type="PackedScene" uid="uid://cjurojyuklair" path="res://Scenes/Elementos/Bloques/placa.tscn" id="3_ndpvp"]
 [ext_resource type="PackedScene" uid="uid://d288qogm675qw" path="res://Scenes/Elementos/Bloques/bloque.tscn" id="4_kuyr8"]
-[ext_resource type="PackedScene" uid="uid://cvlktixgfymiy" path="res://Scenes/niveles/zona_oculta.tscn" id="4_nptt3"]
+[ext_resource type="PackedScene" uid="uid://cvlktixgfymiy" path="res://Scenes/Niveles/zona_oculta.tscn" id="4_nptt3"]
 [ext_resource type="Script" uid="uid://b4t28u4b24g36" path="res://Scripts/Niveles/nivel_2/AreaCascada.gd" id="5_kuyr8"]
 [ext_resource type="PackedScene" uid="uid://i8ayr5akbljm" path="res://Scenes/Elementos/puerta.tscn" id="6_4fvw7"]
 [ext_resource type="PackedScene" uid="uid://d2qqalncnqbw2" path="res://Scenes/Elementos/cambiador_personaje.tscn" id="7_udv5t"]

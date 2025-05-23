@@ -52,6 +52,7 @@ gen_salir,Pulsa {tecla} para salir,Press {tecla} to exit,Pressione {tecla} para 
 gen_volver,Volver,Go back,Voltar,Torna indietro
 gen_reset,Teclas por defecto,Default keys,Teclas padrão,Tasti predefiniti
 npc_granjero,"¡Ha llegado el fin!","The end has come!","O fim chegou!","È giunta la fine!"
+npc_granjero2,"¡Salto de fe!","Leap of faith!","Salto de fé!","Salto della fede!"
 npc_mendigo,"Una moneda porfavor...","A coin please...","Uma moeda por favor ...","Una moneta per favore..."
 npc_perro, "Te vemos.. Guau!" , "We see you.. Bark!", "Vemo-te Au!", "Ti vediamo Bau!" 
 chg_pers_1,"Ahora me toca a mí.","Now it's my turn.","Agora é a minha vez.","Ora tocca a me."

@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://dlm4nlkcj7hr8"]
+
+[ext_resource type="Script" uid="uid://qouu7oy5kdt6" path="res://Scripts/Niveles/nivel_3/portal_boss.gd" id="1_tklir"]
+[ext_resource type="Texture2D" uid="uid://bbnt183wtjmut" path="res://Sprites/backgrounds/background_level3/Dimensional_Portal.png" id="2_tklir"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wf65c"]
+radius = 7.5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22ryy"]
+atlas = ExtResource("2_tklir")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irl73"]
+atlas = ExtResource("2_tklir")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l88wx"]
+atlas = ExtResource("2_tklir")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a55sn"]
+atlas = ExtResource("2_tklir")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4use1"]
+atlas = ExtResource("2_tklir")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7i82"]
+atlas = ExtResource("2_tklir")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tsnp2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22ryy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irl73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l88wx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a55sn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4use1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7i82")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="Entrada" type="Node2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_tklir")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_wf65c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_tsnp2")
+autoplay = "default"
+frame_progress = 0.769371
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

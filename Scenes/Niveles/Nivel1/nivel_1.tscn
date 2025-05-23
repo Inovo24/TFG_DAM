@@ -2071,7 +2071,7 @@ zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
 [node name="Marker2D" type="Marker2D" parent="Camera2D"]
-position = Vector2(221, 329)
+position = Vector2(8206, 1002)
 
 [node name="Decoracion" type="Node2D" parent="."]
 

@@ -237,12 +237,15 @@ func receive_damage(cantidad: int) -> void:
 
 func actualizar_fase() -> void:
 	var p: float = float(vida_actual) / float(vida_maxima)
-	if fase == 1 and p <= 0.66:
-		fase = 2
-		timer_ataque.wait_time = 4.0
-	elif fase == 2 and p <= 0.33:
+
+	if p <= 0.33 and fase < 3:
 		fase = 3
 		timer_ataque.wait_time = 3.5
+	elif p <= 0.66 and fase < 2:
+		fase = 2
+		timer_ataque.wait_time = 4.0
+	print("Nueva fase:", fase)
+
 
 func muerte() -> void:
 	timer_ataque.stop()
