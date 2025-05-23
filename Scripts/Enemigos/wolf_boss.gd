@@ -254,4 +254,7 @@ func change_player(playerNum: int):
 			player.global_position = playerPosition
 			player.has_checkpoint = true
 			player.checkpoint_position = player_checkpoint
+			
+			if playerNum!=1:
+				get_parent().reload_health_bar()
 			#get_parent().get_.update_player()
