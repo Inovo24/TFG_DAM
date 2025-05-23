@@ -677,10 +677,12 @@ interval = 3.0
 
 [node name="LanzaLlamas5" parent="LanzaLlamas" instance=ExtResource("7_ql8ao")]
 position = Vector2(3820, 422)
+interval = 3.0
 
 [node name="LanzaLlamas6" parent="LanzaLlamas" instance=ExtResource("7_ql8ao")]
 position = Vector2(3896, 410)
 scale = Vector2(-0.744612, 0.87249)
+interval = 3.0
 
 [node name="Npc" type="Node2D" parent="."]
 
