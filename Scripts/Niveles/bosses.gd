@@ -39,7 +39,7 @@ func _setup_boss_scene():
 	# Instanciar jugador
 	player = Globales.get_player()
 	add_child(player)
-	player.global_position = initialPosition.global_position
+	player.position = initialPosition.position
 	player.checkpoint_position = initialPosition.position
 
 	# Instanciar barra de vida

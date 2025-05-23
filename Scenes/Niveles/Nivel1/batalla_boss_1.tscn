@@ -461,4 +461,4 @@ position = Vector2(623, 542)
 scale = Vector2(4, 4)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(126, 429)
+position = Vector2(165, 336)

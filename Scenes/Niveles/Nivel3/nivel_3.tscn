@@ -673,12 +673,13 @@ random = true
 
 [node name="LanzaLlamas" parent="LanzaLlamas" instance=ExtResource("7_ql8ao")]
 position = Vector2(3724, 406)
+interval = 3.0
 
 [node name="LanzaLlamas5" parent="LanzaLlamas" instance=ExtResource("7_ql8ao")]
 position = Vector2(3820, 422)
 
 [node name="LanzaLlamas6" parent="LanzaLlamas" instance=ExtResource("7_ql8ao")]
-position = Vector2(3900, 406)
+position = Vector2(3896, 410)
 scale = Vector2(-0.744612, 0.87249)
 
 [node name="Npc" type="Node2D" parent="."]
@@ -788,6 +789,3 @@ position = Vector2(4868, -284)
 
 [node name="Esquelo_arquero7" parent="Enemigos" instance=ExtResource("12_26gfu")]
 position = Vector2(5035, -284)
-
-[node name="Entrada" parent="." instance=ExtResource("12_nu2pb")]
-position = Vector2(261, 353)
