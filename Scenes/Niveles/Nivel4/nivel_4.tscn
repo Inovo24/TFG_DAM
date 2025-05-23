@@ -499,14 +499,16 @@ z_index = 10
 position = Vector2(5326, -923)
 scale = Vector2(10, 10)
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(10, 251)
+rotation = 3.14159
+scale = Vector2(2020.8, -77.7025)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-2, -7.99997)
 scale = Vector2(-2020.8, 77.7025)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
-
-[node name="Marker2D" type="Marker2D" parent="Camera2D"]
-position = Vector2(-0.00593826, 3.33323)
 
 [node name="cambios_perspectiva" type="Node" parent="."]
 

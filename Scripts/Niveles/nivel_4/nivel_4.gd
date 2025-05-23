@@ -1,7 +1,7 @@
 extends Levels
 
 @onready var level4_camera = $Camera2D
-@onready var level4_position = $Camera2D/Marker2D
+@onready var level4_position = $Marker2D
 
 @onready var startarted = false
 @onready var doorclose = false
