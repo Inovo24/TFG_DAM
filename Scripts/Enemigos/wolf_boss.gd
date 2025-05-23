@@ -32,9 +32,9 @@ func _ready():
 
 func _physics_process(delta):
 	if direction ==1:
-		sprite.scale.x = 1
-	else:
 		sprite.scale.x = -1
+	else:
+		sprite.scale.x = 1
 	if not is_on_floor():
 		velocity.y = GRAVITY * delta
 	#if currentPhase == Phase.THREE:
@@ -116,17 +116,20 @@ func jump_preparation():
 	if not jump_cooldown.is_stopped():
 		return
 	#animation_player.play("jump_preparation")
+	sprite.play("idle")
 	jump_cooldown.start()
 func jump():
 	print(currentState)
 	if player:
 		#animation_player.play("jump")
+		sprite.play("jump")
 		position.x = player.global_position.x
 		position.y -= 200
 		receive_damage(20)
 		#print("salto")
 
 func charge_preparation():
+	sprite.play("idle")
 	#print(charge_cooldown.time_left)
 	#print("preparando carga")
 	if not charge_cooldown.is_stopped():
@@ -148,6 +151,7 @@ func charge_preparation():
 	#direction = Vector2((player.global_position.x - global_position.x), 0).normalized()
 	#print(direction[0])
 func charge():
+	sprite.play("run")
 	#print("cargando")
 	#print (direction)
 	if player:
@@ -157,15 +161,18 @@ func charge():
 		#print("CAMBIO POR PARED")
 		switch_state(State.CHARGE_PREPARATION)
 func stun():
+	sprite.play("stunned")
 	#print("quieto parao")
 	velocity.x = 0
 	stun_cooldown.start()
 
 func attack_preparation():
+	sprite.play("idle")
 	if not attack_cooldown.is_stopped():
 		return
 	attack_cooldown.start()
 func attack():
+	sprite.play("attack")
 	if proyectile:
 		if hasAttacked==false:
 			#print("paso por aqui")
@@ -183,6 +190,7 @@ func attack():
 			attack_cooldown.start()
 func receive_damage(damage_received: int):
 	if currentState != State.CHARGING:
+		sprite.play("take_damage")
 		currentHealth = currentHealth - damage_received
 		#print(currentHealth)
 		#print(currentPhase)
@@ -220,8 +228,10 @@ func _on_area_2d_body_entered(body):
 		body.take_damage(damage)
 		if body.global_position.x < 300:
 			body.global_position.x += 80
+			body.global_position.y = 430
 		else:
 			body.global_position.x -= 80
+			body.global_position.y = 430
 
 
 func _on_attack_cooldown_timeout():

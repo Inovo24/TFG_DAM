@@ -1,12 +1,102 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3tf7gobvcbfi"]
+[gd_scene load_steps=19 format=3 uid="uid://c3tf7gobvcbfi"]
 
 [ext_resource type="Script" uid="uid://datq3xbavmpq7" path="res://Scripts/Enemigos/wolf_boss.gd" id="1_shxn8"]
+[ext_resource type="Texture2D" uid="uid://ddx5ct5k0sato" path="res://Sprites/Enemigos/bosses/lobo/lobo_boss_spritesheet.png" id="2_5yftt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ohl0"]
+atlas = ExtResource("2_5yftt")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iesc"]
+atlas = ExtResource("2_5yftt")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0miex"]
+atlas = ExtResource("2_5yftt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8f3qw"]
+atlas = ExtResource("2_5yftt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sgjo"]
+atlas = ExtResource("2_5yftt")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0js8j"]
+atlas = ExtResource("2_5yftt")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kehn"]
+atlas = ExtResource("2_5yftt")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83etj"]
+atlas = ExtResource("2_5yftt")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_387cp"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ohl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iesc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0miex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8f3qw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sgjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0js8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kehn")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83etj")
+}],
+"loop": true,
+"name": &"stunned",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"take_damage",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ohl0"]
-size = Vector2(68, 14)
+size = Vector2(22, 6.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shxn8"]
-size = Vector2(21, 57)
+size = Vector2(9.75, 16.25)
 
 [sub_resource type="Animation" id="Animation_5ohl0"]
 resource_name = "charge"
@@ -25,31 +115,35 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yftt"]
-size = Vector2(75, 49)
+size = Vector2(22.5, 19)
 
 [node name="wolf_boss" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 4
 script = ExtResource("1_shxn8")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -41)
+sprite_frames = SubResource("SpriteFrames_387cp")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
 collision_layer = 4
 collision_mask = 2
 
 [node name="jumpcolision" type="CollisionShape2D" parent="Sprite2D/Area2D"]
-position = Vector2(0, 19)
+position = Vector2(-0.25, 16.75)
 shape = SubResource("RectangleShape2D_5ohl0")
 debug_color = Color(0.486329, 0.00990663, 0.116801, 0.42)
 
 [node name="chargecolision" type="CollisionShape2D" parent="Sprite2D/Area2D"]
-position = Vector2(37, -3)
+position = Vector2(-15, 6)
 shape = SubResource("RectangleShape2D_shxn8")
 disabled = true
 debug_color = Color(0.408492, 0.606617, 0.0271558, 0.42)
 
 [node name="attackMarker" type="Marker2D" parent="Sprite2D/Area2D"]
-position = Vector2(77, -2)
+position = Vector2(-25, 3)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -57,7 +151,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, -6.5)
+position = Vector2(-1.25, -36)
 shape = SubResource("RectangleShape2D_5yftt")
 
 [node name="jumpCooldown" type="Timer" parent="."]
