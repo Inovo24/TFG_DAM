@@ -1,5 +1,5 @@
 extends Bosses
-@onready var camara_level1 = $Camera2D
+#@onready var camara_level1 = $Camera2D
 @onready var posicion_level1 = $Marker2D
 
 #Nivel1 boss

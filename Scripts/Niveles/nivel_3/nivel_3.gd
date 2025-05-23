@@ -6,4 +6,6 @@ extends Levels
 func _ready() -> void:
 	camera = camara_level3
 	initialPosition = posicion_level3
+	has_boss = true
+	level_name = "nivel3"
 	super._ready()

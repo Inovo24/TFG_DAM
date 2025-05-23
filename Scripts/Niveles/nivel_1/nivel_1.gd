@@ -9,4 +9,5 @@ func _ready():
 	camera = camara_level1
 	initialPosition = posicion_level1
 	has_boss = true
+	level_name = "nivel1"
 	super._ready()

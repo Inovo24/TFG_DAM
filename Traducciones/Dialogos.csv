@@ -84,3 +84,7 @@ lbl_tiempo_minimo,Tiempo mínimo,Minimum time,Tempo mínimo,Tempo minimo
 btn_jugar,Jugar,Play,Jogar,Gioca
 btn_volver_a_jugar,Volver a jugar,Play again,Jogar novamente,Gioca di nuovo
 lbl_sin_hacer,Nivel sin completar,Level not completed,Nível não completado,Livello non completato
+btn_volver_al_inicio,"Volver al inicio","Return to main menu","Voltar ao início","Torna al menu principale"
+lbl_gemas_conseguidas,"Gemas conseguidas","Gems collected","Gemas coletadas","Gemme raccolte"
+lbl_tiempo_en_completar,"Tiempo en completar","Time to complete","Tempo para completar","Tempo per completare"
+

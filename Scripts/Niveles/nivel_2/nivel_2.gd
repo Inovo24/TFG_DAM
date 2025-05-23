@@ -6,4 +6,5 @@ extends Levels
 func _ready() -> void:
 	camera = level2_camera
 	initialPosition = level2_position
+	level_name = "nivel2"
 	super._ready()

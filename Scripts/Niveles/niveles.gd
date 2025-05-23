@@ -30,6 +30,7 @@ var gem_sfx: AudioStreamPlayer
 var down_pressed_time := 0.0
 const DOWN_HOLD_TIME := 1.0 # segundos que hay que mantener
 var camera_ground_y := 0.0
+var level_name
 
 func _ready():
 	player = Globales.get_player()  # Get the player from the global variable
@@ -121,7 +122,7 @@ func collect_gem():
 	gem_sfx.play()
 	
 
-func save_data(level_name: String):
+func save_data():
 	timer_running = false
 	print(elapsed_time)
 	if has_boss:
