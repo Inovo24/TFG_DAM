@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://bfakpxclv64ql"]
+[gd_scene load_steps=91 format=3 uid="uid://bfakpxclv64ql"]
 
 [ext_resource type="Script" uid="uid://x85xsubxy0ri" path="res://Scripts/Enemigos/snake_boss.gd" id="1_43t1e"]
 [ext_resource type="Texture2D" uid="uid://vsaxflxudmpl" path="res://Sprites/Enemigos/bosses/Serpiente/snake - appear.png" id="1_pmi6h"]
@@ -378,7 +378,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"ataque",
-"speed": 9.0
+"speed": 13.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -576,21 +576,28 @@ size = Vector2(47.85, 43)
 size = Vector2(46.8, 43)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2sbrm"]
-radius = 67.9117
+radius = 42.0076
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqnt4"]
 size = Vector2(40.4, 32)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_43t1e"]
+radius = 6.0
+height = 50.4
 
 [node name="SnakeBoss" type="CharacterBody2D" groups=["Enemies"]]
 scale = Vector2(2.5, 2.5)
 collision_layer = 0
 script = ExtResource("1_43t1e")
+velocidad_dash = 400.0
+fuerza_knockback = 600.0
+vida_maxima = 400
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-3, -17)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_t4y7o")
-animation = &"idle"
+animation = &"aparicion"
 autoplay = "idle"
 
 [node name="attack_timer" type="Timer" parent="."]
@@ -619,18 +626,15 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_43t1e")
 
 [node name="ataque_normal" type="Area2D" parent="."]
-collision_layer = 32
 collision_mask = 2
 
 [node name="derecha" type="CollisionShape2D" parent="ataque_normal"]
 position = Vector2(44.075, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2sbrm")
 debug_color = Color(0.459916, 0.446226, 1, 0.42)
 
 [node name="izquierda" type="CollisionShape2D" parent="ataque_normal"]
 position = Vector2(-44.2, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5m02e")
 debug_color = Color(0.459916, 0.446226, 1, 0.42)
 
@@ -647,12 +651,20 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_recibir_daño"]
 position = Vector2(-0.6, -1.2)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yqnt4")
 debug_color = Color(0.170599, 0.615736, 0.533694, 0.42)
 
+[node name="area_embestida" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_embestida"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_43t1e")
+
+[connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="detection_player" to="." method="_on_detection_player_body_entered"]
 [connection signal="body_exited" from="detection_player" to="." method="_on_detection_player_body_exited"]
 [connection signal="body_entered" from="ataque_normal" to="." method="_on_ataque_normal_body_entered"]
 [connection signal="body_entered" from="Ataque_aparicion" to="." method="_on_ataque_aparicion_body_entered"]
 [connection signal="area_entered" from="area_recibir_daño" to="." method="_on_area_recibir_daño_area_entered"]
+[connection signal="body_entered" from="area_embestida" to="." method="_on_area_embestida_body_entered"]
