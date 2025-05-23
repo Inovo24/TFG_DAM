@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://do74cvcvx583d" path="res://Sprites/sprites_para_borradores/puerta.png" id="23_hamye"]
 [ext_resource type="PackedScene" uid="uid://d38t4kskhkxnc" path="res://Enemigos/Enemigo_aereo.tscn" id="24_3jgjt"]
 [ext_resource type="PackedScene" uid="uid://d10baod8a4y07" path="res://Scenes/Elementos/limite_lateral.tscn" id="25_4t4fu"]
+[ext_resource type="PackedScene" uid="uid://cpwyeea0w4xnj" path="res://Scenes/Niveles/fin_nivel.tscn" id="27_hivjl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8h0q8"]
 texture = ExtResource("2_t57un")
@@ -476,9 +477,6 @@ size = Vector2(80, 79)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1b3r"]
 size = Vector2(76, 21)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4t4fu"]
-size = Vector2(58.5, 60)
-
 [node name="nivel_4" type="Node2D"]
 script = ExtResource("1_el27e")
 
@@ -789,16 +787,11 @@ scale = Vector2(2, 1)
 position = Vector2(-1.5, -147)
 scale = Vector2(2, 1)
 
-[node name="Final" type="Area2D" parent="."]
-position = Vector2(7527, -794)
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Final"]
-position = Vector2(156, 23)
-shape = SubResource("RectangleShape2D_4t4fu")
+[node name="fin_nivel" parent="." instance=ExtResource("27_hivjl")]
+position = Vector2(7688, -761)
+scale = Vector2(2, 2)
 
 [connection signal="body_entered" from="cambios_perspectiva/Area2D" to="cambios_perspectiva/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="cambios_perspectiva/Area2D" to="cambios_perspectiva/Area2D" method="_on_body_exited"]
 [connection signal="body_entered" from="CambioAArquero" to="." method="_on_cambio_a_arquero_body_entered"]
 [connection signal="body_entered" from="CerrarParteVikingo" to="." method="_on_cerrar_parte_vikingo_body_entered"]
-[connection signal="body_entered" from="Final" to="." method="_on_final_body_entered"]

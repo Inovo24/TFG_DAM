@@ -9,6 +9,7 @@ extends Levels
 func _ready() -> void:
 	camera = level4_camera
 	initialPosition = level4_position
+	level_name = "nivel4"
 	super._ready()
 	
 
@@ -44,9 +45,3 @@ func _on_cerrar_parte_vikingo_body_entered(body: Node2D) -> void:
 		$CerraduraVikingo.visible = true
 		$CerraduraVikingo/CollisionShape2D.disabled = false
 		'''
-
-
-func _on_final_body_entered(body: Node2D) -> void:
-	if body is Characters:
-		save_data("nivel4")
-		get_tree().change_scene_to_file("res://Scenes/inicio.tscn")
