@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq1umhrtsm763"]
+
+[ext_resource type="Texture2D" uid="uid://b0gkkpbn8ieh6" path="res://Sprites/sprites_para_borradores/odin.png" id="1_acm57"]
+[ext_resource type="Script" uid="uid://bwvqt7vy2u2r" path="res://Scripts/Enemigos/loki_boss.gd" id="1_ad4qj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3k4ba"]
+size = Vector2(32, 55)
+
+[node name="loki_boss" type="CharacterBody2D"]
+process_mode = 1
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_ad4qj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -28)
+scale = Vector2(-1, 1)
+texture = ExtResource("1_acm57")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -28)
+shape = SubResource("RectangleShape2D_3k4ba")
+
+[node name="InvertTimer" type="Timer" parent="."]
+process_mode = 1
+one_shot = true
+
+[node name="ShootPoint" type="Marker2D" parent="."]
+position = Vector2(-26, -25)
+
+[node name="PlatformsTimer" type="Timer" parent="."]
+process_mode = 1
+one_shot = true
+
+[connection signal="timeout" from="InvertTimer" to="." method="_on_invert_timer_timeout"]
+[connection signal="timeout" from="PlatformsTimer" to="." method="_on_platforms_timer_timeout"]

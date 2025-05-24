@@ -13,6 +13,8 @@ var coyote_timer : Timer
 var coyote_jump_available : bool = true
 var combo_timer : Timer
 
+var controls_inverted := false
+
 var is_taking_damage := false
 var max_health = 125
 var current_health
@@ -86,6 +88,9 @@ func _ready():
 func _physics_process(delta):
 	if can_move and current_state != State.DAMAGE:
 		var input_horizontal = Input.get_axis("mover_izq", "mover_der")
+		if controls_inverted:
+			input_horizontal *= -1
+
 		#var jump_attempt = Input.is_action_just_pressed("salto")
 		var attack_attempt = Input.is_action_just_pressed("ataque")
 		var input_up = Input.is_action_pressed("arriba")
@@ -330,3 +335,6 @@ func _input(event: InputEvent) -> void:
 		set_collision_mask_value(11, false)
 	else:
 		set_collision_mask_value(11, true)
+
+func set_controls_inverted(state: bool) -> void:
+	controls_inverted = state

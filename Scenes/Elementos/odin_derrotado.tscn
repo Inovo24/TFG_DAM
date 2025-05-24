@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp7uepop66x64"]
+
+[ext_resource type="LabelSettings" uid="uid://b3wfqidqjwq8f" path="res://Scenes/UI/UI_laber_settings/inicioTexts24.tres" id="1_2rqk1"]
+
+[node name="OdinDerrotado" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.839216)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 116.0
+grow_horizontal = 2
+text = "lbl_frase_loki_odin"
+label_settings = ExtResource("1_2rqk1")
+horizontal_alignment = 1
+vertical_alignment = 2
