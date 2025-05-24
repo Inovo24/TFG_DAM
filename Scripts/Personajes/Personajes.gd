@@ -193,25 +193,26 @@ func switch_state(new_state: State):
 
 
 func _on_animation_finished(_anim_name):
-	if current_state in [State.ATTACK, State.AIR_ATTACK, State.UP_ATTACK, State.DOWN_ATTACK]:
-		#sfx_attack.stop()
-		var current_animation = ""
-		match current_state:
-			State.ATTACK:
-				if _anim_name == "ataque1":
-					print("attack")
-					#switch_state(State.ATTACK)
-				print("attack finished")
-				switch_state(State.IDLE)
-			State.AIR_ATTACK:
-				current_animation = "ataqueAereo"
-			State.UP_ATTACK:
-				current_animation = "ataqueAlto"
-			State.DOWN_ATTACK:
-				current_animation = "ataqueBajo"
+	if Globales.current_character != 2:
+		if current_state in [State.ATTACK, State.AIR_ATTACK, State.UP_ATTACK, State.DOWN_ATTACK]:
+			#sfx_attack.stop()
+			var current_animation = ""
+			match current_state:
+				State.ATTACK:
+					if _anim_name == "ataque1":
+						print("attack")
+						#switch_state(State.ATTACK)
+					print("attack finished")
+					switch_state(State.IDLE)
+				State.AIR_ATTACK:
+					current_animation = "ataqueAereo"
+				State.UP_ATTACK:
+					current_animation = "ataqueAlto"
+				State.DOWN_ATTACK:
+					current_animation = "ataqueBajo"
 
-		if _anim_name == current_animation:
-			switch_state(State.IDLE)
+			if _anim_name == current_animation:
+				switch_state(State.IDLE)
 
 func jump(delta):
 	# Dentro de _physics_process(delta), solo lógica de salto

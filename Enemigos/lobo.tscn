@@ -169,7 +169,7 @@ size = Vector2(1.19103, 1.46412)
 
 [node name="Lobo" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 131
 script = ExtResource("1_qsrl1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -99,6 +99,7 @@ locale/translations=PackedStringArray("res://Traducciones/Dialogos.en.translatio
 2d_physics/layer_5="AtaquesPlayer"
 2d_physics/layer_6="AtaquesEnemigo"
 2d_physics/layer_7="recibir_daño_boss"
+2d_physics/layer_8="arbol"
 2d_physics/layer_10="bloque_movible"
 2d_physics/layer_11="Plataforma_normal"
 2d_physics/layer_14="roca_rompible"
