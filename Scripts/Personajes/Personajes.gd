@@ -95,6 +95,9 @@ func _physics_process(delta):
 		var attack_attempt = Input.is_action_just_pressed("ataque")
 		var input_up = Input.is_action_pressed("arriba")
 		var input_down = Input.is_action_pressed("abajo")
+		if controls_inverted:
+			attack_attempt = Input.is_action_just_pressed("salto")
+			
 
 		if current_state in [State.UP_ATTACK, State.DOWN_ATTACK]:
 			velocity.x = 0
@@ -211,6 +214,8 @@ func _on_animation_finished(_anim_name):
 func jump(delta):
 	# Dentro de _physics_process(delta), solo lógica de salto
 	var jump_attempt = Input.is_action_just_pressed("salto")
+	if controls_inverted:
+		jump_attempt = Input.is_action_just_pressed("ataque")
 
 	if jump_attempt or input_buffer.time_left > 0:
 		if coyote_jump_available:

@@ -26,19 +26,30 @@ func _physics_process(delta: float) -> void:
 				is_on_wall = true
 				wall_normal = c.get_normal()
 				break
+		
+		var input_right = Input.is_action_just_pressed("mover_der")
+		var input_left = Input.is_action_just_pressed("mover_izq")
+		if controls_inverted:
+			input_right = Input.is_action_just_pressed("mover_izq")
+			input_left = Input.is_action_just_pressed("mover_der")
+		
 		if is_on_wall:
 			# Wall slide: desacelera la caída si va presionando hacia la pared
 			var pressing_towards_wall = (
-				(Input.is_action_pressed("mover_izq") and wall_normal.x > 0) or
-				(Input.is_action_pressed("mover_der") and wall_normal.x < 0)
+				(input_left and wall_normal.x > 0) or
+				(input_right and wall_normal.x < 0)
 			)
-
+			
 			if velocity.y > 0 and pressing_towards_wall:
 				# Aplica una velocidad de caída más lenta progresiva
 				velocity.y = lerp(velocity.y, WALL_SLIDE_SPEED, 0.1)
-
+			
+			var jump_attempt = Input.is_action_just_pressed("salto")
+			if controls_inverted:
+				jump_attempt = Input.is_action_just_pressed("ataque")
+			
 			# Wall jump
-			if Input.is_action_just_pressed("salto"):
+			if jump_attempt:
 				velocity.x = wall_jump_speed.x * -wall_normal.x
 				velocity.y = wall_jump_speed.y
 				switch_state(State.JUMP)

@@ -78,6 +78,7 @@ offset_top = 106.0
 offset_right = 445.0
 offset_bottom = 170.0
 level_name = "5"
+next_scene_path = "uid://c5vewdncnnvke"
 next_level_down = NodePath("../1")
 next_level_left = NodePath("../4")
 

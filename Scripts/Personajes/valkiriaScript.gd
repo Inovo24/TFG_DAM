@@ -32,13 +32,19 @@ func _physics_process(delta):
 	if not skill_active or not can_move or is_dashing:
 		return
 
-	if Input.is_action_just_pressed("mover_der"):
+	var input_right = Input.is_action_just_pressed("mover_der")
+	var input_left = Input.is_action_just_pressed("mover_izq")
+	if controls_inverted:
+		input_right = Input.is_action_just_pressed("mover_izq")
+		input_left = Input.is_action_just_pressed("mover_der")
+
+	if input_right:
 		if last_dash_direction == "right" and dash_timer.time_left > 0:
 			start_dash(Vector2.RIGHT)
 		else:
 			last_dash_direction = "right"
 			dash_timer.start()
-	elif Input.is_action_just_pressed("mover_izq"):
+	elif input_left:
 		if last_dash_direction == "left" and dash_timer.time_left > 0:
 			start_dash(Vector2.LEFT)
 		else:

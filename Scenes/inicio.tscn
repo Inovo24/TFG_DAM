@@ -572,7 +572,6 @@ position = Vector2(618, 510)
 texture = ExtResource("6_xc3es")
 
 [node name="Barco" type="Sprite2D" parent="."]
-visible = false
 z_index = 1
 position = Vector2(-97, 456)
 texture = ExtResource("7_jeciw")
@@ -633,7 +632,6 @@ position = Vector2(605, 353)
 texture = ExtResource("12_2amer")
 
 [node name="SalidaBarco" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(49, 460)
 texture = ExtResource("13_dkt54")
 
