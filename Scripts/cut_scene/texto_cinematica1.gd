@@ -112,4 +112,4 @@ func _input(event):
 			# Any key or mouse button press will trigger this
 			waiting_for_input = false # Stop waiting for input
 			set_process_input(false) # Disable input processing for this script
-			get_tree().change_scene_to_file("res://Scenes/inicio.tscn")
+			SceneTransition.change_scene("res://Scenes/inicio.tscn")
