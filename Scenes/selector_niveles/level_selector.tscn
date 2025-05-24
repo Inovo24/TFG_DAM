@@ -27,7 +27,7 @@ offset_top = 137.0
 offset_right = 417.0
 offset_bottom = 201.0
 
-[node name="1" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left") instance=ExtResource("3_vswd1")]
+[node name="1" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left", "next_level_right") instance=ExtResource("3_vswd1")]
 z_index = 1
 offset_left = 366.0
 offset_top = 188.0
@@ -36,6 +36,7 @@ offset_bottom = 230.0
 next_scene_path = "uid://dadwpxs80q6xk"
 next_level_up = NodePath("../5")
 next_level_left = NodePath("../2")
+next_level_right = NodePath("../5")
 
 [node name="2" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left", "next_level_right") instance=ExtResource("3_vswd1")]
 z_index = 1
@@ -73,10 +74,10 @@ next_level_right = NodePath("../5")
 
 [node name="5" parent="." node_paths=PackedStringArray("next_level_down", "next_level_left") instance=ExtResource("3_vswd1")]
 z_index = 1
-offset_left = 381.0
-offset_top = 106.0
-offset_right = 445.0
-offset_bottom = 170.0
+offset_left = 507.0
+offset_top = 123.0
+offset_right = 571.0
+offset_bottom = 187.0
 level_name = "5"
 next_scene_path = "uid://c5vewdncnnvke"
 next_level_down = NodePath("../1")
