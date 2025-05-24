@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bbnt183wtjmut" path="res://Sprites/backgrounds/background_level3/Dimensional_Portal.png" id="2_tklir"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wf65c"]
-radius = 7.5
+radius = 9.0
+height = 33.5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_22ryy"]
 atlas = ExtResource("2_tklir")
