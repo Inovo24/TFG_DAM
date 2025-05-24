@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl1i8dr25sh1w"]
+
+[ext_resource type="Texture2D" uid="uid://bvctfji0hdnyp" path="res://Sprites/sprites_para_borradores/Fireball.png" id="1_26q0i"]
+[ext_resource type="Script" uid="uid://b4lraj5r1k5ox" path="res://Scripts/Elementos/fireball.gd" id="1_ygwma"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_26q0i"]
+radius = 12.0
+
+[node name="Fireball" type="Area2D"]
+collision_layer = 36
+collision_mask = 3
+script = ExtResource("1_ygwma")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(-0.15, -0.15)
+texture = ExtResource("1_26q0i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_26q0i")
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 1
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
