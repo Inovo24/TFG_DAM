@@ -4,7 +4,7 @@ extends Node2D
 @onready var narration_text = $Camera2D/Label #$Camera2D/RichTextLabel # O usa Label si prefieres
 @onready var narration_timer = $Camera2D/Timer
 @onready var ui_panel = $UI  # Panel contenedor (opcional)
-
+var waiting_for_input:bool  = false
 # Datos de narración
 var narration_data = [
 	["Desde las profundidades de Niflheim hasta las alturas de Asgard,",3],[ "el gran árbol, Yggdrasill, une todos los reinos.", 3.0],
@@ -131,16 +131,20 @@ func _on_timer_timeout():
 
 func end_narration():
 	print("=== NARRACIÓN TERMINADA ===")
+	narration_text.text = "Pulse cualquier tecla para continuar"
 	
-	# Mostrar mensaje final
-	if narration_text is RichTextLabel:
-		narration_text.text = "[center][i]Presiona cualquier tecla para continuar...[/i][/center]"
-	else:
-		narration_text.text = "FIN"
-	
-	# Esperar input del jugador
-	await get_tree().process_frame
+	waiting_for_input = true
+	# Enable input processing for this script
 	set_process_input(true)
+
+# This function is automatically called by Godot when an input event occurs
+func _input(event):
+	if waiting_for_input:
+		if event is InputEventKey or event is InputEventMouseButton:
+			# Any key or mouse button press will trigger this
+			waiting_for_input = false # Stop waiting for input
+			set_process_input(false) # Disable input processing for this script
+			get_tree().change_scene_to_file("res://Scenes/inicio.tscn")
 
 func continue_to_game():
 	print("Continuando al juego...")

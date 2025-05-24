@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b057r0ryv3ek"]
+[gd_scene load_steps=0 format=3 uid="uid://b057r0ryv3ek"]
 
 [node name="HallucinationOverlay" type="CanvasLayer"]
 
