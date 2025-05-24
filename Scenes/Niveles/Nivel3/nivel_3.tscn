@@ -515,15 +515,17 @@ sources/0 = SubResource("TileSetAtlasSource_xsyli")
 [node name="Nivel3" type="Node2D"]
 script = ExtResource("1_5h3r2")
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(32, 333)
+rotation = 3.14159
+scale = Vector2(2020.8, -77.7025)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(140, -7.99997)
 rotation = 3.14159
 scale = Vector2(2020.8, -77.7025)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
-
-[node name="Marker2D" type="Marker2D" parent="Camera2D"]
-position = Vector2(-2.32433, -4.27255)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = 2
