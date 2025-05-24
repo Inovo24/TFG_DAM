@@ -75,7 +75,9 @@ func _on_invert_timer_timeout():
 	if hallucination_instance == null:
 			hallucination_instance = hallucination_overlay.instantiate()
 			get_tree().current_scene.add_child(hallucination_instance)
+	await_until_unpaused()
 	await get_tree().create_timer(5.0).timeout
+	await_until_unpaused()
 	player.set_controls_inverted(false)
 	if hallucination_instance:
 			hallucination_instance.queue_free()
@@ -96,7 +98,8 @@ func receive_damage(damage):
 
 func await_until_unpaused():
 	while get_tree().paused:
-		await get_tree().process_frame
+		await get_tree().create_timer(0.1).timeout
+		#await get_tree().process_frame
 
 # ------------- FASE 1 -------------
 func enter_fase1():
