@@ -1,10 +1,14 @@
-[gd_scene load_steps=37 format=4 uid="uid://qnjqe47lx1ly"]
+[gd_scene load_steps=42 format=4 uid="uid://qnjqe47lx1ly"]
 
+[ext_resource type="Script" uid="uid://bwiwwdk2sg043" path="res://Scripts/cut_scene/texto_cinematica1.gd" id="1_6d2xn"]
 [ext_resource type="Texture2D" uid="uid://p43rs5ntekti" path="res://Sprites/backgrounds/yggdrasil.png" id="1_xyj5d"]
+[ext_resource type="AudioStream" uid="uid://dmo3gmtohucj4" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_01.wav" id="1_ywj0r"]
 [ext_resource type="PackedScene" uid="uid://cdpp1csevexpd" path="res://Scenes/Elementos/fuego.tscn" id="2_1w6qy"]
+[ext_resource type="AudioStream" uid="uid://cysoqqawjvpct" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_03.wav" id="2_6d2xn"]
 [ext_resource type="AudioStream" uid="uid://hqltbog4irr3" path="res://Audio/elementos/Campfire Loop.mp3" id="3_ft86j"]
 [ext_resource type="Texture2D" uid="uid://b8bisj5ty0w3l" path="res://Sprites/Enemigos/loki/loki.png" id="4_ft86j"]
 [ext_resource type="Texture2D" uid="uid://v8n7a78mwabb" path="res://Sprites/Inicio/barco.png" id="4_tes16"]
+[ext_resource type="LabelSettings" uid="uid://b0i4d4scmc3d3" path="res://Scenes/UI/cinematicas/subtitulos.tres" id="5_7xn4v"]
 [ext_resource type="Texture2D" uid="uid://wy7x2arocu6b" path="res://Sprites/Guerrera/valkiria.png" id="5_sikc1"]
 [ext_resource type="Texture2D" uid="uid://b3656t2080w1o" path="res://Sprites/Guerrera/run_valkiria-Sheet.png" id="6_22ccf"]
 [ext_resource type="Texture2D" uid="uid://vnor6533qgsd" path="res://Sprites/Arquero/arquero.png" id="6_ft86j"]
@@ -15,70 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://nm83aiwep38k" path="res://Sprites/Inicio/Casa_nevada.png" id="10_7xn4v"]
 [ext_resource type="Texture2D" uid="uid://bkssh4jq8gvt1" path="res://Sprites/Vikingo/vikingo.png" id="11_1x6av"]
 [ext_resource type="AudioStream" uid="uid://c4s3gtekcm7sd" path="res://Audio/fondo/the-little-silkworm-294630.mp3" id="12_cjmi2"]
-
-[sub_resource type="Animation" id="Animation_fvrn0"]
-resource_name = "inicio"
-length = 60.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 20.0333, 25, 30, 40.0586, 45, 55),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(131, 63), Vector2(131, 196), Vector2(131, 321), Vector2(131, 321), Vector2(419, 321), Vector2(419, 321), Vector2(1372, 321)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("valkiria:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(30.1, 47.0333, 55.068),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(490, 336.75), Vector2(490, 336.75), Vector2(1331, 351)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("arquero:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(29.8667, 47.0667, 55.068),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(449, 340.75), Vector2(449, 340.75), Vector2(1290, 351)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("valkiria:animation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(30.1667, 47.9, 54.9667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [&"quieto", &"corre", &"quieto"]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("arquero:animation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(29.9333, 47.9667, 54.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [&"default", &"corre", &"default"]
-}
 
 [sub_resource type="Animation" id="Animation_a085p"]
 length = 0.001
@@ -141,6 +81,147 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"corre"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("valkiria/AudioStreamPlayer2D:stream")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("valkiria/AudioStreamPlayer2D:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("valkiria/AudioStreamPlayer2D:volume_db")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_7xn4v"]
+stream_count = 2
+stream_0 = ExtResource("1_ywj0r")
+stream_1 = ExtResource("2_6d2xn")
+
+[sub_resource type="Animation" id="Animation_fvrn0"]
+resource_name = "inicio"
+length = 120.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 35.3, 40.2667, 54.9667, 65.0253, 70.1333, 80.1333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(131, 63), Vector2(131, 196), Vector2(131, 321), Vector2(131, 321), Vector2(419, 321), Vector2(419, 321), Vector2(1372, 321)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("valkiria:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(55.0667, 72.1666, 76.1333, 80.2013),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(490, 336.75), Vector2(490, 336.75), Vector2(858, 344.768), Vector2(1331, 351)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("arquero:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(54.8334, 72.2, 76.3667, 80.2013),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(449, 340.75), Vector2(449, 340.75), Vector2(853, 346.499), Vector2(1290, 351)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("valkiria:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(55.1334, 76.2, 80.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"quieto", &"corre", &"quieto"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("arquero:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(54.9, 76.2, 80.0333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"default", &"corre", &"default"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("valkiria/AudioStreamPlayer2D:stream")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(76.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AudioStreamPlaylist_7xn4v")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("valkiria/AudioStreamPlayer2D:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(74, 76.6667, 79.9667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("valkiria/AudioStreamPlayer2D:volume_db")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(50.6667),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-26.924]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6k3sq"]
@@ -357,6 +438,7 @@ texture = ExtResource("9_6d2xn")
 sources/0 = SubResource("TileSetAtlasSource_82vey")
 
 [node name="escenaIntro" type="Node2D"]
+script = ExtResource("1_6d2xn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -375,8 +457,29 @@ position = Vector2(131, 63)
 zoom = Vector2(9, 9)
 
 [node name="Label" type="Label" parent="Camera2D"]
-offset_right = 40.0
-offset_bottom = 23.0
+auto_translate_mode = 1
+offset_left = -106.0
+offset_top = 32.0
+offset_right = 106.0
+offset_bottom = 56.0
+text = "prueba
+"
+label_settings = ExtResource("5_7xn4v")
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D"]
+visible = false
+offset_left = -98.0
+offset_top = -6.36652
+offset_right = 102.0
+offset_bottom = 22.6335
+bbcode_enabled = true
+scroll_following = true
+autowrap_mode = 2
+
+[node name="Timer" type="Timer" parent="Camera2D"]
+one_shot = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 2.0
@@ -424,6 +527,8 @@ sprite_frames = SubResource("SpriteFrames_yjslf")
 animation = &"corre"
 autoplay = "quieto"
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="valkiria"]
+
 [node name="arquero" type="AnimatedSprite2D" parent="."]
 z_index = 1
 position = Vector2(449, 340.75)
@@ -470,3 +575,5 @@ stream = ExtResource("12_cjmi2")
 volume_db = -32.615
 autoplay = true
 bus = &"SFX"
+
+[connection signal="timeout" from="Camera2D/Timer" to="." method="_on_narration_timer_timeout"]
