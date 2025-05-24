@@ -47,11 +47,6 @@ var level_progress = {
 		"hecho" = false,
 		"num_gems" = 0,
 		"time" = 0
-	},
-	"nivel6" = {
-		"hecho" = false,
-		"num_gems" = 0,
-		"time" = 0
 	}
 }
 
@@ -65,7 +60,7 @@ var level_temporal_progress = {
 		"num_gems" = 0,
 		"time" = 0
 	},
-	"nivel6" = {
+	"nivel5" = {
 		"num_gems" = 0,
 		"time" = 0
 	}

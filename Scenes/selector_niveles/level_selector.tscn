@@ -80,16 +80,7 @@ offset_bottom = 170.0
 level_name = "5"
 next_level_down = NodePath("../1")
 next_level_left = NodePath("../4")
-next_level_right = NodePath("../6")
-
-[node name="6" parent="." node_paths=PackedStringArray("next_level_left") instance=ExtResource("3_vswd1")]
-z_index = 1
-offset_left = 453.0
-offset_top = 93.0
-offset_right = 517.0
-offset_bottom = 157.0
-level_name = "6"
-next_level_left = NodePath("../5")
+next_level_right = NodePath("")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(353, 180)
