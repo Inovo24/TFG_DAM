@@ -52,7 +52,12 @@ func down_attack():
 	anim_state_machine.travel("ataqueBajo")
 func _physics_process(delta):
 	super._physics_process(delta)
-	if Input.is_action_just_released("ataque"):
+	var attack_attempt = Input.is_action_pressed("ataque")
+		
+	if controls_inverted:
+		attack_attempt = Input.is_action_just_pressed("salto")
+		
+	if attack_attempt:
 		shoot_arrow()
 		is_charging = false
 
@@ -95,6 +100,8 @@ func deal_damage_archer():
 # Lógica de salto personalizado (doble salto si skill_active)
 func jump(delta):
 	var jump_attempt = Input.is_action_just_pressed("salto")
+	if controls_inverted:
+		jump_attempt = Input.is_action_just_pressed("ataque")
 
 	if jump_attempt or input_buffer.time_left > 0:
 		if is_on_floor():
@@ -112,8 +119,12 @@ func jump(delta):
 			extra_jump_available = false
 		elif jump_attempt:
 			input_buffer.start()
-
-	if Input.is_action_just_released("salto") and velocity.y < 0:
+	
+	var jump_released = Input.is_action_just_released("salto")
+	if controls_inverted:
+		jump_released = Input.is_action_just_released("ataque")
+	
+	if jump_released and velocity.y < 0:
 		velocity.y = JUMP_SPEED / 2
 
 	if not is_on_floor() and current_state not in [State.AIR_ATTACK, State.DOWN_ATTACK, State.UP_ATTACK]:

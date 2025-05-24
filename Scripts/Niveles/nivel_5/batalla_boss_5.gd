@@ -6,7 +6,9 @@ func _ready():
 	level_name = "nivel5"
 	initialPosition = posicion_boss5
 	super._ready()
-	
+	var player = Globales.get_player()
+	player.has_checkpoint = true
+	player.checkpoint_position = posicion_boss5.position
 
 '''
 func reload_health_bar():

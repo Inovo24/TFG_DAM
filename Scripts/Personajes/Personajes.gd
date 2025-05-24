@@ -97,6 +97,8 @@ func _physics_process(delta):
 		var input_down = Input.is_action_pressed("abajo")
 		if controls_inverted:
 			attack_attempt = Input.is_action_just_pressed("salto")
+			input_up = Input.is_action_pressed("abajo")
+			input_down = Input.is_action_pressed("arriba")
 			
 
 		if current_state in [State.UP_ATTACK, State.DOWN_ATTACK]:
@@ -224,7 +226,11 @@ func jump(delta):
 		elif jump_attempt:
 			input_buffer.start()
 
-	if Input.is_action_just_released("salto") and velocity.y < 0:
+	var jump_released = Input.is_action_just_released("salto")
+	if controls_inverted:
+		jump_released = Input.is_action_just_released("ataque")
+
+	if jump_released and velocity.y < 0:
 		velocity.y = JUMP_SPEED / 2
 
 	if not is_on_floor() and current_state not in [State.AIR_ATTACK, State.DOWN_ATTACK, State.UP_ATTACK]:
@@ -336,7 +342,10 @@ func return_to_checkpoint():
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("abajo") and is_on_floor():
+	var input_down = Input.is_action_pressed("abajo")
+	if controls_inverted:
+		input_down = Input.is_action_pressed("arriba")
+	if input_down and is_on_floor():
 		set_collision_mask_value(11, false)
 	else:
 		set_collision_mask_value(11, true)

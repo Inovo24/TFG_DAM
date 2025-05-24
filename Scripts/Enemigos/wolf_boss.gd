@@ -125,7 +125,7 @@ func jump():
 		sprite.play("jump")
 		position.x = player.global_position.x
 		position.y -= 200
-		receive_damage(20)
+		#receive_damage(20)
 		#print("salto")
 
 func charge_preparation():
@@ -242,7 +242,7 @@ func _on_attack_cooldown_timeout():
 		switch_state(State.ATTACK_PREPARATION)
 
 func change_player(playerNum: int):
-	if Globales.current_character !=playerNum:
+	if Globales.current_character !=playerNum || playerNum==1:
 			playerPosition = player.global_position
 			var player_checkpoint = player.checkpoint_position
 			Globales.current_character = playerNum
