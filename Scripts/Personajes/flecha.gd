@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var speed: float = 200.0  
-@export var damage: int = 20  
+@export var damage: int = 15  
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
 var direction: Vector2 = Vector2.RIGHT 
@@ -20,6 +20,8 @@ func _on_body_entered(_body: Node) -> void:
 
 	# Daño a enemigos
 	elif _body.is_in_group("Enemies"):
+		damage *=charge_multiplier
+		print(damage)
 		_body.receive_damage(damage)
 		queue_free()
 
@@ -37,4 +39,5 @@ func _on_body_entered(_body: Node) -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	print("Arrow exited screen")
+	
 	queue_free()
