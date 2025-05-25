@@ -8,7 +8,7 @@ class_name SnakeBoss
 @export var daño_normal: int = 10
 @export var daño_embestida: int = 20
 @export var daño_aparicion: int = 15
-@export var vida_maxima: int = 100
+@export var vida_maxima: int = 400
 @export var gravedad: float = 800.0
 @export var limites_arena: Rect2 = Rect2(Vector2(0, 0), Vector2(1024, 768))
 
@@ -227,9 +227,12 @@ func receive_damage(cantidad: int) -> void:
 	vida_actual -= cantidad
 	if vida_actual <= 0:
 		await muerte()
+		
 	else:
 		actualizar_fase()
 		_disable_all_attacks()
+		if sprite.animation == "divear" or sprite.animation == "aparicion":
+			return
 		esta_atacando = false
 		sprite.play("daño")
 		await sprite.animation_finished

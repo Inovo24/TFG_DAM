@@ -1,9 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://foow48tmur6c"]
+[gd_scene load_steps=34 format=3 uid="uid://foow48tmur6c"]
 
 [ext_resource type="Script" uid="uid://c3bna5phcemgu" path="res://Scripts/Enemigos/esqueleto_arquero.gd" id="1_gnu2t"]
 [ext_resource type="Texture2D" uid="uid://dqjeuluf4gp7g" path="res://Sprites/Enemigos/Esqueleto_arquero/caminar.png" id="2_7y3go"]
 [ext_resource type="Texture2D" uid="uid://c4xfa6sb323es" path="res://Sprites/Enemigos/Esqueleto_arquero/ataque.png" id="2_18s1i"]
 [ext_resource type="Texture2D" uid="uid://brg5nlsoe4dqi" path="res://Sprites/Enemigos/Esqueleto_arquero/daño.png" id="2_nud2k"]
+[ext_resource type="AudioStream" uid="uid://cykqw7m48nblw" path="res://Audio/personajes/esqueleto/Impact Bonebreak.mp3" id="5_gnu2t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gfc5m"]
 radius = 5.71842
@@ -248,7 +249,15 @@ position = Vector2(-2.5, 25)
 shape = SubResource("RectangleShape2D_18s1i")
 debug_color = Color(0.659537, 0.319924, 1, 0.42)
 
+[node name="Sonido_daño" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gnu2t")
+volume_db = 8.0
+autoplay = true
+max_distance = 291.0
+bus = &"SFX"
+
 [connection signal="body_entered" from="playerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="playerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="body_entered" from="SueloDetector" to="." method="_on_suelo_detector_body_entered"]
 [connection signal="body_exited" from="SueloDetector" to="." method="_on_suelo_detector_body_exited"]

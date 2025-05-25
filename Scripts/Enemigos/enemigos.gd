@@ -66,7 +66,12 @@ func receive_damage(damage_received: int):
 		var sprite = $AnimatedSprite2D
 		if "daño" in sprite.sprite_frames.get_animation_names():
 			sprite.play("daño")
-
+	#  Reproducir sonido si existe
+	
+	if has_node("Sonido_daño"):
+		var sonido = $Sonido_daño
+		sonido.stop()
+		sonido.play()
 	# 3. Reproducir en AnimationTree si está activo
 	if animation_tree and anim_state_machine:
 		anim_state_machine.travel("daño")
