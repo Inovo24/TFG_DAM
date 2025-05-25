@@ -427,32 +427,32 @@ scroll_ignore_camera_zoom = true
 [node name="fondoCaverna" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-245, 363)
 motion_scale = Vector2(0.1, 0.1)
-motion_mirroring = Vector2(700, 0)
+motion_mirroring = Vector2(1400, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/fondoCaverna"]
-position = Vector2(85, -363)
+position = Vector2(235, -359)
+scale = Vector2(2, 2)
 texture = ExtResource("4_j7b2c")
 centered = false
 
 [node name="SubCapa" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-245, 363)
-motion_scale = Vector2(0.8, 0.08)
-motion_mirroring = Vector2(900, 0)
+position = Vector2(-1036, -348)
+motion_mirroring = Vector2(1950, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SubCapa"]
-position = Vector2(-16, -401)
-scale = Vector2(0.777143, 0.743719)
+position = Vector2(484, 118)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_3g30o")
 centered = false
 
 [node name="SubCapa2" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-245, 363)
 motion_scale = Vector2(0.8, 0.08)
-motion_mirroring = Vector2(540, 0)
+motion_mirroring = Vector2(1400, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SubCapa2"]
-position = Vector2(86, -373)
-scale = Vector2(0.777143, 0.743719)
+position = Vector2(270, -371)
+scale = Vector2(2, 1.915)
 texture = ExtResource("5_jqx4k")
 centered = false
 

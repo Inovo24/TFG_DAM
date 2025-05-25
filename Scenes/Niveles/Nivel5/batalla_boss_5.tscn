@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bwsqlinj76xkk" path="res://Sprites/backgrounds/background_level1/Fondo_Boss1.png" id="3_whllx"]
 [ext_resource type="Texture2D" uid="uid://dx8yafexkfsy3" path="res://Sprites/backgrounds/background_level1/SubcapaLvlBoss1.png" id="4_x4oeo"]
 [ext_resource type="Texture2D" uid="uid://b14u1ukre6dy2" path="res://Sprites/backgrounds/background_level1/estalactitas.png" id="5_x4uju"]
-[ext_resource type="PackedScene" uid="uid://dq1umhrtsm763" path="res://Enemigos/loki_boss.tscn" id="6_30trk"]
+[ext_resource type="PackedScene" path="res://Enemigos/loki_boss.tscn" id="6_30trk"]
 [ext_resource type="PackedScene" uid="uid://cowrpiduh2h6l" path="res://Scenes/Plataformas/plataforma_normal.tscn" id="7_ol0h6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_felyv"]
