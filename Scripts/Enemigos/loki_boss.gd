@@ -10,6 +10,10 @@ var hallucination_instance: Node = null
 @onready var death_odin_escene = preload("res://Scenes/Elementos/odin_derrotado.tscn")
 var death_odin_instance: Node = null
 
+@onready var sprite_loki = preload("res://Sprites/Enemigos/loki/loki.png")
+@onready var current_sprite = $Sprite2D
+@onready var fake_loki = preload("res://Enemigos/fake_loki.tscn")
+var lokis: Array = []
 @onready var fireball_scene: PackedScene = preload("res://Scenes/Elementos/fireball.tscn")
 var player
 var vulnerable = false
@@ -86,15 +90,22 @@ func _on_invert_timer_timeout():
 	start_invert_timer()
 
 func receive_damage(damage):
-	if vulnerable and current_state == BossState.FASE1:
+	if vulnerable:
 		life -= damage
 		print(damage)
 		print(life)
-		if life < max_life/2:
+		if life < max_life/2 and current_state == BossState.FASE1:
 			change_state(BossState.FASE2)
-		elif life <0:
-			get_parent().end_level()
-			queue_free()
+		elif life <=0 and current_state == BossState.FASE2:
+			change_state(BossState.DERROTA)
+		elif current_state == BossState.DERROTA:
+			if lokis.size() > 0:
+				var clone = lokis.pop_back()
+				if is_instance_valid(clone):
+					clone.queue_free()
+			else:
+				get_parent().end_level()
+				queue_free()
 
 func await_until_unpaused():
 	while get_tree().paused:
@@ -130,7 +141,7 @@ func shoot_fireball():
 	var fireball = fireball_scene.instantiate()
 	
 	fireball.position = $ShootPoint.position
-	fireball.initialize(player)
+	fireball.initialize(player,false)
 	
 	add_child(fireball)
 
@@ -147,17 +158,17 @@ func _on_platforms_timer_timeout() -> void:
 		var collision = platform.get_node_or_null("StaticBody2D/CollisionShape2D")
 		#print(collision)
 		
-		var mode = randi() % 10
+		var mode = randi() % 15
 		match mode:
-			0,1,2,3,4: # visible sin colisión
+			0,1,2,3: # visible sin colisión
 				if sprite: 
 					sprite.visible = true
 					sprite.modulate = Color(1, 1, 1, 0.8)
 				if collision: collision.disabled = true
-			5: # invisible y sin colisión
+			4: # invisible y sin colisión
 				if sprite: sprite.visible = false
 				if collision: collision.disabled = true
-			6,7,8,9: # visible y con colisión
+			6,7,8,9,10,11,12,13,14: # visible y con colisión
 				if sprite: 
 					sprite.visible = true
 					sprite.modulate = Color(1, 1, 1, 1) 
@@ -215,20 +226,114 @@ func reset_platforms():
 
 # ------------- FASE 2 -------------
 func enter_fase2():
+	current_sprite.texture = sprite_loki
+	current_sprite.global_position += Vector2(0,10)
+	var num_lokis = platforms.size() - 1
+	
+	for i in range(num_lokis):
+		var loki_instance = fake_loki.instantiate()
+		loki_instance.global_position = Vector2(500,0)
+		add_child(loki_instance)
+		lokis.append(loki_instance)
+	move_lokis_to_random_platform()
 	await get_tree().create_timer(5.0).timeout
 	if death_odin_instance:
 			death_odin_instance.queue_free()
 			death_odin_instance = null
+	vulnerable = true
+	await await_until_unpaused()
+	await get_tree().create_timer(5.0).timeout
+	loki_fireball_start()
 
 func exit_fase2():
+	vulnerable = false
 	print("Saliendo de Fase 2")
+	#Comentario loki
+	if death_odin_instance == null:
+			death_odin_instance = death_odin_escene.instantiate()
+			death_odin_instance.label_text = tr("lbl_loki_muere")
+			get_tree().current_scene.add_child(death_odin_instance)
+	for loki in lokis:
+		loki.queue_free()
+	move_boss_to_start_position()
 
 func state_fase2_process(delta):
 	pass # Aquí irá la lógica de la Fase 2
 
+func loki_fireball_start():
+	var rand_num = randf_range(1, 2)
+	for i in range(rand_num):
+		await await_until_unpaused() 
+		if current_state != BossState.FASE2:
+			return
+		shoot_fireball()
+		await await_until_unpaused()  
+		await get_tree().create_timer(fireball_delay).timeout
+	for loki in lokis:
+		await await_until_unpaused()  
+		loki.shoot_fireball()
+	
+	await await_until_unpaused()
+	await get_tree().create_timer(fireball_scene.instantiate().time_life + 2).timeout
+	await await_until_unpaused()  
+	if current_state != BossState.FASE2:
+		return
+	move_lokis_to_random_platform()
+	
+	if current_state == BossState.FASE2:
+		loki_fireball_start()
+
+func move_lokis_to_random_platform():
+	if platforms.size() == 0:
+		return
+	
+	# Mezcla las plataformas para asignar aleatoriamente
+	var shuffled_platforms = platforms.duplicate()
+	shuffled_platforms.shuffle()
+
+	# Asignar una plataforma aleatoria al Loki real
+	var real_platform = shuffled_platforms.pop_front()
+	if real_platform:
+		global_position = real_platform.global_position
+		vulnerable = false
+
+	# Asignar las demás plataformas a los clones
+	for i in range(min(lokis.size(), shuffled_platforms.size())):
+		var clone = lokis[i]
+		var platform = shuffled_platforms[i]
+		if clone and platform:
+			clone.global_position = platform.global_position
+			clone.vulnerable = false
+	
+	await await_until_unpaused()
+	await get_tree().create_timer(0.5).timeout
+	vulnerable = true
+	for loki in lokis:
+		loki.vulnerable = true
+
 # ------------- DERROTA -------------
 func enter_derrota():
 	print("Boss derrotado")
+	lokis.clear()
+	
+	# Instanciar nuevos clones en cada plataforma
+	for platform in platforms:
+		if platform:
+			var clone = fake_loki.instantiate()
+			clone.global_position = platform.global_position
+			clone.vulnerable = false
+			get_tree().current_scene.add_child(clone)
+			lokis.append(clone)
+	await await_until_unpaused()
+	await get_tree().create_timer(5).timeout
+	if death_odin_instance:
+		death_odin_instance.queue_free()
+		death_odin_instance = null
+	await await_until_unpaused()
+	await get_tree().create_timer(0.5).timeout
+	for loki in lokis:
+		loki.vulnerable = true
+	vulnerable = true
 
 func exit_derrota():
 	pass # Por si quieres añadir lógica de limpieza
