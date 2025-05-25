@@ -11,9 +11,11 @@ func _ready():
 	
 
 func reload_health_bar():
+	var default = healthBar.default
 	healthBar.queue_free()
 	healthBar = healthBarScene.instantiate()
 	add_child(healthBar)
+	healthBar.default = default
 
 	
 func return_to_level():
