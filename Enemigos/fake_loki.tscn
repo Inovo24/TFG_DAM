@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsk2js3hltblw"]
+
+[ext_resource type="Script" uid="uid://bs1qpa71t8iud" path="res://Scripts/Enemigos/fake_loki.gd" id="1_7wit2"]
+[ext_resource type="Texture2D" uid="uid://b8bisj5ty0w3l" path="res://Sprites/Enemigos/loki/loki.png" id="1_jryg6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wit2"]
+size = Vector2(32, 43.5)
+
+[node name="fake_loki" type="CharacterBody2D"]
+modulate = Color(1, 1, 1, 0.815686)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_7wit2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -19)
+scale = Vector2(-1, 1)
+texture = ExtResource("1_jryg6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -22.25)
+shape = SubResource("RectangleShape2D_7wit2")
+
+[node name="ShootPoint" type="Marker2D" parent="."]
+position = Vector2(-26, -25)

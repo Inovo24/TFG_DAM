@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bp7uepop66x64"]
+[gd_scene load_steps=3 format=3 uid="uid://bp7uepop66x64"]
 
 [ext_resource type="LabelSettings" uid="uid://b3wfqidqjwq8f" path="res://Scenes/UI/UI_laber_settings/inicioTexts24.tres" id="1_2rqk1"]
+[ext_resource type="Script" uid="uid://btkgufeq8cgbb" path="res://Scripts/Elementos/odin_derrotado.gd" id="1_fwpuj"]
 
 [node name="OdinDerrotado" type="CanvasLayer"]
+script = ExtResource("1_fwpuj")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15

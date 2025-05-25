@@ -79,8 +79,8 @@ msg_dash_4,"El aire responde solo a quien se lanza sin dudar.","The air answers 
 msg_dash_5,"La brecha no se salta, se corta con voluntad.","The gap is not jumped over, it's sliced through with will.","O vão não se salta, se corta com vontade.","Il vuoto non si salta, si taglia con la volontà."
 msg_dash_unlock,"¡Dash desbloqueado!","Dash unlocked!","Dash desbloqueado!","Scatto sbloccato!"
 lbl_nivel,Nivel,Level,Nível,Livello
-lbl_maximo_gemas,Gemas máximas,Max gems,Gemas máximas,Gemme massime
-lbl_tiempo_minimo,Tiempo mínimo,Minimum time,Tempo mínimo,Tempo minimo
+lbl_maximo_gemas,Record gemas,Gems record,Recorde de gemas,Record gemme
+lbl_tiempo_minimo,Record tiempo,Time record,Recorde de tempo,Record tempo
 btn_jugar,Jugar,Play,Jogar,Gioca
 btn_volver_a_jugar,Volver a jugar,Play again,Jogar novamente,Gioca di nuovo
 lbl_sin_hacer,Nivel sin completar,Level not completed,Nível não completado,Livello non completato
@@ -123,3 +123,4 @@ lbl_cine32,"Si ayudaban a recuperarla, las provisiones serían suyas.","If they 
 lbl_cine33,"El destino de un pueblo, y quizás el suyo propio,","The fate of a people, and perhaps their own,","O destino de um povo, e talvez o seu próprio,","Il destino di un popolo, e forse il loro stesso,"
 lbl_cine34,"pendía de esta decisión.","hung on this decision.","pendia desta decisão.","dipendeva da questa decisione."
 user_prompt_1,"Pulse cualquier tecla para continuar","Press any key to continue","Pressione qualquer tecla para continuar","Premi un tasto qualsiasi per continuare"
+lbl_loki_muere,"Nos volveremos a ver... cuando ya no seas tú.","We will meet again... when you are no longer yourself.","Voltaremos a nos ver... quando já não fores tu.","Ci rivedremo... quando non sarai più te stesso."
