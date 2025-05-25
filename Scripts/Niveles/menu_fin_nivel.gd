@@ -14,9 +14,9 @@ func _ready() -> void:
 	var minutos = int(level["time"]) / 60
 	var segundos_restantes = int(level["time"]) % 60
 	$Panel/VSplitContainer/MejorTiempo.text ="(" + tr("lbl_tiempo_minimo")+": "+"%02d:%02d" % [minutos, segundos_restantes] + ")"
-	
-	minutos = int(get_parent().elapsed_time) / 60
-	segundos_restantes = int(get_parent().elapsed_time) % 60
+	var time = get_parent().elapsed_time + get_parent().healthBar.default
+	minutos = int(time) / 60
+	segundos_restantes = int(time) % 60
 	$Panel/VSplitContainer/Tiempo.text = tr("lbl_tiempo_en_completar")+": "+"%02d:%02d" % [minutos, segundos_restantes]
 
 
