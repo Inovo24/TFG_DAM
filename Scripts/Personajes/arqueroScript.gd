@@ -20,6 +20,8 @@ var attack_released
 
 var extra_jump_available: bool = false
 
+var arrow_direction := Vector2(1, 0) # Por defecto derecha
+
 func _ready() -> void:
 	max_health = 75
 	speed = 250
@@ -47,6 +49,13 @@ func attack():
 	if can_attack:
 		is_charging = true
 		charge_time = 0.0
+		# Fijar dirección al iniciar ataque
+		if Input.is_action_pressed("arriba"):
+			arrow_direction = Vector2(0, -1)
+		elif Input.is_action_pressed("abajo"):
+			arrow_direction = Vector2(0, 1)
+		else:
+			arrow_direction = Vector2($Sprite2D.scale.x, 0)
 		anim_state_machine.travel("ataque1")
 	else:
 		print("You cannot spam the bow")
@@ -57,6 +66,7 @@ func down_attack():
 	if can_attack:
 		is_charging = true
 		charge_time = 0.0
+		arrow_direction = Vector2(0, 1)
 		anim_state_machine.travel("ataqueBajo")
 	else:
 		print("You cannot spam the bow")
@@ -66,6 +76,7 @@ func up_attack():
 	if can_attack:
 		is_charging = true
 		charge_time = 0.0
+		arrow_direction = Vector2(0, -1)
 		anim_state_machine.travel("ataqueAlto")
 	else:
 		print("You cannot spam the bow")
@@ -106,22 +117,19 @@ func shoot_arrow():
 			a.global_position = up_marker.global_position
 		else:
 			a.global_position = front_marker.global_position
-		
 
 		var charge_multiplier = 1.0 + (charge_time / max_charge_time)
 		a.speed = arrow_speed * charge_multiplier
 		a.charge_multiplier = charge_multiplier
 
-		var direction = Vector2($Sprite2D.scale.x, 0)
-		if Input.is_action_pressed("arriba"):
-			direction = Vector2(0, -1)
-			a.rotation = -PI /2
-		elif Input.is_action_pressed("abajo"):
-			direction = Vector2(0, 1)
-			a.rotation = PI /2
-		a.direction = direction.normalized()
-		a.scale.x = abs(a.scale.x) * (direction.x if direction.x != 0 else 1)
-		#a.scale.y = abs(a.scale.y) * (direction.y if direction.y != 0 else 1)
+		a.direction = arrow_direction.normalized()
+		if arrow_direction == Vector2(0, -1):
+			a.rotation = -PI / 2
+		elif arrow_direction == Vector2(0, 1):
+			a.rotation = PI / 2
+		else:
+			a.rotation = 0
+			a.scale.x = abs(a.scale.x) * (arrow_direction.x if arrow_direction.x != 0 else 1)
 		print("Arrow shot with multiplier: ", charge_multiplier)
 	else:
 		print("Error: arrow.tscn not found!")
