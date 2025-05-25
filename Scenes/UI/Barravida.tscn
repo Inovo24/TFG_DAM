@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://di8bcj1oji2ti"]
+[gd_scene load_steps=7 format=3 uid="uid://di8bcj1oji2ti"]
 
 [ext_resource type="Script" uid="uid://bei4lowmqxvkg" path="res://Scripts/Interfaz/barravida.gd" id="1_dmbr0"]
 [ext_resource type="Texture2D" uid="uid://v5pui3ih3qoj" path="res://Sprites/healthbarUnder.png" id="1_kgiab"]
 [ext_resource type="Texture2D" uid="uid://cjjgq02yac41x" path="res://Sprites/healthbarProgress.png" id="2_fdf3w"]
 [ext_resource type="Texture2D" uid="uid://hsv7be7lckno" path="res://Sprites/sprites_para_borradores/cora.png" id="4_4ml37"]
 [ext_resource type="LabelSettings" uid="uid://boqdkocgf1jjn" path="res://Scenes/UI/UI_laber_settings/inicioTexts.tres" id="5_uckoq"]
+[ext_resource type="Texture2D" uid="uid://cxtyl8c548rrx" path="res://Sprites/healt/3intentos.png" id="6_dmbr0"]
 
 [node name="Barravida" type="CanvasLayer"]
 scale = Vector2(2, 2)
@@ -12,20 +13,26 @@ transform = Transform2D(2, 0, 0, 2, 0, 0)
 script = ExtResource("1_dmbr0")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-offset_right = 171.0
-offset_bottom = 31.0
+anchors_preset = -1
+anchor_bottom = -0.000925926
+offset_left = 47.0
+offset_top = 21.0
+offset_right = 218.0
+offset_bottom = 52.0
 nine_patch_stretch = true
 texture_under = ExtResource("1_kgiab")
 texture_progress = ExtResource("2_fdf3w")
 metadata/_edit_use_anchors_ = true
 
 [node name="LabelLive" type="Label" parent="."]
+visible = false
 offset_left = 9.0
 offset_top = 5.0
 offset_right = 72.0
 offset_bottom = 28.0
 
 [node name="Lives" type="HBoxContainer" parent="."]
+visible = false
 offset_left = 1.0
 offset_top = 35.0
 offset_right = 129.0
@@ -62,3 +69,11 @@ grow_horizontal = 2
 label_settings = ExtResource("5_uckoq")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Shield_lives" type="TextureRect" parent="."]
+offset_left = -4.0
+offset_top = -4.5
+offset_right = 36.0
+offset_bottom = 35.5
+scale = Vector2(2, 2)
+texture = ExtResource("6_dmbr0")
