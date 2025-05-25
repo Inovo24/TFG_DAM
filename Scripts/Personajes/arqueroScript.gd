@@ -40,7 +40,8 @@ func _ready() -> void:
 	print(max_health)
 
 func _on_attack_cooldown_timeout():
-	can_attack = true
+	if not is_charging:
+		can_attack = true
 
 func _process(delta):
 	add_to_group("player")
@@ -203,6 +204,14 @@ func jump(delta):
 
 
 func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "ataque1" and attack_released:
-		print("hola")
+	# Solo cambiar a IDLE si ya se soltó el botón de ataque
+	if anim_name in ["ataque1", "ataqueBajo", "ataqueAlto"] and not is_charging:
 		switch_state(State.IDLE)
+	elif anim_name in ["ataque1", "ataqueBajo", "ataqueAlto"] and is_charging:
+		# Si aún está cargando, repetir la animación
+		if anim_name == "ataque1":
+			anim_state_machine.travel("ataque1")
+		elif anim_name == "ataqueBajo":
+			anim_state_machine.travel("ataqueBajo")
+		elif anim_name == "ataqueAlto":
+			anim_state_machine.travel("ataqueAlto")

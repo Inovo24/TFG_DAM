@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://smqfnjqgydia" path="res://Sprites/Elementos/pinchos.png" id="2_m4lgh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4lgh"]
-size = Vector2(34, 2.5)
+size = Vector2(34, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_il75n"]
 size = Vector2(34, 10)
@@ -18,7 +18,7 @@ scale = Vector2(0.588496, 0.5)
 texture = ExtResource("2_m4lgh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6.75)
+position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_m4lgh")
 disabled = true
 

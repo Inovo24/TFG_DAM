@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://duqs6hjk26o8e" path="res://Scripts/Niveles/nivel_2/nivel_2.gd" id="1_xsyli"]
 [ext_resource type="Texture2D" uid="uid://0gh52gokkg0e" path="res://Assets/tileset_nievet.png" id="2_iafik"]
 [ext_resource type="Texture2D" uid="uid://y3rop3kkhj1j" path="res://Sprites/backgrounds/background_level1/Fondos/fondo_01.png" id="3_e12np"]
-[ext_resource type="PackedScene" uid="uid://cvlktixgfymiy" path="res://Scenes/Niveles/zona_oculta.tscn" id="3_gwqgy"]
+[ext_resource type="PackedScene" uid="uid://cvlktixgfymiy" path="res://Scenes/niveles/zona_oculta.tscn" id="3_gwqgy"]
 [ext_resource type="PackedScene" uid="uid://cowrpiduh2h6l" path="res://Scenes/Plataformas/plataforma_normal.tscn" id="4_mjuac"]
 [ext_resource type="Texture2D" uid="uid://dbfsfk62b5o5b" path="res://Sprites/backgrounds/background_level1/Fondos/fondo_02.png" id="4_p5n24"]
 [ext_resource type="Texture2D" uid="uid://b3s8suesvnj5o" path="res://Sprites/backgrounds/background_level1/Arboles/arboles_01.png" id="6_7vnmi"]
@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://bnap7jj5cdcdw" path="res://Sprites/backgrounds/background_level1/Fondos/caverna.png" id="30_20nma"]
 [ext_resource type="Texture2D" uid="uid://dycni8ti35f5y" path="res://Sprites/backgrounds/background_level1/Fondos/lava_fondo.png" id="31_6ml7x"]
 [ext_resource type="Texture2D" uid="uid://1vltpchq0kae" path="res://Sprites/backgrounds/background_level1/Fondos/Ultima_capa.png" id="32_3oyq3"]
-[ext_resource type="PackedScene" uid="uid://cpwyeea0w4xnj" path="res://Scenes/Niveles/fin_nivel.tscn" id="32_x5gxf"]
+[ext_resource type="PackedScene" uid="uid://cpwyeea0w4xnj" path="res://Scenes/niveles/fin_nivel.tscn" id="32_x5gxf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cn6ga"]
 texture = ExtResource("2_iafik")
@@ -631,7 +631,7 @@ position = Vector2(345, 185)
 zoom = Vector2(4, 4)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(4232, 365)
+position = Vector2(169, 180)
 
 [node name="Hongos" type="Node" parent="."]
 

@@ -1,5 +1,3 @@
-
-
 extends Bosses
 
 @onready var posicion_boss3 = $Marker2D
