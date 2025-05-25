@@ -1,12 +1,15 @@
-[gd_scene load_steps=39 format=3 uid="uid://brcqtuumjw2gy"]
+[gd_scene load_steps=42 format=3 uid="uid://brcqtuumjw2gy"]
 
 [ext_resource type="Script" uid="uid://bembmkp7s16vg" path="res://Scripts/Personajes/arqueroScript.gd" id="1_k2g1c"]
 [ext_resource type="Texture2D" uid="uid://bbfyi5bw1mw06" path="res://Sprites/Arquero/run_arquero-Sheet.png" id="2_5unkh"]
 [ext_resource type="Texture2D" uid="uid://h484gk5v8p1l" path="res://Sprites/Arquero/attack_arquero-Sheet.png" id="2_sykx0"]
 [ext_resource type="AudioStream" uid="uid://bv2fhsn7iqxjs" path="res://Audio/personajes/arquero/ataques/Arrow 2.mp3" id="3_3k3pe"]
 [ext_resource type="Texture2D" uid="uid://43p4ani0ic8i" path="res://Sprites/Arquero/idle_arquero-Sheet.png" id="3_xo4jv"]
+[ext_resource type="Texture2D" uid="uid://chxsyjh8in34x" path="res://Sprites/Arquero/arquero_attackair.png" id="4_o27gp"]
 [ext_resource type="Texture2D" uid="uid://b22144w0c6b8b" path="res://Sprites/Arquero/jump_arquero-Sheet.png" id="5_6x35u"]
+[ext_resource type="Texture2D" uid="uid://ooascpvky5oh" path="res://Sprites/Arquero/upattack_arquero-Sheet.png" id="5_v1lxq"]
 [ext_resource type="Texture2D" uid="uid://nkt2csctuotu" path="res://Sprites/Arquero/fall_arquero-Sheet.png" id="6_dayqw"]
+[ext_resource type="Texture2D" uid="uid://banh463enfg0" path="res://Sprites/Arquero/downattack_arquero-Sheet.png" id="6_q524r"]
 [ext_resource type="Texture2D" uid="uid://821qjqnuw3jc" path="res://Sprites/Arquero/arquero_damage.png" id="7_dayqw"]
 [ext_resource type="AudioStream" uid="uid://4ex2uxeb5lfe" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_02.wav" id="9_eysm5"]
 [ext_resource type="AudioStream" uid="uid://cysoqqawjvpct" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_03.wav" id="10_rlkw1"]
@@ -80,18 +83,6 @@ tracks/4/keys = {
 "update": 1,
 "values": [ExtResource("3_3k3pe")]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AudioStreamPlayer:playing")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_l5ou5"]
 resource_name = "ataque1"
@@ -160,12 +151,126 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_6x35u"]
 resource_name = "ataqueAereo"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_o27gp")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
 
 [sub_resource type="Animation" id="Animation_dayqw"]
 resource_name = "ataqueAlto"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_v1lxq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
 
 [sub_resource type="Animation" id="Animation_ce8cu"]
 resource_name = "ataqueBajo"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_q524r")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
 
 [sub_resource type="Animation" id="Animation_3k3pe"]
 resource_name = "caer"
@@ -468,8 +573,14 @@ texture = ExtResource("2_sykx0")
 hframes = 6
 frame = 1
 
-[node name="Marker2D" type="Marker2D" parent="Sprite2D"]
+[node name="front" type="Marker2D" parent="Sprite2D"]
 position = Vector2(8, 1)
+
+[node name="up" type="Marker2D" parent="Sprite2D"]
+position = Vector2(2, -10)
+
+[node name="down" type="Marker2D" parent="Sprite2D"]
+position = Vector2(4, 15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 4.5)
