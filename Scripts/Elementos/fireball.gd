@@ -16,7 +16,7 @@ func initialize(_player):
 
 func _physics_process(delta):
 	if player and is_instance_valid(player):
-		var direction = (player.global_position - global_position).normalized()
+		var direction = ((player.global_position - Vector2(0,-15)) - global_position).normalized()
 		position += direction * speed * delta
 		rotation = direction.angle()
 	

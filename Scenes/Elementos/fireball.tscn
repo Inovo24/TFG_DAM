@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b4lraj5r1k5ox" path="res://Scripts/Elementos/fireball.gd" id="1_ygwma"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_26q0i"]
-radius = 12.0
+radius = 7.0
 
 [node name="Fireball" type="Area2D"]
 process_mode = 1
@@ -14,7 +14,7 @@ script = ExtResource("1_ygwma")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -1.5708
-scale = Vector2(-0.15, -0.15)
+scale = Vector2(-0.1, -0.1)
 texture = ExtResource("1_26q0i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
