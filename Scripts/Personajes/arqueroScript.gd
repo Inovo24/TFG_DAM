@@ -9,9 +9,9 @@ class_name Archer
 
 var can_attack : bool = true
 var attack_cooldown_timer: Timer
-const ATTACK_COOLDOWN := 0.4 # segundos
+const ATTACK_COOLDOWN := 0.1 # segundos
 
-var arrow_speed = 100
+var arrow_speed = 200
 var charge_time : float = 0.0
 var max_charge_time : float = 2.0
 var is_charging : bool = false
@@ -21,6 +21,8 @@ var attack_released
 var extra_jump_available: bool = false
 
 var arrow_direction := Vector2(1, 0) # Por defecto derecha
+
+const MIN_CHARGE_TIME := 0.4 # segundos mínimos para poder disparar
 
 func _ready() -> void:
 	max_health = 75
@@ -59,6 +61,7 @@ func attack():
 		anim_state_machine.travel("ataque1")
 	else:
 		print("You cannot spam the bow")
+		switch_state(State.IDLE)
 	deal_damage_archer()
 	
 
@@ -70,6 +73,7 @@ func down_attack():
 		anim_state_machine.travel("ataqueBajo")
 	else:
 		print("You cannot spam the bow")
+		switch_state(State.IDLE)
 	deal_damage_archer()
 
 func up_attack():
@@ -80,27 +84,24 @@ func up_attack():
 		anim_state_machine.travel("ataqueAlto")
 	else:
 		print("You cannot spam the bow")
+		switch_state(State.IDLE)
 	deal_damage_archer()
 
 func _physics_process(delta):
 	super._physics_process(delta)
-	#var attack_attempt = Input.is_action_just_released("ataque")
-		
-	#if controls_inverted:
-		#attack_attempt = Input.is_action_just_pressed("salto")
-		
-	#if attack_attempt:
-		#shoot_arrow()
-		#is_charging = false
-
 	attack_released = Input.is_action_just_released("ataque")
 	if controls_inverted:
 		attack_released = Input.is_action_just_released("salto")
 
-	if is_charging and attack_released:
-		is_charging = false
-		shoot_arrow()
-		switch_state(State.IDLE)
+	if is_charging:
+		charge_time = min(charge_time + delta, max_charge_time)
+		if attack_released:
+			is_charging = false
+			if charge_time >= MIN_CHARGE_TIME:
+				shoot_arrow()
+			else:
+				print("¡Carga insuficiente para disparar!")
+			switch_state(State.IDLE)
 
 func shoot_arrow():
 	if not can_attack:
@@ -133,6 +134,8 @@ func shoot_arrow():
 		print("Arrow shot with multiplier: ", charge_multiplier)
 	else:
 		print("Error: arrow.tscn not found!")
+		
+		
 	
 	charge_time = 0.0
 

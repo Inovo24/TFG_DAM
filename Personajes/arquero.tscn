@@ -19,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://bqxt1q1ytxyjm" path="res://Audio/personajes/Female Hit 2.mp3" id="14_xy5ku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrfbw"]
-size = Vector2(17, 27)
+size = Vector2(14, 27)
 
 [sub_resource type="Animation" id="Animation_a4t8d"]
 length = 0.2
@@ -583,7 +583,7 @@ position = Vector2(2, -10)
 position = Vector2(4, 15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 4.5)
+position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_xrfbw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
