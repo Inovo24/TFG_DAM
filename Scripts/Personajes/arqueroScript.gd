@@ -3,7 +3,9 @@ extends Characters
 class_name Archer
 
 @onready var arrow = preload("res://Scenes/flecha.tscn")
-@onready var marker = $Sprite2D/Marker2D
+@onready var front_marker = $Sprite2D/front
+@onready var up_marker = $Sprite2D/up
+@onready var down_marker = $Sprite2D/down
 
 var can_attack : bool = true
 var attack_cooldown_timer: Timer
@@ -98,7 +100,13 @@ func shoot_arrow():
 	if arrow:
 		var a = arrow.instantiate()
 		get_parent().add_child(a)
-		a.global_position = marker.global_position
+		if current_state == State.DOWN_ATTACK:
+			a.global_position = down_marker.global_position
+		elif current_state == State.UP_ATTACK:
+			a.global_position = up_marker.global_position
+		else:
+			a.global_position = front_marker.global_position
+		
 
 		var charge_multiplier = 1.0 + (charge_time / max_charge_time)
 		a.speed = arrow_speed * charge_multiplier
