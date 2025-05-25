@@ -526,4 +526,3 @@ tile_set = SubResource("TileSet_qh7q6")
 
 [node name="SnakeBoss" parent="." instance=ExtResource("3_tfihn")]
 position = Vector2(386, 162)
-vida_maxima = 100

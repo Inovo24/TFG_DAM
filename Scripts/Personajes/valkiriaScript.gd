@@ -28,6 +28,9 @@ func _physics_process(delta):
 
 	super._physics_process(delta)
 
+	if is_dashing:
+		velocity.y -= GRAVITY * delta
+
 	# Añade solo el comportamiento especial de Valkyrie
 	if not skill_active or not can_move or is_dashing:
 		return
@@ -55,6 +58,7 @@ func start_dash(direction: Vector2):
 	is_dashing = true
 	#can_move = false
 	velocity.x = direction.x * dash_speed
+	
 	#anim_state_machine.travel("dash") # si tienes una animación
 	await get_tree().create_timer(dash_duration).timeout
 	

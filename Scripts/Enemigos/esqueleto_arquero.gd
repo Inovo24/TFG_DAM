@@ -6,6 +6,7 @@ class_name ArcherEnemy
 @onready var floor_check: RayCast2D = $FloorChecker
 @onready var FloorChecker2: RayCast2D = $FloorChecker2
 @onready var obstacle_check: RayCast2D = $ObstacleChecker
+@onready var sonido_daño: AudioStreamPlayer2D = $Sonido_daño
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var suelo_detector: Area2D = $SueloDetector
 @export var arrow_scene: PackedScene = preload("res://Scenes/Elementos/flecha_esqueleto.tscn")
@@ -250,7 +251,7 @@ func _knockback(knockback: float):
 		return
 
 	var knockback_dir = (position - player.position).normalized()
-	var reduced_distance := 10.0
+	var reduced_distance := 20.0
 	var destination = position + knockback_dir * reduced_distance
 
 	var space_state = get_world_2d().direct_space_state
@@ -276,4 +277,9 @@ func _on_suelo_detector_body_entered(body: Node2D) -> void:
 func _on_suelo_detector_body_exited(body: Node2D) -> void:
 	suelo_en_contacto = false
 
+
 #endregion
+
+
+func _on_animated_sprite_2d_animation_looped() -> void:
+	sonido_daño.play() # Replace with function body.
