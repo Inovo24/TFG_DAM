@@ -854,6 +854,7 @@ script = ExtResource("1_dw0it")
 position = Vector2(1, 0)
 texture = ExtResource("2_beggj")
 hframes = 6
+frame = 1
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
 collision_layer = 16

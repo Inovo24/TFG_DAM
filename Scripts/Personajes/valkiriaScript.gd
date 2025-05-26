@@ -14,7 +14,7 @@ var dash_timer := Timer.new()
 func _ready() -> void:
 	add_to_group("player")
 	super._ready()
-	max_health = 150
+	max_health = 175
 	current_health = max_health  # Ensure this is updated as well.
 	speed = 150
 	damage = 35

@@ -637,7 +637,7 @@ collision_layer = 16
 collision_mask = 8260
 
 [node name="frontal" type="CollisionShape2D" parent="Sprite2D/Area2D"]
-position = Vector2(22, 3)
+position = Vector2(29, 2)
 shape = SubResource("RectangleShape2D_5vck1")
 disabled = true
 
