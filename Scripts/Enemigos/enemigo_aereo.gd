@@ -4,8 +4,6 @@ extends Enemies
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var detection_area: Area2D = $Area2D  # General detection area
 @onready var attack_area: Area2D = $AttackArea  # Attack area
-@onready var salida: AnimatedSprite2D = $salida
-
 
 var SPEED = 60
 var dir: Vector2 = Vector2.ZERO

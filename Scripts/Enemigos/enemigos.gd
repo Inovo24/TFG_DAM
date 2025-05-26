@@ -8,7 +8,7 @@ var is_taking_damage := false
 
 var knockback_duration = 1.5
 var knockback_receive_damage = 1
-var knockback_distance = 30
+var knockback_distance = 50
 
 var num_coins = 1
 var player
@@ -20,15 +20,16 @@ var knockback_tween: Tween
 var animPlayer: AnimationPlayer
 var animation_tree: AnimationTree
 var anim_state_machine
+
 func _ready():
 	add_to_group("Enemies")
 	current_health = max_health
-		# Asignaciones seguras
+
 	animPlayer = get_node_or_null("AnimationPlayer")
 	animation_tree = get_node_or_null("AnimationTree")
 	if animation_tree:
 		anim_state_machine = animation_tree.get("parameters/playback")
-	
+
 	# Timer for slowness after attacking or receiving damage
 	slow_timer = Timer.new()
 	slow_timer.wait_time = 2
@@ -36,14 +37,15 @@ func _ready():
 	slow_timer.timeout.connect(_end_slow_effect)
 	add_child(slow_timer)
 
-	# Timer for briefly pausing movement
+	#Timer for briefly pausing movement — CONECTADO CORRECTAMENTE
 	pause_timer = Timer.new()
 	pause_timer.wait_time = 0.5
 	pause_timer.one_shot = true
-	pause_timer.timeout.connect(Callable())
+	pause_timer.timeout.connect(_on_pause_timeout)  # Corregido aquí
 	add_child(pause_timer)
-	
-	knockback_tween = create_tween()
+
+
+
 
 func receive_damage(damage_received: int):
 	current_health -= damage_received
@@ -104,6 +106,7 @@ func _start_pause_and_slow():
 func _end_slow_effect():
 	slow_mode = false
 
+
 func _knockback(knockback: float):
 	player = Globales.get_player()
 	var knockback_dir = (position - player.position).normalized()
@@ -122,3 +125,7 @@ func _knockback(knockback: float):
 	# Apply tween to valid destination
 	knockback_tween = create_tween()
 	knockback_tween.tween_property(self, "position", destination, knockback).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+func _on_pause_timeout():
+	# Aquí puedes reiniciar animaciones, permitir movimiento, etc.
+	pass

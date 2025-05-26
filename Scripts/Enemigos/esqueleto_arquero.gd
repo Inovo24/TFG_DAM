@@ -71,12 +71,8 @@ func _ready():
 	jump_timer.timeout.connect(_on_jump_timer_timeout)
 	add_child(jump_timer)
 
-	player_detection.body_entered.connect(_on_player_detection_body_entered)
-	player_detection.body_exited.connect(_on_player_detection_body_exited)
 
-	# Señales del detector de suelo
-	suelo_detector.body_entered.connect(_on_suelo_detector_body_entered)
-	suelo_detector.body_exited.connect(_on_suelo_detector_body_exited)
+	
 
 func _physics_process(delta):
 	if is_taking_damage:
@@ -125,7 +121,7 @@ func _patrol(delta):
 		state = State.RETURN
 		return
 	_move_towards(patrol_target, delta)
-	sprite.play("walk")
+	sprite.play("idle")
 	if position.distance_to(patrol_target) < 5.0:
 		state = State.IDLE
 		idle_timer.start()
@@ -142,7 +138,7 @@ func _return_to_patrol(delta):
 	patrol_target = patrol_point_a if dist_a < dist_b else patrol_point_b
 	_move_towards(patrol_target, delta)
 	if not is_taking_damage:
-		sprite.play("walk")
+		sprite.play("idle")
 	if position.distance_to(patrol_target) < 5.0:
 		state = State.PATROL
 
@@ -151,11 +147,11 @@ func _chase_player(delta):
 		return
 	_move_towards(player.position, delta)
 	if not is_taking_damage:
-		sprite.play("walk")
+		sprite.play("idle")
 
 func _move_towards(target: Vector2, delta):
 	if sprite.animation != "attack" and not is_taking_damage:
-		sprite.play("walk")
+		sprite.play("idle")
 	var dir = (target - position).normalized()
 	var direction_sign = sign(dir.x)
 	_update_raycast_direction(direction_sign)
@@ -207,8 +203,8 @@ func _on_attack_timer_timeout():
 	if state == State.ATTACK and is_instance_valid(player):
 		if not is_taking_damage:
 			sprite.play("idle")
-		if sprite.animation != "attack" and not is_taking_damage:
-			sprite.play("attack")
+		if sprite.animation != "ataque" and not is_taking_damage:
+			sprite.play("ataque")
 		_shoot_arrow()
 
 func _shoot_arrow():
