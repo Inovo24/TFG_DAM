@@ -516,7 +516,7 @@ sources/0 = SubResource("TileSetAtlasSource_xsyli")
 script = ExtResource("1_5h3r2")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(4302, 220)
+position = Vector2(-11.999, 168)
 rotation = 3.14159
 scale = Vector2(2020.8, -77.7025)
 
