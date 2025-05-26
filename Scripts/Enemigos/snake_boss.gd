@@ -8,14 +8,20 @@ class_name SnakeBoss
 @export var daño_normal: int = 10
 @export var daño_embestida: int = 20
 @export var daño_aparicion: int = 15
-@export var vida_maxima: int = 400
+@export var vida_maxima: int = 100
 @export var gravedad: float = 800.0
 @export var limites_arena: Rect2 = Rect2(Vector2(0, 0), Vector2(1024, 768))
+@onready var dash_1: AudioStreamPlayer2D = $Dash1
+@onready var dash_2: AudioStreamPlayer2D = $Dash2
+@onready var emerging: AudioStreamPlayer2D = $Emerging
+@onready var hissing: AudioStreamPlayer2D = $Hissing
+@onready var bite: AudioStreamPlayer2D = $Bite
 
 # === ESTADO INTERNO ===
 var vida_actual: int = vida_maxima
 var fase: int = 1
 var enfurecido: bool = false
+var esta_teletransportando: bool = false
 var dashing: bool = false
 var direccion_horizontal: int = 1
 var objetivo: Node2D = null
@@ -32,6 +38,7 @@ var proximo_ataque_normal: bool = true
 @onready var ataque_aparicion: Area2D = $Ataque_aparicion
 @onready var area_recibir_daño: Area2D = $area_recibir_daño
 @onready var timer_ataque: Timer = $attack_timer
+@onready var salida: AnimatedSprite2D = $salida
 
 func _ready():
 	_disable_all_attacks()
@@ -41,11 +48,11 @@ func _ready():
 	sprite.play("idle")
 
 	area_detec.body_entered.connect(_on_detection_player_body_entered)
-	area_detec.body_exited.connect(_on_detection_player_body_exited)
 	ataque_aparicion.body_entered.connect(_on_ataque_aparicion_body_entered)
 	area_recibir_daño.area_entered.connect(_on_area_recibir_daño_area_entered)
 	area_ataque.body_entered.connect(_on_ataque_normal_body_entered)
 	timer_ataque.timeout.connect(_on_attack_timer_timeout)
+	salida.animation_finished.connect(_on_salida_animation_finished)
 
 func _physics_process(delta: float) -> void:
 	if vida_actual <= 0:
@@ -115,25 +122,39 @@ func ataque_normal() -> void:
 
 	_disable_all_attacks()
 
-	# Activa área y el collision correcto
+	# Activamos animación y sonido
+	sprite.play("ataque")
+	bite.play()
+
+	# Esperamos justo antes del impacto 
+	await get_tree().create_timer(0.25).timeout
+
+	# Activar área de daño solo durante el momento del impacto
 	area_ataque.monitoring = true
 	if direccion_horizontal < 0:
 		shape_ataque_izq.disabled = false
 	else:
 		shape_ataque_der.disabled = false
 
-	sprite.play("ataque")
-	await sprite.animation_finished
+	# Tiempo durante el cual se mantiene activa la colisión (ajustable)
+	await get_tree().create_timer(0.2).timeout
 
 	_disable_all_attacks()
+
+	# Esperamos a que termine la animación para pasar a idle
+	await sprite.animation_finished
+
 	sprite.play("idle")
 	esta_atacando = false
+
+	# Espera antes del siguiente ataque
 	await get_tree().create_timer(1.2).timeout
 
 
 func dash_basico() -> void:
 	esta_atacando = true
 	sprite.play("inicio_movimiento")
+	hissing.play()
 	await sprite.animation_finished
 
 	if objetivo == null or not is_instance_valid(objetivo):
@@ -145,6 +166,8 @@ func dash_basico() -> void:
 	sprite.flip_h = direccion_horizontal < 0
 	velocity.x = direccion_horizontal * velocidad_dash
 	dashing = true
+	
+	dash_1.play()
 
 	_disable_all_attacks()
 	shape_embestida.disabled = false
@@ -166,21 +189,32 @@ func dash_ida_vuelta() -> void:
 
 	esta_atacando = true
 	sprite.play("inicio_movimiento")
+	hissing.play()
 	await sprite.animation_finished
 
-	direccion_horizontal = sign(objetivo.global_position.x - global_position.x)
+	if objetivo != null and is_instance_valid(objetivo):
+		direccion_horizontal = sign(objetivo.global_position.x - global_position.x)
+	else:
+		if randf() < 0.5:
+			direccion_horizontal = -1
+		else:
+			direccion_horizontal = 1
+
+
 	sprite.flip_h = direccion_horizontal < 0
 	_disable_all_attacks()
 	shape_embestida.disabled = false
 
 	velocity.x = direccion_horizontal * velocidad_dash * 1.3
 	dashing = true
+	dash_1.play()
 	sprite.play("moving")
 	await get_tree().create_timer(0.35).timeout
 
 	direccion_horizontal *= -1
 	sprite.flip_h = direccion_horizontal < 0
 	velocity.x = direccion_horizontal * velocidad_dash * 1.3
+	dash_2.play()
 	await get_tree().create_timer(0.35).timeout
 
 	dashing = false
@@ -191,15 +225,20 @@ func dash_ida_vuelta() -> void:
 	await get_tree().create_timer(1.2).timeout 
 
 func teleport_y_ataque() -> void:
+	if esta_teletransportando:
+		return
+
+	esta_teletransportando = true
 	esta_atacando = true
+
 	sprite.play("divear")
 	await sprite.animation_finished
 
 	if objetivo == null or not is_instance_valid(objetivo):
-		sprite.play("idle")
-		esta_atacando = false
+		_reset_estado_post_teleport()
 		return
 
+	# Teletransporte
 	var offset := 96
 	var lado: int = sign(global_position.x - objetivo.global_position.x)
 	if lado == 0:
@@ -213,30 +252,53 @@ func teleport_y_ataque() -> void:
 	sprite.flip_h = direccion_horizontal < 0
 
 	await get_tree().create_timer(0.4).timeout
+
 	sprite.play("aparicion")
+
+	# Animación de humo/efecto de salida
+	salida.visible = true
+	salida.play("idle")
+	emerging.play()
+	
 	ataque_aparicion.monitoring = true
-	await sprite.animation_finished
+	await sprite.animation_finished  # Activación exacta al acabar la animación
+
+	
+	await get_tree().create_timer(0.2).timeout
 	ataque_aparicion.monitoring = false
 
-	await get_tree().create_timer(0.2).timeout
-	sprite.play("idle")
-	esta_atacando = false
-	await get_tree().create_timer(1.2).timeout 
+	salida.stop()
+	salida.visible = false
+
+
+	_reset_estado_post_teleport()
+
 
 func receive_damage(cantidad: int) -> void:
+	if esta_teletransportando or sprite.animation == "divear" or sprite.animation == "aparicion":
+		return
+
+	# Prevenir daño si ya está en ataque
+	if esta_atacando:
+		return
+
 	vida_actual -= cantidad
 	if vida_actual <= 0:
 		await muerte()
-		
-	else:
-		actualizar_fase()
-		_disable_all_attacks()
-		if sprite.animation == "divear" or sprite.animation == "aparicion":
-			return
-		esta_atacando = false
-		sprite.play("daño")
-		await sprite.animation_finished
+		return
+
+	# ⚠️ Solo después de confirmar que no ha muerto
+	actualizar_fase()
+	_disable_all_attacks()
+	esta_atacando = false
+
+	sprite.stop()
+	sprite.play("daño")
+	await sprite.animation_finished
+
+	if sprite.animation != "idle":
 		sprite.play("idle")
+
 
 func actualizar_fase() -> void:
 	var p: float = float(vida_actual) / float(vida_maxima)
@@ -275,7 +337,25 @@ func _on_area_recibir_daño_area_entered(area: Area2D) -> void:
 		receive_damage(10)
 
 func _disable_all_attacks() -> void:
-	shape_embestida.disabled = true
-	shape_ataque_izq.disabled = true
-	shape_ataque_der.disabled = true
-	area_ataque.monitoring = false
+	shape_embestida.set_deferred("disabled", true)
+	shape_ataque_izq.set_deferred("disabled", true)
+	shape_ataque_der.set_deferred("disabled", true)
+	area_ataque.set_deferred("monitoring", false)
+
+
+func _on_salida_animation_finished() -> void:
+	salida.visible = false
+func _reset_estado_post_teleport() -> void:
+	if sprite.animation != "idle":
+		sprite.play("idle")
+	esta_atacando = false
+	esta_teletransportando = false
+
+func _esperar_animacion_o_timeout(anim: AnimatedSprite2D, max_tiempo: float) -> bool:
+	var tiempo := 0.0
+	while tiempo < max_tiempo:
+		await get_tree().process_frame
+		tiempo += get_process_delta_time()
+		if not anim.is_playing():
+			return true
+	return false

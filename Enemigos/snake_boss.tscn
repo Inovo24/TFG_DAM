@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://bfakpxclv64ql"]
+[gd_scene load_steps=114 format=3 uid="uid://bfakpxclv64ql"]
 
 [ext_resource type="Script" uid="uid://x85xsubxy0ri" path="res://Scripts/Enemigos/snake_boss.gd" id="1_43t1e"]
 [ext_resource type="Texture2D" uid="uid://vsaxflxudmpl" path="res://Sprites/Enemigos/bosses/Serpiente/snake - appear.png" id="1_pmi6h"]
@@ -10,6 +10,118 @@
 [ext_resource type="Texture2D" uid="uid://de4it84lvyfts" path="res://Sprites/Enemigos/bosses/Serpiente/snake - Death.png" id="5_1fg61"]
 [ext_resource type="Texture2D" uid="uid://cd4505bjlw34l" path="res://Sprites/Enemigos/bosses/Serpiente/snake - moving.png" id="5_dxtf2"]
 [ext_resource type="Texture2D" uid="uid://dsqjf1inkcmh8" path="res://Sprites/Enemigos/bosses/Serpiente/snake - moveStart.png" id="6_4ucd0"]
+[ext_resource type="Texture2D" uid="uid://densm6idtih1k" path="res://Sprites/Enemigos/bosses/Serpiente/569.png" id="11_2sbrm"]
+[ext_resource type="AudioStream" uid="uid://q2gx6npennec" path="res://Audio/personajes/serpiente/snake_dash_1.wav" id="12_4qcp8"]
+[ext_resource type="AudioStream" uid="uid://cvr1j5d4vfyj3" path="res://Audio/personajes/serpiente/snake_dash_2.wav" id="13_lyd3f"]
+[ext_resource type="AudioStream" uid="uid://2bw3u0kna1y" path="res://Audio/personajes/serpiente/snake_emerging.wav" id="14_kmvk6"]
+[ext_resource type="AudioStream" uid="uid://cim4u8nwsnf7u" path="res://Audio/personajes/serpiente/snake-rattle-sound.mp3" id="15_lyd3f"]
+[ext_resource type="AudioStream" uid="uid://dnwg4k8htvw01" path="res://Audio/personajes/serpiente/snake_bite.wav" id="16_kmvk6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye26p"]
+atlas = ExtResource("11_2sbrm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja3qv"]
+atlas = ExtResource("11_2sbrm")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lxli"]
+atlas = ExtResource("11_2sbrm")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5knm8"]
+atlas = ExtResource("11_2sbrm")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lpd2"]
+atlas = ExtResource("11_2sbrm")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2h4f"]
+atlas = ExtResource("11_2sbrm")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqi8e"]
+atlas = ExtResource("11_2sbrm")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxeuq"]
+atlas = ExtResource("11_2sbrm")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2oqj"]
+atlas = ExtResource("11_2sbrm")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yjbj"]
+atlas = ExtResource("11_2sbrm")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmpbj"]
+atlas = ExtResource("11_2sbrm")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xp2hg"]
+atlas = ExtResource("11_2sbrm")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewsrj"]
+atlas = ExtResource("11_2sbrm")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lljsb"]
+atlas = ExtResource("11_2sbrm")
+region = Rect2(128, 0, 64, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lljsb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye26p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ja3qv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lxli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5knm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lpd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2h4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqi8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxeuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2oqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yjbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmpbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xp2hg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewsrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lljsb")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 11.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pxevd"]
 atlas = ExtResource("1_pmi6h")
@@ -216,6 +328,14 @@ atlas = ExtResource("6_4ucd0")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qn1j7"]
+atlas = ExtResource("6_4ucd0")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs7r8"]
+atlas = ExtResource("6_4ucd0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq2qk"]
 atlas = ExtResource("6_4ucd0")
 region = Rect2(128, 0, 64, 64)
 
@@ -487,10 +607,16 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qn1j7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs7r8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq2qk")
 }],
 "loop": false,
 "name": &"inicio_movimiento",
-"speed": 9.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -585,8 +711,6 @@ size = Vector2(40.4, 32)
 radius = 6.0
 height = 50.4
 
-[sub_resource type="AudioStream" id="AudioStream_43t1e"]
-
 [node name="SnakeBoss" type="CharacterBody2D" groups=["Enemies"]]
 scale = Vector2(2.5, 2.5)
 collision_layer = 0
@@ -594,11 +718,20 @@ script = ExtResource("1_43t1e")
 velocidad_dash = 400.0
 fuerza_knockback = 600.0
 
+[node name="salida" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, 8.34465e-07)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_lljsb")
+animation = &"idle"
+frame = 13
+frame_progress = 1.0
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-3, -17)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_t4y7o")
-animation = &"aparicion"
+animation = &"movimiento"
 autoplay = "idle"
 
 [node name="attack_timer" type="Timer" parent="."]
@@ -606,6 +739,7 @@ autoplay = "idle"
 [node name="initialPosition" type="Marker2D" parent="."]
 
 [node name="detection_player" type="Area2D" parent="."]
+visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_player"]
@@ -622,11 +756,13 @@ position = Vector2(-92, 0)
 position = Vector2(97, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-0.5, -1.2)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_43t1e")
 
 [node name="ataque_normal" type="Area2D" parent="."]
+visible = false
 collision_mask = 2
 
 [node name="derecha" type="CollisionShape2D" parent="ataque_normal"]
@@ -647,6 +783,7 @@ shape = SubResource("CircleShape2D_2sbrm")
 debug_color = Color(0.578237, 0.528531, 0.454007, 0.42)
 
 [node name="area_recibir_daño" type="Area2D" parent="." groups=["Enemies"]]
+visible = false
 collision_layer = 64
 collision_mask = 16
 
@@ -656,15 +793,33 @@ shape = SubResource("RectangleShape2D_yqnt4")
 debug_color = Color(0.170599, 0.615736, 0.533694, 0.42)
 
 [node name="area_embestida" type="Area2D" parent="."]
+visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_embestida"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_43t1e")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStream_43t1e")
+[node name="Dash1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_4qcp8")
 
+[node name="Dash2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_lyd3f")
+
+[node name="Emerging" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_kmvk6")
+max_distance = 500.0
+
+[node name="Hissing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_lyd3f")
+max_distance = 500.0
+
+[node name="Bite" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_kmvk6")
+max_distance = 500.0
+
+[connection signal="animation_finished" from="salida" to="." method="_on_salida_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="detection_player" to="." method="_on_detection_player_body_entered"]
 [connection signal="body_exited" from="detection_player" to="." method="_on_detection_player_body_exited"]

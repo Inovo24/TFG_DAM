@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://coqvu88f812oh"]
+[gd_scene load_steps=15 format=3 uid="uid://coqvu88f812oh"]
 
 [ext_resource type="Script" uid="uid://brkxpdqtafm4j" path="res://Scripts/Enemigos/lobo.gd" id="1_qsrl1"]
 [ext_resource type="Texture2D" uid="uid://beikhcvw72w4b" path="res://Sprites/Enemigos/wolf-Sheet.png" id="2_qsrl1"]
 [ext_resource type="Texture2D" uid="uid://buy45ge86dk2l" path="res://Sprites/Enemigos/wolf-damage.png" id="3_g1fwt"]
+[ext_resource type="AudioStream" uid="uid://2mqxrjj1f1ip" path="res://Audio/personajes/lobo/wolf_hurt_07.wav" id="4_okuhp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qsrl1"]
 radius = 15.0
@@ -222,7 +223,12 @@ collision_mask = 3
 wait_time = 0.3
 one_shot = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Sonido_daño" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_okuhp")
+volume_db = 6.667
+max_distance = 335.0
+attenuation = 1.46409
+bus = &"SFX"
 
 [connection signal="body_entered" from="SpriteLobo/Atack" to="." method="_on_attack_body_entered"]
 [connection signal="body_exited" from="SpriteLobo/Atack" to="." method="_on_attack_body_exited"]

@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 @onready var death_menu = preload("res://Scenes/Niveles/menu_muerte.tscn")
+@onready var death: AudioStreamPlayer2D = $Death
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -11,6 +12,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			body.return_to_checkpoint()
 			body.life_count -= 1
 		'''
+		death.play()
+		await get_tree().create_timer(0.38).timeout 
 		body.take_damage(body.max_health)
 		get_tree().paused = true
 		'''

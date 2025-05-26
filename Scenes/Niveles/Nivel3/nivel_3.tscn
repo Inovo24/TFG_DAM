@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://d4einawx6ugyq"]
+[gd_scene load_steps=21 format=4 uid="uid://d4einawx6ugyq"]
 
 [ext_resource type="Script" uid="uid://53678jayax5g" path="res://Scripts/Niveles/nivel_3/nivel_3.gd" id="1_5h3r2"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_ybgvm"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cdhp6ctexp8rt" path="res://Scenes/Elementos/checkpoint.tscn" id="12_6e3lk"]
 [ext_resource type="PackedScene" uid="uid://foow48tmur6c" path="res://Enemigos/Esqueleto_arquero.tscn" id="12_26gfu"]
 [ext_resource type="PackedScene" uid="uid://dlm4nlkcj7hr8" path="res://Scenes/Elementos/Decoracion/Portal_boss.tscn" id="12_nu2pb"]
+[ext_resource type="PackedScene" uid="uid://d38t4kskhkxnc" path="res://Enemigos/Enemigo_aereo.tscn" id="13_olblc"]
 [ext_resource type="PackedScene" uid="uid://dx4nx0p64hdth" path="res://Scenes/NPC/granjero2.tscn" id="16_3cx5k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xsyli"]
@@ -516,7 +517,7 @@ sources/0 = SubResource("TileSetAtlasSource_xsyli")
 script = ExtResource("1_5h3r2")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(4176, 337)
+position = Vector2(73, 282)
 rotation = 3.14159
 scale = Vector2(2020.8, -77.7025)
 
@@ -696,6 +697,9 @@ position = Vector2(5193, -275)
 
 [node name="Entrada" parent="Npc" instance=ExtResource("12_nu2pb")]
 position = Vector2(5446, -236)
+
+[node name="EnemigoAereo" parent="Npc" instance=ExtResource("13_olblc")]
+position = Vector2(227, 333)
 
 [node name="Limites_laterales" type="Node2D" parent="."]
 

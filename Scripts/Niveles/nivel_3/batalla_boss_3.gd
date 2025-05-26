@@ -9,6 +9,9 @@ func _ready():
 	var player = Globales.get_player()
 	player.has_checkpoint = true
 	player.checkpoint_position = posicion_boss3.position
+	
+	
+
 
 func _on_final_body_entered(body: Node2D) -> void:
 	if body is Characters:
