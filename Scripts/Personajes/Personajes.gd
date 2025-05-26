@@ -249,7 +249,6 @@ func jump(delta):
 
 	if not is_on_floor() and current_state not in [State.AIR_ATTACK, State.DOWN_ATTACK, State.UP_ATTACK,State.WALL_CLIMB]:
 		if velocity.y < 0:
-			if ex
 			anim_state_machine.travel("saltar")
 		else:
 			switch_state(State.FALL)
