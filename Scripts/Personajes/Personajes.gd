@@ -41,7 +41,7 @@ var next_attack : bool = false
 @onready var sfx_attack = $SFX_Attack
 @onready var sfx_damaged = $SFX_Damaged
 
-enum State { IDLE, RUN, JUMP, FALL, ATTACK, AIR_ATTACK, UP_ATTACK, DOWN_ATTACK, DAMAGE  }
+enum State { IDLE, RUN, JUMP, FALL, ATTACK, AIR_ATTACK, UP_ATTACK, DOWN_ATTACK, DAMAGE, WALL_CLIMB  }
 var current_state : State = State.IDLE
 var previous_state : State = State.IDLE
 
@@ -86,6 +86,7 @@ func _ready():
 		skill_active = true
 
 func _physics_process(delta):
+	#print(current_state)
 	if can_move and current_state != State.DAMAGE:
 		var input_horizontal = Input.get_axis("mover_izq", "mover_der")
 		if controls_inverted:
@@ -121,6 +122,11 @@ func _physics_process(delta):
 		
 		jump(delta)
 		
+		'''
+		if not is_on_wall() or is_on_floor():
+			if current_state == State.WALL_CLIMB:
+				switch_state(State.IDLE)
+		'''
 		if input_horizontal:
 			if input_horizontal < 0:
 				$Sprite2D.scale.x = -1
@@ -189,6 +195,13 @@ func switch_state(new_state: State):
 				anim_state_machine.travel("caer")
 			State.DAMAGE:
 				anim_state_machine.travel("daño")
+			State.WALL_CLIMB:
+				if velocity.y <0:
+					anim_state_machine.travel("wall")
+				else:
+					anim_state_machine.travel("wall_fall")
+					print("hola")
+				
 
 
 
@@ -234,8 +247,9 @@ func jump(delta):
 	if jump_released and velocity.y < 0:
 		velocity.y = JUMP_SPEED / 2
 
-	if not is_on_floor() and current_state not in [State.AIR_ATTACK, State.DOWN_ATTACK, State.UP_ATTACK]:
+	if not is_on_floor() and current_state not in [State.AIR_ATTACK, State.DOWN_ATTACK, State.UP_ATTACK,State.WALL_CLIMB]:
 		if velocity.y < 0:
+			if ex
 			anim_state_machine.travel("saltar")
 		else:
 			switch_state(State.FALL)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://brcqtuumjw2gy"]
+[gd_scene load_steps=44 format=3 uid="uid://brcqtuumjw2gy"]
 
 [ext_resource type="Script" uid="uid://bembmkp7s16vg" path="res://Scripts/Personajes/arqueroScript.gd" id="1_k2g1c"]
 [ext_resource type="Texture2D" uid="uid://bbfyi5bw1mw06" path="res://Sprites/Arquero/run_arquero-Sheet.png" id="2_5unkh"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://4ex2uxeb5lfe" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_02.wav" id="9_eysm5"]
 [ext_resource type="AudioStream" uid="uid://cysoqqawjvpct" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_03.wav" id="10_rlkw1"]
 [ext_resource type="AudioStream" uid="uid://cmebvo75uhxr" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_04.wav" id="11_xy5ku"]
+[ext_resource type="Texture2D" uid="uid://bksu5d28i7owi" path="res://Sprites/Arquero/jump2_arquero-Sheet.png" id="12_v1lxq"]
 [ext_resource type="AudioStream" uid="uid://b5ge6ncyjpfta" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_05.wav" id="12_xglho"]
 [ext_resource type="AudioStream" uid="uid://duddtrnavk050" path="res://Audio/personajes/jumping_1-6452 (mp3cut.net).mp3" id="13_rlkw1"]
 [ext_resource type="AudioStream" uid="uid://bqxt1q1ytxyjm" path="res://Audio/personajes/Female Hit 2.mp3" id="14_xy5ku"]
@@ -225,10 +226,10 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [0, 1, 2, 3, 4]
 }
 
 [sub_resource type="Animation" id="Animation_ce8cu"]
@@ -266,10 +267,10 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [0, 1, 2, 3, 4]
 }
 
 [sub_resource type="Animation" id="Animation_3k3pe"]
@@ -490,6 +491,47 @@ tracks/2/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
+[sub_resource type="Animation" id="Animation_q524r"]
+resource_name = "double_jump"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_v1lxq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aoste"]
 _data = {
 &"RESET": SubResource("Animation_a4t8d"),
@@ -500,6 +542,7 @@ _data = {
 &"caer": SubResource("Animation_3k3pe"),
 &"correr": SubResource("Animation_qope3"),
 &"daño": SubResource("Animation_rca37"),
+&"double_jump": SubResource("Animation_q524r"),
 &"idle": SubResource("Animation_cn7ll"),
 &"saltar": SubResource("Animation_2mfpl")
 }

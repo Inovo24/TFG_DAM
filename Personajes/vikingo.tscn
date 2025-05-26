@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cfltomgtwuoc"]
+[gd_scene load_steps=57 format=3 uid="uid://cfltomgtwuoc"]
 
 [ext_resource type="Script" uid="uid://conujhywlq0aw" path="res://Scripts/Personajes/vikingoScript.gd" id="1_dw0it"]
 [ext_resource type="Texture2D" uid="uid://qnqito2bokb3" path="res://Sprites/Vikingo/viking_run-Sheet.png" id="2_3x3oj"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://tvuxxbduu5i3" path="res://Sprites/Vikingo/fall_viking-Sheet.png" id="9_hlwk2"]
 [ext_resource type="Texture2D" uid="uid://d3ouhgt0mohwm" path="res://Sprites/Vikingo/vikingo_upattack-Sheet.png" id="10_hlwk2"]
 [ext_resource type="Texture2D" uid="uid://bje84alhp1n2a" path="res://Sprites/Vikingo/vikingo_damage.png" id="12_55uqw"]
+[ext_resource type="Texture2D" uid="uid://calas73lhp1es" path="res://Sprites/Vikingo/vikingo_wall-Sheet.png" id="13_yx4cb"]
+[ext_resource type="Texture2D" uid="uid://btlo6tttesd2m" path="res://Sprites/Vikingo/wall_fall_viking.png" id="14_ucsjm"]
 [ext_resource type="AudioStream" uid="uid://4ex2uxeb5lfe" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_02.wav" id="14_yx4cb"]
 [ext_resource type="AudioStream" uid="uid://cysoqqawjvpct" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_03.wav" id="15_ucsjm"]
 [ext_resource type="AudioStream" uid="uid://cmebvo75uhxr" path="res://Audio/personajes/vikingo/pasos/footstep_dirt_walk_run_04.wav" id="16_s6w0h"]
@@ -656,6 +658,88 @@ tracks/2/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
+[sub_resource type="Animation" id="Animation_ar7ew"]
+resource_name = "wall"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_yx4cb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_s6w0h"]
+resource_name = "wall_fall"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_ucsjm")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s28m3"]
 _data = {
 &"RESET": SubResource("Animation_it357"),
@@ -669,7 +753,9 @@ _data = {
 &"correr": SubResource("Animation_fst5v"),
 &"daño": SubResource("Animation_8ydtl"),
 &"idle": SubResource("Animation_mwkqa"),
-&"saltar": SubResource("Animation_af52v")
+&"saltar": SubResource("Animation_af52v"),
+&"wall": SubResource("Animation_ar7ew"),
+&"wall_fall": SubResource("Animation_s6w0h")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cbqdg"]
@@ -710,6 +796,12 @@ animation = &"idle"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1s6bp"]
 animation = &"saltar"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yx4cb"]
+animation = &"wall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cbi8t"]
+animation = &"wall_fall"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t3yva"]
 advance_mode = 2
 
@@ -738,6 +830,10 @@ states/idle/node = SubResource("AnimationNodeAnimation_h0o15")
 states/idle/position = Vector2(114, 133)
 states/saltar/node = SubResource("AnimationNodeAnimation_1s6bp")
 states/saltar/position = Vector2(303, 9)
+states/wall/node = SubResource("AnimationNodeAnimation_yx4cb")
+states/wall/position = Vector2(-178.737, 25.0377)
+states/wall_fall/node = SubResource("AnimationNodeAnimation_cbi8t")
+states/wall_fall/position = Vector2(-310.737, -1.9623)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_t3yva")]
 graph_offset = Vector2(-750.737, -63.9623)
 
@@ -755,9 +851,9 @@ collision_mask = 8717
 script = ExtResource("1_dw0it")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
 texture = ExtResource("2_beggj")
 hframes = 6
-frame = 1
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
 collision_layer = 16

@@ -33,6 +33,17 @@ func _physics_process(delta: float) -> void:
 			input_right = Input.is_action_just_pressed("mover_izq")
 			input_left = Input.is_action_just_pressed("mover_der")
 		
+		
+		if is_on_wall and not is_on_floor():
+			if current_state != State.WALL_CLIMB:
+				switch_state(State.WALL_CLIMB)
+			else:
+			# Actualiza la animación según la dirección
+				if velocity.y < 0:
+					anim_state_machine.travel("wall")
+				else:
+					anim_state_machine.travel("wall_fall")
+		
 		if is_on_wall:
 			# Wall slide: desacelera la caída si va presionando hacia la pared
 			var pressing_towards_wall = (
@@ -52,7 +63,8 @@ func _physics_process(delta: float) -> void:
 			if jump_attempt:
 				velocity.x = wall_jump_speed.x * -wall_normal.x
 				velocity.y = wall_jump_speed.y
-				switch_state(State.JUMP)
+				#switch_state(State.WALL_CLIMB)
+				#print(current_state)
 
 func attack():
 	if combo_count == 0:
