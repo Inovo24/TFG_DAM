@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 @onready var sprite := $Sprite2D  
-@onready var tween := create_tween()
+var tween 
 
 var original_position := Vector2.ZERO
 var press_signal = "placa_press"
