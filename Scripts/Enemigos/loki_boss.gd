@@ -10,8 +10,9 @@ var hallucination_instance: Node = null
 @onready var death_odin_escene = preload("res://Scenes/Elementos/odin_derrotado.tscn")
 var death_odin_instance: Node = null
 
-@onready var sprite_loki = preload("res://Sprites/Enemigos/loki/loki.png")
-@onready var current_sprite = $Sprite2D
+@onready var sprite_loki = $Sprite2DLoki
+@onready var sprite_odin = $Sprite2DOdin
+@onready var collision_odin = $CollisionShape2DOdin
 @onready var fake_loki = preload("res://Enemigos/fake_loki.tscn")
 var lokis: Array = []
 @onready var fireball_scene: PackedScene = preload("res://Scenes/Elementos/fireball.tscn")
@@ -226,8 +227,10 @@ func reset_platforms():
 
 # ------------- FASE 2 -------------
 func enter_fase2():
-	current_sprite.texture = sprite_loki
-	current_sprite.global_position += Vector2(0,10)
+	sprite_odin.visible = false
+	sprite_loki.visible = true
+	collision_odin.queue_free()
+	
 	var num_lokis = platforms.size() - 1
 	
 	for i in range(num_lokis):

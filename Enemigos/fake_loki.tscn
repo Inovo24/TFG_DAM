@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b8bisj5ty0w3l" path="res://Sprites/Enemigos/loki/loki.png" id="1_jryg6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wit2"]
-size = Vector2(32, 43.5)
+size = Vector2(30, 39)
 
 [node name="fake_loki" type="CharacterBody2D"]
 modulate = Color(1, 1, 1, 0.815686)
@@ -18,7 +18,7 @@ scale = Vector2(-1, 1)
 texture = ExtResource("1_jryg6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -22.25)
+position = Vector2(1, -20.5)
 shape = SubResource("RectangleShape2D_7wit2")
 
 [node name="ShootPoint" type="Marker2D" parent="."]
