@@ -104,6 +104,8 @@ func _physics_process(delta):
 
 		if current_state in [State.UP_ATTACK, State.DOWN_ATTACK]:
 			velocity.x = 0
+		elif current_state == State.ATTACK:
+			velocity.x = move_toward(velocity.x, input_horizontal * speed, speed * delta * 5)
 
 		if attack_attempt:
 			if not is_on_floor():
@@ -134,13 +136,13 @@ func _physics_process(delta):
 				$Sprite2D.scale.x = 1
 
 			if current_state not in [State.ATTACK, State.AIR_ATTACK, State.UP_ATTACK, State.DOWN_ATTACK]:
-				velocity.x = move_toward(velocity.x, input_horizontal * speed, speed * delta * 5)
+				velocity.x = move_toward(velocity.x, input_horizontal * speed, speed * delta * 10)
 				if is_on_floor():
 					switch_state(State.RUN)
 
 		else:
 			if is_on_floor() and current_state not in [State.ATTACK, State.AIR_ATTACK, State.UP_ATTACK, State.DOWN_ATTACK]:
-				velocity.x = move_toward(velocity.x, 0, speed * delta * 5)
+				velocity.x = move_toward(velocity.x, 0, speed * delta * 20)
 				switch_state(State.IDLE)
 
 		move_and_slide()
