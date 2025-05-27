@@ -16,19 +16,24 @@ func _ready() -> void:
 
 func _on_cambio_a_arquero_body_entered(body: Node2D) -> void:
 	if Globales.current_character !=2 and !startarted:
-		print("ejecuto")
-		var playerPosition = player.global_position
-		Globales.current_character = 2
-		Globales.player_instance = null
-		#print(playerPosition)
-		var playerInstancate = Globales.get_player()
-		add_child(playerInstancate)
-		player.queue_free()
-		player = playerInstancate
-		player.global_position = playerPosition
-		
-		reload_health_bar()
+		call_deferred("_cambiar_a_arquero")
 	startarted = true
+
+func _cambiar_a_arquero() -> void:
+	print("ejecuto")
+	var playerPosition = player.global_position
+	Globales.current_character = 2
+	Globales.player_instance = null
+
+	var playerInstancate = Globales.get_player()
+	add_child(playerInstancate)
+
+	player.queue_free()
+	player = playerInstancate
+	player.global_position = playerPosition
+
+	reload_health_bar()
+
 
 func reload_health_bar():
 	healthBar.queue_free()

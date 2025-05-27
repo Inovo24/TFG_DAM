@@ -742,7 +742,7 @@ language = "es_ES"
 [node name="Vikingo" type="Sprite2D" parent="."]
 position = Vector2(183, 216)
 scale = Vector2(2, 2)
-texture = ExtResource("3_by8vm")
+texture = ExtResource("5_gu2w8")
 hframes = 6
 frame = 1
 

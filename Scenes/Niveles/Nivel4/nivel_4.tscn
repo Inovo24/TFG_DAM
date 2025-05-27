@@ -542,12 +542,12 @@ z_index = -1
 position = Vector2(305, -127)
 
 [node name="cambiar_vikingp" parent="puertas" instance=ExtResource("7_udv5t")]
-position = Vector2(2290, 5)
+position = Vector2(2289, 2)
 spriteNewCharacter = ExtResource("8_luwei")
 spriteOldCharacter = ExtResource("9_bu7vh")
 
 [node name="cambiar_valkiria" parent="puertas" instance=ExtResource("7_udv5t")]
-position = Vector2(5578, -781)
+position = Vector2(5578, -782)
 spriteNewCharacter = ExtResource("17_qsvht")
 spriteOldCharacter = ExtResource("8_luwei")
 playerNum = 1

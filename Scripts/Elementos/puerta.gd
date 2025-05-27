@@ -21,11 +21,15 @@ func _ready():
 	
 
 func _on_press():
+	if tween and tween.is_valid():
+		tween.kill()  # Cancelar tween anterior si está en curso
 	var height = sprite.texture.get_height()
 	tween = create_tween()
 	tween.tween_property(self, "position", position + Vector2(0, height), 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 func _on_release():
+	if tween and tween.is_valid():
+		tween.kill()  # Cancelar tween anterior si está en curso
 	tween = create_tween()
 	tween.tween_property(self, "position", original_position, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 

@@ -13,7 +13,7 @@ var is_breaking := false
 func _ready():
 	current_health = max_health
 	anim.play("idle")
-	area.body_entered.connect(_on_body_entered)
+	#area.body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body):
 	if interruptor and body.is_in_group("player"):

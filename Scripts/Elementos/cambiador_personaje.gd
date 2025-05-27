@@ -19,7 +19,7 @@ var turn_phrases := [
 func _ready() -> void:
 	randomize()
 	$Vikingo.texture = spriteNewCharacter
-	$Vikingo/Vikingo.play()
+	$Vikingo/AnimationPlayer.play("idle") #Abria que definir la animacion
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -37,28 +37,28 @@ func show_random_phrase() -> void:
 
 
 func _on_area_2d_cambiar_body_entered(body: Node2D) -> void:
-	if limit != null:
-		$Vikingo.texture = spriteOldCharacter
-		limit.queue_free()
-		dialogue_label.visible = false
-		if Globales.current_character !=playerNum:
-				var playerPosition = Globales.get_player().global_position
-				Globales.current_character = playerNum
-				Globales.player_instance = null
-				
-				var playerInstancate = Globales.get_player()
-				var grandparent = get_parent().get_parent()
-				grandparent.add_child(playerInstancate)
-				
-				grandparent.player.queue_free()
-				grandparent.player = playerInstancate
-				grandparent.player.global_position = playerPosition
-				
-				
-				#get_parent().get_.update_player()
-
+	call_deferred("_cambiar_personaje") #Evitar que salga error en el sepurador por estar complobando colisiones
 
 func _on_area_2d_recargar_vida_barra_body_entered(body: Node2D) -> void:
 	var grandparent = get_parent().get_parent()
 	if grandparent.has_method("reload_health_bar"):
 		grandparent.reload_health_bar()
+
+func _cambiar_personaje() -> void:
+	if limit != null:
+		$Vikingo.texture = spriteOldCharacter
+		limit.queue_free()
+		dialogue_label.visible = false
+		
+		if Globales.current_character != playerNum:
+			var playerPosition = Globales.get_player().global_position
+			Globales.current_character = playerNum
+			Globales.player_instance = null
+			
+			var playerInstancate = Globales.get_player()
+			var grandparent = get_parent().get_parent()
+			grandparent.add_child(playerInstancate)
+			
+			grandparent.player.queue_free()
+			grandparent.player = playerInstancate
+			grandparent.player.global_position = playerPosition
