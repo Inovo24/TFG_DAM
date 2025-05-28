@@ -214,3 +214,36 @@ func _on_animated_sprite_2d_animation_looped() -> void:
 	sonido_daño.play()
 
 #endregion
+
+func _knockback(knockback: float) -> void:
+	if not is_instance_valid(player):
+		player = Globales.get_player()
+	if not is_instance_valid(player):
+		return
+
+	is_taking_damage = true
+	velocity = Vector2.ZERO
+
+	var knockback_dir = (global_position - player.global_position).normalized()
+	var knockback_distance := 30.0
+	var destino = global_position + knockback_dir * knockback_distance
+
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(global_position, destino)
+	query.exclude = [self]
+	var result = space_state.intersect_ray(query)
+
+	if result:
+		destino = result.position
+
+	# Mueve con Tween para no atravesar colisiones
+	if knockback_tween and knockback_tween.is_running():
+		knockback_tween.kill()
+
+	knockback_tween = create_tween()
+	knockback_tween.tween_property(self, "global_position", destino, 0.15) \
+		.set_trans(Tween.TRANS_SINE) \
+		.set_ease(Tween.EASE_OUT)
+
+	await get_tree().create_timer(0.2).timeout
+	is_taking_damage = false

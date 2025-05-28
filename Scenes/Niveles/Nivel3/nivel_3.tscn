@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://d4einawx6ugyq"]
+[gd_scene load_steps=21 format=4 uid="uid://d4einawx6ugyq"]
 
 [ext_resource type="Script" uid="uid://53678jayax5g" path="res://Scripts/Niveles/nivel_3/nivel_3.gd" id="1_5h3r2"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_ybgvm"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://foow48tmur6c" path="res://Enemigos/Esqueleto_arquero.tscn" id="12_26gfu"]
 [ext_resource type="PackedScene" uid="uid://dlm4nlkcj7hr8" path="res://Scenes/Elementos/Decoracion/Portal_boss.tscn" id="12_nu2pb"]
 [ext_resource type="PackedScene" uid="uid://dx4nx0p64hdth" path="res://Scenes/NPC/granjero2.tscn" id="16_3cx5k"]
+[ext_resource type="PackedScene" uid="uid://dwapibi7c3dst" path="res://Scenes/Elementos/gema.tscn" id="18_olblc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xsyli"]
 texture = ExtResource("2_ybgvm")
@@ -516,7 +517,7 @@ sources/0 = SubResource("TileSetAtlasSource_xsyli")
 script = ExtResource("1_5h3r2")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-11.999, 168)
+position = Vector2(4576, -288)
 rotation = 3.14159
 scale = Vector2(2020.8, -77.7025)
 
@@ -780,16 +781,60 @@ position = Vector2(4443, 293)
 position = Vector2(4261, -284)
 
 [node name="Esquelo_arquero3" parent="Enemigos" instance=ExtResource("12_26gfu")]
-position = Vector2(4418, -283)
+position = Vector2(4488, -280)
 
 [node name="Esquelo_arquero4" parent="Enemigos" instance=ExtResource("12_26gfu")]
-position = Vector2(4248, -396)
+position = Vector2(4288, -392)
 
 [node name="Esquelo_arquero5" parent="Enemigos" instance=ExtResource("12_26gfu")]
-position = Vector2(4584, -460)
+position = Vector2(4592, -460)
 
 [node name="Esquelo_arquero6" parent="Enemigos" instance=ExtResource("12_26gfu")]
 position = Vector2(4868, -284)
 
 [node name="Esquelo_arquero7" parent="Enemigos" instance=ExtResource("12_26gfu")]
 position = Vector2(5035, -284)
+
+[node name="Gemas" type="Node2D" parent="."]
+
+[node name="Gema" parent="Gemas" instance=ExtResource("18_olblc")]
+position = Vector2(1264, 479)
+
+[node name="Gema2" parent="Gemas" instance=ExtResource("18_olblc")]
+position = Vector2(1305, 496)
+
+[node name="Gema3" parent="Gemas" instance=ExtResource("18_olblc")]
+position = Vector2(1224, 496)
+
+[node name="Gema4" parent="Gemas" instance=ExtResource("18_olblc")]
+position = Vector2(1488, 368)
+
+[node name="Gema5" parent="Gemas" instance=ExtResource("18_olblc")]
+position = Vector2(1696, 496)
+
+[node name="Gema6" parent="Gemas" instance=ExtResource("18_olblc")]
+position = Vector2(1744, 480)
+
+[node name="Gema7" parent="Gemas" instance=ExtResource("18_olblc")]
+position = Vector2(1784, 496)
+
+[node name="Gema9" parent="Gemas" instance=ExtResource("18_olblc")]
+position = Vector2(2176, 504)
+
+[node name="Gema10" parent="Gemas" instance=ExtResource("18_olblc")]
+position = Vector2(2512, 464)
+
+[node name="Gema11" parent="Gemas" instance=ExtResource("18_olblc")]
+position = Vector2(2736, 464)
+
+[node name="Gema12" parent="Gemas" instance=ExtResource("18_olblc")]
+position = Vector2(2896, 456)
+
+[node name="Gema13" parent="Gemas" instance=ExtResource("18_olblc")]
+position = Vector2(3696, 400)
+
+[node name="Gema14" parent="Gemas" instance=ExtResource("18_olblc")]
+position = Vector2(3600, 400)
+
+[node name="Gema8" parent="Gemas" instance=ExtResource("18_olblc")]
+position = Vector2(1960, 376)
