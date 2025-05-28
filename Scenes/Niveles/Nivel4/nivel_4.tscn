@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://weimvnhbrc2r"]
+[gd_scene load_steps=40 format=4 uid="uid://weimvnhbrc2r"]
 
 [ext_resource type="Script" uid="uid://dqft7eo8nbu6j" path="res://Scripts/Niveles/nivel_4/nivel_4.gd" id="1_el27e"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_t57un"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cvlktixgfymiy" path="res://Scenes/Niveles/zona_oculta.tscn" id="4_nptt3"]
 [ext_resource type="Script" uid="uid://b4t28u4b24g36" path="res://Scripts/Niveles/nivel_2/AreaCascada.gd" id="5_kuyr8"]
 [ext_resource type="Texture2D" uid="uid://cqda8gwjgr5n1" path="res://Sprites/backgrounds/background_level4/BackGround_level4.png" id="5_rsr66"]
-[ext_resource type="Texture2D" uid="uid://cn8re0twteur8" path="res://Sprites/backgrounds/background_level4/Background_cielo_level4.png" id="6_3mlbt"]
 [ext_resource type="PackedScene" uid="uid://i8ayr5akbljm" path="res://Scenes/Elementos/puerta.tscn" id="6_4fvw7"]
 [ext_resource type="Texture2D" uid="uid://b0qsbw8irrx8t" path="res://Sprites/backgrounds/background_level4/nubes.png" id="6_ordq5"]
 [ext_resource type="PackedScene" uid="uid://d2qqalncnqbw2" path="res://Scenes/Elementos/cambiador_personaje.tscn" id="7_udv5t"]
@@ -503,7 +502,7 @@ position = Vector2(5326, -923)
 scale = Vector2(10, 10)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(14, 244)
+position = Vector2(3.00002, 215)
 rotation = 3.14159
 scale = Vector2(2020.8, -77.7025)
 
@@ -525,24 +524,12 @@ motion_scale = Vector2(0.3, 1)
 motion_mirroring = Vector2(2100, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/fondo"]
-position = Vector2(75, -657)
+position = Vector2(6, -1561)
 scale = Vector2(3, 3)
 texture = ExtResource("5_rsr66")
 centered = false
 
-[node name="cielo" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
-position = Vector2(-414, 30)
-motion_scale = Vector2(0.3, 1)
-motion_mirroring = Vector2(2100, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/cielo"]
-position = Vector2(75, -1851)
-scale = Vector2(3, 3)
-texture = ExtResource("6_3mlbt")
-centered = false
-
 [node name="nubes" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
-visible = false
 position = Vector2(-414, 30)
 motion_scale = Vector2(0.7, 1)
 motion_mirroring = Vector2(2100, 0)
