@@ -503,7 +503,7 @@ position = Vector2(5326, -923)
 scale = Vector2(10, 10)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(2223, 3)
+position = Vector2(14, 244)
 rotation = 3.14159
 scale = Vector2(2020.8, -77.7025)
 
