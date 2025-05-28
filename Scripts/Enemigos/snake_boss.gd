@@ -47,13 +47,6 @@ func _ready():
 	await sprite.animation_finished
 	sprite.play("idle")
 
-	area_detec.body_entered.connect(_on_detection_player_body_entered)
-	ataque_aparicion.body_entered.connect(_on_ataque_aparicion_body_entered)
-	area_recibir_daño.area_entered.connect(_on_area_recibir_daño_area_entered)
-	area_ataque.body_entered.connect(_on_ataque_normal_body_entered)
-	timer_ataque.timeout.connect(_on_attack_timer_timeout)
-	salida.animation_finished.connect(_on_salida_animation_finished)
-
 func _physics_process(delta: float) -> void:
 	if vida_actual <= 0:
 		return
@@ -172,7 +165,7 @@ func dash_basico() -> void:
 	_disable_all_attacks()
 	shape_embestida.disabled = false
 
-	sprite.play("moving")
+	sprite.play("movimiento")
 	await get_tree().create_timer(0.4).timeout
 
 	dashing = false

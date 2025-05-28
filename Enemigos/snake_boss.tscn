@@ -719,7 +719,6 @@ velocidad_dash = 400.0
 fuerza_knockback = 600.0
 
 [node name="salida" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(0, 8.34465e-07)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_lljsb")
@@ -739,7 +738,6 @@ autoplay = "idle"
 [node name="initialPosition" type="Marker2D" parent="."]
 
 [node name="detection_player" type="Area2D" parent="."]
-visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_player"]
@@ -756,13 +754,11 @@ position = Vector2(-92, 0)
 position = Vector2(97, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-0.5, -1.2)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_43t1e")
 
 [node name="ataque_normal" type="Area2D" parent="."]
-visible = false
 collision_mask = 2
 
 [node name="derecha" type="CollisionShape2D" parent="ataque_normal"]
@@ -783,7 +779,6 @@ shape = SubResource("CircleShape2D_2sbrm")
 debug_color = Color(0.578237, 0.528531, 0.454007, 0.42)
 
 [node name="area_recibir_daño" type="Area2D" parent="." groups=["Enemies"]]
-visible = false
 collision_layer = 64
 collision_mask = 16
 
@@ -793,7 +788,6 @@ shape = SubResource("RectangleShape2D_yqnt4")
 debug_color = Color(0.170599, 0.615736, 0.533694, 0.42)
 
 [node name="area_embestida" type="Area2D" parent="."]
-visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_embestida"]

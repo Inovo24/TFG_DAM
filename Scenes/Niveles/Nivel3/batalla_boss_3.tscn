@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bw2k06hv7xn6s" path="res://Scripts/Niveles/nivel_3/batalla_boss_3.gd" id="1_1o3tg"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_fdao0"]
-[ext_resource type="Texture2D" uid="uid://dbw4blmp7m11t" path="res://Sprites/backgrounds/background_level3/middle-mountains.png" id="2_tfihn"]
+[ext_resource type="Texture2D" uid="uid://bnap7jj5cdcdw" path="res://Sprites/backgrounds/background_level1/Fondos/caverna.png" id="2_tfihn"]
 [ext_resource type="PackedScene" uid="uid://cdpp1csevexpd" path="res://Scenes/Elementos/fuego.tscn" id="3_0erva"]
 [ext_resource type="PackedScene" uid="uid://bfakpxclv64ql" path="res://Enemigos/snake_boss.tscn" id="3_tfihn"]
 
@@ -504,7 +504,8 @@ sources/0 = SubResource("TileSetAtlasSource_xsyli")
 script = ExtResource("1_1o3tg")
 
 [node name="Fondo" type="Sprite2D" parent="."]
-position = Vector2(246, 42)
+position = Vector2(246, 30.5)
+scale = Vector2(0.737143, 0.702)
 texture = ExtResource("2_tfihn")
 
 [node name="Fuego" type="Node2D" parent="."]
