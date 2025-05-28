@@ -2,7 +2,7 @@ extends StaticBody2D
 
 @onready var sprite := $Sprite2D  
 var tween 
-
+@export var close = true
 var original_position := Vector2.ZERO
 var press_signal = "placa_press"
 var release_signal = "placa_release"
@@ -35,5 +35,6 @@ func _on_release():
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is Characters:
-		_on_release()
+	if close:
+		if body is Characters:
+			_on_release()
