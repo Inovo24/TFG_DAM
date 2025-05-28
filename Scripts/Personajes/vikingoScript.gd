@@ -6,7 +6,7 @@ class_name Viking
 var wall_jump_speed = Vector2(250, -400)
 var is_on_wall := false
 var wall_normal := Vector2.ZERO
-const WALL_SLIDE_SPEED:float = 80  # Velocidad máxima de deslizamiento por pared
+const WALL_SLIDE_SPEED:float = 10  # Velocidad máxima de deslizamiento por pared
 func _ready() -> void:
 	add_to_group("player")
 	#skill_active = true
@@ -27,11 +27,11 @@ func _physics_process(delta: float) -> void:
 				wall_normal = c.get_normal()
 				break
 		
-		var input_right = Input.is_action_just_pressed("mover_der")
-		var input_left = Input.is_action_just_pressed("mover_izq")
+		var input_right = Input.is_action_pressed("mover_der")
+		var input_left = Input.is_action_pressed("mover_izq")
 		if controls_inverted:
-			input_right = Input.is_action_just_pressed("mover_izq")
-			input_left = Input.is_action_just_pressed("mover_der")
+			input_right = Input.is_action_pressed("mover_izq")
+			input_left = Input.is_action_pressed("mover_der")
 		
 		
 		if is_on_wall and not is_on_floor():
