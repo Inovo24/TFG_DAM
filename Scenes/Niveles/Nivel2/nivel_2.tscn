@@ -464,7 +464,7 @@ terrain_set_1/terrain_0/name = "Terrain 0"
 terrain_set_1/terrain_0/color = Color(0.449218, 0.374429, 0.212759, 1)
 sources/0 = SubResource("TileSetAtlasSource_xsyli")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6fq0q"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x5gxf"]
 texture = ExtResource("1_7tdjr")
 2:6/0 = 0
 2:6/0/z_index = -1
@@ -482,7 +482,7 @@ texture = ExtResource("1_7tdjr")
 [sub_resource type="TileSet" id="TileSet_fbhmi"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 4
-sources/0 = SubResource("TileSetAtlasSource_6fq0q")
+sources/0 = SubResource("TileSetAtlasSource_x5gxf")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oi4sk"]
 atlas = ExtResource("16_iqq83")
@@ -883,7 +883,7 @@ scale = Vector2(-1, 1)
 position = Vector2(5105, 277)
 
 [node name="tronco_rotura6" parent="ramas_rompibles" instance=ExtResource("18_oje52")]
-position = Vector2(5265, 278)
+position = Vector2(5260, 277)
 
 [node name="tronco_rotura8" parent="ramas_rompibles" instance=ExtResource("18_oje52")]
 position = Vector2(5481, 201)
