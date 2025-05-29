@@ -100,22 +100,32 @@ func _on_attack_timer_timeout() -> void:
 
 func ataque_normal() -> void:
 	esta_atacando = true
+
 	if is_instance_valid(objetivo):
 		direccion_horizontal = sign(objetivo.global_position.x - global_position.x)
 	sprite.flip_h = direccion_horizontal < 0
-	_disable_all_attacks()
+
+	# Reproducir animación y sonido desde el inicio
 	sprite.play("ataque")
 	bite.play()
-	await get_tree().create_timer(0.25).timeout
+
+	# Ahora sí: activamos hitbox según dirección
 	area_ataque.monitoring = true
 	shape_ataque_izq.disabled = direccion_horizontal >= 0
 	shape_ataque_der.disabled = direccion_horizontal < 0
-	await get_tree().create_timer(0.2).timeout
+
+	# Desactivar el hitbox tras un tiempo breve
+	await get_tree().create_timer(0.18).timeout
 	_disable_all_attacks()
+
+	# Esperar a que acabe la animación
 	await sprite.animation_finished
 	sprite.play("idle")
 	esta_atacando = false
-	await get_tree().create_timer(1.2).timeout
+
+	await get_tree().create_timer(1.0).timeout
+
+
 
 func dash_basico() -> void:
 	esta_atacando = true
@@ -139,7 +149,7 @@ func dash_basico() -> void:
 	dash_1.play()
 	sprite.play("movimiento")
 
-	await get_tree().create_timer(0.6).timeout
+	await get_tree().create_timer(0.3).timeout
 
 	dashing = false
 	velocity.x = 0
@@ -164,12 +174,12 @@ func dash_ida_vuelta() -> void:
 	dashing = true
 	dash_1.play()
 	sprite.play("movimiento")
-	await get_tree().create_timer(0.35).timeout
+	await get_tree().create_timer(0.25).timeout
 	direccion_horizontal *= -1
 	sprite.flip_h = direccion_horizontal < 0
 	velocity.x = direccion_horizontal * velocidad_dash * 1.3
 	dash_2.play()
-	await get_tree().create_timer(0.35).timeout
+	await get_tree().create_timer(0.25).timeout
 	dashing = false
 	velocity = Vector2.ZERO
 	_disable_all_attacks()
@@ -187,13 +197,13 @@ func teleport_y_ataque() -> void:
 	_disable_all_attacks()
 	sprite.stop()
 	sprite.play("divear")
-
 	await sprite.animation_finished
 
 	if not is_instance_valid(objetivo):
 		_reset_estado_post_teleport()
 		return
 
+	# Posición de destino
 	var offset := 96
 	var lado = sign(global_position.x - objetivo.global_position.x)
 	if lado == 0:
@@ -207,24 +217,30 @@ func teleport_y_ataque() -> void:
 	direccion_horizontal = sign(objetivo.global_position.x - global_position.x)
 	sprite.flip_h = direccion_horizontal < 0
 
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(0.2).timeout
 
+	# Inicio de aparición y ataque breve
 	sprite.play("aparicion")
 	salida.visible = true
 	salida.play()
 	emerging.play()
-	ataque_aparicion.monitoring = true
 
-	await _esperar_animacion_o_timeout(sprite, 1.5)
+	# Activamos el ataque y lo desactivamos tras 0.3s
+	ataque_aparicion.monitoring = true
+	await get_tree().create_timer(0.4).timeout
 	ataque_aparicion.monitoring = false
-	ataque_aparicion.monitoring = false
+
+	# Esperamos a que termine animación o timeout breve
+	await _esperar_animacion_o_timeout(sprite, 0.7)
+
 	if sprite.animation == "aparicion":
-			sprite.play("idle")
+		sprite.play("idle")
+
 	salida.stop()
 	salida.visible = false
-
 	primera_aparicion = false
 	_reset_estado_post_teleport()
+
 
 func receive_damage(cantidad: int) -> void:
 	if vida_actual <= 0:

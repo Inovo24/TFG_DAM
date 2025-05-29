@@ -740,10 +740,10 @@ radius = 164.003
 size = Vector2(20.5, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2sbrm"]
-size = Vector2(47.85, 43)
+size = Vector2(34.25, 43)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5m02e"]
-size = Vector2(46.8, 43)
+size = Vector2(35.2, 43)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2sbrm"]
 radius = 42.0076
@@ -772,12 +772,13 @@ animation = &"idle"
 position = Vector2(-3, -17)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_t4y7o")
-animation = &"idle"
+animation = &"ataque"
 autoplay = "idle"
+frame = 12
+frame_progress = 1.0
 
 [node name="SpriteDañoSuperpuesto" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1.2, -0.799999)
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_pxevd")
 animation = &"daño"
 frame = 4
@@ -800,12 +801,14 @@ shape = SubResource("RectangleShape2D_43t1e")
 collision_mask = 2
 
 [node name="derecha" type="CollisionShape2D" parent="ataque_normal"]
-position = Vector2(44.075, 0)
+position = Vector2(37.275, 0)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2sbrm")
 debug_color = Color(0.459916, 0.446226, 1, 0.42)
 
 [node name="izquierda" type="CollisionShape2D" parent="ataque_normal"]
-position = Vector2(-44.2, 0)
+position = Vector2(-38.4, 0)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5m02e")
 debug_color = Color(0.459916, 0.446226, 1, 0.42)
 
