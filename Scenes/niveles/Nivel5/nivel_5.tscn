@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://ctnuiqu0k8oon"]
+[gd_scene load_steps=44 format=4 uid="uid://ctnuiqu0k8oon"]
 
 [ext_resource type="Script" uid="uid://v4n04wljocsk" path="res://Scripts/Niveles/nivel_5/nivel_5.gd" id="1_2ktrq"]
 [ext_resource type="PackedScene" uid="uid://cpwwpkyo2wp38" path="res://Scenes/tiles/tile_principal.tscn" id="1_elsa2"]
@@ -20,6 +20,13 @@
 [ext_resource type="PackedScene" uid="uid://cs7ydd6a5li1d" path="res://Scenes/Elementos/zarza.tscn" id="18_j761b"]
 [ext_resource type="PackedScene" uid="uid://bsyoskref8vn1" path="res://Scenes/Elementos/lanza_llamas.tscn" id="19_7i4ru"]
 [ext_resource type="PackedScene" uid="uid://brcphv2wiag8g" path="res://Scenes/Elementos/seleccion_pjs.tscn" id="20_7i4ru"]
+[ext_resource type="Script" uid="uid://bq5403uj2d114" path="res://Scripts/Elementos/trozos_espada.gd" id="21_8r0ip"]
+[ext_resource type="Texture2D" uid="uid://dlhrs72mxcq6q" path="res://Sprites/NPC/heimdall/espada1.png" id="22_cgujf"]
+[ext_resource type="Texture2D" uid="uid://dl8qr2m651off" path="res://Sprites/NPC/Granjero2.png" id="22_lmsrl"]
+[ext_resource type="Texture2D" uid="uid://dyjval4bt76mb" path="res://Sprites/NPC/heimdall/espada2.png" id="23_58047"]
+[ext_resource type="Texture2D" uid="uid://dei11mibggbog" path="res://Sprites/NPC/piromano.png" id="23_advoj"]
+[ext_resource type="Texture2D" uid="uid://0vrlhekcgked" path="res://Sprites/NPC/heimdall/espada3.png" id="24_7ygnj"]
+[ext_resource type="Texture2D" uid="uid://edasxi1dios" path="res://icon.svg" id="24_cgujf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7i4ru"]
 texture = ExtResource("3_k031r")
@@ -40,6 +47,98 @@ texture = ExtResource("3_k031r")
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 4
 sources/0 = SubResource("TileSetAtlasSource_7i4ru")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58047"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ygnj"]
+atlas = ExtResource("22_lmsrl")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxnrm"]
+atlas = ExtResource("22_lmsrl")
+region = Rect2(34, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6hyv"]
+atlas = ExtResource("22_lmsrl")
+region = Rect2(68, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko4ax"]
+atlas = ExtResource("22_lmsrl")
+region = Rect2(102, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jibxs"]
+atlas = ExtResource("22_lmsrl")
+region = Rect2(136, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4h8w"]
+atlas = ExtResource("23_advoj")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alr7n"]
+atlas = ExtResource("23_advoj")
+region = Rect2(34, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_burik"]
+atlas = ExtResource("23_advoj")
+region = Rect2(68, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kp2r"]
+atlas = ExtResource("23_advoj")
+region = Rect2(102, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ux6pl"]
+atlas = ExtResource("23_advoj")
+region = Rect2(136, 0, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v88aw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ygnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxnrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6hyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ko4ax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jibxs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4h8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alr7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_burik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kp2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ux6pl")
+}],
+"loop": true,
+"name": &"recuperado",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rnxb"]
+size = Vector2(317, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgujf"]
+size = Vector2(59, 59)
 
 [node name="nivel_5" type="Node2D"]
 script = ExtResource("1_2ktrq")
@@ -255,6 +354,7 @@ position = Vector2(-42, 497)
 
 [node name="Puerta" parent="puertas/Placa" instance=ExtResource("12_u55t1")]
 position = Vector2(261, -210)
+scale = Vector2(1, -1)
 close = false
 
 [node name="Placa2" parent="puertas" instance=ExtResource("11_oqosc")]
@@ -405,3 +505,76 @@ random = true
 
 [node name="Node2D" parent="pjs" instance=ExtResource("20_7i4ru")]
 position = Vector2(-253, 94)
+
+[node name="trozo" type="Area2D" parent="."]
+position = Vector2(-1429, 475)
+rotation = 2.04029
+scale = Vector2(-1, -1)
+collision_mask = 2
+script = ExtResource("21_8r0ip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trozo"]
+shape = SubResource("RectangleShape2D_58047")
+
+[node name="Sprite2D" type="Sprite2D" parent="trozo"]
+position = Vector2(0, 8)
+texture = ExtResource("22_cgujf")
+
+[node name="trozo2" type="Area2D" parent="."]
+position = Vector2(-2503, 253)
+rotation = 0.408407
+collision_mask = 2
+script = ExtResource("21_8r0ip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trozo2"]
+shape = SubResource("RectangleShape2D_58047")
+
+[node name="Sprite2D" type="Sprite2D" parent="trozo2"]
+texture = ExtResource("23_58047")
+
+[node name="trozo3" type="Area2D" parent="."]
+position = Vector2(-1998, -437)
+rotation = 0.408407
+collision_mask = 2
+script = ExtResource("21_8r0ip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trozo3"]
+shape = SubResource("RectangleShape2D_58047")
+
+[node name="Sprite2D" type="Sprite2D" parent="trozo3"]
+position = Vector2(0, -6)
+texture = ExtResource("24_7ygnj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(358, 96)
+sprite_frames = SubResource("SpriteFrames_v88aw")
+animation = &"recuperado"
+autoplay = "default"
+frame_progress = 0.949511
+
+[node name="puente" type="StaticBody2D" parent="."]
+position = Vector2(513.125, 120)
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="puente"]
+position = Vector2(4.875, 13.5)
+scale = Vector2(2.35938, 0.335938)
+texture = ExtResource("24_cgujf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="puente"]
+position = Vector2(2.375, 12.5)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_6rnxb")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(958, 62)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(19.5, 19.5)
+shape = SubResource("RectangleShape2D_cgujf")
+
+[connection signal="body_entered" from="trozo" to="trozo" method="_on_body_entered"]
+[connection signal="body_entered" from="trozo2" to="trozo2" method="_on_body_entered"]
+[connection signal="body_entered" from="trozo3" to="trozo3" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

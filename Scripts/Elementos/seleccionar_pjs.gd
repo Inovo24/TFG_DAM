@@ -14,15 +14,21 @@ func _process(delta):
 	if Globales.current_character ==0:
 		vikingo.visible = false
 		valkiria.visible = true
+		valkiria.play("default")
 		arquero.visible = true
+		arquero.play("default")
 	elif Globales.current_character ==1:
 		valkiria.visible = false
 		vikingo.visible = true
+		vikingo.play("default")
 		arquero.visible = true
+		arquero.play("default")
 	elif Globales.current_character ==2:
 		arquero.visible = false
 		vikingo.visible = true
+		vikingo.play("default")
 		valkiria.visible = true
+		valkiria.play("default")
 	
 	
 	# Cambiar personaje si el jugador está en el área y pulsa aceptar
