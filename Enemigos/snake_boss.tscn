@@ -802,13 +802,11 @@ collision_mask = 2
 
 [node name="derecha" type="CollisionShape2D" parent="ataque_normal"]
 position = Vector2(37.275, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2sbrm")
 debug_color = Color(0.459916, 0.446226, 1, 0.42)
 
 [node name="izquierda" type="CollisionShape2D" parent="ataque_normal"]
 position = Vector2(-38.4, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5m02e")
 debug_color = Color(0.459916, 0.446226, 1, 0.42)
 

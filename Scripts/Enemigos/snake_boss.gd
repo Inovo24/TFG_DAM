@@ -7,7 +7,7 @@ class_name SnakeBoss
 @export var dano_normal: int = 10
 @export var dano_embestida: int = 20
 @export var dano_aparicion: int = 15
-@export var vida_maxima: int = 100
+@export var vida_maxima: int = 300
 @export var gravedad: float = 800.0
 @export var limites_arena: Rect2 = Rect2(Vector2(0, 0), Vector2(1024, 768))
 
@@ -50,6 +50,9 @@ func _ready():
 
 	await sprite.animation_finished
 	sprite.play("idle")
+	# DEBUG temporal
+	if ataque_aparicion.monitoring:
+		print("⚠️ ATAQUE_APARICION MONITORING ACTIVO")
 
 func _physics_process(delta: float) -> void:
 	if vida_actual <= 0:
@@ -310,6 +313,7 @@ func _disable_all_attacks() -> void:
 	shape_ataque_izq.set_deferred("disabled", true)
 	shape_ataque_der.set_deferred("disabled", true)
 	area_ataque.set_deferred("monitoring", false)
+	ataque_aparicion.set_deferred("monitoring", false)
 
 func _on_salida_animation_finished() -> void:
 	salida.visible = false
