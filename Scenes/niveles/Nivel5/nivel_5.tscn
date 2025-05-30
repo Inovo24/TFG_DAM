@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://ctnuiqu0k8oon"]
+[gd_scene load_steps=45 format=4 uid="uid://ctnuiqu0k8oon"]
 
 [ext_resource type="Script" uid="uid://v4n04wljocsk" path="res://Scripts/Niveles/nivel_5/nivel_5.gd" id="1_2ktrq"]
 [ext_resource type="PackedScene" uid="uid://cpwwpkyo2wp38" path="res://Scenes/tiles/tile_principal.tscn" id="1_elsa2"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://dei11mibggbog" path="res://Sprites/NPC/piromano.png" id="23_advoj"]
 [ext_resource type="Texture2D" uid="uid://0vrlhekcgked" path="res://Sprites/NPC/heimdall/espada3.png" id="24_7ygnj"]
 [ext_resource type="Texture2D" uid="uid://edasxi1dios" path="res://icon.svg" id="24_cgujf"]
+[ext_resource type="Texture2D" uid="uid://d0fpo3vxnrhu4" path="res://Sprites/backgrounds/background_level5/background_level5.png" id="28_4boa1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7i4ru"]
 texture = ExtResource("3_k031r")
@@ -156,7 +157,7 @@ position = Vector2(-1737, -274)
 zoom = Vector2(3, 3)
 
 [node name="Inicio" type="Marker2D" parent="."]
-position = Vector2(2, 64)
+position = Vector2(2, 71)
 
 [node name="pinchos" type="Node" parent="."]
 
@@ -563,7 +564,6 @@ texture = ExtResource("24_cgujf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="puente"]
 position = Vector2(2.375, 12.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6rnxb")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -573,6 +573,20 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(19.5, 19.5)
 shape = SubResource("RectangleShape2D_cgujf")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="fondo" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-414, 30)
+motion_scale = Vector2(0.3, 1)
+motion_mirroring = Vector2(2100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/fondo"]
+position = Vector2(-190, -1201)
+scale = Vector2(3, 3)
+texture = ExtResource("28_4boa1")
+centered = false
 
 [connection signal="body_entered" from="trozo" to="trozo" method="_on_body_entered"]
 [connection signal="body_entered" from="trozo2" to="trozo2" method="_on_body_entered"]
