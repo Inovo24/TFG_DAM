@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://0gh52gokkg0e" path="res://Assets/tileset_nievet.png" id="3_3ukl6"]
 [ext_resource type="PackedScene" uid="uid://cjurojyuklair" path="res://Scenes/Elementos/Bloques/placa.tscn" id="3_ndpvp"]
 [ext_resource type="PackedScene" uid="uid://d288qogm675qw" path="res://Scenes/Elementos/Bloques/bloque.tscn" id="4_kuyr8"]
-[ext_resource type="PackedScene" uid="uid://cvlktixgfymiy" path="res://Scenes/Niveles/zona_oculta.tscn" id="4_nptt3"]
+[ext_resource type="PackedScene" uid="uid://cvlktixgfymiy" path="res://Scenes/niveles/zona_oculta.tscn" id="4_nptt3"]
 [ext_resource type="Script" uid="uid://b4t28u4b24g36" path="res://Scripts/Niveles/nivel_2/AreaCascada.gd" id="5_kuyr8"]
 [ext_resource type="Texture2D" uid="uid://cqda8gwjgr5n1" path="res://Sprites/backgrounds/background_level4/BackGround_level4.png" id="5_rsr66"]
 [ext_resource type="PackedScene" uid="uid://i8ayr5akbljm" path="res://Scenes/Elementos/puerta.tscn" id="6_4fvw7"]
@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://do74cvcvx583d" path="res://Sprites/sprites_para_borradores/puerta.png" id="23_hamye"]
 [ext_resource type="PackedScene" uid="uid://d38t4kskhkxnc" path="res://Enemigos/Enemigo_aereo.tscn" id="24_3jgjt"]
 [ext_resource type="PackedScene" uid="uid://d10baod8a4y07" path="res://Scenes/Elementos/limite_lateral.tscn" id="25_4t4fu"]
-[ext_resource type="PackedScene" uid="uid://cpwyeea0w4xnj" path="res://Scenes/Niveles/fin_nivel.tscn" id="27_hivjl"]
+[ext_resource type="PackedScene" uid="uid://cpwyeea0w4xnj" path="res://Scenes/niveles/fin_nivel.tscn" id="27_hivjl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8h0q8"]
 texture = ExtResource("2_t57un")
