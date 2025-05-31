@@ -76,6 +76,7 @@ func _cambiar_personaje(num):
 		grandparent.player.queue_free()
 		grandparent.player = playerInstancate
 		grandparent.player.global_position = playerPosition
+		grandparent.player.set_checkpoint_position()
 		if grandparent.has_method("reload_health_bar"):
 			grandparent.reload_health_bar()
 		#get_parent().update_bar()
