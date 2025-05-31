@@ -285,6 +285,7 @@ func muerte() -> void:
 	velocity = Vector2.ZERO
 	sprite.play("muerte")
 	await sprite.animation_finished
+	get_parent().end_level()
 	queue_free()
 
 func _on_area_embestida_body_entered(body: Node) -> void:

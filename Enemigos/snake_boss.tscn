@@ -740,10 +740,10 @@ radius = 164.003
 size = Vector2(20.5, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2sbrm"]
-size = Vector2(34.25, 43)
+size = Vector2(48, 43)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5m02e"]
-size = Vector2(35.2, 43)
+size = Vector2(49.6, 43)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2sbrm"]
 radius = 42.0076
@@ -801,16 +801,19 @@ shape = SubResource("RectangleShape2D_43t1e")
 collision_mask = 2
 
 [node name="derecha" type="CollisionShape2D" parent="ataque_normal"]
-position = Vector2(37.275, 0)
+position = Vector2(30.4, 0)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2sbrm")
 debug_color = Color(0.459916, 0.446226, 1, 0.42)
 
 [node name="izquierda" type="CollisionShape2D" parent="ataque_normal"]
-position = Vector2(-38.4, 0)
+position = Vector2(-31.2, 0)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5m02e")
 debug_color = Color(0.459916, 0.446226, 1, 0.42)
 
 [node name="Ataque_aparicion" type="Area2D" parent="."]
+visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ataque_aparicion"]

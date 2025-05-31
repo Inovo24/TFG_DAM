@@ -520,31 +520,20 @@ position = Vector2(-169, 0)
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Fondo"]
 scroll_ignore_camera_zoom = true
 
-[node name="fondo" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
-position = Vector2(-414, 30)
-motion_scale = Vector2(0.3, 1)
-motion_mirroring = Vector2(2100, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/fondo"]
-position = Vector2(-110, 33)
-scale = Vector2(3, 3)
-texture = ExtResource("5_rsr66")
-centered = false
-
 [node name="1" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
-position = Vector2(-414, 30)
-motion_scale = Vector2(0.3, 1)
+position = Vector2(-326, 754)
+motion_scale = Vector2(0.3, 0)
 motion_mirroring = Vector2(2100, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/1"]
-position = Vector2(-109, -1499)
+position = Vector2(17, -1236)
 scale = Vector2(3, 3)
 texture = ExtResource("6_mu3nn")
 centered = false
 
 [node name="2" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
-position = Vector2(-414, 30)
-motion_scale = Vector2(0.34, 1.133)
+position = Vector2(-200, 1017)
+motion_scale = Vector2(0.4, 0)
 motion_mirroring = Vector2(2100, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/2"]
@@ -554,14 +543,25 @@ texture = ExtResource("7_7ve16")
 centered = false
 
 [node name="3" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
-position = Vector2(-414, 30)
-motion_scale = Vector2(0.35, 1.167)
+position = Vector2(-200, 1017)
+motion_scale = Vector2(0.5, 0)
 motion_mirroring = Vector2(2100, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/3"]
 position = Vector2(-109, -1499)
 scale = Vector2(3, 3)
 texture = ExtResource("8_ua6wd")
+centered = false
+
+[node name="fondo" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
+position = Vector2(-414, 30)
+motion_scale = Vector2(0.3, 0)
+motion_mirroring = Vector2(2100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/fondo"]
+position = Vector2(2389, -510)
+scale = Vector2(3, 3)
+texture = ExtResource("5_rsr66")
 centered = false
 
 [node name="cambios_perspectiva" type="Node" parent="."]
