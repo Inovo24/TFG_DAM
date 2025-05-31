@@ -1,6 +1,8 @@
 extends CinematicText
 
+
 func _ready():
+	
 	narration_data = [
 		[tr("lbl_cine1"),3.5],[tr("lbl_cine2"), 3.5],
 		[tr("lbl_cine3"),3.5],[tr("lbl_cine4"), 3.5],

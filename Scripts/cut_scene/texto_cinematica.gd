@@ -1,6 +1,9 @@
 extends Node2D
 class_name CinematicText
 
+@export var next_scene: String = "res://Scenes/inicio.tscn"
+@export var skip_action: String = "aceptar_entrar" # Acción de input para saltar (puedes cambiarla desde el inspector)
+
 @onready var narration_text = $Camera2D/Label 
 @onready var narration_timer = $Camera2D/Timer
 var waiting_for_input:bool  = false
@@ -87,8 +90,10 @@ func end_narration():
 # This function is automatically called by Godot when an input event occurs
 func _input(event):
 	if waiting_for_input:
-		if event is InputEventKey or event is InputEventMouseButton:
-			# Any key or mouse button press will trigger this
-			waiting_for_input = false # Stop waiting for input
-			set_process_input(false) # Disable input processing for this script
-			SceneTransition.change_scene("res://Scenes/inicio.tscn")
+		if event.is_action_pressed(skip_action) or event is InputEventMouseButton:
+			waiting_for_input = false
+			set_process_input(false)
+			SceneTransition.change_scene(next_scene)
+func _unhandled_input(event):
+	if event.is_action_pressed(skip_action):
+		SceneTransition.change_scene(next_scene)
