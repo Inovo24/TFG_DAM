@@ -1,17 +1,19 @@
-[gd_scene load_steps=40 format=4 uid="uid://weimvnhbrc2r"]
+[gd_scene load_steps=42 format=4 uid="uid://weimvnhbrc2r"]
 
 [ext_resource type="Script" uid="uid://dqft7eo8nbu6j" path="res://Scripts/Niveles/nivel_4/nivel_4.gd" id="1_el27e"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_t57un"]
 [ext_resource type="Texture2D" uid="uid://0gh52gokkg0e" path="res://Assets/tileset_nievet.png" id="3_3ukl6"]
 [ext_resource type="PackedScene" uid="uid://cjurojyuklair" path="res://Scenes/Elementos/Bloques/placa.tscn" id="3_ndpvp"]
 [ext_resource type="PackedScene" uid="uid://d288qogm675qw" path="res://Scenes/Elementos/Bloques/bloque.tscn" id="4_kuyr8"]
-[ext_resource type="PackedScene" uid="uid://cvlktixgfymiy" path="res://Scenes/niveles/zona_oculta.tscn" id="4_nptt3"]
+[ext_resource type="PackedScene" uid="uid://cvlktixgfymiy" path="res://Scenes/Niveles/zona_oculta.tscn" id="4_nptt3"]
 [ext_resource type="Script" uid="uid://b4t28u4b24g36" path="res://Scripts/Niveles/nivel_2/AreaCascada.gd" id="5_kuyr8"]
 [ext_resource type="Texture2D" uid="uid://cqda8gwjgr5n1" path="res://Sprites/backgrounds/background_level4/BackGround_level4.png" id="5_rsr66"]
 [ext_resource type="PackedScene" uid="uid://i8ayr5akbljm" path="res://Scenes/Elementos/puerta.tscn" id="6_4fvw7"]
-[ext_resource type="Texture2D" uid="uid://b43hgbqyexkd5" path="res://Sprites/backgrounds/background_level4/background_level4ver.png" id="6_ordq5"]
+[ext_resource type="Texture2D" uid="uid://dnisn85apvnab" path="res://Sprites/backgrounds/background_level4/1.png" id="6_mu3nn"]
+[ext_resource type="Texture2D" uid="uid://n2aixwjrrthv" path="res://Sprites/backgrounds/background_level4/2.png" id="7_7ve16"]
 [ext_resource type="PackedScene" uid="uid://d2qqalncnqbw2" path="res://Scenes/Elementos/cambiador_personaje.tscn" id="7_udv5t"]
 [ext_resource type="Texture2D" uid="uid://kybvbrj0wynp" path="res://Sprites/Vikingo/vikingo_idle-Sheet.png" id="8_luwei"]
+[ext_resource type="Texture2D" uid="uid://ndei2mv4f8bc" path="res://Sprites/backgrounds/background_level4/3.png" id="8_ua6wd"]
 [ext_resource type="Texture2D" uid="uid://43p4ani0ic8i" path="res://Sprites/Arquero/idle_arquero-Sheet.png" id="9_bu7vh"]
 [ext_resource type="PackedScene" uid="uid://c6qduvwxpmalg" path="res://Scenes/Elementos/lanza_flechas.tscn" id="10_n12st"]
 [ext_resource type="PackedScene" uid="uid://cs7ydd6a5li1d" path="res://Scenes/Elementos/zarza.tscn" id="11_8h0q8"]
@@ -28,7 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://do74cvcvx583d" path="res://Sprites/sprites_para_borradores/puerta.png" id="23_hamye"]
 [ext_resource type="PackedScene" uid="uid://d38t4kskhkxnc" path="res://Enemigos/Enemigo_aereo.tscn" id="24_3jgjt"]
 [ext_resource type="PackedScene" uid="uid://d10baod8a4y07" path="res://Scenes/Elementos/limite_lateral.tscn" id="25_4t4fu"]
-[ext_resource type="PackedScene" uid="uid://cpwyeea0w4xnj" path="res://Scenes/niveles/fin_nivel.tscn" id="27_hivjl"]
+[ext_resource type="PackedScene" uid="uid://cpwyeea0w4xnj" path="res://Scenes/Niveles/fin_nivel.tscn" id="27_hivjl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8h0q8"]
 texture = ExtResource("2_t57un")
@@ -502,7 +504,7 @@ position = Vector2(5326, -923)
 scale = Vector2(10, 10)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(7583, -783)
+position = Vector2(22, 150)
 rotation = 3.14159
 scale = Vector2(2020.8, -77.7025)
 
@@ -524,20 +526,42 @@ motion_scale = Vector2(0.3, 1)
 motion_mirroring = Vector2(2100, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/fondo"]
-position = Vector2(-109, -164)
+position = Vector2(-110, 33)
 scale = Vector2(3, 3)
 texture = ExtResource("5_rsr66")
 centered = false
 
-[node name="asgard" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
+[node name="1" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
 position = Vector2(-414, 30)
 motion_scale = Vector2(0.3, 1)
 motion_mirroring = Vector2(2100, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/asgard"]
-position = Vector2(-109, -1621)
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/1"]
+position = Vector2(-109, -1499)
 scale = Vector2(3, 3)
-texture = ExtResource("6_ordq5")
+texture = ExtResource("6_mu3nn")
+centered = false
+
+[node name="2" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
+position = Vector2(-414, 30)
+motion_scale = Vector2(0.34, 1.133)
+motion_mirroring = Vector2(2100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/2"]
+position = Vector2(-109, -1499)
+scale = Vector2(3, 3)
+texture = ExtResource("7_7ve16")
+centered = false
+
+[node name="3" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
+position = Vector2(-414, 30)
+motion_scale = Vector2(0.35, 1.167)
+motion_mirroring = Vector2(2100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxBackground/3"]
+position = Vector2(-109, -1499)
+scale = Vector2(3, 3)
+texture = ExtResource("8_ua6wd")
 centered = false
 
 [node name="cambios_perspectiva" type="Node" parent="."]
