@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://dyjval4bt76mb" path="res://Sprites/NPC/heimdall/espada2.png" id="23_58047"]
 [ext_resource type="Texture2D" uid="uid://dei11mibggbog" path="res://Sprites/NPC/piromano.png" id="23_advoj"]
 [ext_resource type="Texture2D" uid="uid://0vrlhekcgked" path="res://Sprites/NPC/heimdall/espada3.png" id="24_7ygnj"]
-[ext_resource type="Texture2D" uid="uid://edasxi1dios" path="res://icon.svg" id="24_cgujf"]
+[ext_resource type="Texture2D" uid="uid://c27wkp1ycvn0e" path="res://Sprites/Elementos/puenteGay.png" id="27_58047"]
 [ext_resource type="Texture2D" uid="uid://d0fpo3vxnrhu4" path="res://Sprites/backgrounds/background_level5/background_level5.png" id="28_4boa1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7i4ru"]
@@ -136,7 +136,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rnxb"]
-size = Vector2(317, 41)
+size = Vector2(317, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgujf"]
 size = Vector2(59, 59)
@@ -371,7 +371,7 @@ position = Vector2(258, 308)
 [node name="plataformas" type="Node" parent="."]
 
 [node name="PlataformaNormal" parent="plataformas" instance=ExtResource("14_j761b")]
-position = Vector2(-1394, 344)
+position = Vector2(-1394, 348)
 
 [node name="PlataformaNormal2" parent="plataformas" instance=ExtResource("14_j761b")]
 position = Vector2(-96, 401)
@@ -558,12 +558,11 @@ position = Vector2(513.125, 120)
 collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="puente"]
-position = Vector2(4.875, 13.5)
-scale = Vector2(2.35938, 0.335938)
-texture = ExtResource("24_cgujf")
+position = Vector2(3.875, 8)
+texture = ExtResource("27_58047")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="puente"]
-position = Vector2(2.375, 12.5)
+position = Vector2(2.375, 8)
 shape = SubResource("RectangleShape2D_6rnxb")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -578,6 +577,7 @@ shape = SubResource("RectangleShape2D_cgujf")
 scroll_ignore_camera_zoom = true
 
 [node name="fondo" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 position = Vector2(-414, 30)
 motion_scale = Vector2(0.3, 1)
 motion_mirroring = Vector2(2100, 0)
