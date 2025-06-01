@@ -16,7 +16,7 @@ class_name SnakeBoss
 @onready var emerging: AudioStreamPlayer2D = $Emerging
 @onready var hissing: AudioStreamPlayer2D = $Hissing
 @onready var bite: AudioStreamPlayer2D = $Bite
-
+@onready var player = Globales.get_player()
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var area_detec: Area2D = $detection_player
 @onready var shape_embestida: CollisionShape2D = $area_embestida/CollisionShape2D
@@ -40,6 +40,9 @@ var proximo_ataque_normal: bool = true
 var primera_aparicion := true
 
 func _ready():
+	player.has_checkpoint = true
+	player.checkpoint_position = player.global_position
+
 	_disable_all_attacks()
 	sprite.play("aparicion")
 	sprite_dano_efecto.visible = false
@@ -353,3 +356,21 @@ func mostrar_animacion_suspensiva() -> void:
 	sprite_dano_efecto.play("daño")
 	await sprite_dano_efecto.animation_finished
 	sprite_dano_efecto.visible = false
+
+func change_player(playerNum: int):
+	if Globales.current_character != playerNum or playerNum == 1:
+		var player = Globales.get_player()
+		var playerPosition = player.global_position
+		var player_checkpoint = player.checkpoint_position
+		Globales.current_character = playerNum
+		Globales.player_instance = null
+		var playerInstanciate = Globales.get_player()
+		get_parent().add_child(playerInstanciate)
+		player.queue_free()
+		player = playerInstanciate
+		player.global_position = playerPosition
+		player.has_checkpoint = true
+		player.checkpoint_position = player_checkpoint
+
+		if playerNum != 1 and get_parent().has_method("reload_health_bar"):
+			get_parent().reload_health_bar()
