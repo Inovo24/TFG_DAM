@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://ctnuiqu0k8oon"]
+[gd_scene load_steps=47 format=4 uid="uid://ctnuiqu0k8oon"]
 
 [ext_resource type="Script" uid="uid://v4n04wljocsk" path="res://Scripts/Niveles/nivel_5/nivel_5.gd" id="1_2ktrq"]
 [ext_resource type="PackedScene" uid="uid://cpwwpkyo2wp38" path="res://Scenes/tiles/tile_principal.tscn" id="1_elsa2"]
@@ -27,7 +27,9 @@
 [ext_resource type="Texture2D" uid="uid://dei11mibggbog" path="res://Sprites/NPC/piromano.png" id="23_advoj"]
 [ext_resource type="Texture2D" uid="uid://0vrlhekcgked" path="res://Sprites/NPC/heimdall/espada3.png" id="24_7ygnj"]
 [ext_resource type="Texture2D" uid="uid://c27wkp1ycvn0e" path="res://Sprites/Elementos/puenteGay.png" id="27_58047"]
-[ext_resource type="Texture2D" uid="uid://d0fpo3vxnrhu4" path="res://Sprites/backgrounds/background_level5/background_level5.png" id="28_4boa1"]
+[ext_resource type="Texture2D" uid="uid://csca55xx2njsx" path="res://Sprites/backgrounds/background_level5/3.png" id="28_bmnx8"]
+[ext_resource type="Texture2D" uid="uid://b0q41dleie21i" path="res://Sprites/backgrounds/background_level5/1.png" id="29_f1o15"]
+[ext_resource type="Texture2D" uid="uid://c80utlxtu6r78" path="res://Sprites/backgrounds/background_level5/2.png" id="30_gyfab"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7i4ru"]
 texture = ExtResource("3_k031r")
@@ -157,7 +159,7 @@ position = Vector2(-1737, -274)
 zoom = Vector2(3, 3)
 
 [node name="Inicio" type="Marker2D" parent="."]
-position = Vector2(2, 71)
+position = Vector2(-4, 72)
 
 [node name="pinchos" type="Node" parent="."]
 
@@ -576,16 +578,37 @@ shape = SubResource("RectangleShape2D_cgujf")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true
 
+[node name="fondo3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-595, 794)
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(2100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/fondo3"]
+position = Vector2(-190, -1201)
+scale = Vector2(3, 3)
+texture = ExtResource("28_bmnx8")
+centered = false
+
+[node name="fondo2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-595, 794)
+motion_scale = Vector2(0.05, 0)
+motion_mirroring = Vector2(2100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/fondo2"]
+position = Vector2(-190, -1201)
+scale = Vector2(3, 3)
+texture = ExtResource("30_gyfab")
+centered = false
+
 [node name="fondo" type="ParallaxLayer" parent="ParallaxBackground"]
-visible = false
-position = Vector2(-414, 30)
-motion_scale = Vector2(0.3, 1)
+position = Vector2(-595, 794)
+motion_scale = Vector2(0.15, 0)
 motion_mirroring = Vector2(2100, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/fondo"]
 position = Vector2(-190, -1201)
 scale = Vector2(3, 3)
-texture = ExtResource("28_4boa1")
+texture = ExtResource("29_f1o15")
 centered = false
 
 [connection signal="body_entered" from="trozo" to="trozo" method="_on_body_entered"]
