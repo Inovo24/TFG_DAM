@@ -3,6 +3,7 @@ class_name CinematicText
 
 @export var next_scene: String = "res://Scenes/inicio.tscn"
 @export var skip_action: String = "aceptar_entrar" # Acción de input para saltar (puedes cambiarla desde el inspector)
+@export var actionNeeded: bool = true
 
 @onready var narration_text = $Camera2D/Label 
 @onready var narration_timer = $Camera2D/Timer
@@ -81,11 +82,15 @@ func _on_timer_timeout():
 
 func end_narration():
 	print("=== NARRACIÓN TERMINADA ===")
-	narration_text.text = tr("user_prompt_1")
+	if actionNeeded:
+		narration_text.text = tr("user_prompt_1")
 	
-	waiting_for_input = true
+		waiting_for_input = true
 	# Enable input processing for this script
-	set_process_input(true)
+		set_process_input(true)
+	else:
+		await get_tree().create_timer(0.5).timeout
+		SceneTransition.change_scene(next_scene)
 
 # This function is automatically called by Godot when an input event occurs
 func _input(event):

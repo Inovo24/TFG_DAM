@@ -2,6 +2,7 @@ extends CinematicText
 
 func _ready():
 	next_scene = "res://Scenes/niveles/Nivel3/nivel_3.tscn"
+	actionNeeded = false
 	narration_data = [
 		[tr("lvl3_loki_01"), 3.5],[tr("lvl3_loki_02"), 3.5],
 		[tr("lvl3_loki_03"), 3.5],[tr("lvl3_loki_04"), 2.5],

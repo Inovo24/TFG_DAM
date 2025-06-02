@@ -234,7 +234,7 @@ _data = {
 &"inicio": SubResource("Animation_5l1xq")
 }
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8lrnu"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8wxuv"]
 texture = ExtResource("3_34ksn")
 0:0/0 = 0
 1:0/0 = 0
@@ -310,7 +310,7 @@ texture = ExtResource("3_34ksn")
 15:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_0iquy"]
-sources/0 = SubResource("TileSetAtlasSource_8lrnu")
+sources/0 = SubResource("TileSetAtlasSource_8wxuv")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7xn4v"]
 atlas = ExtResource("5_gcq7t")
@@ -855,6 +855,7 @@ text = "prueba
 label_settings = ExtResource("2_td7yb")
 vertical_alignment = 2
 autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Camera2D"]
 visible = false
