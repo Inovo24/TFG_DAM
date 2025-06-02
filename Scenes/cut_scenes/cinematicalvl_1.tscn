@@ -1030,6 +1030,7 @@ position = Vector2(195, 153)
 rotation = 3.14159
 scale = Vector2(-0.512967, -0.512967)
 sprite_frames = SubResource("SpriteFrames_m84fc")
+autoplay = "default"
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(409.122, 105)

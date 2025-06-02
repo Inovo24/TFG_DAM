@@ -911,6 +911,7 @@ rotation = 3.14159
 scale = Vector2(-1, -1)
 sprite_frames = SubResource("SpriteFrames_oy6qt")
 animation = &"transform_loki"
+autoplay = "transform_loki"
 
 [node name="fondo" type="Sprite2D" parent="."]
 z_index = -2

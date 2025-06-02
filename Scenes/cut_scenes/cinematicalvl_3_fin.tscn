@@ -1,8 +1,9 @@
-[gd_scene load_steps=105 format=4 uid="uid://dvheg205lvevk"]
+[gd_scene load_steps=91 format=4 uid="uid://dvheg205lvevk"]
 
 [ext_resource type="Script" uid="uid://b4nxfo78gm66b" path="res://Scripts/cut_scene/cinematicalvl_3_fin.gd" id="1_g4kp4"]
 [ext_resource type="LabelSettings" uid="uid://b0i4d4scmc3d3" path="res://Scenes/UI/cinematicas/subtitulos.tres" id="1_oudom"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_3sabu"]
+[ext_resource type="Texture2D" uid="uid://bngp5d5x5pb6d" path="res://Sprites/NPC/heimdall/heimdall_stand.png" id="2_8fy2r"]
 [ext_resource type="AudioStream" uid="uid://c4s3gtekcm7sd" path="res://Audio/fondo/the-little-silkworm-294630.mp3" id="3_7h536"]
 [ext_resource type="Texture2D" uid="uid://b3656t2080w1o" path="res://Sprites/Guerrera/run_valkiria-Sheet.png" id="4_g4kp4"]
 [ext_resource type="Texture2D" uid="uid://51tjxt8hu1a2" path="res://Sprites/Guerrera/idle_valkiria-Sheet.png" id="5_5ngsm"]
@@ -12,9 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://43p4ani0ic8i" path="res://Sprites/Arquero/idle_arquero-Sheet.png" id="9_0i80m"]
 [ext_resource type="Texture2D" uid="uid://qnqito2bokb3" path="res://Sprites/Vikingo/viking_run-Sheet.png" id="10_mov0a"]
 [ext_resource type="Texture2D" uid="uid://kybvbrj0wynp" path="res://Sprites/Vikingo/vikingo_idle-Sheet.png" id="11_f767n"]
-[ext_resource type="Texture2D" uid="uid://bipqr6h2vti2y" path="res://Sprites/NPC/niña.png" id="12_v33r3"]
-[ext_resource type="Texture2D" uid="uid://b8bisj5ty0w3l" path="res://Sprites/Enemigos/loki/loki.png" id="13_je8qh"]
-[ext_resource type="Texture2D" uid="uid://vdvshywj6qge" path="res://Sprites/Elementos/AparecerHumo.png" id="14_tavxu"]
+[ext_resource type="Texture2D" uid="uid://bywerqk0q6xf7" path="res://Sprites/Enemigos/bosses/Serpiente/snake - attack.png" id="15_d4l2q"]
 [ext_resource type="Texture2D" uid="uid://bakvpsg30qnc3" path="res://Sprites/backgrounds/background_level3/Background_boss.png" id="15_ty60c"]
 [ext_resource type="Texture2D" uid="uid://de4it84lvyfts" path="res://Sprites/Enemigos/bosses/Serpiente/snake - Death.png" id="16_1hmo0"]
 [ext_resource type="Texture2D" uid="uid://vsaxflxudmpl" path="res://Sprites/Enemigos/bosses/Serpiente/snake - appear.png" id="17_5ngsm"]
@@ -22,223 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://c27wkp1ycvn0e" path="res://Sprites/Elementos/puenteGay.png" id="20_d4l2q"]
 [ext_resource type="Texture2D" uid="uid://dnisn85apvnab" path="res://Sprites/backgrounds/background_level4/1.png" id="21_4b1sy"]
 [ext_resource type="Texture2D" uid="uid://b0qsbw8irrx8t" path="res://Sprites/backgrounds/background_level4/nubes.png" id="22_4b1sy"]
-
-[sub_resource type="Animation" id="Animation_i0gcm"]
-resource_name = "fin"
-length = 60.0
-markers = [{
-"color": Color(1, 1, 1, 1),
-"name": &"persecucion",
-"time": 27.9905
-}, {
-"color": Color(1, 1, 1, 1),
-"name": &"resurgir",
-"time": 17.9692
-}]
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("valkiria:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5, 20.1, 24.5326),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(393, 142), Vector2(393, 142), Vector2(1020, 142), Vector2(1020, 142)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("arquero:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 5, 20.1, 24.5326),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(475, 142), Vector2(475, 142), Vector2(1087, 142), Vector2(1087, 142)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("vikingo:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 5, 20.1, 24.5326),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(430, 141), Vector2(430, 141), Vector2(1052, 141), Vector2(1052, 141)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("serpiente:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 5, 20.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(213, 113), Vector2(213, 113), Vector2(944, 113)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Camera2D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 5, 20.1, 23.1241, 27.9523),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(306, 115), Vector2(394, 115), Vector2(957, 115), Vector2(957, -342.611), Vector2(957, 115)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("valkiria:animation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 5, 28.0333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [&"default", &"corre", &"default"]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("valkiria:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 4.9, 5, 27.6346, 27.9523),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(-1, 1)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("arquero:animation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 5.46667, 28.0333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [&"default", &"corre", &"default"]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("arquero:scale")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 4.9, 5, 27.6346, 27.9523),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(-1, 1)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("vikingo:animation")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 5.46667, 28.0333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [&"default", &"corre", &"default"]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("vikingo:scale")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0, 4.9, 5, 27.6346, 27.9523),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(-1, 1)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("serpiente:animation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0, 5, 5.46667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [&"default", &"attack", &"move"]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("arcoiris:position")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(19.1854, 20.0748, 28.0158, 28.9052, 54.4333, 55.604),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1070, -235), Vector2(1070, -69), Vector2(1070, -69), Vector2(1070, -243), Vector2(1070, -243), Vector2(1070, -74)]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("asgard:visible")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0, 23.0606),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("serpiente:visible")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0, 23.0606),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("fondo:visible")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0, 24.8394),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("fondo/ParallaxBackground/ParallaxLayer/Sprite2D:visible")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0, 27.9523),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="Animation" id="Animation_4b1sy"]
 length = 0.001
@@ -445,6 +227,247 @@ tracks/16/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("heimdall:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_i0gcm"]
+resource_name = "fin"
+length = 60.0
+markers = [{
+"color": Color(1, 1, 1, 1),
+"name": &"persecucion",
+"time": 27.9905
+}, {
+"color": Color(1, 1, 1, 1),
+"name": &"resurgir",
+"time": 17.9692
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("valkiria:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 20.1, 24.5326),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(393, 142), Vector2(393, 142), Vector2(1020, 142), Vector2(1020, 142)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("arquero:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5, 20.1, 24.5326),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(475, 142), Vector2(475, 142), Vector2(1087, 142), Vector2(1087, 142)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("vikingo:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5, 20.1, 24.5326),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(430, 142), Vector2(430, 142), Vector2(1052, 142), Vector2(1052, 142)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("serpiente:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5, 20.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(213, 113), Vector2(213, 113), Vector2(944, 113)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 5, 20.1, 23.1241, 27.9523),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(306, 115), Vector2(394, 115), Vector2(957, 115), Vector2(957, -342.611), Vector2(957, 115)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("valkiria:animation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 5, 28.0333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"default", &"corre", &"default"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("valkiria:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 4.9, 5, 27.6346, 27.9523),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(-1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("arquero:animation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 5.46667, 28.0333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"default", &"corre", &"default"]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("arquero:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 4.9, 5, 27.6346, 27.9523),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(-1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("vikingo:animation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 5.46667, 28.0333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"default", &"corre", &"default"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("vikingo:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 4.9, 5, 27.6346, 27.9523),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(-1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("serpiente:animation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 5, 5.46667, 19),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [&"default", &"attack", &"move", &"ataque"]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("arcoiris:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(19.1854, 20.0748, 28.0158, 28.9052, 54.4333, 55.604),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1070, -235), Vector2(1070, -69), Vector2(1070, -69), Vector2(1070, -243), Vector2(1070, -243), Vector2(1070, -74)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("asgard:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 23.0606),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("serpiente:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 23.0606),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("fondo:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 24.8394),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("fondo/ParallaxBackground/ParallaxLayer/Sprite2D:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 27.9523),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("heimdall:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0.133333, 25.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wnwvk"]
@@ -841,213 +864,57 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rsbh3"]
-atlas = ExtResource("12_v33r3")
-region = Rect2(448, 0, 56, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b1sy"]
+atlas = ExtResource("15_d4l2q")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sounn"]
-atlas = ExtResource("12_v33r3")
-region = Rect2(392, 0, 56, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hmo0"]
+atlas = ExtResource("15_d4l2q")
+region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oh82r"]
-atlas = ExtResource("12_v33r3")
-region = Rect2(0, 0, 56, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0gcm"]
+atlas = ExtResource("15_d4l2q")
+region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w28sn"]
-atlas = ExtResource("12_v33r3")
-region = Rect2(56, 0, 56, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnwvk"]
+atlas = ExtResource("15_d4l2q")
+region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cbt3t"]
-atlas = ExtResource("12_v33r3")
-region = Rect2(112, 0, 56, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfio3"]
+atlas = ExtResource("15_d4l2q")
+region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cb8cx"]
-atlas = ExtResource("12_v33r3")
-region = Rect2(168, 0, 56, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf5f8"]
+atlas = ExtResource("15_d4l2q")
+region = Rect2(320, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vthhq"]
-atlas = ExtResource("12_v33r3")
-region = Rect2(224, 0, 56, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_esjhl"]
+atlas = ExtResource("15_d4l2q")
+region = Rect2(384, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tc2fx"]
-atlas = ExtResource("12_v33r3")
-region = Rect2(280, 0, 56, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjxbx"]
+atlas = ExtResource("15_d4l2q")
+region = Rect2(448, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jjtuk"]
-atlas = ExtResource("13_je8qh")
-region = Rect2(0, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu0qg"]
+atlas = ExtResource("15_d4l2q")
+region = Rect2(512, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i5h1i"]
-atlas = ExtResource("14_tavxu")
-region = Rect2(54, 54, 54, 54)
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv1io"]
+atlas = ExtResource("15_d4l2q")
+region = Rect2(576, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q13e8"]
-atlas = ExtResource("14_tavxu")
-region = Rect2(0, 54, 54, 54)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ya7y"]
+atlas = ExtResource("15_d4l2q")
+region = Rect2(640, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lgrau"]
-atlas = ExtResource("14_tavxu")
-region = Rect2(108, 0, 54, 54)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gspbg"]
+atlas = ExtResource("15_d4l2q")
+region = Rect2(704, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8uwkr"]
-atlas = ExtResource("14_tavxu")
-region = Rect2(108, 54, 54, 54)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3y7da"]
-atlas = ExtResource("14_tavxu")
-region = Rect2(54, 0, 54, 54)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rr5u7"]
-atlas = ExtResource("14_tavxu")
-region = Rect2(0, 0, 54, 54)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4g70h"]
-atlas = ExtResource("12_v33r3")
-region = Rect2(224, 0, 56, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4lsib"]
-atlas = ExtResource("12_v33r3")
-region = Rect2(280, 0, 56, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e71dc"]
-atlas = ExtResource("13_je8qh")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k7ty5"]
-atlas = ExtResource("14_tavxu")
-region = Rect2(0, 0, 54, 54)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bckje"]
-atlas = ExtResource("14_tavxu")
-region = Rect2(54, 0, 54, 54)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j0qv5"]
-atlas = ExtResource("14_tavxu")
-region = Rect2(108, 0, 54, 54)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4eyfb"]
-atlas = ExtResource("14_tavxu")
-region = Rect2(0, 54, 54, 54)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_faio0"]
-atlas = ExtResource("14_tavxu")
-region = Rect2(54, 54, 54, 54)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gheyb"]
-atlas = ExtResource("14_tavxu")
-region = Rect2(108, 54, 54, 54)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4or7i"]
-atlas = ExtResource("13_je8qh")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_uv1io"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rsbh3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sounn")
-}],
-"loop": true,
-"name": &"correr",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oh82r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w28sn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cbt3t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cb8cx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vthhq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tc2fx")
-}],
-"loop": true,
-"name": &"default",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jjtuk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i5h1i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q13e8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lgrau")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8uwkr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3y7da")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rr5u7")
-}],
-"loop": false,
-"name": &"go_loki",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4g70h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4lsib")
-}],
-"loop": false,
-"name": &"llora",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e71dc")
-}],
-"loop": true,
-"name": &"loki",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k7ty5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bckje")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j0qv5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4eyfb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_faio0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gheyb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4or7i")
-}],
-"loop": false,
-"name": &"transform_loki",
-"speed": 5.0
-}]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpw7n"]
+atlas = ExtResource("15_d4l2q")
+region = Rect2(768, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8fy2r"]
 atlas = ExtResource("17_5ngsm")
@@ -1087,6 +954,50 @@ region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4ya7y"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b1sy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hmo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0gcm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnwvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfio3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf5f8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esjhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjxbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu0qg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv1io")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ya7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gspbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpw7n")
+}],
+"loop": true,
+"name": &"ataque",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8fy2r")
@@ -1132,6 +1043,10 @@ animations = [{
 
 [node name="cinematicalvl_3fin" type="Node2D"]
 script = ExtResource("1_g4kp4")
+
+[node name="heimdall" type="Sprite2D" parent="."]
+position = Vector2(934, 138)
+texture = ExtResource("2_8fy2r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1186,7 +1101,8 @@ position = Vector2(393, 142)
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_esjhl")
 animation = &"corre"
-autoplay = "quieto"
+autoplay = "default"
+frame_progress = 0.813088
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="valkiria"]
 scale = Vector2(-1, 1)
@@ -1204,15 +1120,6 @@ position = Vector2(430, 141)
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_iu0qg")
 autoplay = "default"
-
-[node name="niña" type="AnimatedSprite2D" parent="."]
-visible = false
-z_index = 2
-position = Vector2(192, 18)
-rotation = 3.14159
-scale = Vector2(-1, -1)
-sprite_frames = SubResource("SpriteFrames_uv1io")
-animation = &"transform_loki"
 
 [node name="fondo" type="Parallax2D" parent="."]
 visible = false
@@ -1233,6 +1140,7 @@ visible = false
 position = Vector2(213, 113)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_4ya7y")
+autoplay = "default"
 
 [node name="arcoiris" type="Sprite2D" parent="."]
 z_index = 1
