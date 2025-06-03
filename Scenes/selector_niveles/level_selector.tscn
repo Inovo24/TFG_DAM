@@ -57,7 +57,7 @@ offset_top = 211.0
 offset_right = 223.0
 offset_bottom = 275.0
 level_name = "3"
-next_scene_path = "uid://d4einawx6ugyq"
+next_scene_path = "uid://c0bb4wtvvo3f2"
 next_level_up = NodePath("../4")
 next_level_right = NodePath("../2")
 
@@ -68,7 +68,7 @@ offset_top = 99.0
 offset_right = 302.0
 offset_bottom = 163.0
 level_name = "4"
-next_scene_path = "uid://weimvnhbrc2r"
+next_scene_path = "uid://bysomv8i2eqbp"
 next_level_down = NodePath("../2")
 next_level_right = NodePath("../5")
 
@@ -79,7 +79,7 @@ offset_top = 123.0
 offset_right = 571.0
 offset_bottom = 187.0
 level_name = "5"
-next_scene_path = "uid://ctnuiqu0k8oon"
+next_scene_path = "uid://dcj0rol1fqlpr"
 next_level_down = NodePath("../1")
 next_level_left = NodePath("../4")
 
