@@ -54,9 +54,9 @@ func end_level():
 	Guardado.mark_completed_from_temporal_data(level_name,elapsed_time,level_scene)
 	match level_name:
 		"nivel1":
-			pass
+			SceneTransition.change_scene("res://Scenes/cut_scenes/cinematicalvl_1.tscn")
 		"nivel3":
-			pass
+			SceneTransition.change_scene("res://Scenes/cut_scenes/cinematicalvl_3_fin.tscn")
 		"nivel5":
 			pass
 	#add_child(endMenu.instantiate())
