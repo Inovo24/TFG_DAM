@@ -167,13 +167,22 @@ func save_temporal_data(level_name: String,num_gems: int, time: float):
 	}
 
 #Para los bosses
-func mark_completed_from_temporal_data(level_name: String,time: float):
-	mark_level_completed(level_name,level_temporal_progress[level_name]["num_gems"],level_temporal_progress[level_name]["time"]+time)
+func mark_completed_from_temporal_data(level_name: String,time: float, scene: String):
+	mark_level_completed(level_name,level_temporal_progress[level_name]["num_gems"],level_temporal_progress[level_name]["time"]+time,scene)
 
 #Para los niveles normales
-func mark_level_completed(level_name: String,num_gems: int, time: float):
+func mark_level_completed(level_name: String,num_gems: int, time: float, scene: String):
 	var level_data = level_progress[level_name]
 	
+	#Carga en globales
+	Globales.data_current_level = {
+		"level_name": level_name,
+		"scence_to_return": scene,
+		"num_gems": num_gems,
+		"time": time
+	}
+	
+	#Guardado real
 	level_data["hecho"] = true
 	# Solo guardar las nuevas gemas si son más que las anteriores
 	if num_gems > level_data["num_gems"]:

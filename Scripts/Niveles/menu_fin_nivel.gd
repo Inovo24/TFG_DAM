@@ -2,19 +2,18 @@ extends CanvasLayer
 
 func _ready() -> void:
 	get_tree().paused = true
-	var level_name = get_parent().level_name
+	var level_name = Globales.data_current_level["level_name"]
 	$Panel/VSplitContainer/Nivel.text = tr("lbl_nivel") +" "+level_name.replace("nivel","")
 	var level = Guardado.level_progress[level_name]
 	$Panel/VSplitContainer/GemasMax.text ="(" + tr("lbl_maximo_gemas")+": "+str(level["num_gems"]) + ")"
-	if get_parent() is Levels:
-		$Panel/VSplitContainer/Gemas.text = tr("lbl_gemas_conseguidas") + ": "+str(get_parent().collected_gems)
-	else:
-		$Panel/VSplitContainer/Gemas.text = tr("lbl_gemas_conseguidas") + ": "+str(Guardado.level_temporal_progress[level_name]["num_gems"])
+	
+	$Panel/VSplitContainer/Gemas.text = tr("lbl_gemas_conseguidas") + ": "+str(Globales.data_current_level["num_gems"])
 	
 	var minutos = int(level["time"]) / 60
 	var segundos_restantes = int(level["time"]) % 60
 	$Panel/VSplitContainer/MejorTiempo.text ="(" + tr("lbl_tiempo_minimo")+": "+"%02d:%02d" % [minutos, segundos_restantes] + ")"
-	var time = get_parent().elapsed_time + get_parent().healthBar.default
+	#var time = get_parent().elapsed_time + get_parent().healthBar.default
+	var time = Globales.data_current_level["time"]
 	minutos = int(time) / 60
 	segundos_restantes = int(time) % 60
 	$Panel/VSplitContainer/Tiempo.text = tr("lbl_tiempo_en_completar")+": "+"%02d:%02d" % [minutos, segundos_restantes]
@@ -31,5 +30,5 @@ func _on_jugar_pressed() -> void:
 		get_parent().return_to_level()
 	else:
 		get_tree().paused = false
-		get_tree().change_scene_to_file(get_parent().scene_file_path)
+		get_tree().change_scene_to_file(Globales.data_current_level["scence_to_return"])
 	queue_free()

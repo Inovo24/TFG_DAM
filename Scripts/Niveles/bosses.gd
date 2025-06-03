@@ -18,6 +18,7 @@ var menu_instance: Node = null
 var timer_running := false
 var elapsed_time := 0.0
 var level_name
+var level_scene
 
 func _ready():
 	player = Globales.get_player()  # Get the player from the global variable
@@ -50,8 +51,8 @@ func _process(_delta: float) -> void:
 func end_level():
 	timer_running = false
 	print(elapsed_time)
-	Guardado.mark_completed_from_temporal_data(level_name,elapsed_time)
+	Guardado.mark_completed_from_temporal_data(level_name,elapsed_time,level_scene)
 	add_child(endMenu.instantiate())
 
 func return_to_level():
-	pass
+	get_tree().change_scene_to_file(level_scene)

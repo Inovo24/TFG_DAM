@@ -128,4 +128,5 @@ func save_data():
 	if has_boss:
 		Guardado.save_temporal_data(level_name,collected_gems,elapsed_time)
 	else:
-		Guardado.mark_level_completed(level_name,collected_gems,elapsed_time)
+		Guardado.mark_level_completed(level_name,collected_gems,elapsed_time, get_tree().current_scene.scene_file_path)
+		print(get_tree().current_scene.scene_file_path)

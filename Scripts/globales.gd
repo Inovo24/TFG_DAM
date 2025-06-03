@@ -9,6 +9,13 @@ var player_instance = null  # Will store the player instance
 
 var colorblindness = preload("res://Scenes/ajustes/Colorblindness.tscn")
 
+var data_current_level = {
+	"level_name": "",
+	"scence_to_return": "",
+	"num_gems": "",
+	"time": ""
+}
+
 const TYPE = {
 	"None": 0,
 	"Protanopia": 1,

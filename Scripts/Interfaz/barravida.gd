@@ -2,10 +2,10 @@ extends CanvasLayer
 
 var character
 @onready var progresLiveBar = $TextureProgressBar
-@onready var live = $LabelLive
+#@onready var live = $LabelLive
 @onready var shield_lives = $Shield_lives
 
-var live_img = preload("res://Sprites/sprites_para_borradores/cora.png")
+#var live_img = preload("res://Sprites/sprites_para_borradores/cora.png")
 
 var shield_imgs = [
 	preload("res://Sprites/healt/1intento.png"),
@@ -26,9 +26,9 @@ func _ready():
 func _process(_delta: float) -> void:
 	update_bar()
 	if character:
-		$Lives/TextureRect.texture = live_img if character.life_count >= 1 else null
-		$Lives/TextureRect2.texture = live_img if character.life_count >= 2 else null
-		$Lives/TextureRect3.texture = live_img if character.life_count >= 3 else null
+		#$Lives/TextureRect.texture = live_img if character.life_count >= 1 else null
+		#$Lives/TextureRect2.texture = live_img if character.life_count >= 2 else null
+		#$Lives/TextureRect3.texture = live_img if character.life_count >= 3 else null
 		if character.life_count ==1:
 			shield_lives.texture = shield_imgs[0]
 		elif character.life_count == 2:
@@ -39,7 +39,7 @@ func _process(_delta: float) -> void:
 func update_bar():
 	if character:
 		progresLiveBar.value = character.getCurrentHealth()
-		live.text = str(progresLiveBar.value) + "/" + str(progresLiveBar.max_value)
+		#live.text = str(progresLiveBar.value) + "/" + str(progresLiveBar.max_value)
 		var vidas = clamp(character.life_count, 0, 2)
 		shield_lives.texture = shield_imgs[vidas]
 
