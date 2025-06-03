@@ -25,10 +25,6 @@ func _on_salir_pressed() -> void:
 
 
 func _on_jugar_pressed() -> void:
-	if get_parent() is Bosses:
-		get_tree().paused = false
-		get_parent().return_to_level()
-	else:
-		get_tree().paused = false
-		get_tree().change_scene_to_file(Globales.data_current_level["scence_to_return"])
+	get_tree().paused = false
+	get_tree().change_scene_to_file(Globales.data_current_level["scence_to_return"])
 	queue_free()
