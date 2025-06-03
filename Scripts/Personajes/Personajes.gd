@@ -51,6 +51,7 @@ var has_checkpoint = false
 var skill_active = false
 
 var can_move = true
+var in_death = false
 
 @onready var death_menu = preload("res://Scenes/Niveles/menu_muerte.tscn")
 
@@ -305,10 +306,12 @@ func take_damage(damage_received: int):
 	setCurrentHealth(getCurrentHealth() - damage_received)
 	sfx_damaged.play()
 
-	if getCurrentHealth() <= 0:
+	if getCurrentHealth() <= 0 && !in_death:
+		in_death = true
 		life_count -= 1
 		add_child(death_menu.instantiate())
 		get_tree().paused = true
+		in_death = false
 		return
 
 	if is_taking_damage:
