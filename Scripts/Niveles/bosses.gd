@@ -9,7 +9,7 @@ var player
 var healthBar
 @onready var healthBarScene = preload("res://Scenes/UI/Barravida.tscn")
 @onready var colorblindnessScene = preload("res://Scenes/ajustes/Colorblindness.tscn")
-@onready var endMenu = preload("res://Scenes/Niveles/menu_fin_nivel.tscn")
+#@onready var endMenu = preload("res://Scenes/Niveles/menu_fin_nivel.tscn")
 var colorblindness
 
  # Variable to store the instance
@@ -52,7 +52,14 @@ func end_level():
 	timer_running = false
 	print(elapsed_time)
 	Guardado.mark_completed_from_temporal_data(level_name,elapsed_time,level_scene)
-	add_child(endMenu.instantiate())
+	match level_name:
+		"nivel1":
+			pass
+		"nivel3":
+			pass
+		"nivel5":
+			pass
+	#add_child(endMenu.instantiate())
 
 func return_to_level():
 	get_tree().change_scene_to_file(level_scene)
