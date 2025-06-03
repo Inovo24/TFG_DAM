@@ -6,7 +6,11 @@ func _on_body_entered(body):
 	print("dentro")
 	if body.is_in_group("player"):
 		get_parent().save_data()
-		
+		match get_parent().level_name:
+			"nivel2":
+				pass
+			"nivel4":
+				pass
 		#get_parent().add_child(endMenu.instantiate())
 		#
 		#get_tree().change_scene_to_file("res://Scenes/inicio.tscn")
