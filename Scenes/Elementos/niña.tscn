@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://dh5l8gdfaqlyy"]
+[gd_scene load_steps=21 format=3 uid="uid://dh5l8gdfaqlyy"]
 
 [ext_resource type="Texture2D" uid="uid://bipqr6h2vti2y" path="res://Sprites/NPC/niña.png" id="1_ps45k"]
+[ext_resource type="Texture2D" uid="uid://guowctxjfvji" path="res://Sprites/NPC/niña_running.png" id="2_vwtr3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ps45k"]
 atlas = ExtResource("1_ps45k")
@@ -46,6 +47,30 @@ region = Rect2(504, 0, 56, 48)
 atlas = ExtResource("1_ps45k")
 region = Rect2(560, 0, 56, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3xej"]
+atlas = ExtResource("2_vwtr3")
+region = Rect2(0, 0, 42, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyq50"]
+atlas = ExtResource("2_vwtr3")
+region = Rect2(42, 0, 42, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca2gg"]
+atlas = ExtResource("2_vwtr3")
+region = Rect2(84, 0, 42, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07df1"]
+atlas = ExtResource("2_vwtr3")
+region = Rect2(126, 0, 42, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nu51"]
+atlas = ExtResource("2_vwtr3")
+region = Rect2(168, 0, 42, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjxan"]
+atlas = ExtResource("2_vwtr3")
+region = Rect2(210, 0, 42, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_2o4wj"]
 animations = [{
 "frames": [{
@@ -86,16 +111,57 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cjf6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufgqs")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3xej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyq50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca2gg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07df1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nu51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjxan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca2gg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyq50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07df1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nu51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca2gg")
 }],
 "loop": true,
-"name": &"idle",
-"speed": 1.0
+"name": &"run",
+"speed": 3.0
 }]
 
 [node name="Niña" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2o4wj")
-animation = &"idle"
+animation = &"run"
 autoplay = "cry"
-frame_progress = 0.00558368
+frame_progress = 0.860445
