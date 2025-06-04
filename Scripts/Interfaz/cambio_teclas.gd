@@ -42,7 +42,7 @@ func _update_button_texts():
 	
 	# Change back button text
 	var salir_key = InputMap.action_get_events("salir")[0].as_text().replace(" (Physical)", "")
-	$BotonVolver/TextoSalir.text = tr("gen_salir").replace("{tecla}", salir_key)
+	$BotonVolver/TextoSalir.text = tr("skip_cine").replace("{tecla}", salir_key)
 
 
 func _on_action_button_pressed(action_name):
