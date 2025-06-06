@@ -2372,9 +2372,9 @@ position = Vector2(8392, 1083)
 [node name="Antorcha3" parent="Antorchas" instance=ExtResource("34_kb8t5")]
 position = Vector2(8616, 1083)
 
-[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("37_m2p2q")
-volume_db = -5.333
+volume_db = -15.479
 autoplay = true
 bus = &"Music"
 parameters/looping = true

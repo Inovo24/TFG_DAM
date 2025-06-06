@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://ctnuiqu0k8oon"]
+[gd_scene load_steps=48 format=4 uid="uid://ctnuiqu0k8oon"]
 
 [ext_resource type="Script" uid="uid://v4n04wljocsk" path="res://Scripts/Niveles/nivel_5/nivel_5.gd" id="1_2ktrq"]
 [ext_resource type="PackedScene" uid="uid://cpwwpkyo2wp38" path="res://Scenes/tiles/tile_principal.tscn" id="1_elsa2"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://csca55xx2njsx" path="res://Sprites/backgrounds/background_level5/3.png" id="28_bmnx8"]
 [ext_resource type="Texture2D" uid="uid://b0q41dleie21i" path="res://Sprites/backgrounds/background_level5/1.png" id="29_f1o15"]
 [ext_resource type="Texture2D" uid="uid://c80utlxtu6r78" path="res://Sprites/backgrounds/background_level5/2.png" id="30_gyfab"]
+[ext_resource type="AudioStream" uid="uid://c1yqgduwsceny" path="res://Audio/fondo/The Forest.mp3" id="31_f1o15"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7i4ru"]
 texture = ExtResource("3_k031r")
@@ -610,6 +611,13 @@ position = Vector2(-190, -1201)
 scale = Vector2(3, 3)
 texture = ExtResource("29_f1o15")
 centered = false
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_f1o15")
+volume_db = -14.211
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="body_entered" from="trozo" to="trozo" method="_on_body_entered"]
 [connection signal="body_entered" from="trozo2" to="trozo2" method="_on_body_entered"]

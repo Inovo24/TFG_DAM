@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://d4einawx6ugyq"]
+[gd_scene load_steps=23 format=4 uid="uid://d4einawx6ugyq"]
 
 [ext_resource type="Script" uid="uid://53678jayax5g" path="res://Scripts/Niveles/nivel_3/nivel_3.gd" id="1_5h3r2"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_ybgvm"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dlm4nlkcj7hr8" path="res://Scenes/Elementos/Decoracion/Portal_boss.tscn" id="12_nu2pb"]
 [ext_resource type="PackedScene" uid="uid://dx4nx0p64hdth" path="res://Scenes/NPC/granjero2.tscn" id="16_3cx5k"]
 [ext_resource type="PackedScene" uid="uid://dwapibi7c3dst" path="res://Scenes/Elementos/gema.tscn" id="18_olblc"]
+[ext_resource type="AudioStream" uid="uid://dj7x8d2t56erj" path="res://Audio/fondo/The Cave.mp3" id="20_v2c05"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xsyli"]
 texture = ExtResource("2_ybgvm")
@@ -542,7 +543,7 @@ position = Vector2(-169, 0)
 scroll_ignore_camera_zoom = true
 
 [node name="fondo" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
-position = Vector2(-414, 154)
+position = Vector2(-414, 321)
 motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(2100, 0)
 
@@ -553,7 +554,7 @@ texture = ExtResource("3_5h3r2")
 centered = false
 
 [node name="fondo2" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
-position = Vector2(-414, 154)
+position = Vector2(-414, 321)
 motion_scale = Vector2(0.1, 0)
 motion_mirroring = Vector2(2100, 0)
 
@@ -564,7 +565,7 @@ texture = ExtResource("4_v2c05")
 centered = false
 
 [node name="fondo_debajo" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
-position = Vector2(-414, 154)
+position = Vector2(-414, 321)
 motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(2100, 0)
 
@@ -575,7 +576,7 @@ texture = ExtResource("6_qg605")
 centered = false
 
 [node name="nubes" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
-position = Vector2(-414, -31)
+position = Vector2(-414, -95)
 motion_scale = Vector2(0.7, 1)
 motion_mirroring = Vector2(2100, 0)
 
@@ -586,7 +587,7 @@ texture = ExtResource("7_6svwx")
 centered = false
 
 [node name="cielo" type="ParallaxLayer" parent="Fondo/ParallaxBackground"]
-position = Vector2(-414, 154)
+position = Vector2(-414, 322)
 motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(2100, 0)
 
@@ -850,3 +851,10 @@ position = Vector2(3600, 400)
 
 [node name="Gema8" parent="Gemas" instance=ExtResource("18_olblc")]
 position = Vector2(1960, 376)
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_v2c05")
+volume_db = -5.333
+autoplay = true
+bus = &"Music"
+parameters/looping = true

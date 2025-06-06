@@ -33,7 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://1vltpchq0kae" path="res://Sprites/backgrounds/background_level1/Fondos/Ultima_capa.png" id="32_3oyq3"]
 [ext_resource type="PackedScene" uid="uid://cpwyeea0w4xnj" path="res://Scenes/Niveles/fin_nivel.tscn" id="32_x5gxf"]
 [ext_resource type="Texture2D" uid="uid://bly4js7rsrd86" path="res://Sprites/Inicio/fondo_aldea_nubladov2.png" id="33_20nma"]
-[ext_resource type="AudioStream" uid="uid://cjo22urt53q6g" path="res://Audio/fondo/The Reborn Of A Viking Village.mp3" id="34_uplgo"]
+[ext_resource type="AudioStream" uid="uid://daevcc3h8xwma" path="res://Audio/fondo/Climb Down The Mountain.mp3" id="34_uplgo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cn6ga"]
 texture = ExtResource("2_iafik")
@@ -1116,8 +1116,9 @@ position = Vector2(8530, 452)
 scale = Vector2(-1, 1)
 texture = ExtResource("33_20nma")
 
-[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("34_uplgo")
+volume_db = -14.219
 autoplay = true
 bus = &"Music"
 parameters/looping = true
