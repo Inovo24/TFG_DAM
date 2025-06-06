@@ -114,7 +114,7 @@ func ataque_normal() -> void:
 	# Reproducir animación y sonido desde el inicio
 	sprite.play("ataque")
 	bite.play()
-
+	await get_tree().create_timer(0.2).timeout
 	# Ahora sí: activamos hitbox según dirección
 	area_ataque.monitoring = true
 	shape_ataque_izq.disabled = direccion_horizontal >= 0

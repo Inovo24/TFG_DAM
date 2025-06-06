@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://c5vewdncnnvke"]
+[gd_scene load_steps=9 format=4 uid="uid://c5vewdncnnvke"]
 
 [ext_resource type="Script" uid="uid://8irndadxirml" path="res://Scripts/Niveles/nivel_5/batalla_boss_5.gd" id="1_30trk"]
 [ext_resource type="Texture2D" uid="uid://cwnxhjda6r4oh" path="res://Sprites/backgrounds/background_level5/BackGroundBoss5.png" id="2_0fptd"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_4qjbp"]
 [ext_resource type="PackedScene" uid="uid://dq1umhrtsm763" path="res://Enemigos/loki_boss.tscn" id="6_30trk"]
+[ext_resource type="AudioStream" uid="uid://cpahd2gxy1c5w" path="res://Audio/fondo/bossLoki.mp3" id="6_ol0h6"]
 [ext_resource type="PackedScene" uid="uid://cowrpiduh2h6l" path="res://Scenes/Plataformas/plataforma_normal.tscn" id="7_ol0h6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_felyv"]
@@ -451,3 +452,10 @@ position = Vector2(250, 361)
 
 [node name="PlataformaNormal6" parent="Plataformas" instance=ExtResource("7_ol0h6")]
 position = Vector2(533, 412)
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ol0h6")
+volume_db = -15.479
+autoplay = true
+bus = &"Music"
+parameters/looping = true

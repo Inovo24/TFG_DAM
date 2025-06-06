@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://dka3bg321qocb"]
+[gd_scene load_steps=8 format=4 uid="uid://dka3bg321qocb"]
 
 [ext_resource type="Script" uid="uid://bw2k06hv7xn6s" path="res://Scripts/Niveles/nivel_3/batalla_boss_3.gd" id="1_1o3tg"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_fdao0"]
 [ext_resource type="Texture2D" uid="uid://bakvpsg30qnc3" path="res://Sprites/backgrounds/background_level3/Background_boss.png" id="2_tfihn"]
 [ext_resource type="PackedScene" uid="uid://bfakpxclv64ql" path="res://Enemigos/snake_boss.tscn" id="3_tfihn"]
+[ext_resource type="AudioStream" uid="uid://bd60g7rsnkccb" path="res://Audio/fondo/bossSnake.mp3" id="5_tfihn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xsyli"]
 texture = ExtResource("2_fdao0")
@@ -527,3 +528,10 @@ tile_set = SubResource("TileSet_qh7q6")
 
 [node name="SnakeBoss" parent="." instance=ExtResource("3_tfihn")]
 position = Vector2(386, 166)
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_tfihn")
+volume_db = -15.479
+autoplay = true
+bus = &"Music"
+parameters/looping = true
