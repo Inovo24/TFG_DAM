@@ -1,10 +1,10 @@
-[gd_scene load_steps=56 format=4 uid="uid://cbectauge503f"]
+[gd_scene load_steps=57 format=4 uid="uid://cbectauge503f"]
 
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="1_7tdjr"]
 [ext_resource type="Script" uid="uid://duqs6hjk26o8e" path="res://Scripts/Niveles/nivel_2/nivel_2.gd" id="1_xsyli"]
 [ext_resource type="Texture2D" uid="uid://0gh52gokkg0e" path="res://Assets/tileset_nievet.png" id="2_iafik"]
 [ext_resource type="Texture2D" uid="uid://y3rop3kkhj1j" path="res://Sprites/backgrounds/background_level1/Fondos/fondo_01.png" id="3_e12np"]
-[ext_resource type="PackedScene" uid="uid://cvlktixgfymiy" path="res://Scenes/niveles/zona_oculta.tscn" id="3_gwqgy"]
+[ext_resource type="PackedScene" uid="uid://cvlktixgfymiy" path="res://Scenes/Niveles/zona_oculta.tscn" id="3_gwqgy"]
 [ext_resource type="PackedScene" uid="uid://cowrpiduh2h6l" path="res://Scenes/Plataformas/plataforma_normal.tscn" id="4_mjuac"]
 [ext_resource type="Texture2D" uid="uid://dbfsfk62b5o5b" path="res://Sprites/backgrounds/background_level1/Fondos/fondo_02.png" id="4_p5n24"]
 [ext_resource type="Texture2D" uid="uid://b3s8suesvnj5o" path="res://Sprites/backgrounds/background_level1/Arboles/arboles_01.png" id="6_7vnmi"]
@@ -31,8 +31,9 @@
 [ext_resource type="Texture2D" uid="uid://bnap7jj5cdcdw" path="res://Sprites/backgrounds/background_level1/Fondos/caverna.png" id="30_20nma"]
 [ext_resource type="Texture2D" uid="uid://dycni8ti35f5y" path="res://Sprites/backgrounds/background_level1/Fondos/lava_fondo.png" id="31_6ml7x"]
 [ext_resource type="Texture2D" uid="uid://1vltpchq0kae" path="res://Sprites/backgrounds/background_level1/Fondos/Ultima_capa.png" id="32_3oyq3"]
-[ext_resource type="PackedScene" uid="uid://cpwyeea0w4xnj" path="res://Scenes/niveles/fin_nivel.tscn" id="32_x5gxf"]
+[ext_resource type="PackedScene" uid="uid://cpwyeea0w4xnj" path="res://Scenes/Niveles/fin_nivel.tscn" id="32_x5gxf"]
 [ext_resource type="Texture2D" uid="uid://bly4js7rsrd86" path="res://Sprites/Inicio/fondo_aldea_nubladov2.png" id="33_20nma"]
+[ext_resource type="AudioStream" uid="uid://cjo22urt53q6g" path="res://Audio/fondo/The Reborn Of A Viking Village.mp3" id="34_uplgo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cn6ga"]
 texture = ExtResource("2_iafik")
@@ -1114,6 +1115,12 @@ scale = Vector2(12.4331, 8.87933)
 position = Vector2(8530, 452)
 scale = Vector2(-1, 1)
 texture = ExtResource("33_20nma")
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("34_uplgo")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="body_entered" from="cascada/Area2D" to="cascada/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="cascada/Area2D" to="cascada/Area2D" method="_on_body_exited"]

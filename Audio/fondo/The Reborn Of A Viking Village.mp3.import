@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjo22urt53q6g"
+path="res://.godot/imported/The Reborn Of A Viking Village.mp3-2b58191800dc7c982314c8afdd381302.mp3str"
+
+[deps]
+
+source_file="res://Audio/fondo/The Reborn Of A Viking Village.mp3"
+dest_files=["res://.godot/imported/The Reborn Of A Viking Village.mp3-2b58191800dc7c982314c8afdd381302.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

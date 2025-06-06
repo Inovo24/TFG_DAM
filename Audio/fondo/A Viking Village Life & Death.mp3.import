@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://eh4hplyhdjlu"
+path="res://.godot/imported/A Viking Village Life & Death.mp3-66f9875dc1f65ce3f42a1343c534fef0.mp3str"
+
+[deps]
+
+source_file="res://Audio/fondo/A Viking Village Life & Death.mp3"
+dest_files=["res://.godot/imported/A Viking Village Life & Death.mp3-66f9875dc1f65ce3f42a1343c534fef0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

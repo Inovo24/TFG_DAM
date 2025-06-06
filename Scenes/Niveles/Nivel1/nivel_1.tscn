@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://dadwpxs80q6xk"]
+[gd_scene load_steps=50 format=4 uid="uid://dadwpxs80q6xk"]
 
 [ext_resource type="Script" uid="uid://jj8ln8dc06al" path="res://Scripts/Niveles/nivel_1/nivel_1.gd" id="1_640ix"]
 [ext_resource type="Texture2D" uid="uid://bjsx5jx0w4or6" path="res://Assets/tileset_nieve.png" id="2_bnpcw"]
@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://ciusdsdqdktrg" path="res://Scenes/Elementos/estalactita.tscn" id="33_ke2nu"]
 [ext_resource type="PackedScene" uid="uid://dgsib8gnavlq3" path="res://Scenes/Elementos/Decoracion/Antorcha.tscn" id="34_kb8t5"]
 [ext_resource type="PackedScene" uid="uid://bjq7fdjcfrerh" path="res://Scenes/Elementos/Decoracion/Entrada_Caverna.tscn" id="35_da7uh"]
+[ext_resource type="AudioStream" uid="uid://eh4hplyhdjlu" path="res://Audio/fondo/A Viking Village Life & Death.mp3" id="37_m2p2q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7bod"]
 texture = ExtResource("2_bnpcw")
@@ -2351,20 +2352,29 @@ speed = 300.0
 position = Vector2(3105, 209)
 speed = 300.0
 
-[node name="Antorcha" parent="." instance=ExtResource("34_kb8t5")]
-position = Vector2(8274, 1083)
-
-[node name="Antorcha4" parent="." instance=ExtResource("34_kb8t5")]
-position = Vector2(8504, 1083)
-
-[node name="Antorcha5" parent="." instance=ExtResource("34_kb8t5")]
-position = Vector2(8720, 1083)
-
-[node name="Antorcha2" parent="." instance=ExtResource("34_kb8t5")]
-position = Vector2(8392, 1083)
-
-[node name="Antorcha3" parent="." instance=ExtResource("34_kb8t5")]
-position = Vector2(8616, 1083)
-
 [node name="EntadaBoss" parent="." instance=ExtResource("35_da7uh")]
 position = Vector2(9048, 1094)
+
+[node name="Antorchas" type="Node2D" parent="."]
+
+[node name="Antorcha" parent="Antorchas" instance=ExtResource("34_kb8t5")]
+position = Vector2(8274, 1083)
+
+[node name="Antorcha4" parent="Antorchas" instance=ExtResource("34_kb8t5")]
+position = Vector2(8504, 1083)
+
+[node name="Antorcha5" parent="Antorchas" instance=ExtResource("34_kb8t5")]
+position = Vector2(8720, 1083)
+
+[node name="Antorcha2" parent="Antorchas" instance=ExtResource("34_kb8t5")]
+position = Vector2(8392, 1083)
+
+[node name="Antorcha3" parent="Antorchas" instance=ExtResource("34_kb8t5")]
+position = Vector2(8616, 1083)
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("37_m2p2q")
+volume_db = -5.333
+autoplay = true
+bus = &"Music"
+parameters/looping = true

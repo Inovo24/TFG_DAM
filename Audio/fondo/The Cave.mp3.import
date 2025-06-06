@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dj7x8d2t56erj"
+path="res://.godot/imported/The Cave.mp3-38657d32c02658d21913bfb4118d3656.mp3str"
+
+[deps]
+
+source_file="res://Audio/fondo/The Cave.mp3"
+dest_files=["res://.godot/imported/The Cave.mp3-38657d32c02658d21913bfb4118d3656.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
