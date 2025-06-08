@@ -58,7 +58,7 @@ func end_level():
 		"nivel3":
 			SceneTransition.change_scene("res://Scenes/cut_scenes/cinematicalvl_3_fin.tscn")
 		"nivel5":
-			pass
+			SceneTransition.change_scene("res://Scenes/cut_scenes/cinematicalvl_5_fin.tscn")
 	#add_child(endMenu.instantiate())
 
 func return_to_level():
