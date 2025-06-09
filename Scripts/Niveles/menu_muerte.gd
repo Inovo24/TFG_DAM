@@ -45,7 +45,7 @@ func _on_no_pressed() -> void:
 	$Contenedor/Texto.text = "menuin_lab_titulo"
 
 
-func make_visible_container():
+func make_container_visible():
 	$Contenedor.visible = true
 
 
