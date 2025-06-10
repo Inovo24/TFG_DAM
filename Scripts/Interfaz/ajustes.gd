@@ -83,7 +83,7 @@ func _on_colorblind_item_selected(index):
 	var selected = Globales.TYPE.keys()[index]
 	Globales.colorblindness_type = Globales.TYPE[selected]
 	#if get_parent().has_method("make_container_visible"):
-	get_parent().get_parent().colorblind.Type = Globales.colorblindness_type
+	get_parent().get_parent().daltonismo.Type = Globales.colorblindness_type
 	
 
 func set_exit_text():
